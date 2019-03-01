@@ -1,70 +1,84 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>VSI Valves</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>VSI Valves</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!--   Begind Boostrap and styles      -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="css/normalize.css" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 <!--  Ends Boostrap and styles       -->
     
-    </head>
+</head>
+
+<body>
+
+<div class="container">
 
     <header>
 
-        <h1> </h1>
+        <!--  <div class="header"> -->
+        <img class="modal-img" src="./img/vsi.jpg" alt="logopicture">
+        <h3 id="name" class="modal-name cap">Valve SolutionsInc</h3>
+        <p class="modal-text">Industrial and Commercial</p>
+        <!--  </div> -->
 
     </header>
 
-    <body>
-        
-        <div class="">
-           
-            <div class="">
-                <div class="">
-                   
-                    <div class="">
-                        <img class="modal-img" src="./img/vsi.jpg" alt="logo picture">
-                        <h3 id="name" class="modal-name cap">Valve Solutions Inc</h3>
-                        <p class="modal-text">Industrial and Commercial</p>
-                        
-                            <form action="index.html" method="post" id="" name="form" class="container">
-                                <fieldset>
-                                    <legend>Information</legend>
+   <!-- <div class="container"> -->
+            <form action="index.html" method="post" id="fulldata" name="form" class="">
+                    <fieldset>
+                    <legend>Information</legend>
                                 
-                                    <label for="valve-size">Valve Size: </label>
-                                    <input type="text" id="valveSize" name="valve-size" class="">
+                    <label for="valve-size">Valve Size: </label>
+                    <input type="text" id="valveSize"name="valve-sizclass="">
 
-                                    <label for="brand">Brand: </label>
-                                    <input type="text" id="brand" name="brand-name" class="">
+                    <label for="brand">Brand: </label>
+                    <input type="text" id="brand"name="brand-namclass="">
 
-                                    <label for="name">Series: </label>
-                                    <input type="text" id="series" name="series-name" class="">
-                            
-                                </fieldset>
-                            </form>
+                    <label for="name">Series: </label>
+                    <input type="text" id="series" name="series-namclass="">
+
+                </fieldset>
+                <fieldset>                        
+                    <legend>Type Valve: </legend>
+                                    
+                    <input type="checkbox" id="2Way"name="2-way" class="" value="2-way"> 3 Way Valve
                         
-                    </div>
-                </div>
-            
-            
-           
-            </div>
-        
-        </div>
+                    <input type="checkbox" id="3Way"name="3-way" class="" value="3-way"> 2 Way Valve
+                </fieldset>
+                
+                <fieldset class="2way-type">
+                    <legend>Type Valve: 2 Way</legend>
+                    
+                    <input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator
+                    
+                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic
 
+                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic
+                </fieldset>
+                
+                <fieldset class="3way-type">
+                    <legend>Type Valve: 3 Way</legend>
+                
+                    <input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator
+                
+                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic
+                
+                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic
+                </fieldset>
 
+                <button type="submit" id="btn">Register</button>
+            </form>
+                        
+     </div> 
+                
+   
 
-<!--  Scripts --> 
+                    <!--  Scripts --> 
         <script src="js/index.js" async defer></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -75,7 +89,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-<!--  Scripts -->
+                    <!--  Scripts -->
     
-        </body>
+    </body>
 </html>
