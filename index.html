@@ -22,7 +22,7 @@
 
         <!--  <div class="header"> -->
         <img class="modal-img" src="./img/vsi.jpg" alt="logopicture">
-        <h3 id="name" class="modal-name cap">Valve SolutionsInc</h3>
+        <h3 id="name" class="modal-name cap">Valve Solutions Inc</h3>
         <p class="modal-text">Industrial and Commercial</p>
         <!--  </div> -->
 
@@ -34,7 +34,7 @@
                     <legend>Information</legend>
                                 
                     <label for="valve-size">Valve Size: </label>
-                    <input type="text" id="valveSize"name="valve-sizclass="">
+                    <input type="text" id="valveSize" class="valve-size"name="valve-size">
 
                     <label for="brand">Brand: </label>
                     <input type="text" id="brand"name="brand-namclass="">
@@ -44,34 +44,39 @@
 
                 </fieldset>
                 <fieldset>                        
-                    <legend>Type Valve: </legend>
-                                    
-                    <input type="checkbox" id="2Way"name="2-way" class="" value="2-way"> 3 Way Valve
-                        
-                    <input type="checkbox" id="3Way"name="3-way" class="" value="3-way"> 2 Way Valve
+                    <legend>Please select a type valve: </legend>
+                    
+       
+                <select id="valve-selection" name="list-valve">
+                    <option value="2-way">2 Way</option>
+                    <option value="3-way" id="">3 Way</option>
+                    
+                </select>
+                
                 </fieldset>
                 
-                <fieldset class="2way-type">
+                <fieldset class="valve-type-2" id="">
                     <legend>Type Valve: 2 Way</legend>
                     
-                    <input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator
-                    
-                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic
 
-                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic
+                    <label><input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator</label>
+                    
+                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic</label>
+
+                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic</label>
                 </fieldset>
                 
-                <fieldset class="3way-type">
+                <fieldset class="valve-type-3">
                     <legend>Type Valve: 3 Way</legend>
                 
-                    <input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator
+                    <label><input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator</label>
                 
-                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic
+                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic</label>
                 
-                    <input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic
+                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic</label>
                 </fieldset>
 
-                <button type="submit" id="btn">Register</button>
+                <button type="submit" class="btn" id="btn">Register</button>
             </form>
                         
      </div> 
@@ -79,16 +84,13 @@
    
 
                     <!--  Scripts --> 
+
         <script src="js/index.js" async defer></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Sweet Alert library -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
                     <!--  Scripts -->
     
     </body>
