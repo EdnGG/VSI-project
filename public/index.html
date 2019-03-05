@@ -23,14 +23,43 @@
         <!--  <div class="header"> -->
         <img class="modal-img" src="./img/vsi.jpg" alt="logopicture">
         <h3 id="name" class="modal-name cap">Valve Solutions Inc</h3>
-        <p class="modal-text">Industrial and Commercial</p>
+        <p class="modal-text">Retrofit Form</p>
         <!--  </div> -->
 
     </header>
 
    <!-- <div class="container"> -->
-            <form action="index.html" method="post" id="fulldata" name="form" class="">
-                    <fieldset>
+        <form action="index.html" method="post" id="fulldata" name="form" class="">
+        
+            <fieldset  class="client-info" id="client-info-seccion">
+
+                    <legend>Butterfly Valve Retrofit Form</legend>
+
+                    <label for="company">Company: </label>
+                    <input type="text" id="company" class="company-field" name="">
+
+                    <label for="contact">Contact: </label>
+                    <input type="text" id="contact" name="" class="contact-field">
+
+                    <label for=" location">Location: </label>
+                    <input type="text" id="location" name="" class="location-field">
+
+                    <label for="project">Project: </label>
+                    <input type="text" id="project" name="" class="project-field">
+
+                    <label for="client-phone-number">Phone number: </label>
+                    <input type="text" id="phone" name="" class="phone-field">
+
+                    <label for="client-fax-number">fax number: </label>
+                    <input type="text" id="fax" name="" class="fax-field">
+
+                    <button type="" class="btn-info" id="btn-client-info" >Next</button>
+
+
+
+            </fieldset>
+
+            <fieldset class="information-seccion" id="">
                     <legend>Information</legend>
                                 
                     <label for="valve-size">Valve Size: </label>
@@ -42,16 +71,18 @@
                     <label for="name">Series: </label>
                     <input type="text" id="series" name="series-namclass="">
 
-                </fieldset>
-                <fieldset>                        
+            </fieldset>
+
+                <fieldset class="list-type-valve" id="">                        
                     <legend>Please select a type valve: </legend>
                     
        
-                <select id="valve-selection" name="list-valve">
-                    <option value="2-way">2 Way</option>
-                    <option value="3-way" id="">3 Way</option>
+                        <select id="valve-selection" name="list-valve">
+                        <option value="choose" id="">Please choose one</option>
+                        <option value="2-way" id="">2 Way</option>
+                        <option value="3-way" id="">3 Way</option>
                     
-                </select>
+                    </select>
                 
                 </fieldset>
                 
@@ -76,22 +107,35 @@
                     <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic</label>
                 </fieldset>
 
-                <button type="submit" class="btn" id="btn">Register</button>
+                <button type="submit" class="btn" id="btn">Submit</button>
             </form>
                         
      </div> 
                 
    
 
-                    <!--  Scripts --> 
+<!--  Scripts --> 
 
-        <script src="js/index.js" async defer></script>
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- Sweet Alert library -->
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Firebase App is always required and must be first -->
+
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>-->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>-->
+
+
+<script src="config/configFirebase.js"></script>
+<script src="js/index.js" async defer></script>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Sweet Alert library -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
-                    <!--  Scripts -->
+<!--  Scripts -->
     
     </body>
 </html>
