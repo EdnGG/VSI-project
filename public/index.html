@@ -8,13 +8,63 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!--   Begind Boostrap and styles      -->
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="css/normalize.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 <!--  Ends Boostrap and styles       -->
     
 </head>
 
 <body>
+
+<!-- <div class="container">
+    <form action="/action_page.php" class="form-login-social">
+        <div class="row">
+            <h2 style="text-align:center">Login with Social Media or Manually</h2>
+            <div class="vl">
+                <span class="vl-innertext">or</span>
+            </div>
+
+            <div class="col">
+                <a href="#" class="fb btn">
+                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                </a>
+                <a href="#" class="twitter btn">
+                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                </a>
+                <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                    </i> Login with Google+
+                </a>
+            </div>
+
+            <div class="col">
+                <div class="hide-md-lg">
+                    <p>Or sign in manually:</p>
+                </div>
+
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="bottom-container">
+    <div class="row">
+        <div class="col">
+            <a href="#" style="color:white" class="btn">Sign up</a>
+        </div>
+        <div class="col">
+            <a href="#" style="color:white" class="btn">Forgot password?</a>
+        </div>
+    </div>
+</div> -->
+
 
 <div class="container">
 
@@ -28,12 +78,12 @@
 
     </header>
 
-   <!-- <div class="container"> -->
-        <form action="index.html" method="post" id="fulldata" name="form" class="">
+<!-- <div class="form-container">  -->
+        <form action="index.html" method="post" id="fulldata" name="form" class="form">
         
             <fieldset  class="client-info" id="client-info-seccion">
 
-                    <legend>Butterfly Valve Retrofit Form</legend>
+                    <legend>Valve Retrofit Form</legend>
 
                     <label for="company">Company: </label>
                     <input type="text" id="company" class="company-field" name="">
@@ -50,7 +100,7 @@
                     <label for="client-phone-number">Phone number: </label>
                     <input type="text" id="phone" name="" class="phone-field">
 
-                    <label for="client-fax-number">fax number: </label>
+                    <label for="client-fax-number">Fax number: </label>
                     <input type="text" id="fax" name="" class="fax-field">
 
                     <button type="" class="btn-info" id="btn-client-info" >Next</button>
@@ -59,7 +109,7 @@
 
             </fieldset>
 
-            <fieldset class="information-seccion" id="">
+            <fieldset class="information-seccion" >
                     <legend>Information</legend>
                                 
                     <label for="valve-size">Valve Size: </label>
@@ -73,7 +123,7 @@
 
             </fieldset>
 
-                <fieldset class="list-type-valve" id="">                        
+                <fieldset class="list-type-valve" >                        
                     <legend>Please select a type valve: </legend>
                     
        
@@ -86,31 +136,37 @@
                 
                 </fieldset>
                 
-                <fieldset class="valve-type-2" id="">
+                <fieldset class="valve-type-2" >
+
                     <legend>Type Valve: 2 Way</legend>
                     
-
-                    <label><input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator</label>
+                    <label><input type="checkbox" id="elect-actuator-2" name="electric" class="" value="electric-actuator-2"> Electric Actuator</label>
                     
-                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic</label>
+                    <label><input type="checkbox" id="pnewmatic-high-2" name="pnewmatic-high-p" class="" value="hp-pnewmatic-2"> 
+                    HP Pnewmatic</label>
+                    
+                    <label><input type="checkbox" id="pnewmatic-low-2" name="pnewmatic-low-p" class="" value="lp-newmatic-2"> 
+                    LP Pnewmatic</label>
 
-                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic</label>
                 </fieldset>
                 
                 <fieldset class="valve-type-3">
+
                     <legend>Type Valve: 3 Way</legend>
                 
-                    <label><input type="checkbox" id="2Way" name="2-way" class="total" value="2-way"> Electric Actuator</label>
+                    <label><input type="checkbox" id="elect-actuator-3" name="electric" class="" value="electric-actuator-3"> Electric Actuator</label>
                 
-                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> HP Pnewmatic</label>
+                    <label><input type="checkbox" id="pnewmatic-high-3" name="pnewmatic-high-p" class="" value="hp-pnewmatic-3"> HP Pnewmatic</label>
                 
-                    <label><input type="checkbox" id="3Way" name="3-way" class="mix1 total" value="3-way"> LP Pnewmatic</label>
+                    <label><input type="checkbox" id="pnewmatic-low-3" name="pnewmatic-low-p" class="" value="lp-newmatic-3"> LP Pnewmatic</label>
+
                 </fieldset>
 
                 <button type="submit" class="btn" id="btn">Submit</button>
             </form>
-                        
-     </div> 
+    <!-- </div> -->
+
+</div> 
                 
    
 
