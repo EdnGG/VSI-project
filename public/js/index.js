@@ -31,7 +31,7 @@ const save = () => {
     let faxContact = document.querySelector('.fax-field').value
 
 
-        db.collection("clientes").add({
+        db.collection("clients").add({
             Company : company,            
             Contact_name: contact,
             Location: location,
@@ -42,11 +42,11 @@ const save = () => {
             brand: brand,
             series: series
         })
-        // if promise was succesfull
+        // if promise is succesfull
         .then(function (docRef) {
             console.log("Document written with ID: ", docRef.id);
         })
-        // if promise was reject
+        // if promise is reject
         .catch(function (error) {
             console.error("Error adding document: ", error);
         });
@@ -61,33 +61,32 @@ let series = document.querySelector('#series').value
 
 /*********************  Ends Global Variables   **************************/
 
-// const valveSize= document.querySelector(".valve-size")
-// valveSize.focus()
-
 // Focus on the first field of the form
 const companyField = document.querySelector("#company")
 company.focus()
 
+// Client info seccion part 1
+const infoSeccion = document.querySelector('.client-info')
+
 // Valve info seccion part 2
 const valveInfoSeccion = document.querySelector('.information-seccion')  
 
-// Client info seccion part 1
-const infoSeccion = document.querySelector('.client-info') 
-
-// Valve info seccion part 3
+ // Valve info seccion part 3
 const listTypeValve = document.querySelector('.list-type-valve') 
 
 // Saving the form in a variable
-const form = document.querySelector('.form-container')
+const form = document.querySelector('.container')
 
 const valve2way = document.querySelector('.valve-type-2')
 const valve3way = document.querySelector('.valve-type-3')
 const valveList = document.querySelector('#valve-selection')
 
+const loginForm = document.querySelector('#logreg-forms') //  #logreg-forms
+
 const submitButton = document.querySelector('#btn')
 const buttonNextSeccion = document.querySelector('.btn-info')
 
-/************************************************/
+/******************* Event Listeners *****************************/
 buttonNextSeccion.addEventListener('click', (e) =>{
    e.preventDefault()
     
@@ -153,13 +152,17 @@ valveList.addEventListener('change', ()=> {
 
 /************************************************/
 
+
+/*********************  Hidding Elements  ***************************/
+
 submitButton.style.display = 'none'
 valve2way.style.display= 'none' 
 valve3way.style.display = 'none' 
 //clientInfo.style.display = 'none'
 valveInfoSeccion.style.display = 'none'
 listTypeValve.style.display = 'none'
-//form.style.display = 'none'
+form.style.display = 'none'
+//loginForm.style.display = 'none'
 
 
 

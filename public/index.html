@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <title>VSI Valves</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -12,74 +11,89 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link href="css/normalize.css" rel="stylesheet">
+
+<!-- Compiled and minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
 <link href="css/styles.css" rel="stylesheet">
+<link href="css/normalize.css" rel="stylesheet">
 <!--  Ends Boostrap and styles       -->
     
 </head>
 
 <body>
 
-<!-- <div class="container">
-    <form action="/action_page.php" class="form-login-social">
-        <div class="row">
-            <h2 style="text-align:center">Login with Social Media or Manually</h2>
-            <div class="vl">
-                <span class="vl-innertext">or</span>
-            </div>
+    <header>
+    
+        <img class="modal-img" src="./img/vsi.jpg" alt="logopicture">
+        <h3 id="name" class="modal-name cap">Valve Solutions Inc</h3>
+        <p class="modal-text">Retrofit Form</p>
+    
+    
+    </header> 
 
-            <div class="col">
-                <a href="#" class="fb btn">
-                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                </a>
-                <a href="#" class="twitter btn">
-                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                </a>
-                <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-                    </i> Login with Google+
-                </a>
-            </div>
-
-            <div class="col">
-                <div class="hide-md-lg">
-                    <p>Or sign in manually:</p>
-                </div>
-
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Login">
-            </div>
-
+<!---------------Begin Login Form -------------------->
+<div id="logreg-forms">
+    <form class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+        <div class="social-login">
+            <button class="btn facebook-btn social-btn" type="button" id="facebook"><span><i class="fab fa-facebook-f"></i> Sign in
+                    with Facebook</span> </button>
+            <button class="btn google-btn social-btn" type="button" id="google"><span><i class="fab fa-google-plus-g"></i> Sign in
+                    with Google+</span> </button>
         </div>
+        <p style="text-align:center"> OR </p>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+        <button id="emailLogin" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+        <a href="#" id="forgot_pswd">Forgot password?</a>
+        <hr>
+       
+        <p>Don't have an account!</p> 
+       
+        <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up
+            New Account</button>
     </form>
+
+    <form action="/reset/password/" class="form-reset">
+        <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+        <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
+    </form>
+
+    <form action="/signup/" class="form-signup">
+        <div class="social-login">
+            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up
+                    with Facebook</span> </button>
+        </div>
+        <div class="social-login">
+            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up
+                    with Google+</span> </button>
+        </div>
+
+        <p style="text-align:center">OR</p>
+
+        <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
+        <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
+        <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+        <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required
+            autofocus="">
+
+        <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+        <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+    </form>
+    <br>
+
 </div>
 
-<div class="bottom-container">
-    <div class="row">
-        <div class="col">
-            <a href="#" style="color:white" class="btn">Sign up</a>
-        </div>
-        <div class="col">
-            <a href="#" style="color:white" class="btn">Forgot password?</a>
-        </div>
-    </div>
-</div> -->
+<!--------------- Ends  Login Form -------------------->
 
 
 <div class="container">
 
-    <header>
-
-        <!--  <div class="header"> -->
-        <img class="modal-img" src="./img/vsi.jpg" alt="logopicture">
-        <h3 id="name" class="modal-name cap">Valve Solutions Inc</h3>
-        <p class="modal-text">Retrofit Form</p>
-        <!--  </div> -->
-
-    </header>
-
-<!-- <div class="form-container">  -->
-        <form action="index.html" method="post" id="fulldata" name="form" class="form">
+   <form action="index.html" method="post" id="fulldata" name="form" class="form">
         
             <fieldset  class="client-info" id="client-info-seccion">
 
@@ -101,7 +115,7 @@
                     <input type="text" id="phone" name="" class="phone-field">
 
                     <label for="client-fax-number">Fax number: </label>
-                    <input type="text" id="fax" name="" class="fax-field">
+                    <input type="text" id="fax" name="" class="fax-field"><br><br>
 
                     <button type="" class="btn-info" id="btn-client-info" >Next</button>
 
@@ -176,17 +190,15 @@
 
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
 <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
 <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>-->
 <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>-->
 
-
+<script src="js/auth/autentication.js"></script>
+<script src="js/auth/authController.js"></script>
 <script src="config/configFirebase.js"></script>
-<script src="js/index.js" async defer></script>
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
 
 <!-- Sweet Alert library -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
