@@ -88,7 +88,7 @@ const validationSeccion2 = () => {
 console.log(valve2way, valve3way);
 
    if (
-     (valveSize === "" && brand === "" && !valve2wayCheked) ||
+     (valveSize === "" && brand === "" || !valve2wayCheked) ||
      !valve3wayCheked) {
      swal({
        title: `Valve Size and Brand fields are required!`,
