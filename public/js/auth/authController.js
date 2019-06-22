@@ -1,31 +1,60 @@
 $(() => {
+    
+const objAuth = new Autenticacion()
+/****** */
+$("#btn-signup").click(() => {
+        
+        $('.form-signin').css('display', 'none')
+        
+        $('#signup-form').css('display', 'block')
 
-    const objAuth = new Autenticacion()
+$('#cancel_signup').click(()=> {
+
+            $('.form-signin').css('display', 'block')
+
+            $('#signup-form').css('display', 'none')
+
+        })
+
+//Este evento es para crear usuario via e-mail
+$('#signup-email').click(()=> {
+
+    const nombres = $('#user-name').val();
+    const email = $('#user-email').val();
+    const password = $('#user-pass').val();
+
+// Referencia a la clase Autenticacion
+const auth = new Autenticacion()
+
+//Haciendo referencia a le clase se llama al metodo 'crearCuentaEmailPassword'
+auth.crearCuentaEmailPass(email, password, nombres)
+
+})
+});
 
 
-    $("#btn-signup").click(() => {
-        const nombres = $('#nombreContactoReg').val();
-        const email = $('#emailContactoReg').val();
-        const password = $('#passwordReg').val();
-        const auth = new Autenticacion()
-        auth.crearCuentaEmailPass(email, password, nombres)
+//Este metodo  es para logear usuario que ya esta creado
+$("#emailLogin").click( () => {
+    const email = $('#inputEmail').val();
+    const password = $('#inputPassword').val();
 
-        // TODO : LLamar crear cuenta con email
-    });
+    console.log("hello from email authController.js");
+   
+    // TODO : LLamar auth cuenta con email
+    const auth = new Autenticacion()
+    auth.autEmailPass(email, password)
 
-    $("#emailLogin").click(() => {
-        const email = $('#inputEmail').val();
-        const password = $('#inputPassword').val();
-        // TODO : LLamar auth cuenta con email
-        const auth = new Autenticacion()
-        auth.autEmailPass(email, password)
-    });
+    $('#loginForm').css('display', 'none')
+    $('#mainForm').css('display', 'block')
+    console.log("hello from email authController.js");
 
-    //AUTH con GOOGLE
-    $("#google").click(() => {
+});
+
+//AUTH con GOOGLE
+$("#google").click(() => {
         
         let loginForm = document.querySelector('#logreg-forms')
-        let mainForm = document.querySelector('.container')
+        let mainForm = document.querySelector('#mainForm')
 
         objAuth.authCuentaGoogle()
             // $("#logreg-forms").hide()
@@ -34,39 +63,19 @@ $(() => {
             loginForm.style.display = "none"
             mainForm.style.display = "block"
 
-        
-
-
-
     });
 
-    //AUTH con FACEBOOK
-    $("#facebook").click(() => {
+//AUTH con FACEBOOK
+$("#facebook").click(() => {
         let loginForm = document.querySelector('#logreg-forms')
-        let mainForm = document.querySelector('.container')
+        let mainForm = document.querySelector('#mainForm')
 
         objAuth.authCuentaFacebook()
-        
-        console.log('hello from Facebook authController.js')
-        loginForm.style.display = "none"
-        mainForm.style.display = "block"
-    
-    });
 
-    //AUTH con TWITTER
-    $("#authTwitter").click(() =>
-        objAuth.authTwitter()
-    );
-
-    $('#btnRegistrarse').click(() => {
-        $('#modalSesion').modal('close');
-        $('#modalRegistro').modal('open');
-
-    });
-
-    $('#btnIniciarSesion').click(() => {
-        $('#modalRegistro').modal('close');
-        $('#modalSesion').modal('open');
+            console.log('hello from Facebook authController.js')
+            loginForm.style.display = "none"
+            mainForm.style.display = "block"
+            
     });
 
 });

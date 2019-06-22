@@ -42,7 +42,7 @@ header h1 {
 	background: rgba(153, 178, 180, 0.966);
 } */
 
-form:not(.form-signin){
+form:not(.form-signin .form-signup){
   padding: .875em 1.875em 1.875em;
 	background: rgba(153, 178, 180, 0.966);
 
