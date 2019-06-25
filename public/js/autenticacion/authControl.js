@@ -1,6 +1,6 @@
 $(() => {
   const objAuth = new Autenticacion();
-  $("#btn-signup").click(() => {
+$("#btn-signup").click(() => {
   $(".form-signin").css("display", "none");
   $("#signup-form").css("display", "block");
 
@@ -20,7 +20,7 @@ $(() => {
 //Haciendo referencia a la clase se llama al metodo 'crearCuentaEmailPassword'
     auth.crearCuentaEmailPass(email, password, nombres);
   });
-  });
+});
 
   $("#emailLogin").click(() => {
     const email = $("#inputEmail").val();
@@ -28,6 +28,10 @@ $(() => {
     // TODO : LLamar auth cuenta con email
 
     console.log("hello from email authControl.js");
+
+    // se llama desde autenticaion.js
+    // Se hace referencia a la clase Autenticacion
+    // que esta en autenticacion.js
     const auth = new Autenticacion();
     auth.autEmailPass(email, password);
   });
@@ -37,7 +41,12 @@ $(() => {
     let loginForm = document.querySelector("#logreg-forms");
     let mainForm = document.querySelector("#mainForm");
 
-    objAuth.authCuentaGoogle();
+    // se llama desde autenticaion.js
+    // Se hace referencia a la clase Autenticacion
+    // que esta en autenticacion.js
+    objAuth.authCuentaGoogle(); 
+    
+    
     // $("#logreg-forms").hide()
     // $(".container").show()
     console.log("hello from Google authController.js");
@@ -50,6 +59,9 @@ $(() => {
     let loginForm = document.querySelector("#logreg-forms");
     let mainForm = document.querySelector("#mainForm");
 
+    // se llama desde autenticaion.js
+    // Se hace referencia a la clase Autenticacion
+    // que esta en autenticacion.js
     objAuth.authCuentaFacebook();
 
     console.log("hello from Facebook authController.js");

@@ -177,7 +177,7 @@ Facebook</span> </button>
         </div>
         <div class="form-group">
             <label for="inputPhoneLabel">Phone Number</label>
-            <input type="number" class="form-control" id="inputPhone" placeholder="678 - 123 - 4567" required>
+            <input type="" class="form-control" id="inputPhone" placeholder="678 - 123 - 4567" required>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -191,7 +191,7 @@ Facebook</span> </button>
             </div>
             <div class="form-group col-md-2">
                 <label for="inputZipLabel">Zip</label>
-                <input type="number" class="form-control" id="inputZip">
+                <input type="" class="form-control" id="inputZip">
             </div>
         </div>
 
@@ -220,7 +220,7 @@ Facebook</span> </button>
         </div>
     </div>
     <div class="form-group">
-        <label for="location">Location</label>
+        <label for="location">Location (Series)</label>
         <input type="text" class="form-control" id="inputLocation">
     </div>
     
@@ -229,9 +229,9 @@ Facebook</span> </button>
 
 <!--Start form seccion 3  -->
 
-<fieldset  id="seccion3" class="text-center">
+<fieldset id="seccion3" class="text-center">
     <div class="row text-center">
-        <p class="col text-center ">Please choose one</p>
+        <p class="col text-center ">Valve Type</p>
     </div>
     <div class="form-check-inline text-center">
         <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
@@ -245,77 +245,136 @@ Facebook</span> </button>
             3 way
         </label>
     </div><br><br>
-    
+
+<fieldset class="text-center">
+<div class="row text-center">
+    <p class="col text-center ">Actuator Type</p>
+</div>
+
+<!-- <label for="size">Model:</label> -->
+<select id="selectSeccion3" class="text-center" name="select-seccion-3">
+    <option  value="select" selected>Select one</option>
+    <option  value="electric">Electric Actuator</option>
+    <option  value="hp">High Pressure Pneumatic</option>
+    <option  value="lp">Low Pressure Pneumatic</option>
+</select>
+
+</fieldset>
+<br><br>
     <div class="col text-center">
-        <button type="button" id="btnSeccion2" class="btn btn-primary ">Next</button>
+     <button type="button" id="btnSeccion2" class="btn btn-primary ">Next</button>
     </div>
 
 </fieldset>
 
 <!--Ends form seccion 3  -->
 
-
 <!-- Start form seccion 4 -->
 
-<fieldset id="seccion4" class="">
-    <div class="row">
-        <p class="col text-center ">Type Valve: 2 Way</p>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-            Electric Actuator
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-            High Pressure Pneumatic
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-            Low Pressure Pneumatic
-        </label>
+<fieldset class="text-center" id="seccion4">
+    <div class="row text-center">
+        <legend class="justify-content-center legend1">Electric Actuator</legend>
     </div>
 
+    <div class="text-center">
+        <select id="selectSeccion4" name="select-seccion-4">
+            <option value="selectSeccion4" selected>Select one</option>
+            <option value="electric">Damage Actuator</option>
+            <option value="hp">Rotary Actuator</option>
+        </select>
+        <!-- <p class="col text-center ">Damage Actuator</p> -->
+    </div>
+    
+    <div class="form-group">
+        <label for="brand-damage-actuator">Brand</label>
+        <input type="text" class="form-control" id="inputBrandActuator">
+        <label for="model-number-actuator">Model Number</label>
+        <input type="text" class="form-control" id="inputModelNumber">
+    
+    </div>
 </fieldset>
-
+    
 <!-- Ends form seccion 4 -->
 
 <!-- Start form seccion 5  -->
-<fieldset id="seccion5" class="">
-<div class="row">
-    <p class="col text-center ">Type Valve: 3 Way</p>
-</div>
-    <div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-    <label class="form-check-label" for="exampleRadios1">
-        Electric Actuator
+
+<fieldset class="text-center" id="seccion5">
+    <div class="row text-center">
+        <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
+    </div>
+
+
+    <div class="form-group">
+        <label for="brand-damage-actuator">Brand</label>
+        <input type="text" class="form-control" id="inputBrandActuator">
+        <label for="model-number-actuator">Model Number</label>
+        <input type="text" class="form-control" id="inputModelNumber">
+
+    </div>
+
+<div class="form-check-inline text-center">
+    <input class="form-check-input text-center" type="radio" name="hp-2positions" id="hp2positions" value="hp-2positions">
+    <label class="form-check-label text-center">
+        2 Positions
     </label>
 </div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2">
-        High Pressure Pnewmatic
+<div class="form-check-inline text-center">
+    <input class="form-check-input text-center" type="radio" name="hp-modulating" id="hpModulating" value="hpModulating">
+    <label class="form-check-label text-center" >
+        Modulating
     </label>
-</div>
-<div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2">
-        Low Pressure Pneumatic
-    </label>
-</div>
+</div><br>
 
 </fieldset>
-<!-- Ends form information 5 -->
+
+<!-- Ends form seccion 5 -->
+
+<!-- Starts form seccion 6 -->
+
+<fieldset class="text-center" id="seccion6">
+    <div class="row text-center">
+        <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
+    </div>
+
+
+    <div class="form-group">
+        <label for="brand-damage-actuator">Brand</label>
+        <input type="text" class="form-control" id="inputBrandActuator">
+        <label for="model-number-actuator">Model Number</label>
+        <input type="text" class="form-control" id="inputModelNumber">
+
+    </div>
+
+    <div class="form-check-inline text-center">
+        <input class="form-check-input text-center" type="radio" name="lp-2positions" id="lp2positions"
+            value="lp-2positions">
+        <label class="form-check-label text-center">
+            2 Positions
+        </label>
+    </div>
+    <div class="form-check-inline text-center">
+        <input class="form-check-input text-center" type="radio" name="lp-modulating" id="lpModulating"
+            value="lpModulating">
+        <label class="form-check-label text-center">
+            Modulating
+        </label>
+    </div><br>
+
+</fieldset>
+
+<!-- submit button seccion 
+    <div class="col text-center">
+        <button type="button" id="btnSeccion4to6" class="btn btn-primary ">Submit</button>
+    </div> -->
+
+<!-- Ends form seccion 6 -->
+
 
 <!-- Ends Product information form -->
 
         
-    </form>
-    </div>
+</form>
+</div>
     
     
 

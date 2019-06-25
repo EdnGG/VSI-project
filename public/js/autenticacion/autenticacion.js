@@ -46,7 +46,7 @@ class Autenticacion {
         //url: 'http://127.0.0.1:5500/public'
         //url: "https://vsi-project.firebaseapp.com",//internet
         //url: 'http://localhost:5500/public/index.html'
-        //url: 'http://localhost:5500/'
+        url: 'http://localhost:5000/'
         //url: 'http://localhost:3000/' //para desarrollo
           
         };
@@ -73,7 +73,8 @@ class Autenticacion {
         $("#seccion3").css("display", "none");
         $("#seccion4").css("display", "none");
         $("#seccion5").css("display", "none");
-      
+        $("#seccion6").css("display", "none");
+
       })
       .catch(error => {
         console.error(error.message);
@@ -100,6 +101,8 @@ class Autenticacion {
         $("#seccion3").css("display", "none");
         $("#seccion4").css("display", "none");
         $("#seccion5").css("display", "none");
+        $("#seccion6").css("display", "none");
+
 
       })
       .catch(error => {
@@ -129,6 +132,8 @@ class Autenticacion {
         $("#seccion3").css("display", "none");
         $("#seccion4").css("display", "none");
         $("#seccion5").css("display", "none");
+        $("#seccion6").css("display", "none");
+
       })
       .catch(error => {
         console.error(error);

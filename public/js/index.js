@@ -12,7 +12,7 @@ loginButton.addEventListener('click', ()=> {
    console.log('Login button works')
    loginForm.style.display = 'block'
    carousel.style.display = 'none'    
-   //mainForm.style.display = 'none'
+   //mainForm.style.display = 'block'
 })
 
 
@@ -20,7 +20,7 @@ loginButton.addEventListener('click', ()=> {
 /**********Ends Login Form Seccion*********/
 
 /*********Starts Carousel seccion*************/
-const carousel = document.querySelector('#carousel')
+const carousel = document.querySelector('#carousel')    
 
 /********Ends carousel seccion***************/
 
@@ -40,6 +40,7 @@ const validationSeccion1 = () => {
    let thirdSeccion = document.querySelector("#seccion3")
    let fourthSeccion = document.querySelector("#seccion4")
    let fifthSeccion = document.querySelector('#seccion5')
+   let sixthSeccion = document.querySelector('#seccion6')
    let companyName = document.querySelector('#inputCompany').value
    let contactName = document.querySelector('#inputContact').value
    let inputPhone = document.querySelector('#inputPhone').value
@@ -51,13 +52,13 @@ const validationSeccion1 = () => {
            icon: `error`
          });
          
-         //firstSeccion.style.display = 'none'
       } else { 
          firstSeccion.style.display = 'none'
          secondSeccion.style.display = "block"
          thirdSeccion.style.display = "block"
          fourthSeccion.style.display = "none"
          fifthSeccion.style.display = "none"
+         sixthSeccion.style.display = "none"
       }
 }
 
@@ -73,23 +74,25 @@ btnSeccion2.addEventListener("click", () => {
 const validationSeccion2 = () => { 
    let valve2way = document.getElementById('valve2way').value;
    let valve3way = document.getElementById('valve3way').value;
-   let valve2wayCheked = document.getElementById("valve2way").checked;
-   let valve3wayCheked = document.getElementById("valve3way").checked;
+   let valve2wayChecked = document.getElementById("valve2way");
+   let valve3wayChecked = document.getElementById("valve3way");
    let firstSeccion = document.querySelector("#seccion1");
    let secondSeccion = document.querySelector("#seccion2");
    let thirdSeccion = document.querySelector("#seccion3");
    let fourthSeccion = document.querySelector("#seccion4");
    let fifthSeccion = document.querySelector("#seccion5");
+   let sixthSeccion = document.querySelector("#seccion6");
+
    let valveSize = document.querySelector("#inputValveSize").value;
    let brand = document.querySelector("#inputBrand").value;
    let location = document.querySelector("#inputLocation").value;
    
 
-console.log(valve2way, valve3way);
+console.log(valve2way, valve3way,
+   valve2wayChecked.checked,valve3wayChecked.checked);
 
    if (
-     (valveSize === "" && brand === "" || !valve2wayCheked) ||
-     !valve3wayCheked) {
+     valveSize === "" && brand === "" && valve2wayChecked.checked === false ||valve3wayChecked.checked === false ){
      swal({
        title: `Valve Size and Brand fields are required!`,
        icon: `error`
@@ -103,11 +106,12 @@ console.log(valve2way, valve3way);
 
      //firstSeccion.style.display = 'none'
    } else {
-     firstSeccion.style.display = "none";
-     secondSeccion.style.display = "none";
-     thirdSeccion.style.display = "none";
-     fourthSeccion.style.display = "block";
-     fifthSeccion.style.display = "none";
+      firstSeccion.style.display = "none";
+      secondSeccion.style.display = "block";
+      thirdSeccion.style.display = "block";
+      fourthSeccion.style.display = "none";
+      fifthSeccion.style.display = "none";
+      sixthSeccion.style.display = "none";
    }
 
 }
