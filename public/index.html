@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <!-- Required meta tags -->
@@ -18,41 +18,38 @@
     <title>VSI</title>
 </head>
 
-<body >
-    <!-- Header -->
-    <!-- Modal de Inicio de Sesión -->
+<body>
+    
+<!-- Starts header -->
 
 <header class=" headerppal  col-12 pt-1 pb-6">
     <div>
-    <figure class="header-logotipo text-center text-md-left">
-        <img src="./imagenes/vsi.jpg" alt="Blog Logotipo">
-    </figure>
-    <h2 class="titulo  titulo1 text-center ">Valve Solutions Inc</h2>
-
-        <a id="btnInicioSesion" class="btnPpal btn btn-default btn-rounded" data-toggle="modal"
-        data-target="#elegantModalForm">Login Form</a>
-
-        <!-- <a id="btnInicioSesion" class=" btn btnPpal">Iniciar Sesión</a> -->
+        <figure class="header-logotipo text-center text-md-left">
+            <img src="./imagenes/vsi.jpg" alt="Blog Logotipo">
+        </figure>
+        <h2 class="titulo  titulo1 text-center ">Valve Solutions Inc</h2>
+            <a id="btnInicioSesion" class="btnPpal btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">Sign In</a>
+            <!-- <a id="btnInicioSesion" class=" btn btnPpal">Iniciar Sesión</a> -->
 
         <figure class="header-avatar d-none d-md-block">
-            <img id="avatar" src="./imagenes/usuario.png" alt="Avatar">
+            <img id="avatar" src="./imagenes/usuarioauth.png" alt="Avatar">
         </figure>
     </div>
 </header>
-    
-    <!-- /Header -->
 
-    <!-- Login modal form -->
+<!-- Ends header -->
+    
+<!-- Starts modal de inicio de sesión -->
 
 <div id="logreg-forms" class="pt-4 pb-4">
     <form class="form-signin">
         <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
         <div class="social-login">
             <button class="btn facebook-btn social-btn" type="button" id="facebook"><span><i
-                        class="fab fa-facebook-f"></i>
-Facebook</span> </button>
-            <button class="btn google-btn social-btn" type="button" id="google"><span><i
-                        class="fab fa-google-plus-g"></i> Google</span> </button>
+            class="fab fa-facebook-f"></i> Facebook</span> 
+            </button>
+            <button class="btn google-btn social-btn" type="button" id="google"><span><i class="fab fa-google-plus-g"></i> Google</span> 
+            </button>
         </div>
         <p style="text-align:center"> OR </p>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -77,12 +74,11 @@ Facebook</span> </button>
 
     <form class="form-signup" id="signup-form">
         <div class="social-login">
-            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up
-                    with Facebook</span> </button>
+            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> 
+            </button>
         </div>
         <div class="social-login">
-            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up
-                    with Google</span> </button>
+            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google</span> </button>
         </div>
 
         <!-- <p style="text-align:center">OR</p> -->
@@ -91,20 +87,18 @@ Facebook</span> </button>
         <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
         <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
         
-
-        <button id="signup-email" class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign
-            Up</button>
+        <button id="signup-email" class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up </button>
         <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
     </form>
     <br>
 
 </div>
 
-    <!-- /Login modal form -->
+<!-- Ends modal de inicio de sesión -->
 
-    <!-- Carousel -->
+<!-- Starts Carousel -->
 <seccion id="carousel">
-    <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+    <div id="carouselFade " class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="./imagenes/valve.png" alt="First slide">
@@ -116,10 +110,10 @@ Facebook</span> </button>
                 <img class="d-block w-100" src="./imagenes/valve3.png" alt="Third slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./imagenes/valve4.jpg" alt="Third slide">
+                <img class="d-block w-100" src="./imagenes/valve4.jpg" alt="Fourth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="./imagenes/valve5.jpeg" alt="Third slide">
+                <img class="d-block w-100" src="./imagenes/valve5.jpeg" alt="Fifth slide">
             </div>
             <div class="overlay">
                 <div class="container">
@@ -133,11 +127,11 @@ Facebook</span> </button>
             </div>
         </div>
         
-        <!-- <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a> -->
@@ -145,235 +139,354 @@ Facebook</span> </button>
     </div>
 </seccion>
 
-    <!-- /Carousel -->
+<!-- Ends Carousel -->
 
-    <!-- Main Form-->
-    <div class="pb-4 pt-4 d-flex container justify-content-center" >
-    <form id="mainForm">
-        <legend class="justify-content-center legend1">Valve Retrofit Form</legend>
-        <!-- <div class="row">
-            <p class="col text-center ">Costumer Information</p>
-        </div> -->
-
+<!-- Starts Main Form-->
+<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
+    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto">
+        <legend class="justify-content-center" >Valve Retrofit Form</legend>
+        
 <!-- Starts costumer information form -->
-
         <fieldset id="seccion1">
             <div class="row">
                 <p class="col text-center ">Costumer Information</p>
             </div>
-        <div class="form-row " >
-            <div class="form-group  col-md-6 " >
-                <label for="inputCompanyLabel">Company:</label>
-                <input type="text" class="form-control" id="inputCompany" placeholder="Company name" required>
+            <div class="form-row " >
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
+                    <label for="inputCompanyLabel">Company:</label>
+                    <input type="text" class="form-control" id="inputCompany" placeholder="Company name" required>
+                </div>
+                <div class="form-group  col-md-6 ">
+                    <label for="inputContactLabel">Contact</label>
+                    <input type="contact" class="form-control" id="inputContact" placeholder="Contact number" required>
+                </div>
             </div>
-            <div class="form-group  col-md-6 ">
-                <label for="inputContactLabel">Contact</label>
-                <input type="contact" class="form-control" id="inputContact" placeholder="Contact number" required>
+            <div class="form-group">
+                <label for="inputLocationLabel">Location</label>
+                <input type="text" class="form-control" id="inputLocation" placeholder="1234 Main St">
             </div>
-        </div>
-        <div class="form-group">
-            <label for="inputLocationLabel">Location</label>
-            <input type="text" class="form-control" id="inputLocation" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-            <label for="inputPhoneLabel">Phone Number</label>
-            <input type="" class="form-control" id="inputPhone" placeholder="678 - 123 - 4567" required>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputCityLabel">City</label>
-                <input type="text" class="form-control" id="inputCity">
+            <div class="form-group">
+                <label for="inputPhoneLabel">Phone Number</label>
+                <input type="" class="form-control" id="inputPhone" placeholder="678 - 123 - 4567" required>
             </div>
-            <div class="form-group col-md-4">
-                <label for="inputStateLabel">State</label>
-                <input type="text" class="form-control" id="inputState">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCityLabel">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputStateLabel">State</label>
+                    <input type="text" class="form-control" id="inputState">
 
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZipLabel">Zip</label>
+                    <input type="" class="form-control" id="inputZip">
+                </div>
             </div>
-            <div class="form-group col-md-2">
-                <label for="inputZipLabel">Zip</label>
-                <input type="" class="form-control" id="inputZip">
+            <br>
+            <div class="col text-center">
+                <button type="button" id="btnSeccion1" class="btn btn-primary ">Next</button>
             </div>
-        </div>
-
-<br>
-        <div class="col text-center">
-            <button type="button" id="btnSeccion1" class="btn btn-primary ">Next</button>
-        </div>
-    </fieldset>
+        </fieldset>
 
 <!-- Ends costumer information form -->
 
 <!-- Starts Valve information form -->
 
-<fieldset id="seccion2">
-    <div class="row">
-        <p class="col text-center ">Valve Information</p>
-    </div>
-    <div class="form-row">
-        <div class="col-md-6 ">
-            <label for="valveSize">Valve Size</label>
-            <input type="text" class="form-control" id="inputValveSize" placeholder="Valve size" required>
-        </div>
-        <div class="col-md-6 ">
-            <label for="Brand">Brand</label>
-            <input type="contact" class="form-control" id="inputBrand" placeholder="Brand" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="location">Location (Series)</label>
-        <input type="text" class="form-control" id="inputLocation">
-    </div>
+        <fieldset id="seccion2">
+            <div class="row">
+                <p class="col text-center ">Valve Information</p>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 ">
+                    <label for="valveSize">Valve Size</label>
+                    <input type="text" class="form-control" id="inputValveSize" placeholder="Valve size" required>
+                </div>
+                <div class="col-md-6 ">
+                    <label for="Brand">Brand</label>
+                    <input type="contact" class="form-control" id="inputBrand" placeholder="Brand" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="location">Series</label>
+                <input type="text" class="form-control" id="inputLocation">
+            </div>
     
-
-</fieldset>
+        </fieldset>
 
 <!--Start form seccion 3  -->
 
-<fieldset id="seccion3" class="text-center">
-    <div class="row text-center">
-        <p class="col text-center ">Valve Type</p>
-    </div>
-    <div class="form-check-inline text-center">
-        <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-        <label class="form-check-label text-center" for="exampleRadios1">
-            2 way
-        </label>
-    </div>
-    <div class="form-check-inline text-center">
-        <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-        <label class="form-check-label text-center" for="exampleRadios1">
-            3 way
-        </label>
-    </div><br><br>
+        <fieldset id="seccion3" class="text-center">
+            <div class="row text-center">
+                <p class="col text-center ">Valve Type</p>
+            </div>
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
+                <label class="form-check-label text-center" for="exampleRadios1">
+                2 way </label>
+            </div>
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
+                <label class="form-check-label text-center" for="exampleRadios1">
+            3 way </label>
+            </div>
+            <br><br>
 
-<fieldset class="text-center">
-<div class="row text-center">
-    <p class="col text-center ">Actuator Type</p>
-</div>
+        <fieldset class="text-center">
+            <div class="row text-center">
+                <p class="col text-center ">Actuator Type</p>
+            </div>
 
-<!-- <label for="size">Model:</label> -->
-<select id="selectSeccion3" class="text-center" name="select-seccion-3">
-    <option  value="select" selected>Select one</option>
-    <option  value="electric">Electric Actuator</option>
-    <option  value="hp">High Pressure Pneumatic</option>
-    <option  value="lp">Low Pressure Pneumatic</option>
-</select>
+            <!-- <label for="size">Model:</label> -->
+            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
+                <option  value="select" selected>Select one</option>
+                <option  value="electric" id="electric">Electric Actuator</option>
+                <option  value="hp" id="hp">High Pressure Pneumatic</option>
+                <option  value="lp" id="lp">Low Pressure Pneumatic</option>
+            </select>
 
-</fieldset>
-<br><br>
-    <div class="col text-center">
-     <button type="button" id="btnSeccion2" class="btn btn-primary ">Next</button>
-    </div>
+        </fieldset>
+        <br><br>
+            <div class="col text-center">
+                <button type="button" id="btnSeccion2" class="btn btn-primary ">Next</button>
+            </div>
 
-</fieldset>
+        </fieldset>
 
 <!--Ends form seccion 3  -->
 
 <!-- Start form seccion 4 -->
 
-<fieldset class="text-center" id="seccion4">
-    <div class="row text-center">
-        <legend class="justify-content-center legend1">Electric Actuator</legend>
-    </div>
+        <fieldset class="text-center" id="seccion4">
+            <div class="row text-center">
+                <legend class="justify-content-center legend1">Electric Actuator</legend>
+            </div>
 
-    <div class="text-center">
-        <select id="selectSeccion4" name="select-seccion-4">
-            <option value="selectSeccion4" selected>Select one</option>
-            <option value="electric">Damage Actuator</option>
-            <option value="hp">Rotary Actuator</option>
-        </select>
-        <!-- <p class="col text-center ">Damage Actuator</p> -->
-    </div>
+            <div class="text-center">
+                <select id="selectSeccion4" name="select-seccion-4">
+                    <option value="selectSeccion4" selected>Select one</option>
+                    <option value="electric">Damage Actuator</option>
+                    <option value="hp">Rotary Actuator</option>
+                </select>
+                <!-- <p class="col text-center ">Damage Actuator</p> -->
+            </div>
     
-    <div class="form-group">
-        <label for="brand-damage-actuator">Brand</label>
-        <input type="text" class="form-control" id="inputBrandActuator">
-        <label for="model-number-actuator">Model Number</label>
-        <input type="text" class="form-control" id="inputModelNumber">
-    
-    </div>
-</fieldset>
-    
+            <div class="form-group">
+                <label for="brand-damage-actuator">Brand</label>
+                <input type="text" class="form-control" id="inputBrandActuator">
+                <label for="model-number-actuator">Model Number</label>
+                <input type="text" class="form-control" id="inputModelNumber">
+            </div>
+            <br><br>
+            <div class="col text-center">
+                <button type="button" id="submitForm" class="btn btn-primary ">Submit</button>
+            </div>
+        </fieldset>
+
 <!-- Ends form seccion 4 -->
 
 <!-- Start form seccion 5  -->
 
-<fieldset class="text-center" id="seccion5">
-    <div class="row text-center">
-        <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
-    </div>
+        <fieldset class="text-center" id="seccion5">
+            <div class="row text-center">
+                <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
+            </div>
+            <div class="form-group">
+                <label for="brand-damage-actuator">Brand</label>
+                <input type="text" class="form-control" id="inputBrandActuator">
+                <label for="model-number-actuator">Model Number</label>
+                <input type="text" class="form-control" id="inputModelNumber">
+            </div>
 
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="hp-2positions" id="hp2positions" value="hp-2positions">
+                <label class="form-check-label text-center">
+                2 Positions </label>
+            </div>
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="hp-modulating" id="hpModulating" value="hpModulating">
+                <label class="form-check-label text-center" >
+                Modulating </label>
+            </div>
+            <br><br>
+            <div class="col text-center">
+                <button type="button" id="submitForm" class="btn btn-primary ">Submit</button>
+            </div>
 
-    <div class="form-group">
-        <label for="brand-damage-actuator">Brand</label>
-        <input type="text" class="form-control" id="inputBrandActuator">
-        <label for="model-number-actuator">Model Number</label>
-        <input type="text" class="form-control" id="inputModelNumber">
-
-    </div>
-
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="hp-2positions" id="hp2positions" value="hp-2positions">
-    <label class="form-check-label text-center">
-        2 Positions
-    </label>
-</div>
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="hp-modulating" id="hpModulating" value="hpModulating">
-    <label class="form-check-label text-center" >
-        Modulating
-    </label>
-</div><br>
-
-</fieldset>
+        </fieldset>
 
 <!-- Ends form seccion 5 -->
 
 <!-- Starts form seccion 6 -->
 
-<fieldset class="text-center" id="seccion6">
-    <div class="row text-center">
-        <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
-    </div>
+        <fieldset class="text-center" id="seccion6">
+            <div class="row text-center">
+                <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
+            </div>
+            <div class="form-group">
+                <label for="brand-damage-actuator">Brand</label>
+                <input type="text" class="form-control" id="inputBrandActuator">
+                <label for="model-number-actuator">Model Number</label>
+                <input type="text" class="form-control" id="inputModelNumber">
 
+            </div>
 
-    <div class="form-group">
-        <label for="brand-damage-actuator">Brand</label>
-        <input type="text" class="form-control" id="inputBrandActuator">
-        <label for="model-number-actuator">Model Number</label>
-        <input type="text" class="form-control" id="inputModelNumber">
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="lp-2positions" id="lp2positions"
+                value="lp-2positions">
+                <label class="form-check-label text-center">
+                2 Positions </label>
+            </div>
+            <div class="form-check-inline text-center">
+                <input class="form-check-input text-center" type="radio" name="lp-modulating" id="lpModulating"
+                value="lpModulating">
+                <label class="form-check-label text-center">
+                Modulating
+                </label>
+            </div>
+            <br>
 
-    </div>
+        </fieldset>
+        <br>
 
-    <div class="form-check-inline text-center">
-        <input class="form-check-input text-center" type="radio" name="lp-2positions" id="lp2positions"
-            value="lp-2positions">
-        <label class="form-check-label text-center">
-            2 Positions
-        </label>
-    </div>
-    <div class="form-check-inline text-center">
-        <input class="form-check-input text-center" type="radio" name="lp-modulating" id="lpModulating"
-            value="lpModulating">
-        <label class="form-check-label text-center">
-            Modulating
-        </label>
-    </div><br>
-
-</fieldset>
-
-<!-- submit button seccion 
-    <div class="col text-center">
-        <button type="button" id="btnSeccion4to6" class="btn btn-primary ">Submit</button>
-    </div> -->
+        <!-- <div class="col text-center">
+            <button type="button" id="btnSeccion4to6" class="btn btn-primary ">Submit</button>
+        </div>  -->
 
 <!-- Ends form seccion 6 -->
+
+<!-- Starts form seccion 7 -->
+
+        <fieldset class="text-center" id="seccion7">
+            <div class="col-12 row text-center">
+                <legend class="justify-content-center">Three Way Arrangements</legend><br><br>
+                <legend class="justify-content-center">Top View</legend>
+            </div>
+
+            <div class="col-12 form-row">
+                <table class="table table-hover table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">Arrangement</th>
+                        <th scope="col">Actuated Valve</th>
+                        <th scope="col">Normally Closed</th>
+                        <th scope="col">Normally Open</th>
+
+                    </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                            <td>Valve A</td>
+                            <td>Valve A</td>
+                            <td>Valve B</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                            <td>Valve A</td>
+                            <td>Valve A</td>
+                            <td>Valve c</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                            <!-- <td colspan="2">Larry the Bird</td> -->
+                            <td>Valve B</td>
+                            <td>Valve B</td>
+                            <td>Valve C</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                            <td>Valve B</td>
+                            <td>Valve B</td>
+                            <td>Valve A</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                            <td>Valve C</td>
+                            <td>Valve C</td>
+                            <td>Valve B</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                            <td>Valve C</td>
+                            <td>Valve C</td>
+                            <td>Valve A</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+            <div class="container-fluid">   
+            <div class="form-row">
+                <figure class="col-lg-4">
+                    <img class="img- rounded img-responsive center-block" src="./imagenes/a1.png" alt="Test"><br>
+                    <label class="form-check-label text-center">
+                    Arrangement 1 </label><br>
+                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
+                    value="arrangement1" checked>
+                </figure>
+                <br><br><br>
+        
+                <figure class="col-lg-4">
+                    <img class="img- rounded img-responsive center-block" src="./imagenes/a2.png" alt="Test"><br>
+                    <label class="form-check-label text-center">
+                    Arrangement 2</label><br><br>
+                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="arrangement2">
+                </figure>
+                <br><br><br>
+
+                <figure class="col-lg-4">
+                    <img class="img- rounded img-responsive center-block" src="./imagenes/a3.png" alt="Test"><br><br>
+                    <label class="form-check-label text-center">
+                    Arrangement 3 </label><br>
+                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="arrangement3">
+                </figure>
+
+
+            </div>
+            </div>
+            <br><br><br>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <figure class="col-lg-4">
+                        <img class="img-responsive center-block" src="./imagenes/a4.png" alt="Test"><br><br>
+                        <label class="form-check-label text-center">
+                        Arrangement 4
+                        </label><br>
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a4" value="arrangement4">
+                    </figure>
+    
+                    <figure class="col-lg-4">
+                        <img class="img-responsive center-block" src="./imagenes/a5.png" alt="Test"><br><br>
+                        <label class="form-check-label text-center">
+                        Arrangement 5 </label><br>
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="arrangement5">
+                    </figure>
+    
+                    <figure class="col-lg-4">
+                        <img class="img-responsive center-block" src="./imagenes/a6.png" alt="Test"><br><br>
+                        <label class="form-check-label text-center">
+                        Arrangement 6 </label><br>
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="arrangement6">
+                    </figure>
+                </div>
+            </div><br>
+
+            <div class="col text-center">
+                <button type="button" id="arrangements" class="btn btn-primary ">Submit</button>
+            </div> 
+
+        </fieldset>
+
+<!-- Ends form Seccion 7  -->
 
 
 <!-- Ends Product information form -->
 
         
-</form>
+    </form>
 </div>
     
     
@@ -393,33 +506,33 @@ Facebook</span> </button>
 
     
     
-    <!-- Firebase App is always required and must be first -->
+<!-- Firebase App is always required and must be first -->
     
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>-->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>-->
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>-->
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+crossorigin="anonymous"></script>
     
-    <script src="./config/configFirebase.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/autenticacion/authControl.js"></script>
-    <script src="./js/autenticacion/autenticacion.js"></script>
+<script src="./config/configFirebase.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/autenticacion/authControl.js"></script>
+<script src="./js/autenticacion/autenticacion.js"></script>
 
-    <!-- Sweet Alert library -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Sweet Alert library -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    
 </body>
 

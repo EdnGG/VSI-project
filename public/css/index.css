@@ -5,14 +5,18 @@
     height: 80px;
     width: 80px;
     transform: 0.6s;
-    transform: translateY(100px); 
+    transform: translateY(100px);
+    -webkit-border-radius: 60%;
+    -moz-border-radius: 60%;
+    -ms-border-radius: 60%;
+    -o-border-radius: 60%;
 }
 
 /*  */
 .header-avatar {
-    border-radius:60%;
-    /* height: 80px;
-    width: 80px; */
+    /* border-radius:60%; */
+    /* height: 70px;
+    width: 70px; */
     transform: 0.6s;
     transform: translateY(150px);
     display: block;
@@ -27,6 +31,8 @@
 @media screen and (min-width: 768px) {
   .headerppal {
     text-align: left;
+    
+    
   }
   .headerppal .header-logotipo{
     float: left;
@@ -58,14 +64,14 @@
 } */
 
 .headerppal .titulo {
-  color: rgba(51, 34, 34, 0.849);
+  color: rgba(17, 173, 24, 0.849);
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 .headerppal {
-  background: #126798;
+  background: #000000;
   overflow: hidden;
   box-shadow: 0 8px 10px rgba(0,0,0,0.5);
   padding-bottom: 30px;
@@ -92,6 +98,10 @@
   padding: 20px;
   width: 140px;
   transition: 0.6s;
+  -webkit-border-radius: 60%;
+  -moz-border-radius: 60%;
+  -ms-border-radius: 60%;
+  -o-border-radius: 60%;
 }
 .headerppal .header-logotipo img:hover {
   transform: scale(1.2);
@@ -105,12 +115,15 @@
 
 
 .headerppal .header-avatar img {
-  border-radius: 40%;
+  border-radius: 70%;
   height: 100px;
   width: 100px;
   transition: 0.6s;
   transform: translateY(40px);
- 
+  -webkit-border-radius: 70%;
+  -moz-border-radius: 70%;
+  -ms-border-radius: 70%;
+  -o-border-radius: 70%;
 }
 
 .btnPpal {
@@ -155,6 +168,9 @@
     max-width: 410px;
     padding: 15px;
     margin: auto;
+}
+#mainForm {
+  padding: 15px;
 }
 #logreg-forms .form-control {
     position: relative;
@@ -284,3 +300,32 @@ height: 100%
 
 }
 /* Ends Carousel */
+
+/* body, header, main form */
+
+body{
+  background-color: lightslategrey;
+
+}
+
+#mainForm{
+  background-color:#cfcdcd;
+
+}
+
+/* .mt-0 {
+  margin-top: 0 !important;
+}
+
+.ml-1 {
+  margin-left: ($spacer * .25) !important;
+}
+
+.px-2 {
+  padding-left: ($spacer * .5) !important;
+  padding-right: ($spacer * .5) !important;
+}
+
+.p-3 {
+  padding: $spacer !important;
+} */

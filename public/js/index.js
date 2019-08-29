@@ -1,8 +1,15 @@
+console.log('hello')
 /*********** Inicializando Firebase**************************/
 firebase.initializeApp(config);
 
 /******** Inicializando Firebase-Firestore ***************/
 let db = firebase.firestore();
+
+/***************  Starts  Global Variables   *****************/
+
+
+/*****************  Ends Global Variables   ****************/
+
 
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector('#logreg-forms') 
@@ -10,11 +17,56 @@ const loginButton = document.querySelector('#btnInicioSesion')
 
 loginButton.addEventListener('click', ()=> {
    console.log('Login button works')
+   const user = firebase.auth().currentUser
+   //loginButton.innerHTML = 'Sign Out'
+
+   if(user){
+      //loginButton.innerHTML = 'Sign Out'
+      loginForm.style.display = 'none'
+      carousel.style.display = 'block'
+      mainForm.style.display = 'none'    
+
+      return firebase.auth().signOut().then( ()=> {
+         //loginButton.innerHTML = 'Sign Out'
+
+         $("#avatar").attr("src", "../imagenes/usuario.png");
+         swal({
+            title: `Sign Out succesfull`,
+            icon: `success`
+         })
+
+      }).catch(error => {
+         swal({
+            title: `Something was wrong trying to sign out`,
+            icon: `error`
+         })
+      })
+   }
+   //loginButton.innerHTML = "Log Out"
    loginForm.style.display = 'block'
    carousel.style.display = 'none'    
    //mainForm.style.display = 'block'
+   
+}) 
+
+/************ Starts function that observe if user is true   **********/
+
+firebase.auth().onAuthStateChanged( user => {
+   if(user){
+      loginButton.innerHTML = "Log Out"
+         if (user.photoURL){
+            $("#avatar").attr("src", user.photoURL);
+         } else {
+            $("#avatar").attr("src", "imagenes/usuarioauth.png");
+         }
+   } else {
+      loginButton.innerHTML = "Sign In"
+      $("#avatar").attr("src", "imagenes/usuarioauth.png");
+
+   }
 })
 
+/************ Starts function that observe if user is true   **********/
 
 
 /**********Ends Login Form Seccion*********/
@@ -28,12 +80,19 @@ const carousel = document.querySelector('#carousel')
 const mainForm = document.querySelector('#mainForm')
 const btnSeccion1 = document.querySelector("#btnSeccion1");
 
+/******** Starts Hidding Elements Seccion **********/
+
+mainForm.style.display = 'none'  //block
+loginForm.style.display = 'none'  //none
+
+/******** Ends Hidding Elements Seccion **********/
+
 /****************Seccion 1 ************/ 
 btnSeccion1.addEventListener("click", () => {
    console.log("validating first seccion");
    validationSeccion1()
 });
-
+/**********Starts Validation seccion function 1************/
 const validationSeccion1 = () => {
    let firstSeccion = document.querySelector('#seccion1')
    let secondSeccion = document.querySelector("#seccion2");
@@ -41,11 +100,12 @@ const validationSeccion1 = () => {
    let fourthSeccion = document.querySelector("#seccion4")
    let fifthSeccion = document.querySelector('#seccion5')
    let sixthSeccion = document.querySelector('#seccion6')
+   let seventhSeccion = document.querySelector('#seccion7')
    let companyName = document.querySelector('#inputCompany').value
    let contactName = document.querySelector('#inputContact').value
    let inputPhone = document.querySelector('#inputPhone').value
       
-      if (companyName === '' && contactName === '' && inputPhone === ''){
+      if (companyName === '' ||contactName === '' || inputPhone === ''){
          
          swal({
            title: `Please fill correctly those fields`,
@@ -59,8 +119,10 @@ const validationSeccion1 = () => {
          fourthSeccion.style.display = "none"
          fifthSeccion.style.display = "none"
          sixthSeccion.style.display = "none"
+         seventhSeccion.style.display = "none"
       }
 }
+/**********Ends Validation seccion function 1************/
 
 /************Ends Seccion 1************/ 
 
@@ -71,204 +133,141 @@ btnSeccion2.addEventListener("click", () => {
    validationSeccion2()
 ;});
 
+/**********Starts Validation seccion function 2************/
 const validationSeccion2 = () => { 
-   let valve2way = document.getElementById('valve2way').value;
-   let valve3way = document.getElementById('valve3way').value;
-   let valve2wayChecked = document.getElementById("valve2way");
-   let valve3wayChecked = document.getElementById("valve3way");
-   let firstSeccion = document.querySelector("#seccion1");
-   let secondSeccion = document.querySelector("#seccion2");
-   let thirdSeccion = document.querySelector("#seccion3");
-   let fourthSeccion = document.querySelector("#seccion4");
-   let fifthSeccion = document.querySelector("#seccion5");
-   let sixthSeccion = document.querySelector("#seccion6");
+
+   let valve2way = document.getElementById('valve2way')
+   let valve3way = document.getElementById('valve3way')
+   
+   let firstSeccion = document.querySelector("#seccion1")
+   let secondSeccion = document.querySelector("#seccion2")
+   let thirdSeccion = document.querySelector("#seccion3")
+   let fourthSeccion = document.querySelector("#seccion4")
+   let fifthSeccion = document.querySelector("#seccion5")
+   let sixthSeccion = document.querySelector("#seccion6")
+   let seventhSeccion = document.querySelector('#seccion7')
 
    let valveSize = document.querySelector("#inputValveSize").value;
    let brand = document.querySelector("#inputBrand").value;
    let location = document.querySelector("#inputLocation").value;
    
-
-console.log(valve2way, valve3way,
-   valve2wayChecked.checked,valve3wayChecked.checked);
-
-   if (
-     valveSize === "" && brand === "" && valve2wayChecked.checked === false ||valve3wayChecked.checked === false ){
-     swal({
-       title: `Valve Size and Brand fields are required!`,
-       icon: `error`
-     });
-     //   if (!valve2wayCheked || !valve3wayCheked){
-     //       swal({
-     //          title: `please selec any checkbox!`,
-     //          icon: `error`
-     //       });
-     //   }
-
-     //firstSeccion.style.display = 'none'
-   } else {
-      firstSeccion.style.display = "none";
-      secondSeccion.style.display = "block";
-      thirdSeccion.style.display = "block";
-      fourthSeccion.style.display = "none";
-      fifthSeccion.style.display = "none";
-      sixthSeccion.style.display = "none";
+   function first(){
+      if (valveSize === '' || brand === '' ){  
+         swal({
+            title: `Valve Size and Brand fields are required!`,
+            icon: `error`
+         });
+      } else {
+         second();
+      }
    }
+   function second(){
+      let electric = document.getElementById("electric");
+      let lp = document.getElementById("lp");
+      let hp = document.getElementById("hp");
 
+      if (valve3way.checked) {
+         swal({
+            icon: `success`
+         })
+         firstSeccion.style.display = "none"
+         secondSeccion.style.display = "none"
+         thirdSeccion.style.display = "none"
+         fourthSeccion.style.display = "none"
+         fifthSeccion.style.display = "none"
+         sixthSeccion.style.display = "none"
+         seventhSeccion.style.display = "block"
+
+
+      } 
+      else if (valve2way.checked) {
+         //&& valve3way.checked 
+       if (electric.selected ) {
+         swal({
+           icon: `success`
+         });
+         firstSeccion.style.display = "none"
+         secondSeccion.style.display = "none"
+         thirdSeccion.style.display = "none"
+         fourthSeccion.style.display = "block"
+         fifthSeccion.style.display = "none"
+         sixthSeccion.style.display = "none"
+         seventhSeccion.style.display = "none"
+
+      } else if (lp.selected || hp.selected) {
+         swal({
+            icon: `success`
+         });
+         firstSeccion.style.display = "none";
+         secondSeccion.style.display = "none"
+         thirdSeccion.style.display = "none"
+         fourthSeccion.style.display = "none"
+         fifthSeccion.style.display = "block"
+         sixthSeccion.style.display = "none"
+         seventhSeccion.style.display = "none"
+
+
+      } else {
+         swal({
+            title: `Please select any checkbox`,
+            icon: `error`
+         });
+      }
+   } 
 }
 
+first()
+     
+}
 
 /************Ends Seccion 2************/ 
 
+/**********Ends Validation seccion function 2************/
+
 /********Ends Main form seccion*****************/
 
-/************************************************/
+// funcion named save, its gonna post our data on Firebase Firestore
 const save = () => {   
 
-    // let valveSize = document.querySelector('#valveSize').value
-    // let brand = document.querySelector('#brand').value
-    // let series = document.querySelector('#series').value
-
-    // let companyName = document.querySelector('#inputCompany').value
-    // let contactName = document.querySelector('#inputContac').value
-    // let location = document.querySelector('#inputLocation').value
-    // let inputPhone = document.querySelector('#inputPhone').value
-    // let inputCity = document.querySelector('#inputCity').value
-    // let inputState = document.querySelector('#inputState').value
-    // let inputZip = document.querySelector('#inputZip').value
-    
-
-
-    //     db.collection("clients").add({
-    //         Company : company,            
-    //         Contact_name: contact,
-    //         Location: location,
-    //         Project: project,
-    //         Phone_Contact: phoneContact,
-    //         Fax_Contact: faxContact,
-    //         ValveSize: valveSize,
-    //         brand: brand,
-    //         series: series
-    //     })
-    //     // if promise is succesfull
-    //     .then(function (docRef) {
-    //         console.log("Document written with ID: ", docRef.id);
-    //     })
-    //     // if promise is reject
-    //     .catch(function (error) {
-    //         console.error("Error adding document: ", error);
-    //     });
-    // console.log('New client create!')
+   db.collection("clients").add({
+      Company : company,            
+      Contact_name: contact,
+      Location: location,
+      Project: project,
+      Phone_Contact: phoneContact,
+      Fax_Contact: faxContact,
+      ValveSize: valveSize,
+      brand: brand,
+      series: series
+   })
+   // if promise is succesfull
+   .then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id)
+   })
+   // if promise is reject
+   .catch(function (error) {
+      console.error("Error adding document: ", error)
+   })
+    console.log('New client create!')
 }
 
-/***************  Starts  Global Variables   *****************/
+const submitForm = document.querySelector("#submitForm")
 
-// let valveSize = document.querySelector('#valveSize').value
-// let brand = document.querySelector('#brand').value
-// let series = document.querySelector('#series').value
-
-/*****************  Ends Global Variables   ****************/
-
-
-
-
-// // Valve info seccion part 2
-// const valveInfoSeccion = document.querySelector('.information-seccion')  
-
-//  // Valve info seccion part 3
-// const listTypeValve = document.querySelector('.list-type-valve') 
-
-// // Saving the form in a variable
-// const form = document.querySelector('.container')
-
-// const valve2way = document.querySelector('.valve-type-2')
-// const valve3way = document.querySelector('.valve-type-3')
-// const valveList = document.querySelector('#valve-selection')
-
-
-
-// const submitButton = document.querySelector('#btn')
-// const buttonNextSeccion = document.querySelector('.btn-info')
+submitForm.addEventListener("click", e => {
+  e.preventDefault();
+  swal({
+    title: `Submit button works. Posting data on firebase`,
+    icon: `success`
+  });
+  save()
+})
 
 
 
 
-/******************* Event Listeners ********************/
-// buttonNextSeccion.addEventListener('click', (e) =>{
-//    e.preventDefault()
-    
-//     let company = document.querySelector('.company-field').value
-//     let contact = document.querySelector('.contact-field').value
-//     let location = document.querySelector('.location-field').value
-//     let project = document.querySelector('.project-field').value
-//     let phoneContact = document.querySelector('.phone-field').value
-//     let faxContact = document.querySelector('.fax-field').value
-
-        
-    
-//     if (company ==='' && contact ==='' && location ==='' && project ===''&& phoneContact ==='' && faxContact ===''){
-//             swal({
-//                 title: `Validation seccion works`,
-//                 icon: `success`
-//             })
-
-//     } else {
-
-//         infoSeccion.style.display = 'none'
-//         valveInfoSeccion.style.display = 'block'
-//         listTypeValve.style.display = 'block'
-//         submitButton.style.display = 'block'
-
-//     }
-
-// })
-
-// submitButton.addEventListener('click', (e) => {
-//     e.preventDefault()
-//     swal({
-//         title: `Submit button works. Posting data on firebase`,
-//         icon: `success`
-//     })
-//     save()
-
-// })
-
-/************************************************/
-// valveList.addEventListener('change', ()=> {
-//     console.log('listener working')
-//         swal({
-//             title: `Valve list seccion works`,
-//             icon: `success`
-//         })
-
-//         if (valveList.value === '2-way') {
-//             valve3way.style.display = 'none'
-//             valve2way.style.display = 'block'
-
-//         } else if (valveList.value === '3-way'){
-//             valve3way.style.display = 'block'
-//             valve2way.style.display = 'none'
-
-//         } else if (valveList.value === 'choose') {
-//             valve2way.style.display = 'none'
-//             valve3way.style.display = 'none'
-
-//         }
-// })
 
 
-/************************************************/
 
-
-/*********************  Hidding Elements  ***************************/
-
-// submitButton.style.display = 'none'
-// valve2way.style.display= 'none' 
-// valve3way.style.display = 'none' 
-// //clientInfo.style.display = 'none'
-// valveInfoSeccion.style.display = 'none'
-// listTypeValve.style.display = 'none'
-mainForm.style.display = 'none'
-loginForm.style.display = 'none'
 
 
 
