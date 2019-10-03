@@ -1,15 +1,15 @@
 class Autenticacion {
   autEmailPass(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(res => {
-        if (res.user.emailVerified) {
-          $("#avatar").attr("src", './imagenes/usuarioauth.png')
+    .then(result => {
+        if (result.user.emailVerified) {
+          $("#avatar").attr('src', './imagenes/usuarioauth.png')
           swal({
-            title: `Bienvenido ${res.user.displayName}`,
+            title: `Bienvenido ${result.user.displayName}`,
             icon: `success`
           });
 
-          console.log('works sign in with email already created') 
+          console.log('works sign in with email already created'); 
 
           $("#logreg-forms").css("display", "none")
           $("#mainForm").css("display", "block")
@@ -20,11 +20,10 @@ class Autenticacion {
           $("#seccion5").css("display", "none")
           $("#seccion6").css("display", "none")
           $("#seccion7").css("display", "none")
-        } 
-        // else if (!res.user.emailVerified){
-        //   console.log('hey')
-        // } 
-        else {
+          $("#seccion8").css("display", "none");
+          $("#seccion9").css("display", "none");
+          $("#seccion10").css("display", "none");
+        } else {
           firebase.auth().signOut();
           swal({
             title: `Please verify your account trougth Email`,
@@ -32,63 +31,45 @@ class Autenticacion {
           });
           $("#mainForm").css("display", "none");
           $("#logreg-forms").css("display", "block");
-        }
+        };
     });
-  }
+  };
 
   crearCuentaEmailPass(email, password, nombres) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(res => {
-        res.user.updateProfile({
-          displayName: nombres
-        })
-
-        const configuration = {
-        //url: "https://vsi-project.firebaseapp.com" //internet
-        //url: "https://vsi-project.web.app"
-      //url: 'http://localhost:5501/public/index.html' //para desarrollo
-        //url: 'http://localhost:5001/public'
-        //url: 'http://localhost:3000/' 
-        }
-
-        res.user.sendEmailVerification() // pass the obj configuration as a parameter
+    .then(result => {
+      
+      result.user.updateProfile({
+        displayName: nombres
+      });
+        
+        result.user.sendEmailVerification()
         .catch(error => {
-          console.error(error.message)
-          swal({
-            title: `${error.message}`,
-            icon: `error`
-          })
+            console.error(error.message);
+              swal({
+                title: `Error: ${error.message}`,
+                  icon: `error`
+              });
         })
-        firebase.auth().signOut()
-
+      //firebase.auth.signOut()
         swal({
           title: `Bienvenido ${nombres}, debes realizar el proceso de verificación`,
           icon: `success`
         })
 
-        console.log("create email works");
-        $("#logreg-forms").css("display", "none")
-        // ****
-        //$("#mainForm").css("display", "block")
-
-        $("#seccion1").css("display", "block");
-        $("#seccion2").css("display", "none");
-        $("#seccion3").css("display", "none");
-        $("#seccion4").css("display", "none");
-        $("#seccion5").css("display", "none");
-        $("#seccion6").css("display", "none");
-        $("#seccion7").css("display", "none");
-
-
-      })
-      .catch(error => {
-        console.error(error.message);
+        $("#logreg-forms").css("display", "block");
+        // // ****
+        $("#mainForm").css("display", "none")
+        
+    })
+    .catch(error => {
+      console.error(error.message);
         swal({
-          title: `${error.message}`,
+          title: `Error: ${error.message}`,
           icon: `error`
         });
-      });
-  }
+    });
+  };
 
   authCuentaGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -114,7 +95,9 @@ class Autenticacion {
         $("#seccion5").css("display", "none");
         $("#seccion6").css("display", "none");
         $("#seccion7").css("display", "none");
-
+        $("#seccion8").css("display", "none");
+        $("#seccion9").css("display", "none");
+        $("#seccion10").css("display", "none");
 
       })
       .catch(error => {
@@ -154,7 +137,9 @@ class Autenticacion {
         $("#seccion5").css("display", "none");
         $("#seccion6").css("display", "none");
         $("#seccion7").css("display", "none");
-
+        $("#seccion8").css("display", "none");
+        $("#seccion9").css("display", "none");
+        $("#seccion10").css("display", "none");
       })
       .catch(error => {
         console.error(error);
@@ -165,8 +150,9 @@ class Autenticacion {
         $("#mainForm").css("display", "none");
         $("#logreg-forms").css("display", "block");
       });
-  }
-}
+  };
+
+}; //Acaba clase Autenticacion
 
  
 const toggle = () => {

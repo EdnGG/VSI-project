@@ -57,11 +57,11 @@ firebase.auth().onAuthStateChanged( user => {
          if (user.photoURL){
             $("#avatar").attr("src", user.photoURL);
          } else {
-            $("#avatar").attr("src", "imagenes/usuarioauth.png");
+            $("#avatar").attr("src", "./imagenes/usuarioauth.png");
          }
    } else {
       loginButton.innerHTML = "Sign In"
-      $("#avatar").attr("src", "imagenes/usuarioauth.png");
+      $("#avatar").attr("src", "./imagenes/usuarioauth.png");
 
    }
 })
@@ -101,6 +101,10 @@ const validationSeccion1 = () => {
    let fifthSeccion = document.querySelector('#seccion5')
    let sixthSeccion = document.querySelector('#seccion6')
    let seventhSeccion = document.querySelector('#seccion7')
+   let eigthSeccion = document.querySelector("#seccion8");
+   let ninethSeccion = document.querySelector("#seccion9");
+   let tenthSeccion = document.querySelector("#seccion10");
+
    let companyName = document.querySelector('#inputCompany').value
    let contactName = document.querySelector('#inputContact').value
    let inputPhone = document.querySelector('#inputPhone').value
@@ -120,6 +124,9 @@ const validationSeccion1 = () => {
          fifthSeccion.style.display = "none"
          sixthSeccion.style.display = "none"
          seventhSeccion.style.display = "none"
+         eigthSeccion.style.display = "none";
+         ninethSeccion.style.display = "none";
+         tenthSeccion.style.display = "none";
       }
 }
 /**********Ends Validation seccion function 1************/
@@ -146,6 +153,9 @@ const validationSeccion2 = () => {
    let fifthSeccion = document.querySelector("#seccion5")
    let sixthSeccion = document.querySelector("#seccion6")
    let seventhSeccion = document.querySelector('#seccion7')
+   let eigthSeccion = document.querySelector("#seccion8");
+   let ninethSeccion = document.querySelector("#seccion9");
+   let tenthSeccion = document.querySelector("#seccion10");
 
    let valveSize = document.querySelector("#inputValveSize").value;
    let brand = document.querySelector("#inputBrand").value;
@@ -177,6 +187,9 @@ const validationSeccion2 = () => {
          fifthSeccion.style.display = "none"
          sixthSeccion.style.display = "none"
          seventhSeccion.style.display = "block"
+         eigthSeccion.style.display = "none";
+         ninethSeccion.style.display = "none";
+         tenthSeccion.style.display = "none";
 
 
       } 
@@ -193,6 +206,9 @@ const validationSeccion2 = () => {
          fifthSeccion.style.display = "none"
          sixthSeccion.style.display = "none"
          seventhSeccion.style.display = "none"
+         eigthSeccion.style.display = "none";
+         ninethSeccion.style.display = "none";
+         tenthSeccion.style.display = "none";
 
       } else if (lp.selected || hp.selected) {
          swal({
@@ -205,6 +221,9 @@ const validationSeccion2 = () => {
          fifthSeccion.style.display = "block"
          sixthSeccion.style.display = "none"
          seventhSeccion.style.display = "none"
+         eigthSeccion.style.display = "none";
+         ninethSeccion.style.display = "none";
+         tenthSeccion.style.display = "none";
 
 
       } else {
@@ -224,43 +243,18 @@ first()
 
 /**********Ends Validation seccion function 2************/
 
-/********Ends Main form seccion*****************/
 
-// funcion named save, its gonna post our data on Firebase Firestore
-const save = () => {   
+/**********Starts Seccion 3************/
 
-   db.collection("clients").add({
-      Company : company,            
-      Contact_name: contact,
-      Location: location,
-      Project: project,
-      Phone_Contact: phoneContact,
-      Fax_Contact: faxContact,
-      ValveSize: valveSize,
-      brand: brand,
-      series: series
-   })
-   // if promise is succesfull
-   .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id)
-   })
-   // if promise is reject
-   .catch(function (error) {
-      console.error("Error adding document: ", error)
-   })
-    console.log('New client create!')
-}
+/********Starts Main form seccion3 *****************/
 
-const submitForm = document.querySelector("#submitForm")
 
-submitForm.addEventListener("click", e => {
-  e.preventDefault();
-  swal({
-    title: `Submit button works. Posting data on firebase`,
-    icon: `success`
-  });
-  save()
-})
+
+
+/*****Ends Seccion 3************/
+
+/********Ends Main form seccion3 *****************/
+
 
 
 
