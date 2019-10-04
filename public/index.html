@@ -142,8 +142,8 @@
 
 <!-- Starts Main Form-->
 <div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto">
-        <legend class="justify-content-center" >Valve Retrofit Form</legend>
+    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
+        <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
         
 <!-- Starts costumer information form -->
         <fieldset id="seccion1">
@@ -423,7 +423,7 @@
                     <label class="form-check-label text-center">
                     Arrangement 1 </label><br>
                     <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
-                    value="arrangement1" checked>
+                    value="Arrangement_1" checked>
                 </figure>
                 <br>
         
@@ -431,7 +431,7 @@
                     <img class="img- rounded img-responsive center-block" src="./imagenes/a2.png" alt="Test"><br><br>
                     <label class="form-check-label text-center">
                     Arrangement 2</label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="arrangement2">
+                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="Arrangement_2">
                 </figure>
                 <br>
 
@@ -439,7 +439,7 @@
                     <img class="img- rounded img-responsive center-block" src="./imagenes/a3.png" alt="Test"><br><br>
                     <label class="form-check-label text-center">
                     Arrangement 3 </label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="arrangement3">
+                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="Arrangement_3">
                 </figure>
 <br>
 
@@ -454,27 +454,27 @@
                         <label class="form-check-label text-center">
                         Arrangement 4
                         </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a4" value="arrangement4">
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a4" value="Arrangement_4">
                     </figure>
     
                     <figure class="col-lg-4">
                         <img class="img-responsive center-block" src="./imagenes/a2.png" alt="Test"><br><br>
                         <label class="form-check-label text-center">
                         Arrangement 5 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="arrangement5">
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="Arrangement_5">
                     </figure>
     
                     <figure class="col-lg-4">
                         <img class="img-responsive center-block" src="./imagenes/a3.png" alt="Test"><br><br>
                         <label class="form-check-label text-center">
                         Arrangement 6 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="arrangement6">
+                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="Arrangement_6">
                     </figure>
                 </div>
             </div><br>
 
             <div class="col text-center">
-                <button type="button" id="btnSeccion7" class="btn btn-primary ">Submit</button>
+                <button type="button" id="btnSeccion7" class="btn btn-primary ">Next</button>
             </div> 
 
         </fieldset>
@@ -484,25 +484,58 @@
 <!-- Start form Seccion 8  -->
 
 <fieldset class="text-center" id="seccion8">
-    <div class="row text-center">
-    <div class="form-row">
+    <!-- <div class="row text-center"> -->
+    <div class="form-row d-flex row justify-content-md-center">
         <legend class=" justify-content-center legend1">Bonnet Information</legend>
-        
-    <div class="card-deck container-fluid form-row">
+    </div><br>
+
+<div class=" d-flex row justify-content-md-center">
+    <div class="col-lg-auto  ">
+        <figure class="col-lg-4 justify-content-center">
+            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet2 (1).png" alt="Test"><br>
+            <br>
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft1"
+                value="Shaft_1" checked>
+        </figure>
+        <br>
+    </div>
+
+    <div class="col-lg-auto ">
+        <figure class="col-lg-4 justify-content-center">
+            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet2 (1).png" alt="Test">
+            <br><br>
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft2"
+                value="Shaft_2">
+        </figure>
+        <br>
+    </div>
+    <div class="col-lg-auto ">
+        <figure class="col-lg-4 justify-content-center">
+            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet3 (1).png" alt="Bonnet_3">
+            <br><br>
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft3"
+                value="Shaft_3">
+        </figure>
+        <br>
+    </div>
+    
+    
+</div>
+
+
+    <!-- <div class="card-deck container-fluid form-row">
         <div class="card card border-primary mb-3">
             <img class="card-img-top" src="./imagenes/bonnet1 (1).png" alt="Card image cap">
             <div class="card-body">
-                <!-- <h5 class="card-title">Bonnet Type 1</h5>
-                <p class="card-text"></p> -->
-                <input type="checkbox" value="bonnet1" id="bonnet1">
+                
+                <input type="radio" name="BonnetsRadioButtons" value="Bonnet_1" id="bonnet1">
             </div>
         </div>
         <div class="card card border-primary mb-3">
             <img class="card-img-top" src="./imagenes/bonnet2 (1).png" alt="Card image cap">
             <div class="card-body">
-                <!-- <h5 class="card-title">Bonnet Type 2</h5>
-                <p class="card-text"></p> -->
-                <input type="checkbox" value="bonnet2" id="bonnet2">
+                
+                <input type="radio" name="BonnetsRadioButtons" value="Bonnet_2" id="bonnet2">
 
             </div>
         </div>
@@ -510,13 +543,14 @@
             <img class="card-img-top" src="./imagenes/bonnet3 (1).png" alt="Card image cap">
             <div class="card-body">
                 
-                <input type="checkbox" value="bonnet3" id="bonnet3">
+                <input type="radio" name="BonnetsRadioButtons" value="Bonnet_3" id="bonnet3">
 
             </div>
         </div>
-    </div>
-    </div>
-</div>
+    </div> -->
+
+    <!-- </div> -->
+<!-- </div> -->
 <br>
 
 <div class="row form-group justify-content-md-center">
@@ -544,15 +578,15 @@
 
 <div class="row text-center">
     <legend class=" justify-content-center legend1">Bolt Holes</legend>
-</div>
+</div><br>
 <div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilled" value="boltDrilled">
+    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilled" value="Bolt_Drilled">
     <label class="form-check-label text-center">
         Drilled </label>
 </div>
 <div class="form-check-inline text-center">
     <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilledAndTapped"
-        value="boltDrilledAndTapped">
+        value="Bolt_Drilled_&_Tapped">
     <label class="form-check-label text-center">
         Drilled & Tapped
     </label>
@@ -568,7 +602,8 @@
 <div class="col text-center form-group">
     <legend class=" justify-content-center legend1">Other</legend>
     <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-    <input type="text" class="form-control" id="otherBonnet" name="otherBonnet">
+    <textarea class="form-control" id="otherBonnet" name="otherBonnet" rows="3">
+    </textarea>
 </div>
 
 <div class="text-center form-group">
@@ -583,13 +618,13 @@
 <fieldset class="text-center" id="seccion9">
     <div class="form-row">
         <legend class=" justify-content-center legend1">Shaft Information</legend>
-    </div>
+    </div><br>
     <div class="row justify-content-md-center">   
         <div class="col-lg-auto  ">
         <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive  " src="./imagenes/shafts/shatt1.png" alt="Test"><br>
+            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatt1.png" alt="Test"><br>
             <br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="shaft1" id="shaft1" value="shaft1"
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft1" value="Shaft_1"
                 checked>
         </figure>
         <br>
@@ -597,34 +632,34 @@
 
         <div class="col-lg-auto ">        
         <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive  " src="./imagenes/shafts/shaft2.png" alt="Test">
+            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft2.png" alt="Test">
             <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="shaft2" id="shaft2" value="shaft2">
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft2" value="Shaft_2">
         </figure>
         <br>
         </div>
         <div class="col-lg-auto ">
         <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive  " src="./imagenes/shafts/shaft3.png" alt="Test">
+            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft3.png" alt="Test">
             <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="shaft3" id="shaft3" value="shaft3">
+            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft3" value="Shaft_3">
         </figure>
         <br>
         </div>
         <div class="col-lg-auto ">
             <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive  " src="./imagenes/shafts/shatf4.png" alt="Test">
+                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf4.png" alt="Test">
                 <br><br>
-                <input class="form-check-input text-center form-check-inline " type="radio" name="shaft4" id="shaft4" value="shaft4">
+                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft4" value="Shaft_4">
             </figure>
             <br>
         </div>
         <div class="col-lg-auto ">
             <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive  " src="./imagenes/shafts/shatf5.png" alt="Test">
+                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf5.png" alt="Test">
                 <br><br>
             <div class="form-check-inline justify-content-center">    
-                <input class="form-check-input text-center form-check-inline " type="radio" name="shaft5" id="shaft5" value="shaft5">
+                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft5" value="Shaft_5">
             </div>
             </figure>
             <br>
@@ -677,110 +712,114 @@
 <fieldset class="text-center" id="seccion10">
     <div class="form-row">
         <legend class=" justify-content-center legend1">Actuator Requirements</legend>
+    </div><br>
+    <fieldset>
+    <div class="custom-control custom-radio custom-control-inline form-check-inline">
+        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric" class="custom-control-input">
+        <label class="custom-control-label" for="electricRadioButtonSecc10">Electric</label>
     </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="electricRadioButtonSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Electric</label>
+    <div class="custom-control custom-radio custom-control-inline form-check-inline">
+        <input type="radio" id="pneumaticRadioButtonSecc10" name="seccion10" value="Pneumatic" class="custom-control-input">
+        <label class="custom-control-label" for="pneumaticRadioButtonSecc10">Pneumatic</label>
     </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="pneumaticRadioButtonSecc10" name="seccion10" value="pneumaticRadioButtonSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">Pneumatic</label>
-    </div>
+    </fieldset>
     <hr>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="positionRadioButtonSecc10" name="seccion10" value="positionRadioButtonSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">2 Positions</label>
+    <div class="custom-control custom-radio custom-control-inline form-check-inline">
+        <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions" class="custom-control-input">
+        <label class="custom-control-label" for="positionRadioButtonSecc10">2 Positions</label>
     </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="modulatingRadioButtonSecc10" name="seccion10" value="modulatingRadioButtonSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">Modulating</label>
+    <div class="custom-control custom-radio custom-control-inline form-check-inline">
+        <input type="radio" id="modulatingRadioButtonSecc10" name="seccion10.1" value="Modulating" class="custom-control-input">
+        <label class="custom-control-label" for="modulatingRadioButtonSecc10">Modulating</label>
     </div>
-    <hr>
+    <br><hr>
     
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="springReturnSecc10" name="seccion10" value="springReturnSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Spring Return (Failsafe)</label>
+        <input type="radio" id="springReturnSecc10" name="seccion10.2" value="Spring_Return(Failsafe)" class="custom-control-input">
+        <label class="custom-control-label" for="springReturnSecc10">Spring Return (Failsafe)</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="ncSecc10" name="seccion10" value="ncSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">N.C.</label>
+        <input type="radio" id="ncSecc10" name="seccion10.2" value="N.C." class="custom-control-input">
+        <label class="custom-control-label" for="ncSecc10">N.C.</label>
     </div>
     <br><br>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSpringReturnSecc10" name="seccion10" value="noSpringReturnSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">No Spring Return</label>
+        <input type="radio" id="noSpringReturnSecc10" name="seccion10.2" value="No_Spring_Return" class="custom-control-input">
+        <label class="custom-control-label" for="noSpringReturnSecc10">No Spring Return</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSecc10" name="seccion10" value="noSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">N.O</label>
+        <input type="radio" id="noSecc10" name="seccion10.2" value="N.O." class="custom-control-input">
+        <label class="custom-control-label" for="noSecc10">N.O</label>
     </div>
     <hr>
     <div class="form-row">
         <legend class=" justify-content-center legend1">Power (Electric or Pneumatic)</legend>
+    </div><br>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC" class="custom-control-input">
+        <label class="custom-control-label" for="120vacSecc10">120 VAC</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="120vacSecc10" name="seccion10" value="120vacSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">120 VAC</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="20PsigSecc10" name="seccion10" value="20PsigSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">20 psig</label>
+        <input type="radio" id="20PsigSecc10" name="seccion10.3" value="20_Psig" class="custom-control-input">
+        <label class="custom-control-label" for="20PsigSecc10">20 psig</label>
     </div><br><br>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="24vacSecc10" name="seccion10" value="24vacSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">24 VAC</label>
+        <input type="radio" id="24vacSecc10" name="seccion10.3" value="24_V_AC" class="custom-control-input">
+        <label class="custom-control-label" for="24vacSecc10">24 VAC</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="80PsigSecc10" name="seccion10" value="80PsigSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">80 psig</label>
+        <input type="radio" id="80PsigSecc10" name="seccion10.3" value="80_Psig" class="custom-control-input">
+        <label class="custom-control-label" for="80PsigSecc10">80 psig</label>
     </div><br><br>
     
     <div class="col text-center form-group">
         <legend class=" justify-content-center legend1">Other</legend>
         <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-        <input type="text" class="form-control" id="otherSecc10.1" name="otherBonnet">
+        <textarea class="form-control" id="otherInput10" name="otherBonnet" rows="3">
+        </textarea>
     </div>
    
         <div class="form-row">
             <legend class=" justify-content-center legend1">Control Signal</legend>
+        </div><br>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="4-20mASecc10" name="seccion10.4" value="4-20mA" class="custom-control-input">
+            <label class="custom-control-label" for="4-20mASecc10">4-20 mA</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="4-20mA" name="seccion10" value="4-20mA" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">4-20 mA</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="3-15psig" name="seccion10" value="3-15psig" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">3-15 psig</label>
+            <input type="radio" id="3-15psig" name="seccion10.4" value="3-15_Psig" class="custom-control-input">
+            <label class="custom-control-label" for="3-15psig">3-15 psig</label>
         </div><br><br>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="2-10vdcSecc10" name="seccion10" value="2-10vdcSecc10" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline1">2-10 VDC</label>
+            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC" class="custom-control-input">
+            <label class="custom-control-label" for="2-10vdcSecc10">2-10 VDC</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="floatingSecc10" name="seccion10" value="floatingSecc10" class="custom-control-input">
-            <label class="custom-control-label" for="customRadioInline2">Floating</label>
+            <input type="radio" id="floatingSecc10" name="seccion10.4" value="Floating" class="custom-control-input">
+            <label class="custom-control-label" for="floatingSecc10">Floating</label>
         </div><br><br>
         
         <div class="col text-center form-group">
             <legend class=" justify-content-center legend1">Other</legend>
             <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-            <input type="text" class="form-control" id="otherSecc10.2" name="otherSecc10.2">
+            <textarea class="form-control" id="otherControlInput10" name="otherSecc10.2" raws="3">
+            </textarea>
         </div>
 
     <div class="form-row">
         <legend class=" justify-content-center legend1">NEMA 4 Enclosure Required</legend>
+    </div><br>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes" class="custom-control-input">
+        <label class="custom-control-label" for="yesSecc10">Yes</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="yesSecc10" name="seccion10" value="yesSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Yes</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="notSecc10" name="seccion10" value="notSecc10" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">No</label>
+        <input type="radio" id="notSecc10" name="seccion10.5" value="No" class="custom-control-input">
+        <label class="custom-control-label" for="notSecc10">No</label>
     </div><br><br>
 
     <div class="text-center form-group">
-        <button type="button" id="btnSeccion10" class="btn btn-primary">Next</button>
+        <button type="button" id="btnSeccion10" class="btn btn-primary" onclick="threeWay()">Submit</button>
     </div>
 </fieldset>
 

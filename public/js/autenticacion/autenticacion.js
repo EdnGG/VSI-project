@@ -3,7 +3,7 @@ class Autenticacion {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(result => {
         if (result.user.emailVerified) {
-          $("#avatar").attr('src', './imagenes/usuarioauth.png')
+          //$("#avatar").attr('src', './imagenes/usuarioauth.png')
           swal({
             title: `Bienvenido ${result.user.displayName}`,
             icon: `success`

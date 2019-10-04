@@ -82,7 +82,7 @@ const btnSeccion1 = document.querySelector("#btnSeccion1");
 
 /******** Starts Hidding Elements Seccion **********/
 
-mainForm.style.display = 'none'  //block
+mainForm.style.display = 'none'  //Poner "block" para desarrollo
 loginForm.style.display = 'none'  //none
 
 /******** Ends Hidding Elements Seccion **********/
@@ -246,9 +246,39 @@ first()
 
 /**********Starts Seccion 3************/
 
+const btnSeccion3 = document.querySelector('#btnSeccion7');
+btnSeccion3.addEventListener('click', ()=> {
+
+   validationSeccion3()
+});
 /********Starts Main form seccion3 *****************/
 
+const validationSeccion3 = ()=> {
+   let firstSeccion = document.querySelector("#seccion1");
+   let secondSeccion = document.querySelector("#seccion2");
+   let thirdSeccion = document.querySelector("#seccion3");
+   let fourthSeccion = document.querySelector("#seccion4");
+   let fifthSeccion = document.querySelector("#seccion5");
+   let sixthSeccion = document.querySelector("#seccion6");
+   let seventhSeccion = document.querySelector("#seccion7");
+   let eigthSeccion = document.querySelector("#seccion8");
+   let ninethSeccion = document.querySelector("#seccion9");
+   let tenthSeccion = document.querySelector("#seccion10");
 
+   swal( {icon: `success`} );
+
+   firstSeccion.style.display = "none";
+   secondSeccion.style.display = "none";
+   thirdSeccion.style.display = "none";
+   fourthSeccion.style.display = "none";
+   fifthSeccion.style.display = "none";
+   sixthSeccion.style.display = "none";
+   seventhSeccion.style.display = "none";
+   eigthSeccion.style.display = "block";
+   ninethSeccion.style.display = "none";
+   tenthSeccion.style.display = "none";
+
+}
 
 
 /*****Ends Seccion 3************/
@@ -256,12 +286,108 @@ first()
 /********Ends Main form seccion3 *****************/
 
 
+/**********Starts Seccion 4************/
+
+const btnSeccion4 = document.querySelector('#btnSeccion8');
+btnSeccion4.addEventListener('click', ()=> {
+
+   validationSeccion4()
+});
+/********Starts Main form seccion4 *****************/
+
+const validationSeccion4 = () => {
+  let firstSeccion = document.querySelector("#seccion1");
+  let secondSeccion = document.querySelector("#seccion2");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let fourthSeccion = document.querySelector("#seccion4");
+  let fifthSeccion = document.querySelector("#seccion5");
+  let sixthSeccion = document.querySelector("#seccion6");
+  let seventhSeccion = document.querySelector("#seccion7");
+  let eigthSeccion = document.querySelector("#seccion8");
+  let ninethSeccion = document.querySelector("#seccion9");
+  let tenthSeccion = document.querySelector("#seccion10");
+
+  swal({ icon: `success` });
+
+  firstSeccion.style.display = "none";
+  secondSeccion.style.display = "none";
+  thirdSeccion.style.display = "none";
+  fourthSeccion.style.display = "none";
+  fifthSeccion.style.display = "none";
+  sixthSeccion.style.display = "none";
+  seventhSeccion.style.display = "none";
+  eigthSeccion.style.display = "none";
+  ninethSeccion.style.display = "block";
+  tenthSeccion.style.display = "none";
+};
+
+/**********Starts Seccion 5************/
+
+const btnSeccion5 = document.querySelector('#btnSeccion9');
+btnSeccion5.addEventListener('click', ()=> {
+
+   validationSeccion5()
+});
+/********Starts Main form seccion4 *****************/
+
+const validationSeccion5 = () => {
+  let firstSeccion = document.querySelector("#seccion1");
+  let secondSeccion = document.querySelector("#seccion2");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let fourthSeccion = document.querySelector("#seccion4");
+  let fifthSeccion = document.querySelector("#seccion5");
+  let sixthSeccion = document.querySelector("#seccion6");
+  let seventhSeccion = document.querySelector("#seccion7");
+  let eigthSeccion = document.querySelector("#seccion8");
+  let ninethSeccion = document.querySelector("#seccion9");
+  let tenthSeccion = document.querySelector("#seccion10");
+
+  swal({ icon: `success` });
+
+  firstSeccion.style.display = "none";
+  secondSeccion.style.display = "none";
+  thirdSeccion.style.display = "none";
+  fourthSeccion.style.display = "none";
+  fifthSeccion.style.display = "none";
+  sixthSeccion.style.display = "none";
+  seventhSeccion.style.display = "none";
+  eigthSeccion.style.display = "none";
+  ninethSeccion.style.display = "none";
+  tenthSeccion.style.display = "block";
+};
 
 
+/**********Starts Seccion 5************/
 
+// const btnSeccion6 = document.querySelector('#btnSeccion10');
+// btnSeccion6.addEventListener('click', ()=> {
 
+//    validationSeccion6()
+// });
+/********Starts Main form seccion4 *****************/
 
+const validationSeccion6 = () => {
+  let firstSeccion = document.querySelector("#seccion1");
+  let secondSeccion = document.querySelector("#seccion2");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let fourthSeccion = document.querySelector("#seccion4");
+  let fifthSeccion = document.querySelector("#seccion5");
+  let sixthSeccion = document.querySelector("#seccion6");
+  let seventhSeccion = document.querySelector("#seccion7");
+  let eigthSeccion = document.querySelector("#seccion8");
+  let ninethSeccion = document.querySelector("#seccion9");
+  let tenthSeccion = document.querySelector("#seccion10");
 
+  swal({ icon: `success` });
 
-
-
+  firstSeccion.style.display = "none";
+  secondSeccion.style.display = "none";
+  thirdSeccion.style.display = "none";
+  fourthSeccion.style.display = "none";
+  fifthSeccion.style.display = "none";
+  sixthSeccion.style.display = "none";
+  seventhSeccion.style.display = "none";
+  eigthSeccion.style.display = "none";
+  ninethSeccion.style.display = "none";
+  tenthSeccion.style.display = "block";
+};
