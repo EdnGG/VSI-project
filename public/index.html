@@ -712,7 +712,7 @@
     </div><br>
     <fieldset>
     <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric" class="custom-control-input">
+        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric" class="custom-control-input" checked>
         <label class="custom-control-label" for="electricRadioButtonSecc10">Electric</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline form-check-inline">
@@ -722,7 +722,7 @@
     </fieldset>
     <hr>
     <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions" class="custom-control-input">
+        <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions" class="custom-control-input" checked>
         <label class="custom-control-label" for="positionRadioButtonSecc10">2 Positions</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline form-check-inline">
@@ -732,7 +732,7 @@
     <br><hr>
     
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="springReturnSecc10" name="seccion10.2" value="Spring_Return(Failsafe)" class="custom-control-input">
+        <input type="radio" id="springReturnSecc10" name="seccion10.2" value="Spring_Return(Failsafe)" class="custom-control-input" checked>
         <label class="custom-control-label" for="springReturnSecc10">Spring Return (Failsafe)</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
@@ -753,7 +753,7 @@
         <legend class=" justify-content-center legend1">Power (Electric or Pneumatic)</legend>
     </div><br>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC" class="custom-control-input">
+        <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC" class="custom-control-input" checked>
         <label class="custom-control-label" for="120vacSecc10">120 VAC</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
@@ -788,7 +788,7 @@
             <label class="custom-control-label" for="3-15psig">3-15 psig</label>
         </div><br><br>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC" class="custom-control-input">
+            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC" class="custom-control-input" checked>
             <label class="custom-control-label" for="2-10vdcSecc10">2-10 VDC</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
@@ -807,7 +807,7 @@
         <legend class=" justify-content-center legend1">NEMA 4 Enclosure Required</legend>
     </div><br>
     <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes" class="custom-control-input">
+        <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes" class="custom-control-input" checked>
         <label class="custom-control-label" for="yesSecc10">Yes</label>
     </div>
     <div class="custom-control custom-radio custom-control-inline">
@@ -832,17 +832,26 @@
     
 
 <!-- Footer -->
-    <!-- <footer id="footer" class="pb-2 pt-2">
-        <div class="container col md-6 offset-md6">
-            <h1 class=" text-center text-md-right">By EdnGG</h1>
-            <a class="logo-github text-center text-md-right" target="_blank" href="https://github.com/EdnGG">
+
+    <footer id="footer" class="pb-2 pt-2 container-fluid bg-dark">
+        <div class="mb-2 mt-2 pb-2 pt-2 ml-auto mr-auto d-flex container justify-content-center">
+            <h1 class=" text-center justify-content-md-center">By EdnGG</h1>
+            <a class="logo-github" target="_blank" href="https://github.com/EdnGG">
             
-                <i class="fab fa-github-alt text-center text-md-right"></i>
+                <i class="fab fa-github-alt "></i>
+            </a>
+           
+        </div>
+        <div class="mb-2 mt-2 pb-2 pt-2 ml-auto mr-auto d-flex container justify-content-center">
+            <a class="logo-github" target="_blank" href="./forms.html">
+
+                <button class="btn-success">Results</button>
             </a>
         </div>
         
-    </footer> -->
-<!-- /Footer -->
+    </footer>
+
+    <!-- /Footer -->
 
     
     
@@ -871,6 +880,7 @@ crossorigin="anonymous"></script>
 <script src="./js/autenticacion/authControl.js"></script>
 <script src="./js/autenticacion/autenticacion.js"></script>
 <script src="./js/posts.js"></script>
+<script src="forms.html"></script>
 
 <!-- Sweet Alert library -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
