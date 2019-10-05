@@ -321,7 +321,8 @@ function threeWay () {
       Shaft_Dimensions_H : optionShaftH,
       Actuator_Requirements_Secc_1: actReqSecc1,
       Actuator_Requirements_Secc_2: actReqSecc2,//
-      Actuator_Requirements_Secc_3: actReqSecc3,        Actuator_Requirements_Secc_4: actReqSecc4,
+      Actuator_Requirements_Secc_3: actReqSecc3,        
+      Actuator_Requirements_Secc_4: actReqSecc4,
       Pneumatic_Or_Electric: otherPneumaticOrElec,
       Control_Signal: controlSignal,
       Other: otherControlSignal,
