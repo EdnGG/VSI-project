@@ -8,3 +8,8 @@
         messagingSenderId: "345953099682"
     };
     
+/*********** Inicializando Firebase**************************/
+firebase.initializeApp(config);
+
+/******** Inicializando Firebase-Firestore ***************/
+let db = firebase.firestore();

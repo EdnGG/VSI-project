@@ -35,7 +35,7 @@ function postElectric () {
     loginForm.style.display = "none";
     carousel.style.display = "block";
 
-    db.collection("clients")
+    db.collection("Electric_Actuator")// "clients"
       .add({
         Company_Name: company,
         Contact_Name: contactName,

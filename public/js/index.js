@@ -1,9 +1,9 @@
 console.log('hello')
-/*********** Inicializando Firebase**************************/
-firebase.initializeApp(config);
+// /*********** Inicializando Firebase**************************/
+// firebase.initializeApp(config);
 
-/******** Inicializando Firebase-Firestore ***************/
-let db = firebase.firestore();
+// /******** Inicializando Firebase-Firestore ***************/
+// let db = firebase.firestore();
 
 /***************  Starts  Global Variables   *****************/
 
