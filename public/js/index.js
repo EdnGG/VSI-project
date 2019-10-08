@@ -210,7 +210,7 @@ const validationSeccion2 = () => {
          ninethSeccion.style.display = "none";
          tenthSeccion.style.display = "none";
 
-      } else if (lp.selected || hp.selected) {
+      } else if (hp.selected) {
          swal({
             icon: `success`
          });
@@ -226,7 +226,25 @@ const validationSeccion2 = () => {
          tenthSeccion.style.display = "none";
 
 
-      } else {
+      } else if (lp.selected) {
+         swal({
+            icon: `success`
+         });
+         firstSeccion.style.display = "none";
+         secondSeccion.style.display = "none"
+         thirdSeccion.style.display = "none"
+         fourthSeccion.style.display = "none"
+         fifthSeccion.style.display = "none"
+         sixthSeccion.style.display = "block"
+         seventhSeccion.style.display = "none"
+         eigthSeccion.style.display = "none";
+         ninethSeccion.style.display = "none";
+         tenthSeccion.style.display = "none";
+
+
+      } 
+      
+      else {
          swal({
             title: `Please select any checkbox`,
             icon: `error`

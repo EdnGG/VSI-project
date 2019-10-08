@@ -106,38 +106,38 @@ function postHp () {
   loginForm.style.display = "none";
   carousel.style.display = "block";
 
-    db.collection("clients")
+    db.collection("HP_Pneumatic")
       .add({
-      Company_Name: company,
-      Contact_Name: contactName,
-      Location: location,
-      Phone_Contact: phoneContact,
-      City: city,
-      State: state,
-      Zip: zip,
-      Valve_Size: valveSizeSecc2,
-      Brand: brandSecc2,
-      Series: seriesSecc2,
-      Brand_Actuator_HP: brandActuatorSecc5,
-      Model_Actuator_HP: modelActuatorSecc5,
-      Valve_Type: typeValveSecc3,
-      Actuator_Type: dropdown,
-      Actuator_Mode:radioButtonsHP,             
-    })
-// if promise is succesfull
-    .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      company.innerHTML = "";
-      contactName.innerHTML = "";
-      Location.innerHTML = "";
-      phoneContact.innerHTML = "";
-      city.innerHTML = "";
-      state.innerHTML = "";
-    })
-// if promise is reject
-    .catch(function(error) {
-      console.error("Error adding document: ", error);
-    });
+        Company_Name: company,
+        Contact_Name: contactName,
+        Location: location,
+        Phone_Contact: phoneContact,
+        City: city,
+        State: state,
+        Zip: zip,
+        Valve_Size: valveSizeSecc2,
+        Brand: brandSecc2,
+        Series: seriesSecc2,
+        Brand_Actuator_HP: brandActuatorSecc5,
+        Model_Actuator_HP: modelActuatorSecc5,
+        Valve_Type: typeValveSecc3,
+        Actuator_Type: dropdown,
+        Actuator_Mode: radioButtonsHP
+      })
+      // if promise is succesfull
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        company.innerHTML = "";
+        contactName.innerHTML = "";
+        Location.innerHTML = "";
+        phoneContact.innerHTML = "";
+        city.innerHTML = "";
+        state.innerHTML = "";
+      })
+      // if promise is reject
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
            
 };;
 
@@ -174,60 +174,57 @@ function postLp () {
     loginForm.style.display = "none";
     carousel.style.display = "block";
 
-    db.collection("clients")
-    .add({
-      Company_Name: company,
-      Contact_Name: contactName,
-      Location: location,
-      Phone_Contact: phoneContact,
-      City: city,
-      State: state,
-      Zip: zip,
-      Valve_Size: valveSizeSecc2,
-      Brand: brandSecc2,
-      Series: seriesSecc2,
-      Brand_Actuator_LP: brandActuatorSecc6,
-      Model_Actuator_LP: modelActuatorSecc6,
-      Valve_Type: typeValveSecc3,
-      Actuator_Type: dropdown,
-      Actuator_Mode:radioButtonsLP,
-               
-    })
+    db.collection("LowP_Pneumatic")
+      .add({
+        Company_Name: company,
+        Contact_Name: contactName,
+        Location: location,
+        Phone_Contact: phoneContact,
+        City: city,
+        State: state,
+        Zip: zip,
+        Valve_Size: valveSizeSecc2,
+        Brand: brandSecc2,
+        Series: seriesSecc2,
+        Brand_Actuator_LP: brandActuatorSecc6,
+        Model_Actuator_LP: modelActuatorSecc6,
+        Valve_Type: typeValveSecc3,
+        Actuator_Type: dropdown,
+        Actuator_Mode: radioButtonsLP
+      })
 
-    // company.innerHTML = "";
-    // contactName.innerHTML = "";
-    // Location.innerHTML = "";
-    // phoneContact.innerHTML = "";
-    // city.innerHTML = "";
-    // state.innerHTML = "";
-// if promise is succesfull
-    .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      // document.getElementById('inputCompany').value ='';     document.getElementById("inputContact").value = '';
-      // document.getElementById("inputLocation").value = '';
-      // document.getElementById("inputPhone").value = '';
-      // document.getElementById("inputCity").value = '';
-      // document.getElementById("inputState").value = '';
-      // document.getElementById("inputZip").value = '';
-      // document.getElementById("inputValveSize").value = '';
-      // document.getElementById("inputBrand").value = '';
-      // document.getElementById("inputSeries").value = '';
-      // document.getElementById("damageActuatorSecc6").value = '';
-      // document.getElementById("damageModelNumberSecc6").value = '';
+      // company.innerHTML = "";
+      // contactName.innerHTML = "";
+      // Location.innerHTML = "";
+      // phoneContact.innerHTML = "";
+      // city.innerHTML = "";
+      // state.innerHTML = "";
+      // if promise is succesfull
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        // document.getElementById('inputCompany').value ='';     document.getElementById("inputContact").value = '';
+        // document.getElementById("inputLocation").value = '';
+        // document.getElementById("inputPhone").value = '';
+        // document.getElementById("inputCity").value = '';
+        // document.getElementById("inputState").value = '';
+        // document.getElementById("inputZip").value = '';
+        // document.getElementById("inputValveSize").value = '';
+        // document.getElementById("inputBrand").value = '';
+        // document.getElementById("inputSeries").value = '';
+        // document.getElementById("damageActuatorSecc6").value = '';
+        // document.getElementById("damageModelNumberSecc6").value = '';
 
-    company.innerHTML = "";
-    contactName.innerHTML = "";
-    Location.innerHTML = "";
-    phoneContact.innerHTML = "";
-    city.innerHTML = "";
-    state.innerHTML = "";
-    
-
-    })
-// if promise is reject
-    .catch(function(error) {
-      console.error("Error adding document: ", error);
-    });
+        company.innerHTML = "";
+        contactName.innerHTML = "";
+        Location.innerHTML = "";
+        phoneContact.innerHTML = "";
+        city.innerHTML = "";
+        state.innerHTML = "";
+      })
+      // if promise is reject
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
            
 };;
 
@@ -288,82 +285,77 @@ function threeWay () {
     loginForm.style.display = "none";
     carousel.style.display = "block";
 
-    db.collection("clients")
-    .add({
-      Company_Name: company,
-      Contact_Name: contactName,
-      Location: location,
-      Phone_Contact: phoneContact,
-      City: city,
-      State: state,
-      Zip: zip,
-      Valve_Size: valveSizeSecc2,
-      Brand: brandSecc2,
-      Series: seriesSecc2,
-      //Brand_Actuator_LP: brandActuatorSecc6,
-      //Model_Actuator_LP: modelActuatorSecc6,
-      Valve_Type: typeValveSecc3,
-      //Actuator_Type: dropdown,
-      //Actuator_Mode: radioButtonsLP,
-      Arrangement_Type: radioButtonsArrangements,
-      Bonnet_Type: radioButtonsBonnets,
-      Dimension_Bonnet_A :dimensionBonnetA,
-      Dimension_Bonnet_B :dimensionBonnetB,
-      Dimension_Bonnet_C :dimensionBonnetC,
-      TypeOf_Bolt_Holes: boltHoles,
-      Hole_Size: holeSize,
-      Other: other,
-      Shaft_Type: shaftType,
-      Shaft_Dimensions_D : optionShaftD,
-      Shaft_Dimensions_E : optionShaftE,
-      Shaft_Dimensions_F : optionShaftF,
-      Shaft_Dimensions_G : optionShaftG,
-      Shaft_Dimensions_H : optionShaftH,
-      Actuator_Requirements_Secc_1: actReqSecc1,
-      Actuator_Requirements_Secc_2: actReqSecc2,//
-      Actuator_Requirements_Secc_3: actReqSecc3,        
-      Actuator_Requirements_Secc_4: actReqSecc4,
-      Pneumatic_Or_Electric: otherPneumaticOrElec,
-      Control_Signal: controlSignal,
-      Other: otherControlSignal,
-      Enclosure_Required: enclosureRequired
+    db.collection("3_Way")
+      .add({
+        Company_Name: company,
+        Contact_Name: contactName,
+        Location: location,
+        Phone_Contact: phoneContact,
+        City: city,
+        State: state,
+        Zip: zip,
+        Valve_Size: valveSizeSecc2,
+        Brand: brandSecc2,
+        Series: seriesSecc2,
+        //Brand_Actuator_LP: brandActuatorSecc6,
+        //Model_Actuator_LP: modelActuatorSecc6,
+        Valve_Type: typeValveSecc3,
+        //Actuator_Type: dropdown,
+        //Actuator_Mode: radioButtonsLP,
+        Arrangement_Type: radioButtonsArrangements,
+        Bonnet_Type: radioButtonsBonnets,
+        Dimension_Bonnet_A: dimensionBonnetA,
+        Dimension_Bonnet_B: dimensionBonnetB,
+        Dimension_Bonnet_C: dimensionBonnetC,
+        TypeOf_Bolt_Holes: boltHoles,
+        Hole_Size: holeSize,
+        Other: other,
+        Shaft_Type: shaftType,
+        Shaft_Dimensions_D: optionShaftD,
+        Shaft_Dimensions_E: optionShaftE,
+        Shaft_Dimensions_F: optionShaftF,
+        Shaft_Dimensions_G: optionShaftG,
+        Shaft_Dimensions_H: optionShaftH,
+        Actuator_Requirements_Secc_1: actReqSecc1,
+        Actuator_Requirements_Secc_2: actReqSecc2, //
+        Actuator_Requirements_Secc_3: actReqSecc3,
+        Actuator_Requirements_Secc_4: actReqSecc4,
+        Pneumatic_Or_Electric: otherPneumaticOrElec,
+        Control_Signal: controlSignal,
+        Other: otherControlSignal,
+        Enclosure_Required: enclosureRequired
+      })
 
-               
-    })
+      // if promise is succesfull
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+        // document.getElementById('inputCompany').value ='';     document.getElementById("inputContact").value = '';
+        // document.getElementById("inputLocation").value = '';
+        // document.getElementById("inputPhone").value = '';
+        // document.getElementById("inputCity").value = '';
+        // document.getElementById("inputState").value = '';
+        // document.getElementById("inputZip").value = '';
+        // document.getElementById("inputValveSize").value = '';
+        // document.getElementById("inputBrand").value = '';
+        // document.getElementById("inputSeries").value = '';
+        // document.getElementById("damageActuatorSecc6").value = '';
+        // document.getElementById("damageModelNumberSecc6").value = '';
 
-   
-// if promise is succesfull
-    .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      // document.getElementById('inputCompany').value ='';     document.getElementById("inputContact").value = '';
-      // document.getElementById("inputLocation").value = '';
-      // document.getElementById("inputPhone").value = '';
-      // document.getElementById("inputCity").value = '';
-      // document.getElementById("inputState").value = '';
-      // document.getElementById("inputZip").value = '';
-      // document.getElementById("inputValveSize").value = '';
-      // document.getElementById("inputBrand").value = '';
-      // document.getElementById("inputSeries").value = '';
-      // document.getElementById("damageActuatorSecc6").value = '';
-      // document.getElementById("damageModelNumberSecc6").value = '';
+        swal({
+          title: `Thanks!! We'll contact you soon`,
+          icon: `success`
+        });
 
-    swal({
-      title: `Thanks!! We'll contact you soon`,
-      icon: `success`
-    });
-    
-    company.innerHTML = "";
-    contactName.innerHTML = "";
-    Location.innerHTML = "";
-    phoneContact.innerHTML = "";
-    city.innerHTML = "";
-    state.innerHTML = "";
-    
-
-    })
-// if promise is reject
-    .catch(function(error) {
-      console.error("Error adding document: ", error.message);
-    });
+        company.innerHTML = "";
+        contactName.innerHTML = "";
+        Location.innerHTML = "";
+        phoneContact.innerHTML = "";
+        city.innerHTML = "";
+        state.innerHTML = "";
+      })
+      // if promise is reject
+      .catch(function(error) {
+        console.error("Error adding document: ", error.message);
+      });
            
 };;
