@@ -1,3 +1,12 @@
+.responsetable{
+    /* border-top-left-radius: 20px; */
+    border-radius: 20px;
+
+}
+
+tr:hover {background-color: #b46262;}
+
+
 @media screen and (min-width: 768px) {
   .headerppal {
     text-align: left;
