@@ -14,15 +14,41 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="./css/index2.css">
 
-    </head>
-    <body>
+</head>
+<body>
 
+<header class="headerppal  col-12 pt-2 pb-6">
+    <div>
+        <figure class="header-logotipo text-center text-md-left">
+            <img src="./imagenes/vsi.jpg" alt="Blog Logotipo">
+        </figure>
+        <!-- <h2 class="titulo titulo1 text-center ">Valve Solutions Inc</h2> -->
+        <!-- <a id="btnInicioSesion" class="btnPpal btn btn-default btn-rounded" data-toggle="modal"
+            data-target="#elegantModalForm">Sign In</a>
+
+        <figure class="header-avatar d-none d-md-block">
+            <img id="avatar" src="./imagenes/usuarioauth.png" alt="Avatar">
+        </figure> -->
+    </div>
+    <div>
+        <h2 class="titulo ">Valve Solutions Inc</h2>
+
+    </div>
+</header>
+<div class="container ml-2 pt-2 pl-2 pr-2">
     <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2">
         <table class="table table-hover">
             <h1 class="justity-content-center bg-success text-center">3 Way Request</h1>
+            <!-- <thead>
+                <tr class="justity-content-center text-center bg-secondary">
+                    <th>3 Way Request</th>
+                </tr>
+            </thead> -->
             <thead class="">
                 <tr class="justity-content-center text-center bg-secondary">
+                    <!-- <th scope="col">3 Way Request</th> -->
                     <th scope="col">ID</th>
                     <th scope="col">Company</th>
                     <th scope="col">Contact</th>
@@ -30,7 +56,33 @@
                     <th scope="col">Phone Number</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
-                    <th scope="col">Zip</th>
+                    <th scope="col">Zip Code</th>
+                    <th scope="col">Valve Size</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Series</th>
+                    <th scope="col">Valve Type</th>
+                    <th scope="col">Arrangement Type</th>
+                    <th scope="col">Bonnet Type</th>
+                    <th scope="col">Dimension Bonnet A</th>
+                    <th scope="col">Dimension Bonnet B</th>
+                    <th scope="col">Dimension Bonnet C</th>
+                    <th scope="col">Bolt Holes Type</th>
+                    <th scope="col">Hole Size</th>
+                    <th scope="col">Other</th>
+                    <th scope="col">Shaft Type</th>
+                    <th scope="col">Shaft Dimensions D</th>
+                    <th scope="col">Shaft Dimensions E</th>
+                    <th scope="col">Shaft Dimensions F</th>
+                    <th scope="col">Shaft Dimensions G</th>
+                    <th scope="col">Shaft Dimensions H</th>
+                    <th scope="col">Actuator Requirements 1</th>
+                    <th scope="col">Actuator Requirements 2</th>
+                    <th scope="col">Actuator Requirements 3</th>
+                    <th scope="col">Actuator Requirements 4</th>
+                    <th scope="col">Pneumatic || Electric</th>
+                    <th scope="col">Actuator Control Signal</th>
+                    <th scope="col">Other</th>
+                    <th scope="col">Enclosure Required</th>
                 </tr>
             </thead>
             <tbody id="table" class="">
@@ -52,7 +104,16 @@
                     <th scope="col">Phone Number</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
-                    <th scope="col">Zip</th>
+                    <th scope="col">Zip Code</th>
+
+                    <th scope="col">Valve Size</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Series</th>
+                    <th scope="col">Brand Electric Actuator</th>
+                    <th scope="col">Model Electric Actuator</th>
+                    <th scope="col">Valve Type</th>
+                    <th scope="col">Actuator Type</th>
+                    <th scope="col">Electric Actuator</th>
                 </tr>
             </thead>
             <tbody id="table2" class="">
@@ -73,7 +134,15 @@
                     <th scope="col">Phone Number</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
-                    <th scope="col">Zip</th>
+                    <th scope="col">Zip Code</th>
+                    <th scope="col">Valve Size</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Series</th>
+                    <th scope="col">Brand Actuator HP</th>
+                    <th scope="col">Model Actuator HP</th>
+                    <th scope="col">Valve Type</th>
+                    <th scope="col">Actuator Type</th>
+                    <th scope="col">Actuator Mode</th>
                 </tr>
             </thead>
             <tbody id="table3" class="">
@@ -95,7 +164,16 @@
                     <th scope="col">Phone Number</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
-                    <th scope="col">Zip</th>
+                    <th scope="col">Zip Code</th>
+                    <th scope="col">Valve Size</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Series</th>
+                    <th scope="col">Brand Actuator LP</th>
+                    <th scope="col">Model Actuator LP</th>
+                    <th scope="col">Valve Type</th>
+                    <th scope="col">Actuator Type</th>
+                    <th scope="col">Actuator Mode</th>
+
                 </tr>
             </thead>
             <tbody id="table4" class="">
@@ -103,6 +181,7 @@
             </tbody>
         </table>
     </div>
+</div>
     <!-- Firebase App is always required and must be first -->
     
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>

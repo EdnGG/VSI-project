@@ -16,6 +16,34 @@ db.collection("3_Way").onSnapshot((querySnapshot => {
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
                 <td>${doc.data().Zip}</td>
+                <td>${doc.data().Valve_Size}</td>
+                <td>${doc.data().Brand}</td>
+                <td>${doc.data().Series}</td>
+                <td>${doc.data().Valve_Type}</td>
+                <td>${doc.data().Arrangement_Type}</td>
+                <td>${doc.data().Bonnet_Type}</td>
+                <td>${doc.data().Dimensions_Bonnet_A}</td>
+                <td>${doc.data().Dimensions_Bonnet_B}</td>
+                <td>${doc.data().Dimensions_Bonnet_C}</td>
+                <td>${doc.data().TypeOf_Bolt_Holes}</td>
+                <td>${doc.data().Hole_Size}</td>
+                <td>${doc.data().Other}</td>
+                <td>${doc.data().Shaft_Type}</td>
+                <td>${doc.data().Shaft_Dimensions_D}</td>
+                <td>${doc.data().Shaft_Dimensions_E}</td>
+                <td>${doc.data().Shaft_Dimensions_F}</td>
+                <td>${doc.data().Shaft_Dimensions_G}</td>
+                <td>${doc.data().Shaft_Dimensions_H}</td>
+                <td>${doc.data().Actuator_Requirements_Secc_1}</td>
+                <td>${doc.data().Actuator_Requirements_Secc_2}</td>
+                <td>${doc.data().Actuator_Requirements_Secc_3}</td>
+                <td>${doc.data().Actuator_Requirements_Secc_4}</td>
+                <td>${doc.data().Pneumatic_Or_Electric}</td>
+                <td>${doc.data().Control_Signal}</td>
+                <td>${doc.data().Other}</td>
+                <td>${doc.data().Enclosure_Required}</td>
+                    
+                    
                 
         </tr>
       
@@ -38,6 +66,14 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
                 <td>${doc.data().Zip}</td>
+                <td>${doc.data().Valve_Size}</td>
+                <td>${doc.data().Brand}</td>
+                <td>${doc.data().Series}</td>
+                <td>${doc.data().Brand_Electric_Actuator}</td>
+                <td>${doc.data().Model_Electric_Actuator}</td>
+                <td>${doc.data().Valve_Type}</td>
+                <td>${doc.data().Actuator_Type}</td>
+                <td>${doc.data().Electric_Actuator}</td>
                 
         </tr>
       
@@ -61,6 +97,14 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
                 <td>${doc.data().Zip}</td>
+                <td>${doc.data().Valve_Size}</td>
+                <td>${doc.data().Brand}</td>
+                <td>${doc.data().Series}</td>
+                <td>${doc.data().Brand_Actuator_HP}</td>
+                <td>${doc.data().Model_Actuator_HP}</td>
+                <td>${doc.data().Valve_Type}</td>
+                <td>${doc.data().Actuator_Type}</td>
+                <td>${doc.data().Actuator_Mode}</td>
                 
         </tr>
       
@@ -84,6 +128,14 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
                 <td>${doc.data().Zip}</td>
+                <td>${doc.data().Valve_Size}</td>
+                <td>${doc.data().Brand}</td>
+                <td>${doc.data().Series}</td>
+                <td>${doc.data().Brand_Actuator_LP}</td>
+                <td>${doc.data().Model_Actuator_LP}</td>
+                <td>${doc.data().Valve_Type}</td>
+                <td>${doc.data().Actuator_Type}</td>
+                <td>${doc.data().Actuator_Mode}</td>
                 
         </tr>
       
