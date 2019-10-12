@@ -127,8 +127,20 @@ class Autenticacion {
 
         let loginForm = document.querySelector("#logreg-forms");
         let mainForm = document.querySelector("#mainForm")
-        loginForm.style.display = "none"
-        mainForm.style.display = "block"
+        loginForm.style.display = "none";
+        mainForm.style.display = "block";
+        //mainForm.innerHTML = '';
+        
+        // const company = document.querySelector("#inputCompany");
+        // company.innerHTML = ''
+        
+        // $('#inputCompany').text("");
+        // $("#inputContact").text("");
+        // $("#inputLocation").text("");
+        // $("#inputPhone").text("");
+        // $("#inputCity").text("");
+        // $("#inputState").text("");
+        // $("#inputZip").text("");
 
         $("#seccion1").css("display", "block");
         $("#seccion2").css("display", "none");
@@ -140,6 +152,11 @@ class Autenticacion {
         $("#seccion8").css("display", "none");
         $("#seccion9").css("display", "none");
         $("#seccion10").css("display", "none");
+
+        // const company = document.querySelector("#inputCompany");
+        // company.innerHTML = ''
+        // $('#inputCompany').text("");
+        // $('inputCompany').html("");
       })
       .catch(error => {
         console.error(error);

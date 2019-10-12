@@ -38,7 +38,7 @@
     </div>
 </header><br><br>
 <div class="container ml-2 pt-2 pl-2 pr-2">
-    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableOne">
         <table class="table table-hover">
             <h1 class="justity-content-center bg-success text-center">3 Way Request</h1>
             <!-- <thead>
@@ -90,9 +90,12 @@
             </tbody>
         </table>
     </div><br><br>
+    <div class=" ml-2 pt-2 pl-2 pr-2">
+        <button id="threeWayRequest" type="button" class="btn btn-info btn-lg btn-block btn-rounded" onclick="togle()">3 Way Request</button>
+    </div><br>
 
 
-    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableTwo">
         <table class="table table-hover">
             <h1 class="justity-content-center bg-primary text-center bg-success">Electric Actuator</h1>
             <thead class="">
@@ -121,8 +124,11 @@
             </tbody>
         </table>
     </div><br><br>
+    <div class=" ml-2 pt-2 pl-2 pr-2">
+        <button id="elecActuator" type="button" class="btn btn-info btn-lg btn-block btn-rounded" onclick="togle1()">Electric Actuators</button>
+    </div><br>
 
-    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableThree">
         <table class="table table-hover">
             <h1 class="justity-content-center bg-primary text-center bg-success">High Pressure Pneumatic</h1>
             <thead class="">
@@ -150,9 +156,13 @@
             </tbody>
         </table>
     </div><br><br>
+    <div class=" ml-2 pt-2 pl-2 pr-2">
+        <button id="hpPneumaticBtn" type="button" class="btn btn-info btn-lg btn-block btn-rounded"
+            onclick="togle2()">High Pressure Pneumatic</button>
+    </div><br>
 
 
-    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableFour">
         <table class="table table-hover responsetable">
             <div style="overflow-x:auto;">
 
@@ -184,6 +194,10 @@
             </tbody>
         </table>
     </div><br><br>
+    <div class=" ml-2 pt-2 pl-2 pr-2">
+        <button id="lpPneumaticBtn" type="button" class="btn btn-info btn-lg btn-block btn-rounded" onclick="togle3()">Low
+            Pressure Pneumatic</button>
+    </div><br>
 </div>
     <!-- Firebase App is always required and must be first -->
     

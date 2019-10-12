@@ -1,5 +1,70 @@
 console.log("Hello")
 
+let divTableForm = document.querySelector("#tableOne");
+let divTableForm2 = document.querySelector("#tableTwo");
+let divTableForm3 = document.querySelector("#tableThree");
+let divTableForm4 = document.querySelector("#tableFour");
+
+divTableForm.style.display = "none";
+divTableForm2.style.display = "none";
+divTableForm3.style.display = "none";
+divTableForm4.style.display = "none";
+
+
+
+let flag = 1;
+function togle() {
+  if (flag == 1){
+    document.querySelector("#tableOne").style.display = "block";
+    console.log("flag = 1 ", flag);
+    flag = 0;
+  } else {
+    document.querySelector("#tableOne").style.display = "none";
+    console.log("flag = 2", flag);
+    flag = 1;
+  }
+}
+//
+let flag1 = 1;
+function togle1() {
+  if (flag1 == 1) {
+    document.querySelector("#tableTwo").style.display = "block";
+    console.log("flag = 1 ", flag1);
+    flag1 = 0;
+  } else {
+    document.querySelector("#tableTwo").style.display = "none";
+    console.log("flag = 2", flag1);
+    flag1 = 1;
+  }
+}
+//
+let flag2 = 1;
+function togle2() {
+  if (flag2 == 1) {
+    document.querySelector("#tableThree").style.display = "block";
+    console.log("flag = 1 ", flag2);
+    flag2 = 0;
+  } else {
+    document.querySelector("#tableThree").style.display = "none";
+    console.log("flag = 2", flag2);
+    flag2 = 1;
+  }
+}
+//
+let flag3 = 1;
+function togle3() {
+  if (flag3 == 1) {
+    document.querySelector("#tableFour").style.display = "block";
+    console.log("flag = 1 ", flag3);
+    flag3 = 0;
+  } else {
+    document.querySelector("#tableFour").style.display = "none";
+    console.log("flag = 2", flag3);
+    flag3 = 1;
+  }
+}
+
+
 
 let tableForm = document.querySelector("#table");
 db.collection("3_Way").onSnapshot((querySnapshot => {
@@ -22,9 +87,9 @@ db.collection("3_Way").onSnapshot((querySnapshot => {
                 <td>${doc.data().Valve_Type}</td>
                 <td>${doc.data().Arrangement_Type}</td>
                 <td>${doc.data().Bonnet_Type}</td>
-                <td>${doc.data().Dimensions_Bonnet_A}</td>
-                <td>${doc.data().Dimensions_Bonnet_B}</td>
-                <td>${doc.data().Dimensions_Bonnet_C}</td>
+                <td>${doc.data().Dimension_Bonnet_A}</td>
+                <td>${doc.data().Dimension_Bonnet_B}</td>
+                <td>${doc.data().Dimension_Bonnet_C}</td>
                 <td>${doc.data().TypeOf_Bolt_Holes}</td>
                 <td>${doc.data().Hole_Size}</td>
                 <td>${doc.data().Other}</td>

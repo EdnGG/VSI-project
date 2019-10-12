@@ -147,6 +147,7 @@ function postLp () {
   let mainForm = document.querySelector("#mainForm");
 
    let company = document.querySelector("#inputCompany").value;
+   let company1 = document.querySelector("#inputCompany");
    let contactName = document.querySelector("#inputContact").value;
    let location = document.querySelector("#inputLocation").value;
    let phoneContact = document.querySelector("#inputPhone").value;
@@ -165,10 +166,10 @@ function postLp () {
    let modelActuatorSecc6 = document.querySelector("#damageModelNumberSecc6").value;
    let radioButtonsLP = document.querySelector('input[name="radioButtonsSecc6"]:checked').value;
             
-    swal({
-      title: `Thanks!! We'll contact you soon`,
-      icon: `success`
-    });
+    // swal({
+    //   title: `Thanks!! We'll contact you soon`,
+    //   icon: `success`
+    // });
 
     mainForm.style.display = "none";
     loginForm.style.display = "none";
@@ -201,6 +202,10 @@ function postLp () {
       // state.innerHTML = "";
       // if promise is succesfull
       .then(function(docRef) {
+        swal({
+          title: `Thanks!! We'll contact you soon`,
+          icon: `success`
+        });
         console.log("Document written with ID: ", docRef.id);
         // document.getElementById('inputCompany').value ='';     document.getElementById("inputContact").value = '';
         // document.getElementById("inputLocation").value = '';
@@ -214,12 +219,12 @@ function postLp () {
         // document.getElementById("damageActuatorSecc6").value = '';
         // document.getElementById("damageModelNumberSecc6").value = '';
 
-        company.innerHTML = "";
-        contactName.innerHTML = "";
-        Location.innerHTML = "";
-        phoneContact.innerHTML = "";
-        city.innerHTML = "";
-        state.innerHTML = "";
+        company1.innerHTML = "";
+        // contactName.innerHTML = "";
+        // Location.innerHTML = "";
+        // phoneContact.innerHTML = "";
+        // city.innerHTML = "";
+        // state.innerHTML = "";
       })
       // if promise is reject
       .catch(function(error) {

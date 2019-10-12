@@ -54,7 +54,17 @@ $("#btn-signup").click(() => {
     // se llama desde autenticaion.js
     // Se hace referencia a la clase Autenticacion
     // que esta en autenticacion.js
+
+      const company = document.querySelector("#inputCompany");
+      company.innerHTML = "";
+      $("#inputCompany").text("");
+      $("#inputCompany").html("");
+
     objAuth.authCuentaFacebook();
     console.log("hello from Facebook authController.js");
+      //const company = document.querySelector("#inputCompany");
+      company.innerHTML = "";
+      $("#inputCompany").text("");
+      $("#inputCompany").html("");
   });
 });
