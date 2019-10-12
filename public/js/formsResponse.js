@@ -1,4 +1,4 @@
-console.log("Hello")
+console.log("Hello from formResponse.js")
 
 let divTableForm = document.querySelector("#tableOne");
 let divTableForm2 = document.querySelector("#tableTwo");
@@ -12,55 +12,67 @@ divTableForm4.style.display = "none";
 
 
 
-let flag = 1;
+let flag = true;
 function togle() {
-  if (flag == 1){
+  if (flag === true){
     document.querySelector("#tableOne").style.display = "block";
+    document.querySelector("#threeWayRequest").innerHTML = "Hide Table";
     console.log("flag = 1 ", flag);
-    flag = 0;
+    flag = false;
   } else {
     document.querySelector("#tableOne").style.display = "none";
+    document.querySelector("#threeWayRequest").innerHTML = "3 Way Requests";
     console.log("flag = 2", flag);
-    flag = 1;
+    flag = true;
   }
 }
 //
-let flag1 = 1;
+let flag1 = true;
 function togle1() {
-  if (flag1 == 1) {
+  if (flag1 == true) {
     document.querySelector("#tableTwo").style.display = "block";
+    document.querySelector("#elecActuator").innerHTML = "Hide Table";
+
     console.log("flag = 1 ", flag1);
-    flag1 = 0;
+    flag1 = false;
   } else {
     document.querySelector("#tableTwo").style.display = "none";
+    document.querySelector("#elecActuator").innerHTML = "Electric Actuator";
+
     console.log("flag = 2", flag1);
-    flag1 = 1;
+    flag1 = true;
   }
 }
 //
-let flag2 = 1;
+let flag2 = true;
 function togle2() {
-  if (flag2 == 1) {
+  if (flag2 == true) {
     document.querySelector("#tableThree").style.display = "block";
+    document.querySelector("#hpPneumaticBtn").innerHTML = "Hide Table";
     console.log("flag = 1 ", flag2);
-    flag2 = 0;
+    flag2 = false;
   } else {
     document.querySelector("#tableThree").style.display = "none";
+    document.querySelector("#hpPneumaticBtn").innerHTML = "High Pressure Pneumatic";
     console.log("flag = 2", flag2);
-    flag2 = 1;
+    flag2 = true;
   }
 }
 //
-let flag3 = 1;
+let flag3 = true;
 function togle3() {
-  if (flag3 == 1) {
+  if (flag3 === true) {
     document.querySelector("#tableFour").style.display = "block";
+    document.querySelector("#lpPneumaticBtn").innerHTML = "Hide Table";
+
     console.log("flag = 1 ", flag3);
-    flag3 = 0;
+    flag3 = false;
   } else {
     document.querySelector("#tableFour").style.display = "none";
+    document.querySelector("#lpPneumaticBtn").innerHTML = "Low Pressure Pneumatic";
+
     console.log("flag = 2", flag3);
-    flag3 = 1;
+    flag3 = true;
   }
 }
 
