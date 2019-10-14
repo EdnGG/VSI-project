@@ -88,3 +88,35 @@ tr:hover {background-color: #b46262;}
 body{
     background-color:#cfcdcd;
 }
+
+/* Carousel */
+
+#carousel .carousel-inner img {
+  max-height: 40vh;
+  object-fit: cover;
+  /* filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); */
+}
+
+#carouselFade{
+  position: relative;
+
+}
+
+#carouselFade .overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+
+}
+
+#carouselFade .overlay .container, 
+#carouselFade .overlay .row{
+height: 40%
+
+}
+/* Ends Carousel */
