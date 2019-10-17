@@ -23,6 +23,43 @@ class Autenticacion {
           $("#seccion8").css("display", "none");
           $("#seccion9").css("display", "none");
           $("#seccion10").css("display", "none");
+
+          $("#inputCompany").val("");
+          $("#inputContact").val("");
+          $("#inputLocation").val("");
+          $("#inputPhone").val("");
+          $("#inputCity").val("");
+          $("#inputState").val("");
+          $("#inputZip").val("");
+          $("#inputValveSize").val("");
+          $("#inputBrand").val("");
+          $("#inputSeries").val("");
+          $("#inputBrandActuator").val("");
+          $("#inputModelNumber").val("");
+
+          $("#damageActuatorSecc5").val("");
+          $("#damageModelNumberSecc5").val("");
+          $("#damageActuatorSecc6").val("");
+          $("#damageActuatorSecc6").val("");
+
+          $("#bonnetA").val("");
+          $("#bonnetB").val("");
+          $("#bonnetC").val("");
+
+          $("#holeSize").val("");
+          $("#otherBonnet").val("");
+
+          $("#shaftD").val("");
+          $("#shaftE").val("");
+          $("#shaftF").val("");
+          $("#shaftG").val("");
+          $("#shaftH").val("");
+
+          $("#otherInput10").val("");
+          $("#otherControlInput10").val("");
+
+          console.log("cleaning form via Email autentication");
+
         } else {
           firebase.auth().signOut();
           swal({
@@ -99,6 +136,43 @@ class Autenticacion {
         $("#seccion9").css("display", "none");
         $("#seccion10").css("display", "none");
 
+         $("#inputCompany").val("");
+         $("#inputContact").val("");
+         $("#inputLocation").val("");
+         $("#inputPhone").val("");
+         $("#inputCity").val("");
+         $("#inputState").val("");
+         $("#inputZip").val("");
+         $("#inputValveSize").val("");
+         $("#inputBrand").val("");
+         $("#inputSeries").val("");
+         $("#inputBrandActuator").val("");
+         $("#inputModelNumber").val("");
+
+         $("#damageActuatorSecc5").val("");
+         $("#damageModelNumberSecc5").val("");
+         $("#damageActuatorSecc6").val("");
+         $("#damageActuatorSecc6").val("");
+
+         $("#bonnetA").val("");
+         $("#bonnetB").val("");
+         $("#bonnetC").val("");
+
+         $("#holeSize").val("");
+         $("#otherBonnet").val("");
+
+         $("#shaftD").val("");
+         $("#shaftE").val("");
+         $("#shaftF").val("");
+         $("#shaftG").val("");
+         $("#shaftH").val("");
+
+         $("#otherInput10").val("");
+         $("#otherControlInput10").val("");
+
+         console.log("cleaning form via Google autentication");
+
+
       })
       .catch(error => {
         console.error(error);
@@ -119,7 +193,6 @@ class Autenticacion {
       .then(result => {
         $("#avatar").attr("src", result.user.photoURL);
         
-        //toggle()
         swal({
           title: `Bienvenido ${result.user.displayName} !! `,
           icon: `success`
@@ -129,18 +202,9 @@ class Autenticacion {
         let mainForm = document.querySelector("#mainForm")
         loginForm.style.display = "none";
         mainForm.style.display = "block";
-        //mainForm.innerHTML = '';
-        
-        // const company = document.querySelector("#inputCompany");
-        // company.innerHTML = ''
-        
-        // $('#inputCompany').text("");
-        // $("#inputContact").text("");
-        // $("#inputLocation").text("");
-        // $("#inputPhone").text("");
-        // $("#inputCity").text("");
-        // $("#inputState").text("");
-        // $("#inputZip").text("");
+
+        // $("#inputCompany").val("www");
+        console.log("autenticacion1");
 
         $("#seccion1").css("display", "block");
         $("#seccion2").css("display", "none");
@@ -153,10 +217,44 @@ class Autenticacion {
         $("#seccion9").css("display", "none");
         $("#seccion10").css("display", "none");
 
-        // const company = document.querySelector("#inputCompany");
-        // company.innerHTML = ''
-        // $('#inputCompany').text("");
-        // $('inputCompany').html("");
+        $("#inputCompany").val("");
+        $("#inputContact").val("");
+        $("#inputLocation").val("");
+        $("#inputPhone").val("");
+        $("#inputCity").val("");
+        $("#inputState").val("");
+        $("#inputZip").val("");
+        $("#inputValveSize").val("");
+        $("#inputBrand").val("");
+        $("#inputSeries").val("");
+        $("#inputBrandActuator").val("");
+        $("#inputModelNumber").val("");
+
+        $("#damageActuatorSecc5").val("");
+        $("#damageModelNumberSecc5").val("");
+        $("#damageActuatorSecc6").val("");
+        $("#damageActuatorSecc6").val("");
+
+        $("#bonnetA").val("");
+        $("#bonnetB").val("");
+        $("#bonnetC").val("");
+        
+        $("#holeSize").val("");
+        $("#otherBonnet").val("");
+
+        $("#shaftD").val("");
+        $("#shaftE").val("");
+        $("#shaftF").val("");
+        $("#shaftG").val("");
+        $("#shaftH").val("");
+
+        $("#otherInput10").val("");
+        $("#otherControlInput10").val("");
+
+       
+        
+        console.log("cleaning form via FB autentication");
+
       })
       .catch(error => {
         console.error(error);

@@ -1,4 +1,12 @@
-
+function clearData (){
+  document.querySelector("#inputCompany").innerHTML = "";
+  document.querySelector("#inputContact").innerHTML = "";
+  document.querySelector("#inputLocation").innerHTML = "";
+  document.querySelector("#inputPhone").innerHTML = "";
+  document.querySelector("#inputCity").innerHTML = "";
+  document.querySelector("#inputState").innerHTML = "";
+  document.querySelector("#inputZip").innerHTML = "";
+}
 function postElectric () {
 
   let carousel = document.querySelector('#carousel')
@@ -25,16 +33,24 @@ function postElectric () {
 
   let selectElectricActuator = document.querySelector('#selectSeccion4');
   let electricActuator = selectElectricActuator.options[selectElectricActuator.selectedIndex].value;
-            
-    swal({
-      title: `Thanks!! We'll contact you soon`,
-      icon: `success`
-    });
 
-    mainForm.style.display = "none";
-    loginForm.style.display = "none";
-    carousel.style.display = "block";
+    // mainForm.style.display = "none";
+    // loginForm.style.display = "none";
+    // carousel.style.display = "block";
 
+    // clearData();
+// document.querySelector("#inputCompany").innerHTML = "";
+// document.querySelector("#inputContact").innerHTML = "";
+// document.querySelector("#inputLocation").innerHTML = "";
+// document.querySelector("#inputPhone").innerHTML = "";
+// document.querySelector("#inputCity").innerHTML = "";
+// document.querySelector("#inputState").innerHTML = "";
+// document.querySelector("#inputZip").innerHTML = "";
+
+    $("#inputContact").val("www");
+    console.log("post1");
+
+    
     db.collection("Electric_Actuator")// "clients"
       .add({
         Company_Name: company,
@@ -52,14 +68,36 @@ function postElectric () {
         Valve_Type: typeValveSecc3,
         Actuator_Type: dropdown, 
         Electric_Actuator:electricActuator,
+
+        
                
       })
 // if promise is succesfull
       .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
-        // mainForm.style.display = 'none'  
-        // loginForm.style.display = 'none'  
-        // carousel.style.displya = 'block'
+        
+        // document.querySelector("#inputCompany").innerHTML = "";
+        // document.querySelector("#inputContact").innerHTML = "";
+        // document.querySelector("#inputLocation").innerHTML = "";
+        // document.querySelector("#inputPhone").innerHTML = "";
+        // document.querySelector("#inputCity").innerHTML = "";
+        // document.querySelector("#inputState").innerHTML = "";
+        // document.querySelector("#inputZip").innerHTML = "";
+
+        $("#inputCompany").val("www");
+        console.log("post2");
+        // clearData();
+
+         mainForm.style.display = "none";
+         loginForm.style.display = "none";
+         carousel.style.display = "block";
+        
+        swal({
+          title: `Thanks!! We'll contact you soon`,
+          icon: `success`
+        });
+
+        firebase.auth().signOut();
       })
 // if promise is reject
       .catch(function(error) {
@@ -97,10 +135,10 @@ function postHp () {
   ).value;
 
 
-  swal({
-    title: `Thanks!! We'll contact you soon`,
-    icon: `success`
-  });
+  // swal({
+  //   title: `Thanks!! We'll contact you soon`,
+  //   icon: `success`
+  // });
 
   mainForm.style.display = "none";
   loginForm.style.display = "none";
@@ -133,6 +171,13 @@ function postHp () {
         phoneContact.innerHTML = "";
         city.innerHTML = "";
         state.innerHTML = "";
+        swal({
+          title: `Thanks!! We'll contact you soon`,
+          icon: `success`
+        });
+
+        firebase.auth().signOut();
+        
       })
       // if promise is reject
       .catch(function(error) {
@@ -219,12 +264,29 @@ function postLp () {
         // document.getElementById("damageActuatorSecc6").value = '';
         // document.getElementById("damageModelNumberSecc6").value = '';
 
-        company1.innerHTML = "";
+        //company1.innerHTML = "";
         // contactName.innerHTML = "";
         // Location.innerHTML = "";
         // phoneContact.innerHTML = "";
         // city.innerHTML = "";
         // state.innerHTML = "";
+
+        company.innerHTML = "";
+        contactName.innerHTML = "";
+        Location.innerHTML = "";
+        phoneContact.innerHTML = "";
+        city.innerHTML = "";
+        state.innerHTML = "";
+        swal({
+          title: `Thanks!! We'll contact you soon`,
+          icon: `success`
+        });
+
+        firebase.auth().signOut();
+
+        // firebase.auth().signOut();
+
+
       })
       // if promise is reject
       .catch(function(error) {
@@ -256,8 +318,8 @@ function threeWay () {
    let dropdown = actuatorTypeSecc3.options[actuatorTypeSecc3.selectedIndex].value;
    // despes de aqui siguen los elementos de la opcion "ThreeWay"
 
-   let brandActuatorSecc6 = document.querySelector("#damageActuatorSecc6").value;
-   let modelActuatorSecc6 = document.querySelector("#damageModelNumberSecc6").value;
+  //  let brandActuatorSecc6 = document.querySelector("#damageActuatorSecc6").value;
+  //  let modelActuatorSecc6 = document.querySelector("#damageModelNumberSecc6").value;
 
   let radioButtonsArrangements = document.querySelector('input[name="arrangements"]:checked').value;
 
@@ -345,18 +407,20 @@ function threeWay () {
         // document.getElementById("inputSeries").value = '';
         // document.getElementById("damageActuatorSecc6").value = '';
         // document.getElementById("damageModelNumberSecc6").value = '';
-
+      company.innerHTML = "";
+      contactName.innerHTML = "";
+      Location.innerHTML = "";
+      phoneContact.innerHTML = "";
+      city.innerHTML = "";
+      state.innerHTML = "";
         swal({
           title: `Thanks!! We'll contact you soon`,
           icon: `success`
         });
-
-        company.innerHTML = "";
-        contactName.innerHTML = "";
-        Location.innerHTML = "";
-        phoneContact.innerHTML = "";
-        city.innerHTML = "";
-        state.innerHTML = "";
+        
+        firebase.auth().signOut();
+        
+        
       })
       // if promise is reject
       .catch(function(error) {

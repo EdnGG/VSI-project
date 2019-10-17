@@ -1,14 +1,4 @@
 console.log('hello')
-// /*********** Inicializando Firebase**************************/
-// firebase.initializeApp(config);
-
-// /******** Inicializando Firebase-Firestore ***************/
-// let db = firebase.firestore();
-
-/***************  Starts  Global Variables   *****************/
-
-
-/*****************  Ends Global Variables   ****************/
 
 
 /*********Login Form Seccion*****************/
@@ -17,18 +7,34 @@ const loginButton = document.querySelector('#btnInicioSesion')
 
 loginButton.addEventListener('click', ()=> {
    console.log('Login button works')
-   const user = firebase.auth().currentUser
-   //loginButton.innerHTML = 'Sign Out'
+   const user = firebase.auth().currentUser // Obteniendo a current user
+   
 
    if(user){
-      //loginButton.innerHTML = 'Sign Out'
+      loginButton.innerHTML = 'Sign Out'
       loginForm.style.display = 'none'
       carousel.style.display = 'block'
-      mainForm.style.display = 'none'    
+      mainForm.style.display = 'none'   
+      console.log('1');
+      document.querySelector("#inputCompany").innerHTML = "hey";
+      document.querySelector("#inputContact").innerHTML = "";
+      document.querySelector("#inputLocation").innerHTML = "";
+      document.querySelector("#inputPhone").innerHTML = "";
+      document.querySelector("#inputCity").innerHTML = "";
+      document.querySelector("#inputState").innerHTML = "";
+      document.querySelector("#inputZip").innerHTML = "";
 
       return firebase.auth().signOut().then( ()=> {
          //loginButton.innerHTML = 'Sign Out'
 
+         document.querySelector("#inputCompany").innerHTML = "hey";
+         document.querySelector("#inputContact").innerHTML = "";
+         document.querySelector("#inputLocation").innerHTML = "";
+         document.querySelector("#inputPhone").innerHTML = "";
+         document.querySelector("#inputCity").innerHTML = "";
+         document.querySelector("#inputState").innerHTML = "";
+         document.querySelector("#inputZip").innerHTML = "";
+         
          $("#avatar").attr("src", "../imagenes/usuario.png");
          swal({
             title: `Sign Out succesfull`,
@@ -42,10 +48,19 @@ loginButton.addEventListener('click', ()=> {
          })
       })
    }
+
+
    //loginButton.innerHTML = "Log Out"
    loginForm.style.display = 'block'
    carousel.style.display = 'none'    
    //mainForm.style.display = 'block'
+   document.querySelector("#inputCompany").innerHTML = "hey";
+   document.querySelector("#inputContact").innerHTML = "";
+   document.querySelector("#inputLocation").innerHTML = "";
+   document.querySelector("#inputPhone").innerHTML = "";
+   document.querySelector("#inputCity").innerHTML = "";
+   document.querySelector("#inputState").innerHTML = "";
+   document.querySelector("#inputZip").innerHTML = "";
    
 }) 
 
@@ -53,7 +68,14 @@ loginButton.addEventListener('click', ()=> {
 
 firebase.auth().onAuthStateChanged( user => {
    if(user){
-      loginButton.innerHTML = "Log Out"
+      loginButton.innerHTML = "Log Out";
+      document.querySelector("#inputCompany").innerHTML = "";
+      document.querySelector("#inputContact").innerHTML = "";
+      document.querySelector("#inputLocation").innerHTML = "";
+      document.querySelector("#inputPhone").innerHTML = "";
+      document.querySelector("#inputCity").innerHTML = "";
+      document.querySelector("#inputState").innerHTML = "";
+      document.querySelector("#inputZip").innerHTML = "";
          if (user.photoURL){
             $("#avatar").attr("src", user.photoURL);
          } else {
@@ -62,6 +84,13 @@ firebase.auth().onAuthStateChanged( user => {
    } else {
       loginButton.innerHTML = "Sign In"
       $("#avatar").attr("src", "./imagenes/usuarioauth.png");
+      document.querySelector("#inputCompany").innerHTML = "";
+      document.querySelector("#inputContact").innerHTML = "";
+      document.querySelector("#inputLocation").innerHTML = "";
+      document.querySelector("#inputPhone").innerHTML = "";
+      document.querySelector("#inputCity").innerHTML = "";
+      document.querySelector("#inputState").innerHTML = "";
+      document.querySelector("#inputZip").innerHTML = "";
 
    }
 })
