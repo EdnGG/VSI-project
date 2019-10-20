@@ -344,7 +344,7 @@ function threeWay () {
         Actuator_Requirements_Secc_4: actReqSecc4,
         Pneumatic_Or_Electric: otherPneumaticOrElec,
         Control_Signal: controlSignal,
-        Other: otherControlSignal,
+        Other2: otherControlSignal,
         Enclosure_Required: enclosureRequired
       })
 
