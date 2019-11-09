@@ -344,7 +344,7 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
 // Ends Getting data from firestore to seed tables
 
 // Edit Seccion
-var modalContainerLP = document.querySelector("#modalLP");
+var modalContainerLP = document.querySelector("#modalLP"); // div con #modalLP
 var modalContainerHP = document.querySelector("#modalHP");
 var modalContainerElectric = document.querySelector("#modalE");
 var modalContainerTreeWay = document.querySelector("#modalTreeWay");
@@ -541,13 +541,13 @@ function editLowPressure(
 
   document.querySelector("#lpModulating").value = radioButtonsLP;
 
-  let editButtonLp = document.querySelector("#editLowPressureActuator");
+  // let editButtonLp = document.querySelector("#editLowPressureActuator");
 
   console.log(`inside of radiobuttons: ${radioButtonsLP}`);
   console.log(`inside of dropdows: ${dropdown}`);
   console.log(`inside of typeValveSecc3: ${typeValveSecc3}`);
 
-  function editLP() {
+  window.editLP = () => {
     // editButtonLp.onclick = function() {
     // editButtonLp.addEventListener ("click", function() {
 
@@ -608,13 +608,17 @@ function editLowPressure(
         document.querySelector("#lpBrandDamageActuator").value = "";
         document.querySelector("#lpModelDamageActuator").value = "";
 
-        modalContainerLP.style.display = "none";
+        modalContainerLP.style.display = "none"; //ocultando div con #modalLP
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
-  }
+  };
+
+  // let editButtonLp = document.querySelector("#editLowPressureActuator");
+  // editButtonLp.addEventListener("click", editLP());
+  // editLP();
 }
 
 function editHighPressure(
