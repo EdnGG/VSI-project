@@ -1,4 +1,4 @@
-console.log("Hello from formResponse.js")
+console.log("Hello from formResponse.js");
 
 // Carousel seccion
 
@@ -19,14 +19,13 @@ let carouselForm4 = document.querySelector("#carousel44");
 
 // Ends Carousel seccion
 
-
 // Toggle buttons
 let flag = true;
 function togle() {
-  if (flag === true){
+  if (flag === true) {
     document.querySelector("#tableOne").style.display = "block";
     document.querySelector("#threeWayRequest").innerHTML = "Hide Table";
-    carouselForm1.style.display = 'none';
+    carouselForm1.style.display = "none";
     // document.querySelector("#carousel1").style.display = "none";
     console.log("flag = 1 ", flag);
     flag = false;
@@ -34,7 +33,7 @@ function togle() {
     document.querySelector("#tableOne").style.display = "none";
     document.querySelector("#threeWayRequest").innerHTML = "3 Way Requests";
     // document.querySelector("#carousel1").style.display = "block";
-    carouselForm1.style.display = 'block';
+    carouselForm1.style.display = "block";
     console.log("flag = 2", flag);
     flag = true;
   }
@@ -70,7 +69,8 @@ function togle2() {
     flag2 = false;
   } else {
     document.querySelector("#tableThree").style.display = "none";
-    document.querySelector("#hpPneumaticBtn").innerHTML = "High Pressure Pneumatic";
+    document.querySelector("#hpPneumaticBtn").innerHTML =
+      "High Pressure Pneumatic";
     carouselForm3.style.display = "block";
 
     console.log("flag = 2", flag2);
@@ -89,7 +89,8 @@ function togle3() {
     flag3 = false;
   } else {
     document.querySelector("#tableFour").style.display = "none";
-    document.querySelector("#lpPneumaticBtn").innerHTML = "Low Pressure Pneumatic";
+    document.querySelector("#lpPneumaticBtn").innerHTML =
+      "Low Pressure Pneumatic";
     carouselForm4.style.display = "block";
 
     console.log("flag = 2", flag3);
@@ -99,14 +100,13 @@ function togle3() {
 
 // Ends Toggle buttons
 
-
 // Getting data from firestore to full those tables
 let tableForm = document.querySelector("#table");
-db.collection("3_Way").onSnapshot((querySnapshot => {
-    tableForm.innerHTML = '';
-    querySnapshot.forEach(doc => {
-      console.log(`${doc.id} => ${doc.data()}`);
-      tableForm.innerHTML += `
+db.collection("3_Way").onSnapshot(querySnapshot => {
+  tableForm.innerHTML = "";
+  querySnapshot.forEach(doc => {
+    console.log(`${doc.id} => ${doc.data()}`);
+    tableForm.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
                 <td>${doc.data().Company_Name}</td>
@@ -148,7 +148,7 @@ db.collection("3_Way").onSnapshot((querySnapshot => {
                   }')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" onclick="editArrangements(
+                  <button class="btn btn-warning" data-toggle="modal" data-target="#arrangements" onclick="editArrangements(
                     '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
@@ -188,8 +188,8 @@ db.collection("3_Way").onSnapshot((querySnapshot => {
               </td>
         </tr>
       `;
+  });
 });
-}));
 
 let tableForm2 = document.querySelector("#table2");
 db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
@@ -241,7 +241,6 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
   });
 });
 
-  
 let tableForm3 = document.querySelector("#table3");
 db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
   tableForm3.innerHTML = "";
@@ -276,10 +275,10 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                   }','${doc.data().Company_Name}','${doc.data().Contact_Name}',
                   '${doc.data().Location}','${doc.data().Phone_Contact}',
                   '${doc.data().City}','${doc.data().State}',
-                  '${doc.data().Zip}','${doc.data().Valve_Size}',
+                  '${doc.data().Zip}','${doc.data().Valve_Size}', 
                   '${doc.data().Brand}','${doc.data().Series}',
-                  '${doc.data().Brand_Actuator_LP}',
-                  '${doc.data().Model_Actuator_LP}',
+                  '${doc.data().Brand_Actuator_HP}',
+                  '${doc.data().Model_Actuator_HP}',
                   '${doc.data().Valve_Type}',
                   '${doc.data().Actuator_Type}',
                   '${doc.data().Actuator_Mode}')">Edit</button>
@@ -320,7 +319,9 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                   }')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" onclick="editLowPressure('${doc.id}','${doc.data().Company_Name}','${doc.data().Contact_Name}',
+                  <button class="btn btn-warning" onclick="editLowPressure('${
+                    doc.id
+                  }','${doc.data().Company_Name}','${doc.data().Contact_Name}',
                   '${doc.data().Location}','${doc.data().Phone_Contact}',
                   '${doc.data().City}','${doc.data().State}',
                   '${doc.data().Zip}','${doc.data().Valve_Size}',
@@ -335,17 +336,99 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
 
         </tr>
       
-      `;// En el boton con la funcion que esta dentro del metodo "onclick" contiene el valor de las variables que se encuentran en la DB 
+      `; // En el boton con la funcion que esta dentro del metodo "onclick" contiene el valor de las variables que se encuentran en la DB
   });
 });
 
-// Ends Getting data from firestore to full those tables
-
-
+// Ends Getting data from firestore to seed tables
 
 // Edit Seccion
-var modalContainer = document.querySelector('#modal');
-function editLowPressure(id,
+var modalContainerLP = document.querySelector("#modalLP");
+var modalContainerHP = document.querySelector("#modalHP");
+var modalContainerElectric = document.querySelector("#modalE");
+var modalContainerTreeWay = document.querySelector("#modalTreeWay");
+
+//
+
+// let editButtonL = document.querySelector("#editLowPressureActuator");
+
+// function editButtonLp() {
+//   // editButtonLp.addEventListener ("click", function() {
+
+//   var washingtonRef = db.collection("LowP_Pneumatic").doc(id);
+
+//   var companylp = document.querySelector("#lpCompany").value;
+//   var contactNamelp = document.querySelector("#lpName").value;
+//   var locationlp = document.querySelector("#lpLocation").value;
+//   var phoneContactlp = document.querySelector("#lpPhone").value;
+//   var citylp = document.querySelector("#lpCity").value;
+//   var statelp = document.querySelector("#lpState").value;
+//   var ziplp = document.querySelector("#lpZip").value;
+//   var valveSizelp = document.querySelector("#lpValveSize").value;
+//   var brandlp = document.querySelector("#lpBrand").value;
+//   var serieslp = document.querySelector("#lpSeries").value;
+
+//   var brandDamageLp = document.querySelector("#lpBrandDamageActuator").value;
+//   var modelDamageLp = document.querySelector("#lpModelDamageActuator").value;
+
+//   let radioButtonsLLP = document.querySelector(
+//     'input[name="radioButtonsSecc6"]:checked'
+//   ).value;
+//   let typeValveSecc3LP = document.querySelector(
+//     'input[name="exampleRadios"]:checked'
+//   ).value;
+
+//   let actuatorTypeSecc3LP = document.querySelector("#selectSeccion3");
+//   let dropdownLP =
+//     actuatorTypeSecc3LP.options[actuatorTypeSecc3.selectedIndex].value;
+
+//   return washingtonRef
+//     .update({
+//       Company_Name: companylp, //company,
+//       Contact_Name: contactNamelp, //contactName,
+//       Location: locationlp, //location,
+//       Phone_Contact: phoneContactlp, //phoneContact,
+//       City: citylp, //city,
+//       State: statelp, //state,
+//       Zip: ziplp, //zip,
+//       Valve_Size: valveSizelp, //valveSizeSecc2,
+//       Brand: brandlp, //brandSecc2,
+//       Series: serieslp, //seriesSecc2,
+//       Brand_Actuator_LP: brandDamageLp, //brandActuatorSecc6,
+//       Model_Actuator_LP: modelDamageLp, //modelActuatorSecc6
+//       Valve_Type: typeValveSecc3LP,
+//       Actuator_Type: dropdownLP,
+//       Actuator_Mode: radioButtonsLLP
+//     })
+//     .then(function() {
+//       console.log("Document successfully updated!");
+
+//       document.querySelector("#lpCompany").value = "";
+//       document.querySelector("#lpName").value = "";
+//       document.querySelector("#lpLocation").value = "";
+//       document.querySelector("#lpPhone").value = "";
+//       document.querySelector("#lpCity").value = "";
+//       document.querySelector("#lpState").value = "";
+//       document.querySelector("#lpZip").value = "";
+//       document.querySelector("#lpValveSize").value = "";
+//       document.querySelector("#lpBrand").value = "";
+//       document.querySelector("#lpSeries").value = "";
+
+//       document.querySelector("#lpBrandDamageActuator").value = "";
+//       document.querySelector("#lpModelDamageActuator").value = "";
+
+//       modalContainer.style.display = "none";
+//     })
+//     .catch(function(error) {
+//       // The document probably doesn't exist.
+//       console.error("Error updating document: ", error);
+//     });
+// }
+
+//
+
+function editLowPressure(
+  id,
   company,
   contactName,
   location,
@@ -358,147 +441,84 @@ function editLowPressure(id,
   seriesSecc2,
   brandActuatorSecc6,
   modelActuatorSecc6,
+
   typeValveSecc3,
   dropdown,
-  radioButtonsLP) {
+  radioButtonsLP
+) {
+  let modalLP = `
+	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+        id="tableFour">
+        <table class="table table-hover responsetable">
+          <caption>
+            Retrofit Forms for Low Pressure Actuators Requests
+          </caption>
 
-var modal1 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
-        <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
-        
-<!-- Starts costumer information form -->
-        <fieldset id="seccion1">
-            <div class="row">
-                <p class="col text-center ">Costumer Information</p>
-            </div>
-            <div class="form-row " >
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                    <label for="inputCompanyLabel">Company:</label>
-                    <input type="text" class="form-control" id="lpCompany" placeholder="Company name" required>
-                </div>
-                <div class="form-group  col-md-6 ">
-                    <label for="inputContactLabel">Contact</label>
-                    <input type="text" class="form-control" id="lpName" placeholder="Contact number" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputLocationLabel">Location</label>
-                <input type="text" class="form-control" id="lpLocation" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputPhoneLabel">Phone Number</label>
-                <input type="number" class="form-control" id="lpPhone" placeholder="678 -123-4567" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCityLabel">City</label>
-                    <input type="text" class="form-control" id="lpCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputStateLabel">State</label>
-                    <input type="text" class="form-control" id="lpState">
+          <div style="overflow-x:auto;">
+            
+          </div>
+          <thead class="">
+            <tr class="justity-content-center text-center bg-secondary">
+              <th scope="col">ID</th>
+              <th scope="col">Company</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Location</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Zip Code</th>
+              <th scope="col">Valve Size</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Series</th>
+              <th scope="col">Brand Actuator LP</th>
+              <th scope="col">Model Actuator LP</th>
+              <th scope="col">Valve Type</th>
+              <th scope="col">Actuator Type</th>
+              <th scope="col">Actuator Mode</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+					<tbody id="table4">
+					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+            <th >${id}</th>
+                <td ><input type="text" id="lpCompany"></td>
+                <td ><input type="text" id="lpName"></td>
+                <td ><input type="text" id="lpLocation"></td>
+                <td ><input type="text" id="lpPhone"></td>
+                <td ><input type="text" id="lpCity"></td>
+                <td ><input type="text" id="lpState"></td>
+                <td ><input type="text" id="lpZip"></td>
+                <td ><input type="text" id="lpValveSize"></td>
+                <td ><input type="text" id="lpBrand"></td>
+                <td ><input type="text" id="lpSeries"></td>
+                <td ><input type="text" id="lpBrandDamageActuator"></td>
+                <td ><input type="text" id="lpModelDamageActuator"></td>
+								
+								
+      <td ><input type="text" 
+      id="valve2way"></td>
 
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZipLabel">Zip</label>
-                    <input type="number" class="form-control" id="lpZip">
-                </div>
-            </div>
-    </fieldset>
-    <fieldset id="seccion2">
-            <div class="row">
-                <p class="col text-center ">Valve Information</p>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 ">
-                    <label for="valveSize">Valve Size</label>
-                    <input type="text" class="form-control" id="lpValveSize" placeholder="Valve size" required>
-                </div>
-                <div class="col-md-6 ">
-                    <label for="Brand">Brand</label>
-                    <input type="text" class="form-control" id="lpBrand" placeholder="Brand" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Series</label>
-                <input type="text" class="form-control" id="lpSeries">
-            </div>
-    
-        </fieldset>
+      <td ><input type="text" id="lp2positions"></td>
+      
+      <td ><input type="text" id="lpModulating"></td>
+                
+                <td>
+                  <button class="btn btn-primary id="editLowPressureActuator">Update</button>
+                </td>
+                
 
-<!--Start form seccion 3  -->
+        </tr>
+					</tbody>
+        </table>
+      </div>
 
-        <fieldset id="seccion3" class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Valve Type</p>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-                2 way </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-            3 way </label>
-            </div>
-            <br><br>
+	`;
 
-        <fieldset class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Actuator Type</p>
-            </div>
+  modalContainerLP.innerHTML = modalLP;
 
-            <!-- <label for="size">Model:</label> -->
-            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
-                <option  value="select" selected>Select one</option>
-                <option  value="Electric" id="electric">Electric Actuator</option>
-                <option  value="HP" id="hp">High Pressure Pneumatic</option>
-                <option  value="LP" id="lp">Low Pressure Pneumatic</option>
-            </select>
-
-        </fieldset>
-        <br><br>
-           
-        </fieldset>
-<fieldset class="text-center" id="seccion6">
-            <div class="row text-center">
-                <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
-            </div>
-            <div class="form-group">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="lpBrandDamageActuator">
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="lpModelDamageActuator">
-
-            </div>
-
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="lp2positions"
-                value="lp-2positions">
-                <label class="form-check-label text-center">
-                2 Positions </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="lpModulating"
-                value="lpModulating">
-                <label class="form-check-label text-center">
-                Modulating
-                </label>
-            </div>
-            <br><br>
-
-    <div class="col text-center">
-        <button type="button" id="editLowPressureActuator" class="btn btn-primary" >Edit</button>
-    </div>
-    </fieldset>
-`;
-
-modalContainer.innerHTML = modal1;
-
-  document.querySelector('#lpCompany').value = company; 
+  document.querySelector("#lpCompany").value = company;
   document.querySelector("#lpName").value = contactName;
-  document.querySelector("#lpLocation").value =location;
+  document.querySelector("#lpLocation").value = location;
   document.querySelector("#lpPhone").value = phoneContact;
   document.querySelector("#lpCity").value = city;
   document.querySelector("#lpState").value = state;
@@ -507,9 +527,23 @@ modalContainer.innerHTML = modal1;
   document.querySelector("#lpBrand").value = brandSecc2;
   document.querySelector("#lpSeries").value = seriesSecc2;
 
+  document.querySelector("#lpBrandDamageActuator").value = brandActuatorSecc6;
+  document.querySelector("#lpModelDamageActuator").value = modelActuatorSecc6;
+
+  document.querySelector("#valve2way").value = typeValveSecc3;
+
+  document.querySelector("#lp2positions").value = dropdown;
+
+  document.querySelector("#lpModulating").value = radioButtonsLP;
+
   let editButtonLp = document.querySelector("#editLowPressureActuator");
 
+  // console.log(`inside of radiobuttons: ${radioButtonsLP}`);
+  // console.log(`inside of dropdows: ${dropdown}`);
+  // console.log(`inside of typeValveSecc3: ${typeValveSecc3}`);
+
   editButtonLp.onclick = function() {
+    // editButtonLp.addEventListener ("click", function() {
 
     var washingtonRef = db.collection("LowP_Pneumatic").doc(id);
 
@@ -524,55 +558,68 @@ modalContainer.innerHTML = modal1;
     var brandlp = document.querySelector("#lpBrand").value;
     var serieslp = document.querySelector("#lpSeries").value;
 
+    var brandDamageLp = document.querySelector("#lpBrandDamageActuator").value;
+    var modelDamageLp = document.querySelector("#lpModelDamageActuator").value;
+
+    let valveTypeLP = document.querySelector("#valve2way").value;
+
+    actuatorTypeLP = document.querySelector("#lp2positions").value;
+
+    modulatingOr2PositionsLP = document.querySelector("#lpModulating").value; // checar ID
+
+    // let radioButtonsLLP = document.querySelector(
+    //   'input[name="radioButtonsSecc6"]:checked'
+    // ).value;
+    // let typeValveSecc3LP = document.querySelector(
+    //   'input[name="exampleRadios"]:checked'
+    // ).value;
+
+    // let actuatorTypeSecc3LP = document.querySelector("#selectSeccion3");
+    // let dropdownLP =
+    //   actuatorTypeSecc3LP.options[actuatorTypeSecc3.selectedIndex].value;
+
     return washingtonRef
       .update({
-        Company_Name: companylp,     //company,
-        Contact_Name: contactNamelp,       //contactName,
-        Location: locationlp,      //location,
-        Phone_Contact: phoneContactlp,     //phoneContact,
-        City: citylp,     //city,
-        State: statelp,      //state,
-        Zip: ziplp,    //zip,
-        Valve_Size: valveSizelp,       //valveSizeSecc2,
-        Brand: brandlp,      //brandSecc2,
-        Series: serieslp,//seriesSecc2,
-        Brand_Actuator_LP: brandlp,     //brandActuatorSecc6,
-        Model_Actuator_LP: serieslp,    //modelActuatorSecc6
-        // Valve_Type: typeValveSecc3,
-        // Actuator_Type: dropdown,
-        // Actuator_Mode: radioButtonsLP
+        Company_Name: companylp, //company,
+        Contact_Name: contactNamelp, //contactName,
+        Location: locationlp, //location,
+        Phone_Contact: phoneContactlp, //phoneContact,
+        City: citylp, //city,
+        State: statelp, //state,
+        Zip: ziplp, //zip,
+        Valve_Size: valveSizelp, //valveSizeSecc2,
+        Brand: brandlp, //brandSecc2,
+        Series: serieslp, //seriesSecc2,
+        Brand_Actuator_LP: brandDamageLp, //brandActuatorSecc6,
+        Model_Actuator_LP: modelDamageLp, //modelActuatorSecc6
+        Valve_Type: valveTypeLP,
+        Actuator_Type: actuatorTypeLP,
+        Actuator_Mode: modulatingOr2PositionsLP
       })
       .then(function() {
         console.log("Document successfully updated!");
 
-        document.querySelector("#lpCompany").value = '';
-        document.querySelector("#lpName").value = '';
-        document.querySelector("#lpLocation").value = '';
-        document.querySelector("#lpPhone").value = '';
-        document.querySelector("#lpCity").value = '';
-        document.querySelector("#lpState").value = '';
-        document.querySelector("#lpZip").value = '';
-        document.querySelector("#lpValveSize").value = '';
-        document.querySelector("#lpBrand").value = '';
-        document.querySelector("#lpSeries").value = '';
+        document.querySelector("#lpCompany").value = "";
+        document.querySelector("#lpName").value = "";
+        document.querySelector("#lpLocation").value = "";
+        document.querySelector("#lpPhone").value = "";
+        document.querySelector("#lpCity").value = "";
+        document.querySelector("#lpState").value = "";
+        document.querySelector("#lpZip").value = "";
+        document.querySelector("#lpValveSize").value = "";
+        document.querySelector("#lpBrand").value = "";
+        document.querySelector("#lpSeries").value = "";
+
+        document.querySelector("#lpBrandDamageActuator").value = "";
+        document.querySelector("#lpModelDamageActuator").value = "";
+
         modalContainer.style.display = "none";
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
-
-  }
-
-  // document.querySelector("#lpBrandDamageActuator").value = brandActuatorSecc6;
-  // document.querySelector("#lpModelDamageActuator").value = modelActuatorSecc6;
-
-  // document.querySelector("#lpValveType").value = `${typeValveSecc3}`;
-  // document.querySelector("#lpActuatorType").value = `${dropdown}`;
-  // document.querySelector("#lpActuatorMode").value = `${radioButtonsLP}`;
-
-  
-  
+  };
 }
 
 function editHighPressure(
@@ -587,12 +634,17 @@ function editHighPressure(
   valveSizeSecc2,
   brandSecc2,
   seriesSecc2,
-  brandActuatorSecc6,
-  modelActuatorSecc6,
-  typeValveSecc3,
-  dropdown,
-  radioButtonsLP
+  brandActuatorSecc5,
+  modelActuatorSecc5
+  //   typeValveSecc3,
+  //   dropdown,
+  //   radioButtonsLP
 ) {
+  if ((modalContainer.style.display = "none")) {
+    modalContainer.style.display = "block";
+  } else {
+    modalContainer.style.display = "none";
+  }
   var modal2 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
     <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
         <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
@@ -738,6 +790,9 @@ function editHighPressure(
   document.querySelector("#hpBrand").value = brandSecc2; // line 639
   document.querySelector("#hpSeries").value = seriesSecc2; // line 644
 
+  document.querySelector("#hpBrandDamageActuator").value = brandActuatorSecc5;
+  document.querySelector("#hpModelDamageActuator").value = modelActuatorSecc5;
+
   let editButtonHp = document.querySelector("#editHighPressureActuator");
 
   editButtonHp.onclick = function() {
@@ -754,6 +809,9 @@ function editHighPressure(
     var brandhp = document.querySelector("#hpBrand").value;
     var serieshp = document.querySelector("#hpSeries").value;
 
+    var brandDamageHp = document.querySelector("#hpBrandDamageActuator").value;
+    var modelDamageHp = document.querySelector("#hpModelDamageActuator").value;
+
     return washingtonRef
       .update({
         Company_Name: companyhp, //company,
@@ -766,8 +824,8 @@ function editHighPressure(
         Valve_Size: valveSizehp, //valveSizeSecc2,
         Brand: brandhp, //brandSecc2,
         Series: serieshp, //seriesSecc2,
-        Brand_Actuator_LP: brandhp, //brandActuatorSecc6,
-        Model_Actuator_LP: serieshp //modelActuatorSecc6
+        Brand_Actuator_LP: brandDamageHp, //brandActuatorSecc6,
+        Model_Actuator_LP: modelDamageHp //modelActuatorSecc6
         // Valve_Type: typeValveSecc3,
         // Actuator_Type: dropdown,
         // Actuator_Mode: radioButtonsLP
@@ -785,6 +843,10 @@ function editHighPressure(
         document.querySelector("#hpValveSize").value = "";
         document.querySelector("#hpBrand").value = "";
         document.querySelector("#hpSeries").value = "";
+
+        document.querySelector("#hpBrandDamageActuator").value = "";
+        document.querySelector("#hpModelDamageActuator").value = "";
+
         modalContainer.style.display = "none";
       })
       .catch(function(error) {
@@ -1061,9 +1123,11 @@ function editArrangements(
   otherPneumaticOrElec,
   controlSignal,
   otherControlSignal,
-   enclosureRequired,) {
-
-  var modal4 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
+  enclosureRequired
+) {
+  var modal4 = `
+  <div class="modal-dialog modal-xl modal" id="arrangements">
+  <div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
     <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
         <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
         
@@ -1585,6 +1649,7 @@ function editArrangements(
         <button type="button" id="editArrangements" class="btn btn-primary" >Edit</button>
     </div>
     </fieldset>
+</div>
 `;
 
   modalContainer.innerHTML = modal4;
@@ -1598,23 +1663,29 @@ function editArrangements(
   document.querySelector("#arrangementsZip").value = zip;
   document.querySelector("#arrangementsValveSize").value = valveSizeSecc2; // line
   document.querySelector("#arrangementsBrand").value = brandSecc2; // line
-  document.querySelector("#arrangementsSeries").value = seriesSecc2; // line 
+  document.querySelector("#arrangementsSeries").value = seriesSecc2; // line
 
   let editButtonArrangements = document.querySelector("#editArrangements");
 
   editButtonArrangements.onclick = function() {
     var washingtonRef = db.collection("3_Way").doc(id);
 
-    var companyArrangements = document.querySelector("#arrangementsCompany").value;
-    var contactNameArrangements = document.querySelector("#arrangementsName").value;
-    var locationArrangements = document.querySelector("#arrangementsLocation").value;
-    var phoneContactArrangements = document.querySelector("#arrangementsPhone").value;
+    var companyArrangements = document.querySelector("#arrangementsCompany")
+      .value;
+    var contactNameArrangements = document.querySelector("#arrangementsName")
+      .value;
+    var locationArrangements = document.querySelector("#arrangementsLocation")
+      .value;
+    var phoneContactArrangements = document.querySelector("#arrangementsPhone")
+      .value;
     var cityArrangements = document.querySelector("#arrangementsCity").value;
     var stateArrangements = document.querySelector("#arrangementsState").value;
     var zipArrangements = document.querySelector("#arrangementsZip").value;
-    var valveSizeArrangements = document.querySelector("#arrangementsValveSize").value;
+    var valveSizeArrangements = document.querySelector("#arrangementsValveSize")
+      .value;
     var brandArrangements = document.querySelector("#arrangementsBrand").value;
-    var seriesArrangements = document.querySelector("#arrangementsSeries").value;
+    var seriesArrangements = document.querySelector("#arrangementsSeries")
+      .value;
 
     return washingtonRef
       .update({
@@ -1627,7 +1698,7 @@ function editArrangements(
         Zip: zipArrangements, //zip,
         Valve_Size: valveSizeArrangements, //valveSizeSecc2,
         Brand: brandArrangements, //brandSecc2,
-        Series: seriesArrangements, //seriesSecc2,
+        Series: seriesArrangements //seriesSecc2,
         // Brand_Actuator_LP: brandArrangements, //brandActuatorSecc6,
         // Model_Actuator_LP: seriesArrangements //modelActuatorSecc6
         // Valve_Type: typeValveSecc3,
@@ -1663,66 +1734,57 @@ function editArrangements(
   // document.querySelector("#lpActuatorMode").value = `${radioButtonsLP}`;
 }
 
-
 // Delete Seccion
 function deleteLowPressure(id) {
   // Delete Data Low Pressure Pneumatic Actuator
-db.collection("LowP_Pneumatic")
-  .doc(id)
-  .delete()
-  .then(function() {
-    console.log("Document successfully deleted!");
-  })
-  .catch(function(error) {
-    console.error("Error removing document: ", error);
-  });
+  db.collection("LowP_Pneumatic")
+    .doc(id)
+    .delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
 }
 
 function deleteHighPressure(id) {
   // Delete Data High Pressure Pneumatic Actuator
-db.collection("HP_Pneumatic")
-  .doc(id)
-  .delete()
-  .then(function() {
-    console.log("Document successfully deleted!");
-  })
-  .catch(function(error) {
-    console.error("Error removing document: ", error);
-  });
+  db.collection("HP_Pneumatic")
+    .doc(id)
+    .delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
 }
 
 function deleteElectricAct(id) {
   // Delete Data Electric Actuator
-db.collection("Electric_Actuator")
-  .doc(id)
-  .delete()
-  .then(function() {
-    console.log("Document successfully deleted!");
-  })
-  .catch(function(error) {
-    console.error("Error removing document: ", error);
-  });
+  db.collection("Electric_Actuator")
+    .doc(id)
+    .delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
 }
 
 function deleteArrangements(id) {
   // Delete Data 3 way Arrangemets
-db.collection("3_Way")
-  .doc(id)
-  .delete()
-  .then(function() {
-    console.log("Document successfully deleted!");
-  })
-  .catch(function(error) {
-    console.error("Error removing document: ", error);
-  });
+  db.collection("3_Way")
+    .doc(id)
+    .delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error removing document: ", error);
+    });
 }
 
 // Ends Delete Seccion
-
-
-
-  
-
-  
-
-  
