@@ -319,18 +319,19 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                   }')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" onclick="editLowPressure('${
-                    doc.id
-                  }','${doc.data().Company_Name}','${doc.data().Contact_Name}',
-                  '${doc.data().Location}','${doc.data().Phone_Contact}',
-                  '${doc.data().City}','${doc.data().State}',
-                  '${doc.data().Zip}','${doc.data().Valve_Size}',
-                  '${doc.data().Brand}','${doc.data().Series}',
-                  '${doc.data().Brand_Actuator_LP}',
-                  '${doc.data().Model_Actuator_LP}',
-                  '${doc.data().Valve_Type}',
-                  '${doc.data().Actuator_Type}',
-                  '${doc.data().Actuator_Mode}')">Edit
+                  <button class="btn btn-warning" onclick="editLowPressure(
+                    '${doc.id}','${doc.data().Company_Name}',
+                    '${doc.data().Contact_Name}',
+                    '${doc.data().Location}','${doc.data().Phone_Contact}',
+                    '${doc.data().City}','${doc.data().State}',
+                    '${doc.data().Zip}','${doc.data().Valve_Size}',
+                    '${doc.data().Brand}','${doc.data().Series}',
+                    '${doc.data().Brand_Actuator_LP}',
+                    '${doc.data().Model_Actuator_LP}',
+                    '${doc.data().Valve_Type}',
+                    '${doc.data().Actuator_Type}',
+                    '${doc.data().Actuator_Mode}'
+                    )">Edit
                   </button>
                 </td>
 
@@ -503,7 +504,11 @@ function editLowPressure(
       <td ><input type="text" id="lpModulating"></td>
                 
                 <td>
-                  <button class="btn btn-primary id="editLowPressureActuator">Update</button>
+                  <button class="btn btn-primary 
+                    id="editLowPressureActuator" 
+                    onclick="editLP()">
+                      Update
+                  </button>
                 </td>
                 
 
@@ -514,7 +519,7 @@ function editLowPressure(
 
 	`;
 
-  modalContainerLP.innerHTML = modalLP;
+  modalContainerLP.innerHTML = modalLP; // pintando la tabla dentro del HTML
 
   document.querySelector("#lpCompany").value = company;
   document.querySelector("#lpName").value = contactName;
@@ -538,11 +543,12 @@ function editLowPressure(
 
   let editButtonLp = document.querySelector("#editLowPressureActuator");
 
-  // console.log(`inside of radiobuttons: ${radioButtonsLP}`);
-  // console.log(`inside of dropdows: ${dropdown}`);
-  // console.log(`inside of typeValveSecc3: ${typeValveSecc3}`);
+  console.log(`inside of radiobuttons: ${radioButtonsLP}`);
+  console.log(`inside of dropdows: ${dropdown}`);
+  console.log(`inside of typeValveSecc3: ${typeValveSecc3}`);
 
-  editButtonLp.onclick = function() {
+  function editLP() {
+    // editButtonLp.onclick = function() {
     // editButtonLp.addEventListener ("click", function() {
 
     var washingtonRef = db.collection("LowP_Pneumatic").doc(id);
@@ -566,17 +572,6 @@ function editLowPressure(
     actuatorTypeLP = document.querySelector("#lp2positions").value;
 
     modulatingOr2PositionsLP = document.querySelector("#lpModulating").value; // checar ID
-
-    // let radioButtonsLLP = document.querySelector(
-    //   'input[name="radioButtonsSecc6"]:checked'
-    // ).value;
-    // let typeValveSecc3LP = document.querySelector(
-    //   'input[name="exampleRadios"]:checked'
-    // ).value;
-
-    // let actuatorTypeSecc3LP = document.querySelector("#selectSeccion3");
-    // let dropdownLP =
-    //   actuatorTypeSecc3LP.options[actuatorTypeSecc3.selectedIndex].value;
 
     return washingtonRef
       .update({
@@ -613,13 +608,13 @@ function editLowPressure(
         document.querySelector("#lpBrandDamageActuator").value = "";
         document.querySelector("#lpModelDamageActuator").value = "";
 
-        modalContainer.style.display = "none";
+        modalContainerLP.style.display = "none";
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
-  };
+  }
 }
 
 function editHighPressure(
@@ -640,11 +635,6 @@ function editHighPressure(
   //   dropdown,
   //   radioButtonsLP
 ) {
-  if ((modalContainer.style.display = "none")) {
-    modalContainer.style.display = "block";
-  } else {
-    modalContainer.style.display = "none";
-  }
   var modal2 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
     <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
         <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
