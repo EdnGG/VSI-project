@@ -1231,6 +1231,7 @@ function editArrangements(
 
     return washingtonRef
       .update({
+        // por aqui esta el bug
         Company_Name: companyArrangements, //company,
         Contact_Name: contactNameArrangements, //contactName,
         Location: locationArrangements, //location,
