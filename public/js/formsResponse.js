@@ -106,6 +106,7 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
   tableForm.innerHTML = "";
   querySnapshot.forEach(doc => {
     console.log(`${doc.id} => ${doc.data()}`);
+    // console.table(`${doc.data()}`);
     tableForm.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
@@ -140,7 +141,7 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                 <td>${doc.data().Actuator_Requirements_Secc_4}</td>
                 <td>${doc.data().Pneumatic_Or_Electric}</td>
                 <td>${doc.data().Control_Signal}</td>
-                <td>${doc.data().Other}</td>
+                <td>${doc.data().Other2}</td>
                 <td>${doc.data().Enclosure_Required}</td>
                 <td>
                   <button class="btn btn-danger" onclick="deleteArrangements('${
@@ -281,7 +282,8 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                   '${doc.data().Model_Actuator_HP}',
                   '${doc.data().Valve_Type}',
                   '${doc.data().Actuator_Type}',
-                  '${doc.data().Actuator_Mode}')">Edit</button>
+                  '${doc.data().Actuator_Mode}')">Edit
+                  </button>
                 </td>
                 
         </tr>
@@ -344,90 +346,16 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
 // Ends Getting data from firestore to seed tables
 
 // Edit Seccion
-var modalContainerLP = document.querySelector("#modalLP"); // div con #modalLP
+var modalContainerLP = document.querySelector("#modalLP");
 var modalContainerHP = document.querySelector("#modalHP");
 var modalContainerElectric = document.querySelector("#modalE");
 var modalContainerTreeWay = document.querySelector("#modalTreeWay");
 
 //
 
-// let editButtonL = document.querySelector("#editLowPressureActuator");
-
-// function editButtonLp() {
-//   // editButtonLp.addEventListener ("click", function() {
-
-//   var washingtonRef = db.collection("LowP_Pneumatic").doc(id);
-
-//   var companylp = document.querySelector("#lpCompany").value;
-//   var contactNamelp = document.querySelector("#lpName").value;
-//   var locationlp = document.querySelector("#lpLocation").value;
-//   var phoneContactlp = document.querySelector("#lpPhone").value;
-//   var citylp = document.querySelector("#lpCity").value;
-//   var statelp = document.querySelector("#lpState").value;
-//   var ziplp = document.querySelector("#lpZip").value;
-//   var valveSizelp = document.querySelector("#lpValveSize").value;
-//   var brandlp = document.querySelector("#lpBrand").value;
-//   var serieslp = document.querySelector("#lpSeries").value;
-
-//   var brandDamageLp = document.querySelector("#lpBrandDamageActuator").value;
-//   var modelDamageLp = document.querySelector("#lpModelDamageActuator").value;
-
-//   let radioButtonsLLP = document.querySelector(
-//     'input[name="radioButtonsSecc6"]:checked'
-//   ).value;
-//   let typeValveSecc3LP = document.querySelector(
-//     'input[name="exampleRadios"]:checked'
-//   ).value;
-
-//   let actuatorTypeSecc3LP = document.querySelector("#selectSeccion3");
-//   let dropdownLP =
-//     actuatorTypeSecc3LP.options[actuatorTypeSecc3.selectedIndex].value;
-
-//   return washingtonRef
-//     .update({
-//       Company_Name: companylp, //company,
-//       Contact_Name: contactNamelp, //contactName,
-//       Location: locationlp, //location,
-//       Phone_Contact: phoneContactlp, //phoneContact,
-//       City: citylp, //city,
-//       State: statelp, //state,
-//       Zip: ziplp, //zip,
-//       Valve_Size: valveSizelp, //valveSizeSecc2,
-//       Brand: brandlp, //brandSecc2,
-//       Series: serieslp, //seriesSecc2,
-//       Brand_Actuator_LP: brandDamageLp, //brandActuatorSecc6,
-//       Model_Actuator_LP: modelDamageLp, //modelActuatorSecc6
-//       Valve_Type: typeValveSecc3LP,
-//       Actuator_Type: dropdownLP,
-//       Actuator_Mode: radioButtonsLLP
-//     })
-//     .then(function() {
-//       console.log("Document successfully updated!");
-
-//       document.querySelector("#lpCompany").value = "";
-//       document.querySelector("#lpName").value = "";
-//       document.querySelector("#lpLocation").value = "";
-//       document.querySelector("#lpPhone").value = "";
-//       document.querySelector("#lpCity").value = "";
-//       document.querySelector("#lpState").value = "";
-//       document.querySelector("#lpZip").value = "";
-//       document.querySelector("#lpValveSize").value = "";
-//       document.querySelector("#lpBrand").value = "";
-//       document.querySelector("#lpSeries").value = "";
-
-//       document.querySelector("#lpBrandDamageActuator").value = "";
-//       document.querySelector("#lpModelDamageActuator").value = "";
-
-//       modalContainer.style.display = "none";
-//     })
-//     .catch(function(error) {
-//       // The document probably doesn't exist.
-//       console.error("Error updating document: ", error);
-//     });
-// }
-
 //
 
+let shiftLP = true;
 function editLowPressure(
   id,
   company,
@@ -447,9 +375,22 @@ function editLowPressure(
   dropdown,
   radioButtonsLP
 ) {
+  if (shiftLP) {
+    modalContainerLP.style.display = "block";
+    shiftLP = false;
+    console.log(`%cvalor de shift dentro de IF: ${shiftLP}`, "color : green;");
+  } else if (!shiftLP) {
+    modalContainerLP.style.display = "block";
+    shiftLP = true;
+    console.log(
+      `%cvalor de shift dentro de ELSE IF: ${shiftLP}`,
+      "color : yellow;"
+    );
+  }
+
   let modalLP = `
 	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableFour">
+        id="tableFourModal">
         <table class="table table-hover responsetable">
           <caption>
             Retrofit Forms for Low Pressure Actuators Requests
@@ -541,16 +482,11 @@ function editLowPressure(
 
   document.querySelector("#lpModulating").value = radioButtonsLP;
 
-  // let editButtonLp = document.querySelector("#editLowPressureActuator");
-
   console.log(`inside of radiobuttons: ${radioButtonsLP}`);
   console.log(`inside of dropdows: ${dropdown}`);
   console.log(`inside of typeValveSecc3: ${typeValveSecc3}`);
 
   window.editLP = () => {
-    // editButtonLp.onclick = function() {
-    // editButtonLp.addEventListener ("click", function() {
-
     var washingtonRef = db.collection("LowP_Pneumatic").doc(id);
 
     var companylp = document.querySelector("#lpCompany").value;
@@ -569,9 +505,10 @@ function editLowPressure(
 
     let valveTypeLP = document.querySelector("#valve2way").value;
 
-    actuatorTypeLP = document.querySelector("#lp2positions").value;
+    let actuatorTypeLP = document.querySelector("#lp2positions").value;
 
-    modulatingOr2PositionsLP = document.querySelector("#lpModulating").value; // checar ID
+    let modulatingOr2PositionsLP = document.querySelector("#lpModulating")
+      .value; // checar ID
 
     return washingtonRef
       .update({
@@ -592,7 +529,7 @@ function editLowPressure(
         Actuator_Mode: modulatingOr2PositionsLP
       })
       .then(function() {
-        console.log("Document successfully updated!");
+        console.log(`%cDocument successfully updated!`, "color : orange;");
 
         document.querySelector("#lpCompany").value = "";
         document.querySelector("#lpName").value = "";
@@ -608,19 +545,25 @@ function editLowPressure(
         document.querySelector("#lpBrandDamageActuator").value = "";
         document.querySelector("#lpModelDamageActuator").value = "";
 
-        modalContainerLP.style.display = "none"; //ocultando div con #modalLP
+        document.querySelector("#valve2way").value = "";
+        document.querySelector("#lp2positions").value = "";
+        document.querySelector("#lpModulating").value = ""; // checar ID
+
+        modalContainerLP.style.display = "none";
+        shiftLP = false;
+        console.log(
+          `%cvalor de shift dentro de .then : ${shiftLP}`,
+          "color : orange;"
+        );
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
   };
-
-  // let editButtonLp = document.querySelector("#editLowPressureActuator");
-  // editButtonLp.addEventListener("click", editLP());
-  // editLP();
 }
 
+let shiftHP = true;
 function editHighPressure(
   id,
   company,
@@ -634,144 +577,98 @@ function editHighPressure(
   brandSecc2,
   seriesSecc2,
   brandActuatorSecc5,
-  modelActuatorSecc5
-  //   typeValveSecc3,
-  //   dropdown,
-  //   radioButtonsLP
+  modelActuatorSecc5,
+
+  typeValveSecc3_HP,
+  dropdown_HP,
+  radioButtonsHP
 ) {
-  var modal2 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
-        <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
-        
-<!-- Starts costumer information form -->
-        <fieldset id="seccion1">
-            <div class="row">
-                <p class="col text-center ">Costumer Information</p>
-            </div>
-            <div class="form-row " >
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                    <label for="inputCompanyLabel">Company:</label>
-                    <input type="text" class="form-control" id="hpCompany" placeholder="Company name" required>
-                </div>
-                <div class="form-group  col-md-6 ">
-                    <label for="inputContactLabel">Contact</label>
-                    <input type="text" class="form-control" id="hpName" placeholder="Contact number" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputLocationLabel">Location</label>
-                <input type="text" class="form-control" id="hpLocation" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputPhoneLabel">Phone Number</label>
-                <input type="number" class="form-control" id="hpPhone" placeholder="678 -123-4567" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCityLabel">City</label>
-                    <input type="text" class="form-control" id="hpCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputStateLabel">State</label>
-                    <input type="text" class="form-control" id="hpState">
+  if (shiftHP) {
+    modalContainerHP.style.display = "block";
+    shiftHP = false;
+    console.log(`%cvalor de shift dentro de IF: ${shiftHP}`, "color : green;");
+  } else if (!shiftHP) {
+    modalContainerHP.style.display = "block";
+    shiftHP = true;
+    console.log(
+      `%cvalor de shift dentro de ELSE IF: ${shiftHP}`,
+      "color : yellow;"
+    );
+  }
 
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZipLabel">Zip</label>
-                    <input type="number" class="form-control" id="hpZip">
-                </div>
-            </div>
-    </fieldset>
-    <fieldset id="seccion2">
-            <div class="row">
-                <p class="col text-center ">Valve Information</p>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 ">
-                    <label for="valveSize">Valve Size</label>
-                    <input type="text" class="form-control" id="hpValveSize" placeholder="Valve size" required>
-                </div>
-                <div class="col-md-6 ">
-                    <label for="Brand">Brand</label>
-                    <input type="text" class="form-control" id="hpBrand" placeholder="Brand" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Series</label>
-                <input type="text" class="form-control" id="hpSeries">
-            </div>
-    
-        </fieldset>
+  let modalHP = `
+	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+        id="tableThreeModal">
+        <table class="table table-hover responsetable">
+          <caption>
+            Retrofit Forms for High Pressure Actuators Requests
+          </caption>
 
-<!--Start form seccion 3  -->
+          <div style="overflow-x:auto;">
+            
+          </div>
+          <thead class="">
+            <tr class="justity-content-center text-center bg-secondary">
+              <th scope="col">ID</th>
+              <th scope="col">Company</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Location</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Zip Code</th>
+              <th scope="col">Valve Size</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Series</th>
+              <th scope="col">Brand Actuator LP</th>
+              <th scope="col">Model Actuator LP</th>
+              <th scope="col">Valve Type</th>
+              <th scope="col">Actuator Type</th>
+              <th scope="col">Actuator Mode</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+					<tbody id="table3">
+					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+            <th >${id}</th>
+                <td ><input type="text" id="hpCompany"></td>
+                <td ><input type="text" id="hpName"></td>
+                <td ><input type="text" id="hpLocation"></td>
+                <td ><input type="text" id="hpPhone"></td>
+                <td ><input type="text" id="hpCity"></td>
+                <td ><input type="text" id="hpState"></td>
+                <td ><input type="text" id="hpZip"></td>
+                <td ><input type="text" id="hpValveSize"></td>
+                <td ><input type="text" id="hpBrand"></td>
+                <td ><input type="text" id="hpSeries"></td>
+                <td ><input type="text" id="hpBrandDamageActuator"></td>
+                <td ><input type="text" id="hpModelDamageActuator"></td>
+								
+								
+      <td ><input type="text" 
+      id="valve2way"></td>
 
-        <fieldset id="seccion3" class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Valve Type</p>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-                2 way </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-            3 way </label>
-            </div>
-            <br><br>
+      <td ><input type="text" id="hp2positions"></td>
+      
+      <td ><input type="text" id="hpModulating"></td>
+                
+                <td>
+                  <button class="btn btn-primary 
+                    id="editHighPressureActuator" 
+                    onclick="editHP()">
+                      Update
+                  </button>
+                </td>
+                
 
-        <fieldset class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Actuator Type</p>
-            </div>
+        </tr>
+					</tbody>
+        </table>
+      </div>
 
-            <!-- <label for="size">Model:</label> -->
-            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
-                <option  value="select" selected>Select one</option>
-                <option  value="Electric" id="electric">Electric Actuator</option>
-                <option  value="HP" id="hp">High Pressure Pneumatic</option>
-                <option  value="LP" id="lp">Low Pressure Pneumatic</option>
-            </select>
+	`;
 
-        </fieldset>
-        <br><br>
-           
-        </fieldset>
-<fieldset class="text-center" id="seccion6">
-            <div class="row text-center">
-                <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
-            </div>
-            <div class="form-group">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="hpBrandDamageActuator">
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="hpModelDamageActuator">
-
-            </div>
-
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="hp2positions"
-                value="lp-2positions">
-                <label class="form-check-label text-center">
-                2 Positions </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="hpModulating"
-                value="lpModulating">
-                <label class="form-check-label text-center">
-                Modulating
-                </label>
-            </div>
-            <br><br>
-
-    <div class="col text-center">
-        <button type="button" id="editHighPressureActuator" class="btn btn-primary" >Edit</button>
-    </div>
-    </fieldset>
-`;
-
-  modalContainer.innerHTML = modal2;
+  modalContainerHP.innerHTML = modalHP; // pintando la tabla dentro del HTML
 
   document.querySelector("#hpCompany").value = company;
   document.querySelector("#hpName").value = contactName;
@@ -780,16 +677,26 @@ function editHighPressure(
   document.querySelector("#hpCity").value = city;
   document.querySelector("#hpState").value = state;
   document.querySelector("#hpZip").value = zip;
-  document.querySelector("#hpValveSize").value = valveSizeSecc2; // line 635
-  document.querySelector("#hpBrand").value = brandSecc2; // line 639
-  document.querySelector("#hpSeries").value = seriesSecc2; // line 644
+  document.querySelector("#hpValveSize").value = valveSizeSecc2;
+  document.querySelector("#hpBrand").value = brandSecc2;
+  document.querySelector("#hpSeries").value = seriesSecc2;
 
   document.querySelector("#hpBrandDamageActuator").value = brandActuatorSecc5;
   document.querySelector("#hpModelDamageActuator").value = modelActuatorSecc5;
 
-  let editButtonHp = document.querySelector("#editHighPressureActuator");
+  document.querySelector("#valve2way").value = typeValveSecc3_HP;
 
-  editButtonHp.onclick = function() {
+  document.querySelector("#hp2positions").value = dropdown_HP;
+
+  document.querySelector("#hpModulating").value = radioButtonsHP;
+
+  console.log(`inside of radiobuttons: ${radioButtonsHP}`);
+  console.log(`inside of dropdows: ${dropdown_HP}`);
+  console.log(`inside of typeValveSecc3: ${typeValveSecc3_HP}`);
+
+  // let editButtonHp = document.querySelector("#editHighPressureActuator");
+
+  window.editHP = () => {
     var washingtonRef = db.collection("HP_Pneumatic").doc(id);
 
     var companyhp = document.querySelector("#hpCompany").value;
@@ -806,6 +713,13 @@ function editHighPressure(
     var brandDamageHp = document.querySelector("#hpBrandDamageActuator").value;
     var modelDamageHp = document.querySelector("#hpModelDamageActuator").value;
 
+    let valveTypeHP = document.querySelector("#valve2way").value;
+
+    let actuatorTypeHP = document.querySelector("#hp2positions").value;
+
+    let modulatingOr2PositionsHP = document.querySelector("#hpModulating")
+      .value; // checar ID
+
     return washingtonRef
       .update({
         Company_Name: companyhp, //company,
@@ -818,11 +732,11 @@ function editHighPressure(
         Valve_Size: valveSizehp, //valveSizeSecc2,
         Brand: brandhp, //brandSecc2,
         Series: serieshp, //seriesSecc2,
-        Brand_Actuator_LP: brandDamageHp, //brandActuatorSecc6,
-        Model_Actuator_LP: modelDamageHp //modelActuatorSecc6
-        // Valve_Type: typeValveSecc3,
-        // Actuator_Type: dropdown,
-        // Actuator_Mode: radioButtonsLP
+        Brand_Actuator_HP: brandDamageHp, //brandActuatorSecc6,
+        Model_Actuator_HP: modelDamageHp, //modelActuatorSecc6
+        Valve_Type: valveTypeHP,
+        Actuator_Type: actuatorTypeHP,
+        Actuator_Mode: modulatingOr2PositionsHP
       })
       .then(function() {
         console.log("Document successfully updated!");
@@ -841,22 +755,26 @@ function editHighPressure(
         document.querySelector("#hpBrandDamageActuator").value = "";
         document.querySelector("#hpModelDamageActuator").value = "";
 
-        modalContainer.style.display = "none";
+        document.querySelector("#valve2way").value = "";
+        document.querySelector("#hp2positions").value = "";
+        document.querySelector("#hpModulating").value = ""; // checar ID
+
+        modalContainerHP.style.display = "none";
+        shiftHP = false;
+        console.log(
+          `%cvalor de shift dentro de .then : ${shiftHP}`,
+          "color : orange;"
+        );
+        //   })
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
   };
-
-  // document.querySelector("#lpBrandDamageActuator").value = brandActuatorSecc6;
-  // document.querySelector("#lpModelDamageActuator").value = modelActuatorSecc6;
-
-  // document.querySelector("#lpValveType").value = `${typeValveSecc3}`;
-  // document.querySelector("#lpActuatorType").value = `${dropdown}`;
-  // document.querySelector("#lpActuatorMode").value = `${radioButtonsLP}`;
 }
 
+let shiftElectric = true;
 function editElectricActuator(
   id,
   company,
@@ -869,177 +787,156 @@ function editElectricActuator(
   valveSizeSecc2,
   brandSecc2,
   seriesSecc2,
-  brandActuatorSecc6,
-  modelActuatorSecc6,
+  brandActuatorSecc4,
+  modelActuatorSecc4,
   typeValveSecc3,
   dropdown,
-  radioButtonsLP
+  electricActuator
 ) {
-  var modal3 = `<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
-        <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
-        
-<!-- Starts costumer information form -->
-        <fieldset id="seccion1">
-            <div class="row">
-                <p class="col text-center ">Costumer Information</p>
-            </div>
-            <div class="form-row " >
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                    <label for="inputCompanyLabel">Company:</label>
-                    <input type="text" class="form-control" id="eACompany" placeholder="Company name" required>
-                </div>
-                <div class="form-group  col-md-6 ">
-                    <label for="inputContactLabel">Contact</label>
-                    <input type="text" class="form-control" id="eAName" placeholder="Contact number" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputLocationLabel">Location</label>
-                <input type="text" class="form-control" id="eALocation" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputPhoneLabel">Phone Number</label>
-                <input type="number" class="form-control" id="eAPhone" placeholder="678 -123-4567" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCityLabel">City</label>
-                    <input type="text" class="form-control" id="eACity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputStateLabel">State</label>
-                    <input type="text" class="form-control" id="eAState">
+  if (shiftElectric) {
+    modalContainerElectric.style.display = "block";
+    shiftElectric = false;
+    console.log(
+      `%cvalor de shift dentro de IF: ${shiftElectric}`,
+      "color : green;"
+    );
+  } else if (!shiftElectric) {
+    modalContainerElectric.style.display = "block";
+    shiftElectric = true;
+    console.log(
+      `%cvalor de shift dentro de ELSE IF: ${shiftElectric}`,
+      "color : yellow;"
+    );
+  }
 
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZipLabel">Zip</label>
-                    <input type="number" class="form-control" id="eAZip">
-                </div>
-            </div>
-    </fieldset>
-    <fieldset id="seccion2">
-            <div class="row">
-                <p class="col text-center ">Valve Information</p>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 ">
-                    <label for="valveSize">Valve Size</label>
-                    <input type="text" class="form-control" id="eAValveSize" placeholder="Valve size" required>
-                </div>
-                <div class="col-md-6 ">
-                    <label for="Brand">Brand</label>
-                    <input type="text" class="form-control" id="eABrand" placeholder="Brand" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Series</label>
-                <input type="text" class="form-control" id="eASeries">
-            </div>
-    
-        </fieldset>
+  let modalElectric = `
+	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+        id="tableTwoModal">
+        <table class="table table-hover responsetable">
+          <caption>
+            Retrofit Forms for High Pressure Actuators Requests
+          </caption>
 
-<!--Start form seccion 3  -->
+          <div style="overflow-x:auto;">
+            
+          </div>
+          <thead class="">
+            <tr class="justity-content-center text-center bg-secondary">
+              <th scope="col">ID</th>
+              <th scope="col">Company</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Location</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Zip Code</th>
+              <th scope="col">Valve Size</th>
+              <th scope="col">Brand</th>
+              <th scope="col">Series</th>
+              <th scope="col">Brand Electric Actuator </th>
+              <th scope="col">Model Electric Actuator </th>
+              <th scope="col">Valve Type</th>
+              <th scope="col">Actuator Type</th>
+              <th scope="col">Electric Actuator</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+					<tbody id="table2">
+					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+            <th >${id}</th>
+                <td ><input type="text" id="elecActuatorCompany"></td>
+                <td ><input type="text" id="elecActuatorName"></td>
+                <td ><input type="text" id="elecActuatorLocation"></td>
+                <td ><input type="text" id="elecActuatorPhone"></td>
+                <td ><input type="text" id="elecActuatorCity"></td>
+                <td ><input type="text" id="elecActuatorState"></td>
+                <td ><input type="text" id="elecActuatorZip"></td>
+                <td ><input type="text" id="elecActuatorValveSize"></td>
+                <td ><input type="text" id="elecActuatorBrand"></td>
+                <td ><input type="text" id="elecActuatorSeries"></td>
+                <td ><input type="text" id="electricBrandDamageActuator"></td>
+                <td ><input type="text" id="electricModelDamageActuator"></td>
+								
+                <td ><input type="text"                 id="valve2way">
+                </td>
 
-        <fieldset id="seccion3" class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Valve Type</p>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-                2 way </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-            3 way </label>
-            </div>
-            <br><br>
+                <td ><input type="text" id="electricActuatorType"></td>
+      
+                <td ><input type="text" id="actuator"></td>
+                
+                <td>
+                  <button class="btn btn-primary 
+                    id="editHighPressureActuator" 
+                    onclick="editElectric()">
+                      Update
+                  </button>
+                </td>
+                
 
-        <fieldset class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Actuator Type</p>
-            </div>
+        </tr>
+					</tbody>
+        </table>
+      </div>
 
-            <!-- <label for="size">Model:</label> -->
-            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
-                <option  value="select" selected>Select one</option>
-                <option  value="Electric" id="electric">Electric Actuator</option>
-                <option  value="HP" id="hp">High Pressure Pneumatic</option>
-                <option  value="LP" id="lp">Low Pressure Pneumatic</option>
-            </select>
+	`;
 
-        </fieldset>
-        <br><br>
-           
-        </fieldset>
-<fieldset class="text-center" id="seccion6">
-            <div class="row text-center">
-                <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
-            </div>
-            <div class="form-group">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="eABrandDamageActuator">
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="eAModelDamageActuator">
+  modalContainerElectric.innerHTML = modalElectric; // pintando la tabla dentro del HTML
 
-            </div>
+  document.querySelector("#elecActuatorCompany").value = company;
+  document.querySelector("#elecActuatorName").value = contactName;
+  document.querySelector("#elecActuatorLocation").value = location;
+  document.querySelector("#elecActuatorPhone").value = phoneContact;
+  document.querySelector("#elecActuatorCity").value = city;
+  document.querySelector("#elecActuatorState").value = state;
+  document.querySelector("#elecActuatorZip").value = zip;
+  document.querySelector("#elecActuatorValveSize").value = valveSizeSecc2;
+  document.querySelector("#elecActuatorBrand").value = brandSecc2;
+  document.querySelector("#elecActuatorSeries").value = seriesSecc2;
 
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="hp2positions"
-                value="lp-2positions">
-                <label class="form-check-label text-center">
-                2 Positions </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="hpModulating"
-                value="lpModulating">
-                <label class="form-check-label text-center">
-                Modulating
-                </label>
-            </div>
-            <br><br>
+  //   document.querySelector("#elecActuatorSeries").value = seriesSecc2;
 
-    <div class="col text-center">
-        <button type="button" id="editElectricActuator" class="btn btn-primary" >Edit</button>
-    </div>
-    </fieldset>
-`;
+  document.querySelector(
+    "#electricBrandDamageActuator"
+  ).value = brandActuatorSecc4;
+  document.querySelector(
+    "#electricModelDamageActuator"
+  ).value = modelActuatorSecc4;
+  document.querySelector("#valve2way").value = typeValveSecc3;
+  document.querySelector("#electricActuatorType").value = dropdown;
+  document.querySelector("#actuator").value = electricActuator;
 
-  modalContainer.innerHTML = modal3;
-
-  document.querySelector("#eACompany").value = company;
-  document.querySelector("#eAName").value = contactName;
-  document.querySelector("#eALocation").value = location;
-  document.querySelector("#eAPhone").value = phoneContact;
-  document.querySelector("#eACity").value = city;
-  document.querySelector("#eAState").value = state;
-  document.querySelector("#eAZip").value = zip;
-  document.querySelector("#eAValveSize").value = valveSizeSecc2; // line 635
-  document.querySelector("#eABrand").value = brandSecc2; // line 639
-  document.querySelector("#eASeries").value = seriesSecc2; // line 644
-
-  let editButtonEa = document.querySelector("#editElectricActuator");
-
-  editButtonEa.onclick = function() {
+  window.editElectric = () => {
     var washingtonRef = db.collection("Electric_Actuator").doc(id);
 
-    var companyEa = document.querySelector("#eACompany").value;
-    var contactNameEa = document.querySelector("#eAName").value;
-    var locationEa = document.querySelector("#eALocation").value;
-    var phoneContactEa = document.querySelector("#eAPhone").value;
-    var cityEa = document.querySelector("#eACity").value;
-    var stateEa = document.querySelector("#eAState").value;
-    var zipEa = document.querySelector("#eAZip").value;
-    var valveSizeEa = document.querySelector("#eAValveSize").value;
-    var brandEa = document.querySelector("#eABrand").value;
-    var seriesEa = document.querySelector("#eASeries").value;
+    let companyEa = document.querySelector("#elecActuatorCompany").value;
+    let contactNameEa = document.querySelector("#elecActuatorName").value;
+    let locationEa = document.querySelector("#elecActuatorLocation").value;
+    let phoneContactEa = document.querySelector("#elecActuatorPhone").value;
+    let cityEa = document.querySelector("#elecActuatorCity").value;
+    let stateEa = document.querySelector("#elecActuatorState").value;
+    let zipEa = document.querySelector("#elecActuatorZip").value;
+    let valveSizeEa = document.querySelector("#elecActuatorValveSize").value;
+    let brandEa = document.querySelector("#elecActuatorBrand").value;
+    let seriesEa = document.querySelector("#elecActuatorSeries").value;
+
+    let electricDamageAct = document.querySelector(
+      "#electricBrandDamageActuator"
+    ).value;
+
+    let electricModelDamageAct = document.querySelector(
+      "#electricModelDamageActuator"
+    ).value;
+
+    let electricValveType = document.querySelector("#valve2way").value;
+
+    let dropdown_E = document.querySelector("#electricActuatorType").value;
+
+    let elecActuator = document.querySelector("#actuator").value;
 
     return washingtonRef
       .update({
-        Company_Name: companyEa, //company,
-        Contact_Name: contactNameEa, //contactName,
+        Company_Name: companyEa,
+        Contact_Name: contactNameEa,
         Location: locationEa, //location,
         Phone_Contact: phoneContactEa, //phoneContact,
         City: cityEa, //city,
@@ -1048,41 +945,49 @@ function editElectricActuator(
         Valve_Size: valveSizeEa, //valveSizeSecc2,
         Brand: brandEa, //brandSecc2,
         Series: seriesEa, //seriesSecc2,
-        Brand_Actuator_LP: brandEa, //brandActuatorSecc6,
-        Model_Actuator_LP: seriesEa //modelActuatorSecc6
-        // Valve_Type: typeValveSecc3,
-        // Actuator_Type: dropdown,
-        // Actuator_Mode: radioButtonsLP
+
+        Brand_Electric_Actuator: electricDamageAct,
+        Model_Electric_Actuator: electricModelDamageAct,
+
+        Valve_Type: electricValveType,
+        Actuator_Type: dropdown_E,
+        Electric_Actuator: elecActuator
       })
       .then(function() {
         console.log("Document successfully updated!");
 
-        document.querySelector("#eACompany").value = "";
-        document.querySelector("#eAName").value = "";
-        document.querySelector("#eALocation").value = "";
-        document.querySelector("#eAPhone").value = "";
-        document.querySelector("#eACity").value = "";
-        document.querySelector("#eAState").value = "";
-        document.querySelector("#eAZip").value = "";
-        document.querySelector("#eAValveSize").value = "";
-        document.querySelector("#eABrand").value = "";
-        document.querySelector("#eASeries").value = "";
-        modalContainer.style.display = "none";
+        document.querySelector("#elecActuatorCompany").value = "";
+        document.querySelector("#elecActuatorName").value = "";
+        document.querySelector("#elecActuatorLocation").value = "";
+        document.querySelector("#elecActuatorPhone").value = "";
+        document.querySelector("#elecActuatorCity").value = "";
+        document.querySelector("#elecActuatorState").value = "";
+        document.querySelector("#elecActuatorZip").value = "";
+        document.querySelector("#elecActuatorValveSize").value = "";
+        document.querySelector("#elecActuatorBrand").value = "";
+        document.querySelector("#elecActuatorSeries").value = "";
+
+        document.querySelector("#electricBrandDamageActuator").value = "";
+        document.querySelector("#electricModelDamageActuator").value = "";
+        document.querySelector("#valve2way").value = "";
+        document.querySelector("#electricActuatorType").value = "";
+        document.querySelector("#actuator").value = "";
+
+        modalContainerElectric.style.display = "none";
+        shiftElectric = false;
+        console.log(
+          `%cvalor de shift dentro de .then : ${shiftElectric}`,
+          "color : orange;"
+        );
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
   };
-
-  // document.querySelector("#lpBrandDamageActuator").value = brandActuatorSecc6;
-  // document.querySelector("#lpModelDamageActuator").value = modelActuatorSecc6;
-
-  // document.querySelector("#lpValveType").value = `${typeValveSecc3}`;
-  // document.querySelector("#lpActuatorType").value = `${dropdown}`;
-  // document.querySelector("#lpActuatorMode").value = `${radioButtonsLP}`;
 }
 
+let shiftArrangement = true;
 function editArrangements(
   id,
   company,
@@ -1095,6 +1000,7 @@ function editArrangements(
   valveSizeSecc2,
   brandSecc2,
   seriesSecc2,
+
   typeValveSecc3,
   radioButtonsArrangements,
   radioButtonsBonnets,
@@ -1116,570 +1022,212 @@ function editArrangements(
   actReqSecc4,
   otherPneumaticOrElec,
   controlSignal,
-  otherControlSignal,
-  enclosureRequired
+  otherControlSignal, // text area
+  enclosureRequired // radio buttons
 ) {
-  var modal4 = `
-  <div class="modal-dialog modal-xl modal" id="arrangements">
-  <div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
-        <legend class="d-flex justify-content-center" >Valve Retrofit Form</legend>
-        
-<!-- Starts costumer information form -->
-        <fieldset id="seccion1">
-            <div class="row">
-                <p class="col text-center ">Costumer Information</p>
-            </div>
-            <div class="form-row " >
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                    <label for="inputCompanyLabel">Company:</label>
-                    <input type="text" class="form-control" id="arrangementsCompany" placeholder="Company name" required>
-                </div>
-                <div class="form-group  col-md-6 ">
-                    <label for="inputContactLabel">Contact</label>
-                    <input type="text" class="form-control" id="arrangementsName" placeholder="Contact number" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputLocationLabel">Location</label>
-                <input type="text" class="form-control" id="arrangementsLocation" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputPhoneLabel">Phone Number</label>
-                <input type="number" class="form-control" id="arrangementsPhone" placeholder="678 -123-4567" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCityLabel">City</label>
-                    <input type="text" class="form-control" id="arrangementsCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputStateLabel">State</label>
-                    <input type="text" class="form-control" id="arrangementsState">
+  if (shiftArrangement) {
+    modalContainerElectric.style.display = "block";
+    shiftArrangement = false;
+    console.log(
+      `%cvalor de shift dentro de IF: ${shiftArrangement}`,
+      "color : green;"
+    );
+  } else if (!shiftArrangement) {
+    modalContainerElectric.style.display = "block";
+    shiftArrangement = true;
+    console.log(
+      `%cvalor de shift dentro de ELSE IF: ${shiftArrangement}`,
+      "color : yellow;"
+    );
+  }
 
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZipLabel">Zip</label>
-                    <input type="number" class="form-control" id="arrangementsZip">
-                </div>
-            </div>
-    </fieldset>
-    <fieldset id="seccion2">
-            <div class="row">
-                <p class="col text-center ">Valve Information</p>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 ">
-                    <label for="valveSize">Valve Size</label>
-                    <input type="text" class="form-control" id="arrangementsValveSize" placeholder="Valve size" required>
-                </div>
-                <div class="col-md-6 ">
-                    <label for="Brand">Brand</label>
-                    <input type="text" class="form-control" id="arrangementsBrand" placeholder="Brand" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Series</label>
-                <input type="text" class="form-control" id="arrangementsSeries">
-            </div>
-    
-        </fieldset>
+  let modalArrangement = `
+	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+        id="tableOneModal">
+        <table class="table table-hover responsetable">
+          <caption>
+            Retrofit Forms for High Pressure Actuators Requests
+          </caption>
 
-<!--Start form seccion 3  -->
+          <div style="overflow-x:auto;">
+            
+          </div>
+          <thead class="">
+            <tr class="justity-content-center text-center bg-secondary">
+      <th scope="col">ID</th>
+      <th scope="col">Company</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Location</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Valve Size</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Series</th>
+      <th scope="col">Valve Type</th>
+      <th scope="col">Arrangement Type</th>
+      <th scope="col">Bonnet Type</th>
+      <th scope="col">Dimension Bonnet A</th>
+      <th scope="col">Dimension Bonnet B</th>
+      <th scope="col">Dimension Bonnet C</th>
+      <th scope="col">Bolt Holes Type</th>
+      <th scope="col">Hole Size</th>
+      <th scope="col">Other</th>
+      <th scope="col">Shaft Type</th>
+      <th scope="col">Shaft Dimensions D</th>
+      <th scope="col">Shaft Dimensions E</th>
+      <th scope="col">Shaft Dimensions F</th>
+      <th scope="col">Shaft Dimensions G</th>
+      <th scope="col">Shaft Dimensions H</th>
+      <th scope="col">Actuator Requirements 1</th>
+      <th scope="col">Actuator Requirements 2</th>
+      <th scope="col">Actuator Requirements 3</th>
+      <th scope="col">Actuator Requirements 4</th>
+      <th scope="col">Pneumatic || Electric</th>
+      <th scope="col">Actuator Control Signal</th>
+      <th scope="col">Other</th>
+      <th scope="col">Enclosure Required</th>
+      <th scope="col">Update</th>
 
-        <fieldset id="seccion3" class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Valve Type</p>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-                2 way </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-            3 way </label>
-            </div>
-            <br><br>
+            </tr>
+          </thead>
+		<tbody id="table1"><tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+<th >${id}</th>
 
-        <fieldset class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Actuator Type</p>
-            </div>
+    <td ><input type="text" id="arrangementsCompany"></td>
+    <td ><input type="text" id="arrangementsName"></td>
+    <td ><input type="text" id="arrangementsLocation"></td>
+    <td ><input type="text" id="arrangementsPhone"></td>
+    <td ><input type="text" id="arrangementsCity"></td>
+    <td ><input type="text" id="arrangementsState"></td>
+    <td ><input type="text" id="arrangementsZip"></td>
+    <td ><input type="text" id="arrangementsValveSize"></td>
+    <td ><input type="text" id="arrangementsBrand"></td>
+    <td ><input type="text" id="arrangementsSeries"></td>
 
-            <!-- <label for="size">Model:</label> -->
-            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
-                <option  value="select" selected>Select one</option>
-                <option  value="Electric" id="electric">Electric Actuator</option>
-                <option  value="HP" id="hp">High Pressure Pneumatic</option>
-                <option  value="LP" id="lp">Low Pressure Pneumatic</option>
-            </select>
+    <td ><input type="text" id="valve3wayType"></td>
+    <td ><input type="text" id="arrangementType"></td>
+                
+    <td ><input type="text" id="bonneType"></td>
+    <td ><input type="text" id="bonnetA"></td>
+    <td ><input type="text" id="bonnetB"></td>
+                
+    <td ><input type="text" id="bonnetC"></td>
+    <td ><input type="text" /id="boltHoles"></td>
+    <td ><input type="text" id="holeSize"></td>
+    <td ><input type="text" id="other"></td>
+    <td ><input type="text" id="shaftType"></td>
+    <td ><input type="text" id="shaftD"></td>
+    <td ><input type="text" id="shaftE"></td>
+    <td ><input type="text" id="shaftF"></td>
+    <td ><input type="text" id="shaftG"></td>
+    <td ><input type="text" id="shaftH"></td>
+    <td ><input type="text" id="requirements1"></td>
+    <td ><input type="text" id="requirements2"></td><td ><input type="text" id="requirements3"></td><td ><input type="text" id="requirements4"></td>
+    <td ><input type="text" id="elecOrPneum"></td><td ><input type="text" id="controlSignal"></td><td ><input type="text" id="other2"></td>
+    <td ><input type="text" id="enclosureType"></td>
 
-        </fieldset>
-        <br><br>
-        </fieldset>
-
-
-        <fieldset class="text-center" id="seccion7">
-            <div class="col-12 row text-center">
-                <legend class="justify-content-center">Three Way Arrangements</legend><br><br>
-                <legend class="justify-content-center">Top View</legend>
-            </div>
-
-            <div class="col-12 form-row">
-                <table class="table table-hover table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">Arrangement</th>
-                        <th scope="col">Actuated Valve</th>
-                        <th scope="col">Normally Closed</th>
-                        <th scope="col">Normally Open</th>
-
-                    </tr>
-                    </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                            <td>Valve A</td>
-                            <td>Valve A</td>
-                            <td>Valve B</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                            <td>Valve A</td>
-                            <td>Valve A</td>
-                            <td>Valve c</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                            <td>Valve B</td>
-                            <td>Valve B</td>
-                            <td>Valve C</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                            <td>Valve B</td>
-                            <td>Valve B</td>
-                            <td>Valve A</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                            <td>Valve C</td>
-                            <td>Valve C</td>
-                            <td>Valve B</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                            <td>Valve C</td>
-                            <td>Valve C</td>
-                            <td>Valve A</td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-
-            <div class="container-fluid">   
-            <div class="form-row">
-                <figure class="col-lg-4">
-                    <img class="img-rounded img-responsive center-block" src="./imagenes/a1.png" alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 1 </label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
-                    value="Arrangement_1" checked>
-                </figure>
-                <br>
-        
-                <figure class="col-lg-4">
-                    <img class="img- rounded img-responsive center-block" src="./imagenes/a2.png" alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 2</label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="Arrangement_2">
-                </figure>
-                <br>
-
-                <figure class="col-lg-4">
-                    <img class="img- rounded img-responsive center-block" src="./imagenes/a3.png" alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 3 </label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="Arrangement_3">
-                </figure>
-<br>
-
-            </div>
-            </div>
-            <br><br><br>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/a1.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 4
-                        </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a4" value="Arrangement_4">
-                    </figure>
-    
-                    <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/a2.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 5 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="Arrangement_5">
-                    </figure>
-    
-                    <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/a3.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 6 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="Arrangement_6">
-                    </figure>
-                </div>
-            </div><br>
-        </fieldset>
-
-<!-- Ends form Seccion 7  -->
-
-<!-- Start form Seccion 8  -->
-
-<fieldset class="text-center" id="seccion8">
-    <!-- <div class="row text-center"> -->
-    <div class="form-row d-flex row justify-content-md-center">
-        <legend class=" justify-content-center legend1">Bonnet Information</legend>
-    </div><br>
-
-<div class=" d-flex row justify-content-md-center">
-    <div class="col-lg-auto  ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet1 (1).png" alt="Bonnet_1"><br>
-            <br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet1" value="Bonnet_1">
-        </figure>
-        <br>
-    </div>
-
-    <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet2 (1).png" alt="Bonnet_2">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet2" value="Bonnet_2">
-        </figure>
-        <br>
-    </div>
-    <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet3 (1).png" alt="Bonnet_3">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet3" value="Bonnet_3">
-        </figure>
-        <br>
-    </div>
-    
-    
-</div> <br>
-
-<div class="row form-group justify-content-md-center">
-    <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
-</div>
-<div class="row form-group justify-content-md-center">
-    <div class="form-group justify-content-md-center form-inline">
-        <span class=" d-inline-block">A</span>
-        <input type="text" class="form-control " id="bonnetA" name="bonnetA">
-    </div>
-<!-- </div> -->
-<!-- <div class="row form-group justify-content-md-center"> -->
-    <div class="form-group col-sm-10 justify-content-md-center form-inline">
-        <span class=" d-inline-block">B</span>
-        <input type="text" class="form-control " id="bonnetB" name="bonnetB">
-    </div>
-<!-- </div> -->
-<!-- <div class="row form-group justify-content-md-center"> -->
-    <div class="form-group col-sm-10 justify-content-md-center form-inline">
-        <span class=" d-inline-block">C</span>
-        <input type="text" class="form-control " id="bonnetC" name="bonnetC">
-    </div>
-<!-- </div> -->
+    <td>
+      <button class="btn btn-primary 
+      id="edit3wayArr" 
+      onclick="editArrangements()">
+        Update
+      </button>
+      </td>
+        </tr>
+			</tbody>
+    </table>
 </div>
 
-<div class="row text-center">
-    <legend class=" justify-content-center legend1">Bolt Holes</legend>
-</div><br>
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilled" value="Bolt_Drilled">
-    <label class="form-check-label text-center">
-        Drilled </label>
-</div>
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilledAndTapped"
-        value="Bolt_Drilled_&_Tapped">
-    <label class="form-check-label text-center">
-        Drilled & Tapped
-    </label>
-</div>
-<br>
-<br>
-<div class="col text-center form-group">
-    <legend class=" justify-content-center legend1">Hole Size And/Or Thread/Inch</legend>
-    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-    <input type="text" class="form-control" id="holeSize">
-</div>
-
-<div class="col text-center form-group">
-    <legend class=" justify-content-center legend1">Other</legend>
-    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-    <textarea class="form-control" id="otherBonnet" name="otherBonnet" rows="3">
-    </textarea>
-</div>
-
-</fieldset>
-
-<!-- Ends form Seccion 8  -->
-
-<!-- Starts form Seccion 9  -->
-
-<fieldset class="text-center" id="seccion9">
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">Shaft Information</legend>
-    </div><br>
-    <div class="row justify-content-md-center">   
-        <div class="col-lg-auto  ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatt1.png" alt="Test"><br>
-            <br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft1" value="Shaft_1"
-                checked>
-        </figure>
-        <br>
-        </div>
-
-        <div class="col-lg-auto ">        
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft2.png" alt="Test">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft2" value="Shaft_2">
-        </figure>
-        <br>
-        </div>
-        <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft3.png" alt="Test">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft3" value="Shaft_3">
-        </figure>
-        <br>
-        </div>
-        <div class="col-lg-auto ">
-            <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf4.png" alt="Test">
-                <br><br>
-                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft4" value="Shaft_4">
-            </figure>
-            <br>
-        </div>
-        <div class="col-lg-auto ">
-            <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf5.png" alt="Test">
-                <br><br>
-            <div class="form-check-inline justify-content-center">    
-                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft5" value="Shaft_5">
-            </div>
-            </figure>
-            <br>
-        </div>
-</div>
-<br>         
-
-<div class="row form-group justify-content-md-center">
-        <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">D</span>
-            <input type="text" class="form-control " id="shaftD" name="shaftD">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">    
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">E</span>
-            <input type="text" class="form-control " id="shaftE" name="shaftE">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">F</span>
-            <input type="text" class="form-control " id="shaftF" name="shaftF">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">G</span>
-            <input type="text" class="form-control " id="shaftG" name="shaftG">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">H</span>
-            <input type="text" class="form-control " id="shaftH" name="shaftH">
-        </div>
-    </div>
-    
-</fieldset>
-
-<!-- Ends form Seccion 9  -->
-
-<!-- Starts form Seccion 10  -->
-
-<fieldset class="text-center" id="seccion10">
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">Actuator Requirements</legend>
-    </div><br>
-<!-- <fieldset> -->
-<div class="container-fluid">
-    <div class="form-row custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric" class="custom-control-input form-check-input">
-        <label class="custom-control-label" for="electricRadioButtonSecc10">Electric</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="pneumaticRadioButtonSecc10" name="seccion10" value="Pneumatic" class="custom-control-input form-check-input">
-        <label class="custom-control-label" for="pneumaticRadioButtonSecc10">Pneumatic</label>
-    </div>
-</div>
-    <!-- </fieldset> -->
-    <br><hr><br>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions" class="custom-control-input" checked>
-        <label class="custom-control-label" for="positionRadioButtonSecc10">2 Positions</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="modulatingRadioButtonSecc10" name="seccion10.1" value="Modulating" class="custom-control-input">
-        <label class="custom-control-label" for="modulatingRadioButtonSecc10">Modulating</label>
-    </div>
-    <br><br><hr><br>
-    
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="springReturnSecc10" name="seccion10.2" value="Spring_Return(Failsafe)" class="custom-control-input" checked>
-        <label class="custom-control-label" for="springReturnSecc10">Spring Return (Failsafe)</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="ncSecc10" name="seccion10.2" value="N.C." class="custom-control-input">
-        <label class="custom-control-label" for="ncSecc10">N.C.</label>
-    </div>
-    <br><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSpringReturnSecc10" name="seccion10.2" value="No_Spring_Return" class="custom-control-input">
-        <label class="custom-control-label" for="noSpringReturnSecc10">No Spring Return</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSecc10" name="seccion10.2" value="N.O." class="custom-control-input">
-        <label class="custom-control-label" for="noSecc10">N.O</label>
-    </div>
-    <br><br><hr>
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">Power (Electric or Pneumatic)</legend>
-    </div><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC" class="custom-control-input" checked>
-        <label class="custom-control-label" for="120vacSecc10">120 VAC</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="20PsigSecc10" name="seccion10.3" value="20_Psig" class="custom-control-input">
-        <label class="custom-control-label" for="20PsigSecc10">20 psig</label>
-    </div><br><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="24vacSecc10" name="seccion10.3" value="24_V_AC" class="custom-control-input">
-        <label class="custom-control-label" for="24vacSecc10">24 VAC</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="80PsigSecc10" name="seccion10.3" value="80_Psig" class="custom-control-input">
-        <label class="custom-control-label" for="80PsigSecc10">80 psig</label>
-    </div><br><br>
-    
-    <div class="col text-center form-group">
-        <legend class=" justify-content-center legend1">Other</legend>
-        <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-        <textarea class="form-control" id="otherInput10" name="otherBonnet" rows="3">
-        </textarea>
-    </div>
-   
-        <div class="form-row">
-            <legend class=" justify-content-center legend1">Control Signal</legend>
-        </div><br>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="4-20mASecc10" name="seccion10.4" value="4-20mA" class="custom-control-input">
-            <label class="custom-control-label" for="4-20mASecc10">4-20 mA</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="3-15psig" name="seccion10.4" value="3-15_Psig" class="custom-control-input">
-            <label class="custom-control-label" for="3-15psig">3-15 psig</label>
-        </div><br><br>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC" class="custom-control-input" checked>
-            <label class="custom-control-label" for="2-10vdcSecc10">2-10 VDC</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="floatingSecc10" name="seccion10.4" value="Floating" class="custom-control-input">
-            <label class="custom-control-label" for="floatingSecc10">Floating</label>
-        </div><br><br>
-        
-        <div class="col text-center form-group">
-            <legend class=" justify-content-center legend1">Other</legend>
-            <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-            <textarea class="form-control" id="otherControlInput10" name="otherSecc10.2" raws="3">
-            </textarea>
-        </div>
-
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">NEMA 4 Enclosure Required</legend>
-    </div><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes" class="custom-control-input" checked>
-        <label class="custom-control-label" for="yesSecc10">Yes</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="notSecc10" name="seccion10.5" value="No" class="custom-control-input">
-        <label class="custom-control-label" for="notSecc10">No</label>
-    </div><br><br>
-
-    <div class="col text-center">
-        <button type="button" id="editArrangements" class="btn btn-primary" >Edit</button>
-    </div>
-    </fieldset>
-</div>
 `;
 
-  modalContainer.innerHTML = modal4;
+  modalContainerTreeWay.innerHTML = modalArrangement; // pintando la tabla dentro del HTML
 
-  document.querySelector("#arrangementsCompany").value = company;
-  document.querySelector("#arrangementsName").value = contactName;
-  document.querySelector("#arrangementsLocation").value = location;
-  document.querySelector("#arrangementsPhone").value = phoneContact;
-  document.querySelector("#arrangementsCity").value = city;
-  document.querySelector("#arrangementsState").value = state;
-  document.querySelector("#arrangementsZip").value = zip;
-  document.querySelector("#arrangementsValveSize").value = valveSizeSecc2; // line
-  document.querySelector("#arrangementsBrand").value = brandSecc2; // line
-  document.querySelector("#arrangementsSeries").value = seriesSecc2; // line
+  document.querySelector("#arrangementsCompany").value = company; //
+  document.querySelector("#arrangementsName").value = contactName; //
+  document.querySelector("#arrangementsLocation").value = location; //
+  document.querySelector("#arrangementsPhone").value = phoneContact; //
+  document.querySelector("#arrangementsCity").value = city; //
+  document.querySelector("#arrangementsState").value = state; //
+  document.querySelector("#arrangementsZip").value = zip; //
+  document.querySelector("#arrangementsValveSize").value = valveSizeSecc2; //
+  document.querySelector("#arrangementsBrand").value = brandSecc2; //
+  document.querySelector("#arrangementsSeries").value = seriesSecc2; //
 
-  let editButtonArrangements = document.querySelector("#editArrangements");
+  document.querySelector("#valve3wayType").value = typeValveSecc3; //
+  document.querySelector("#arrangementType").value = radioButtonsArrangements; //
+  document.querySelector("#bonneType").value = radioButtonsBonnets; //
+  document.querySelector("#bonnetA").value = dimensionBonnetA; //
+  document.querySelector("#bonnetB").value = dimensionBonnetB; //
+  document.querySelector("#bonnetC").value = dimensionBonnetC; //
 
-  editButtonArrangements.onclick = function() {
-    var washingtonRef = db.collection("3_Way").doc(id);
+  document.querySelector("#boltHoles").value = boltHoles; //
+  document.querySelector("#holeSize").value = holeSize; //
+  document.querySelector("#other").value = other; //
+  document.querySelector("#shaftType").value = shaftType; //
+  document.querySelector("#shaftD").value = optionShaftD; //
+  document.querySelector("#shaftE").value = optionShaftE; //
+  document.querySelector("#shaftF").value = optionShaftF; //
 
-    var companyArrangements = document.querySelector("#arrangementsCompany")
+  document.querySelector("#shaftG").value = optionShaftG; //
+  document.querySelector("#shaftH").value = optionShaftH; //
+  document.querySelector("#requirements1").value = actReqSecc1; //
+  document.querySelector("#requirements2").value = actReqSecc2; //
+  document.querySelector("#requirements3").value = actReqSecc3; //
+
+  document.querySelector("#requirements4").value = actReqSecc4; //
+  document.querySelector("#elecOrPneum").value = otherPneumaticOrElec; //
+  document.querySelector("#controlSignal").value = controlSignal; //
+  document.querySelector("#other2").value = otherControlSignal; //
+  document.querySelector("#enclosureType").value = enclosureRequired; //
+
+  window.editArrangements = () => {
+    let washingtonRef = db.collection("3_Way").doc(id);
+    // Se le asigna a una variable el valor contenido
+    let companyArrangements = document.querySelector("#arrangementsCompany")
       .value;
-    var contactNameArrangements = document.querySelector("#arrangementsName")
+    let contactNameArrangements = document.querySelector("#arrangementsName")
       .value;
-    var locationArrangements = document.querySelector("#arrangementsLocation")
+    let locationArrangements = document.querySelector("#arrangementsLocation")
       .value;
-    var phoneContactArrangements = document.querySelector("#arrangementsPhone")
+    let phoneContactArrangements = document.querySelector("#arrangementsPhone")
       .value;
-    var cityArrangements = document.querySelector("#arrangementsCity").value;
-    var stateArrangements = document.querySelector("#arrangementsState").value;
-    var zipArrangements = document.querySelector("#arrangementsZip").value;
-    var valveSizeArrangements = document.querySelector("#arrangementsValveSize")
+    let cityArrangements = document.querySelector("#arrangementsCity").value;
+    let stateArrangements = document.querySelector("#arrangementsState").value;
+    let zipArrangements = document.querySelector("#arrangementsZip").value;
+    let valveSizeArrangements = document.querySelector("#arrangementsValveSize")
       .value;
-    var brandArrangements = document.querySelector("#arrangementsBrand").value;
-    var seriesArrangements = document.querySelector("#arrangementsSeries")
+    let brandArrangements = document.querySelector("#arrangementsBrand").value;
+    let seriesArrangements = document.querySelector("#arrangementsSeries")
       .value;
+    //
+
+    let valve3wayType = document.querySelector("#valve3wayType").value;
+    let arrangementType = document.querySelector("#arrangementType").value;
+    let bonneType = document.querySelector("#bonneType").value;
+    let bonnetA = document.querySelector("#bonnetA").value;
+    let bonnetB = document.querySelector("#bonnetB").value;
+    let bonnetC = document.querySelector("#bonnetC").value;
+    let boltHoles = document.querySelector("#boltHoles").value;
+    let holeSize = document.querySelector("#holeSize").value;
+    let other = document.querySelector("#other").value;
+    let shaftType = document.querySelector("#shaftType").value;
+    let shaftD = document.querySelector("#shaftD").value;
+    let shaftE = document.querySelector("#shaftE").value;
+
+    let shaftF = document.querySelector("#shaftF").value;
+    let shaftG = document.querySelector("#shaftG").value;
+    let shaftH = document.querySelector("#shaftH").value;
+    let requirements1 = document.querySelector("#requirements1").value;
+    let requirements2 = document.querySelector("#requirements2").value;
+    let requirements3 = document.querySelector("#requirements3").value;
+    let requirements4 = document.querySelector("#requirements4").value;
+    let elecOrPneum = document.querySelector("#elecOrPneum").value;
+
+    let controlSignal = document.querySelector("#controlSignal").value;
+    let other2 = document.querySelector("#other2").value;
+    let enclosureType = document.querySelector("#enclosureType").value;
 
     return washingtonRef
       .update({
@@ -1692,12 +1240,35 @@ function editArrangements(
         Zip: zipArrangements, //zip,
         Valve_Size: valveSizeArrangements, //valveSizeSecc2,
         Brand: brandArrangements, //brandSecc2,
-        Series: seriesArrangements //seriesSecc2,
-        // Brand_Actuator_LP: brandArrangements, //brandActuatorSecc6,
-        // Model_Actuator_LP: seriesArrangements //modelActuatorSecc6
-        // Valve_Type: typeValveSecc3,
-        // Actuator_Type: dropdown,
-        // Actuator_Mode: radioButtonsLP
+        Series: seriesArrangements, //seriesSecc2,
+
+        // Continue here
+        Valve_Type: valve3wayType,
+        //Actuator_Type: dropdown,
+        //Actuator_Mode: radioButtonsLP,
+        Arrangement_Type: arrangementType,
+        //
+        Bonnet_Type: bonneType,
+        Dimension_Bonnet_A: bonnetA,
+        Dimension_Bonnet_B: bonnetB,
+        Dimension_Bonnet_C: bonnetC,
+        TypeOf_Bolt_Holes: boltHoles,
+        Hole_Size: holeSize,
+        Other: other,
+        Shaft_Type: shaftType,
+        Shaft_Dimensions_D: shaftD,
+        Shaft_Dimensions_E: shaftE,
+        Shaft_Dimensions_F: shaftF,
+        Shaft_Dimensions_G: shaftG,
+        Shaft_Dimensions_H: shaftH,
+        Actuator_Requirements_Secc_1: requirements1,
+        Actuator_Requirements_Secc_2: requirements2, //
+        Actuator_Requirements_Secc_3: requirements3,
+        Actuator_Requirements_Secc_4: requirements4,
+        Pneumatic_Or_Electric: elecOrPneum,
+        Control_Signal: controlSignal,
+        Other2: other2,
+        Enclosure_Required: enclosureType
       })
       .then(function() {
         console.log("Document successfully updated!");
@@ -1712,20 +1283,49 @@ function editArrangements(
         document.querySelector("#arrangementsValveSize").value = "";
         document.querySelector("#arrangementsBrand").value = "";
         document.querySelector("#arrangementsSeries").value = "";
-        modalContainer.style.display = "none";
+
+        //
+
+        document.querySelector("#valve3wayType").value = "";
+        document.querySelector("#arrangementType").value = "";
+        document.querySelector("#bonneType").value = "";
+        document.querySelector("#bonnetA").value = "";
+        document.querySelector("#bonnetB").value = "";
+        document.querySelector("#bonnetC").value = "";
+        document.querySelector("#boltHoles").value = "";
+        document.querySelector("#holeSize").value = "";
+        document.querySelector("#other").value = "";
+        document.querySelector("#shaftType").value = "";
+        document.querySelector("#shaftD").value = "";
+        document.querySelector("#shaftE").value = "";
+
+        document.querySelector("#shaftF").value = "";
+        document.querySelector("#shaftG").value = "";
+        document.querySelector("#shaftH").value = "";
+        document.querySelector("#requirements1").value = "";
+        document.querySelector("#requirements2").value = "";
+        document.querySelector("#requirements3").value = "";
+        document.querySelector("#requirements4").value = "";
+        document.querySelector("#elecOrPneum").value = "";
+
+        document.querySelector("#controlSignal").value = "";
+        document.querySelector("#other2").value = "";
+        document.querySelector("#enclosureType").value = "";
+
+        //
+
+        modalContainerTreeWay.style.display = "none";
+        shiftArrangement = false;
+        console.log(
+          `%cvalor de shift dentro de .then : ${shiftArrangement}`,
+          "color : orange;"
+        );
       })
       .catch(function(error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
   };
-
-  // document.querySelector("#lpBrandDamageActuator").value = brandActuatorSecc6;
-  // document.querySelector("#lpModelDamageActuator").value = modelActuatorSecc6;
-
-  // document.querySelector("#lpValveType").value = `${typeValveSecc3}`;
-  // document.querySelector("#lpActuatorType").value = `${dropdown}`;
-  // document.querySelector("#lpActuatorMode").value = `${radioButtonsLP}`;
 }
 
 // Delete Seccion
