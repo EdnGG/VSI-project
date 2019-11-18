@@ -1,14 +1,14 @@
 console.log("Hello from posts.js");
 
-function clearData() {
-  document.querySelector("#inputCompany").innerHTML = "";
-  document.querySelector("#inputContact").innerHTML = "";
-  document.querySelector("#inputLocation").innerHTML = "";
-  document.querySelector("#inputPhone").innerHTML = "";
-  document.querySelector("#inputCity").innerHTML = "";
-  document.querySelector("#inputState").innerHTML = "";
-  document.querySelector("#inputZip").innerHTML = "";
-}
+// function clearData() {
+//   document.querySelector("#inputCompany").innerHTML = "";
+//   document.querySelector("#inputContact").innerHTML = "";
+//   document.querySelector("#inputLocation").innerHTML = "";
+//   document.querySelector("#inputPhone").innerHTML = "";
+//   document.querySelector("#inputCity").innerHTML = "";
+//   document.querySelector("#inputState").innerHTML = "";
+//   document.querySelector("#inputZip").innerHTML = "";
+// }
 function postElectric() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
@@ -16,7 +16,7 @@ function postElectric() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  let location = document.querySelector("#inputLocation").value;
+  //let location = document.querySelector("#inputLocation").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -43,7 +43,7 @@ function postElectric() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      Location: location,
+      //Location: location,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -88,7 +88,7 @@ function postHp() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  let location = document.querySelector("#inputLocation").value;
+  //let location = document.querySelector("#inputLocation").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -123,7 +123,7 @@ function postHp() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      Location: location,
+      //Location: location,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -161,7 +161,7 @@ function postLp() {
   let company = document.querySelector("#inputCompany").value;
 
   let contactName = document.querySelector("#inputContact").value;
-  let location = document.querySelector("#inputLocation").value;
+  //let location = document.querySelector("#inputLocation").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -190,7 +190,7 @@ function postLp() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      Location: location,
+      //Location: location,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -226,7 +226,7 @@ function threeWay() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  let location = document.querySelector("#inputLocation").value;
+  //let location = document.querySelector("#inputLocation").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -293,7 +293,7 @@ function threeWay() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      Location: location,
+      //Location: location,
       Phone_Contact: phoneContact,
       City: city,
       State: state,

@@ -8,6 +8,11 @@ class Autenticacion {
       .signInWithEmailAndPassword(email, password)
       .then(result => {
         if (result.user.emailVerified) {
+          // $("#avatar").attr(
+          //   "src",
+          //   "https://image.flaticon.com/icons/svg/2206/2206200.svg"
+          // );
+
           //$("#avatar").attr('src', './imagenes/usuarioauth.png')
           swal({
             title: `Welcome ${result.user.displayName}`,

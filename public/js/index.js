@@ -16,7 +16,7 @@ loginButton.addEventListener("click", () => {
     console.log("1");
     document.querySelector("#inputCompany").innerHTML = "hey";
     document.querySelector("#inputContact").innerHTML = "";
-    document.querySelector("#inputLocation").innerHTML = "";
+    // document.querySelector("#inputLocation").innerHTML = "";
     document.querySelector("#inputPhone").innerHTML = "";
     document.querySelector("#inputCity").innerHTML = "";
     document.querySelector("#inputState").innerHTML = "";
@@ -30,7 +30,7 @@ loginButton.addEventListener("click", () => {
 
         document.querySelector("#inputCompany").innerHTML = "hey";
         document.querySelector("#inputContact").innerHTML = "";
-        document.querySelector("#inputLocation").innerHTML = "";
+        // document.querySelector("#inputLocation").innerHTML = "";
         document.querySelector("#inputPhone").innerHTML = "";
         document.querySelector("#inputCity").innerHTML = "";
         document.querySelector("#inputState").innerHTML = "";
@@ -56,7 +56,7 @@ loginButton.addEventListener("click", () => {
   //mainForm.style.display = 'block'
   document.querySelector("#inputCompany").innerHTML = "hey";
   document.querySelector("#inputContact").innerHTML = "";
-  document.querySelector("#inputLocation").innerHTML = "";
+  // document.querySelector("#inputLocation").innerHTML = "";
   document.querySelector("#inputPhone").innerHTML = "";
   document.querySelector("#inputCity").innerHTML = "";
   document.querySelector("#inputState").innerHTML = "";
@@ -70,7 +70,7 @@ firebase.auth().onAuthStateChanged(user => {
     loginButton.innerHTML = "Log Out";
     document.querySelector("#inputCompany").innerHTML = "";
     document.querySelector("#inputContact").innerHTML = "";
-    document.querySelector("#inputLocation").innerHTML = "";
+    // document.querySelector("#inputLocation").innerHTML = "";
     document.querySelector("#inputPhone").innerHTML = "";
     document.querySelector("#inputCity").innerHTML = "";
     document.querySelector("#inputState").innerHTML = "";
@@ -85,7 +85,7 @@ firebase.auth().onAuthStateChanged(user => {
     $("#avatar").attr("src", "./imagenes/usuarioauth.png");
     document.querySelector("#inputCompany").innerHTML = "";
     document.querySelector("#inputContact").innerHTML = "";
-    document.querySelector("#inputLocation").innerHTML = "";
+    // document.querySelector("#inputLocation").innerHTML = "";
     document.querySelector("#inputPhone").innerHTML = "";
     document.querySelector("#inputCity").innerHTML = "";
     document.querySelector("#inputState").innerHTML = "";
@@ -133,15 +133,19 @@ const validationSeccion1 = () => {
   let tenthSeccion = document.querySelector("#seccion10");
 
   let companyName = document.querySelector("#inputCompany").value;
-  let contactName = document.querySelector("#inputContact").value;
-  let inputPhone = document.querySelector("#inputPhone").value;
+  //let contactName = document.querySelector("#inputContact").value;
+  //let inputPhone = document.querySelector("#inputPhone").value;
 
-  if (companyName === "" || contactName === "" || inputPhone === "") {
+  if (companyName === "") {
     swal({
-      title: `Please fill correctly those fields`,
+      title: `Company name is required!`,
       icon: `error`
     });
   } else {
+    swal({
+      //  title: `Company name is required!`,
+      icon: `success`
+    });
     firstSeccion.style.display = "none";
     secondSeccion.style.display = "block";
     thirdSeccion.style.display = "block";
@@ -184,7 +188,7 @@ const validationSeccion2 = () => {
 
   let valveSize = document.querySelector("#inputValveSize").value;
   let brand = document.querySelector("#inputBrand").value;
-  let location = document.querySelector("#inputLocation").value;
+  //let location = document.querySelector("#inputLocation").value;
 
   function first() {
     if (valveSize === "" || brand === "") {
