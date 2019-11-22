@@ -1,3 +1,8 @@
+body {
+  background-color: lightslategrey;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 /* Header */
 
 .header-avatar {
@@ -286,7 +291,7 @@
 /* Carousel */
 
 #carousel .carousel-inner img {
-  max-height: 100vh;
+  max-height: 80vh;
   object-fit: cover;
   /* filter: grayscale(100%);
   -webkit-filter: grayscale(100%); */
@@ -310,13 +315,13 @@
 #carouselFade .overlay .row {
   height: 100%;
 }
+
+.carousel-inner img {
+  margin: auto;
+}
 /* Ends Carousel */
 
 /* body, header, main form */
-
-body {
-  background-color: lightslategrey;
-}
 
 #mainForm {
   background-color: #cfcdcd;

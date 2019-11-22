@@ -27,13 +27,13 @@
     />
     <link rel="stylesheet" href="./css/index2.css" />
   </head>
+
   <body>
     <header class="headerppal  col-12 pt-2 pb-6">
       <div>
         <figure class="header-logotipo text-center text-md-left">
           <img src="./imagenes/vsi.jpg" alt="Blog Logotipo" />
         </figure>
-       
       </div>
       <div>
         <h2 class="titulo ">Valve Solutions Inc</h2>
@@ -44,6 +44,7 @@
     <div
       class="container justity-content-center col-12 mr-12 ml-2 pt-2 pl-2 pr-2"
     >
+      <!-- carrousel -->
       <div class="row justify-content-center text-center" id="carousel11">
         <div
           id="carousel1"
@@ -74,9 +75,11 @@
               />
             </div>
           </div>
-         
         </div>
       </div>
+
+      <!-- carrousel / -->
+
       <!-- treeway table -->
       <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableOne">
         <table class="table table-hover">
@@ -84,14 +87,13 @@
             Retrofit Forms for 3 Way Requests
           </caption>
 
-        
           <thead class="">
             <tr class="justity-content-center text-center bg-secondary">
               <!-- <th scope="col">3 Way Request</th> -->
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              <th scope="col">Location</th>
+
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -129,34 +131,9 @@
           <tbody id="table"></tbody>
         </table>
       </div>
-  <!-- treeway table -->
-<div class="row"></div>
+      <!-- treeway table -->
 
-      <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-        <button
-          id="threeWayRequest"
-          type="button"
-          class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-          onclick="togle()"
-        >
-          3 Way Request
-        </button>
-      </div>
-      <br />
-      <!-- modal TreeWay -->
-      <div class="col-12 justify-content-center text-center" id="modalTreeWay">
-        <!-- Making dinamic modal with JS -->
-      </div>
-      <hr />
-
-      <!--  -->
-
-      
-
-      <!--  -->
+      <!-- Electric table -->
 
       <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableTwo">
         <table class="table table-hover">
@@ -170,7 +147,7 @@
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              <th scope="col">Location</th>
+
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -190,35 +167,11 @@
           </thead>
           <tbody id="table2"></tbody>
         </table>
-
-        <!-- modal Electric -->
-        <div class="col-12 justify-content-center text-center" id="modalE">
-          <!-- Making dinamic modal with JS -->
-        </div>
       </div>
 
-      <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-        <button
-          id="elecActuator"
-          type="button"
-          class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-          onclick="togle1()"
-        >
-          Electric Actuator Request
-        </button>
-      </div>
-      <br />
+      <!-- electric table / -->
 
-      <hr />
-
-      <!--  -->
-
-      
-
-      <!--  -->
+      <!--HP table -->
 
       <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2" id="tableThree">
         <table class="table table-hover">
@@ -232,7 +185,7 @@
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              <th scope="col">Location</th>
+
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -251,34 +204,11 @@
           </thead>
           <tbody id="table3"></tbody>
         </table>
-        <!-- modal HP -->
-        <div
-          class="col-12 justify-content-center text-center"
-          id="modalHP"
-        ></div>
-        <!-- modal HP -->
       </div>
-      <div class=" ml-2 mr-2 pt-2 pl-2 pr-2">
-        <button
-          id="hpPneumaticBtn"
-          type="button"
-          class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-          onclick="togle2()"
-        >
-          High Pressure Pneumatic
-        </button>
-      </div>
-      <br />
-      <hr />
 
-      <!--  -->
+      <!-- HP table / -->
 
-     
-
-      <!--  -->
+      <!-- LP table -->
 
       <div
         class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
@@ -297,7 +227,7 @@
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              <th scope="col">Location</th>
+
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -314,36 +244,88 @@
               <th scope="col">Edit</th>
             </tr>
           </thead>
+          <!-- se agrega el contenido dinamicamente -->
           <tbody id="table4"></tbody>
         </table>
-
-        <!-- modal LP -->
-        <div
-          class="col-12 justify-content-center text-center"
-          id="modalLP"
-        ></div>
-        <!-- modal LP -->
       </div>
 
-      <div class=" ml-2 mr-2 pt-2 pl-2 pr-2">
-        <button
-          id="lpPneumaticBtn"
-          type="button"
-          class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-          onclick="togle3()"
-        >
-          Low Pressure Pneumatic
-        </button>
-      </div>
+      <!-- LP table / -->
 
-      <br />
+      <!-- buttons seccion -->
+      <div class="row justify-content-center">
+        <!-- <div class="col-12  justify-content-center"> -->
+        <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
+          <button
+            id="threeWayRequest"
+            type="button"
+            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            onclick="togle()"
+          >
+            3 Way Request
+          </button>
+        </div>
+
+        <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
+          <button
+            id="elecActuator"
+            type="button"
+            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            onclick="togle1()"
+          >
+            Electric Actuator Request
+          </button>
+        </div>
+
+        <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
+          <button
+            id="hpPneumaticBtn"
+            type="button"
+            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            onclick="togle2()"
+          >
+            High Pressure Pneumatic
+          </button>
+        </div>
+
+        <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
+          <button
+            id="lpPneumaticBtn"
+            type="button"
+            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            onclick="togle3()"
+          >
+            Low Pressure Pneumatic
+          </button>
+        </div>
+        <!-- </div> -->
+      </div>
+      <!-- buttons seccion / -->
+
+      <!-- modal Electric -->
+      <div class="col-12 justify-content-center text-center" id="modalE"></div>
+      <!-- modal HP -->
+      <div class="col-12 justify-content-center text-center" id="modalHP"></div>
+      <!-- modal LP -->
+      <div class="col-12 justify-content-center text-center" id="modalLP"></div>
+      <!-- modal TreeWay -->
+      <div
+        class="col-12 justify-content-center text-center"
+        id="modalTreeWay"
+      ></div>
     </div>
-    <!-- Este div cierra todo el contenedor   -->
-
-   
+    <!--  end div .container     -->
 
     <!-- Firebase App is always required and must be first -->
 
@@ -372,13 +354,13 @@
     ></script>
 
     <!-- Scripts  -->
-    
+
     <script src="./config/configFirebase.js" defer></script>
-    
+
     <script src="./js/formsResponse.js" defer></script>
-    
+
     <script src="./js/posts.js" defer></script>
-    
+
     <!--  -->
     <!-- <script src="./config/configFirebase.js" defer></script> -->
     <!-- <script src="./js/index.js"></script> -->

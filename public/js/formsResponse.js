@@ -13,9 +13,9 @@ divTableForm3.style.display = "none";
 divTableForm4.style.display = "none";
 
 let carouselForm1 = document.querySelector("#carousel11");
-let carouselForm2 = document.querySelector("#carousel22");
-let carouselForm3 = document.querySelector("#carousel33");
-let carouselForm4 = document.querySelector("#carousel44");
+//let carouselForm2 = document.querySelector("#carousel22");
+//let carouselForm3 = document.querySelector("#carousel33");
+//let carouselForm4 = document.querySelector("#carousel44");
 
 // Ends Carousel seccion
 
@@ -44,14 +44,14 @@ function togle1() {
   if (flag1 == true) {
     document.querySelector("#tableTwo").style.display = "block";
     document.querySelector("#elecActuator").innerHTML = "Hide Table";
-    carouselForm2.style.display = "none";
+    // carouselForm2.style.display = "none";
 
     console.log("flag = 1 ", flag1);
     flag1 = false;
   } else {
     document.querySelector("#tableTwo").style.display = "none";
     document.querySelector("#elecActuator").innerHTML = "Electric Actuator";
-    carouselForm2.style.display = "block";
+    // carouselForm2.style.display = "block";
 
     console.log("flag = 2", flag1);
     flag1 = true;
@@ -63,7 +63,7 @@ function togle2() {
   if (flag2 == true) {
     document.querySelector("#tableThree").style.display = "block";
     document.querySelector("#hpPneumaticBtn").innerHTML = "Hide Table";
-    carouselForm3.style.display = "none";
+    // carouselForm3.style.display = "none";
 
     console.log("flag = 1 ", flag2);
     flag2 = false;
@@ -71,7 +71,7 @@ function togle2() {
     document.querySelector("#tableThree").style.display = "none";
     document.querySelector("#hpPneumaticBtn").innerHTML =
       "High Pressure Pneumatic";
-    carouselForm3.style.display = "block";
+    // carouselForm3.style.display = "block";
 
     console.log("flag = 2", flag2);
     flag2 = true;
@@ -83,7 +83,7 @@ function togle3() {
   if (flag3 === true) {
     document.querySelector("#tableFour").style.display = "block";
     document.querySelector("#lpPneumaticBtn").innerHTML = "Hide Table";
-    carouselForm4.style.display = "none";
+    // carouselForm4.style.display = "none";
 
     console.log("flag = 1 ", flag3);
     flag3 = false;
@@ -91,7 +91,7 @@ function togle3() {
     document.querySelector("#tableFour").style.display = "none";
     document.querySelector("#lpPneumaticBtn").innerHTML =
       "Low Pressure Pneumatic";
-    carouselForm4.style.display = "block";
+    // carouselForm4.style.display = "block";
 
     console.log("flag = 2", flag3);
     flag3 = true;
@@ -103,7 +103,7 @@ function togle3() {
 // Getting data from firestore to full those tables
 let tableForm = document.querySelector("#table");
 db.collection("3_Way").onSnapshot(querySnapshot => {
-  tableForm.innerHTML = "";
+  tableForm.innerHTML = ""; // checar
   querySnapshot.forEach(doc => {
     console.log(`${doc.id} => ${doc.data()}`);
     // console.table(`${doc.data()}`);
@@ -144,12 +144,12 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                 <td>${doc.data().Other2}</td>
                 <td>${doc.data().Enclosure_Required}</td>
                 <td>
-                  <button class="btn btn-danger" onclick="deleteArrangements('${
-                    doc.id
-                  }')">Delete</button>
+                  <button class="btn btn-danger" 
+                    onclick="deleteArrangements('${doc.id}')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" data-toggle="modal" data-target="#arrangements" onclick="editArrangements(
+                  <button class="btn btn-warning" 
+                    onclick="editArrangements(
                     '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
@@ -350,8 +350,6 @@ var modalContainerLP = document.querySelector("#modalLP");
 var modalContainerHP = document.querySelector("#modalHP");
 var modalContainerElectric = document.querySelector("#modalE");
 var modalContainerTreeWay = document.querySelector("#modalTreeWay");
-
-//
 
 //
 
@@ -820,7 +818,7 @@ function editElectricActuator(
           <div style="overflow-x:auto;">
             
           </div>
-          <thead class="">
+          <thead>
             <tr class="justity-content-center text-center bg-secondary">
               <th scope="col">ID</th>
               <th scope="col">Company</th>
@@ -843,7 +841,7 @@ function editElectricActuator(
           </thead>
 					<tbody id="table2">
 					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-            <th >${id}</th>
+            <th>${id}</th>
                 <td ><input type="text" id="elecActuatorCompany"></td>
                 <td ><input type="text" id="elecActuatorName"></td>
                 
@@ -1052,7 +1050,7 @@ function editArrangements(
           <div style="overflow-x:auto;">
             
           </div>
-          <thead class="">
+          <thead>
             <tr class="justity-content-center text-center bg-secondary">
       <th scope="col">ID</th>
       <th scope="col">Company</th>
@@ -1093,7 +1091,7 @@ function editArrangements(
             </tr>
           </thead>
 		<tbody id="table1"><tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-<th >${id}</th>
+<th>${id}</th>
 
     <td ><input type="text" id="arrangementsCompany"></td>
     <td ><input type="text" id="arrangementsName"></td>
@@ -1124,20 +1122,24 @@ function editArrangements(
     <td ><input type="text" id="shaftG"></td>
     <td ><input type="text" id="shaftH"></td>
     <td ><input type="text" id="requirements1"></td>
-    <td ><input type="text" id="requirements2"></td><td ><input type="text" id="requirements3"></td><td ><input type="text" id="requirements4"></td>
-    <td ><input type="text" id="elecOrPneum"></td><td ><input type="text" id="controlSignal"></td><td ><input type="text" id="other2"></td>
+    <td ><input type="text" id="requirements2"></td>
+    <td ><input type="text" id="requirements3"></td>
+    <td ><input type="text" id="requirements4"></td>
+    <td ><input type="text" id="elecOrPneum"></td>
+    <td ><input type="text" id="controlSignal"></td>
+    <td ><input type="text" id="other2"></td>
     <td ><input type="text" id="enclosureType"></td>
 
-    <td>
-      <button class="btn btn-primary 
-      id="edit3wayArr" 
-      onclick="editArrangements()">
-        Update
-      </button>
+      <td>
+        <button class="btn btn-primary 
+          id="edit3wayArr" 
+          onclick="editArrangements()">
+          Update
+        </button>
       </td>
-        </tr>
-			</tbody>
-    </table>
+      </tr>
+		</tbody>
+  </table>
 </div>
 
 `;

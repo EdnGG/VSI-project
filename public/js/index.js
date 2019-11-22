@@ -1,5 +1,9 @@
 console.log("hello");
 
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
 const loginButton = document.querySelector("#btnInicioSesion");

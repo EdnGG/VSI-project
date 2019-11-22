@@ -1,14 +1,5 @@
 console.log("Hello from posts.js");
 
-// function clearData() {
-//   document.querySelector("#inputCompany").innerHTML = "";
-//   document.querySelector("#inputContact").innerHTML = "";
-//   document.querySelector("#inputLocation").innerHTML = "";
-//   document.querySelector("#inputPhone").innerHTML = "";
-//   document.querySelector("#inputCity").innerHTML = "";
-//   document.querySelector("#inputState").innerHTML = "";
-//   document.querySelector("#inputZip").innerHTML = "";
-// }
 function postElectric() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
