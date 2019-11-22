@@ -34,39 +34,39 @@ class Autenticacion {
           $("#seccion9").css("display", "none");
           $("#seccion10").css("display", "none");
 
-          $("#inputCompany").val("");
-          $("#inputContact").val("");
-          $("#inputLocation").val("");
-          $("#inputPhone").val("");
-          $("#inputCity").val("");
-          $("#inputState").val("");
-          $("#inputZip").val("");
-          $("#inputValveSize").val("");
-          $("#inputBrand").val("");
-          $("#inputSeries").val("");
-          $("#inputBrandActuator").val("");
-          $("#inputModelNumber").val("");
+          // $("#inputCompany").val("");
+          // $("#inputContact").val("");
+          // $("#inputLocation").val("");
+          // $("#inputPhone").val("");
+          // $("#inputCity").val("");
+          // $("#inputState").val("");
+          // $("#inputZip").val("");
+          // $("#inputValveSize").val("");
+          // $("#inputBrand").val("");
+          // $("#inputSeries").val("");
+          // $("#inputBrandActuator").val("");
+          // $("#inputModelNumber").val("");
 
-          $("#damageActuatorSecc5").val("");
-          $("#damageModelNumberSecc5").val("");
-          $("#damageActuatorSecc6").val("");
-          $("#damageActuatorSecc6").val("");
+          // $("#damageActuatorSecc5").val("");
+          // $("#damageModelNumberSecc5").val("");
+          // $("#damageActuatorSecc6").val("");
+          // $("#damageActuatorSecc6").val("");
 
-          $("#bonnetA").val("");
-          $("#bonnetB").val("");
-          $("#bonnetC").val("");
+          // $("#bonnetA").val("");
+          // $("#bonnetB").val("");
+          // $("#bonnetC").val("");
 
-          $("#holeSize").val("");
-          $("#otherBonnet").val("");
+          // $("#holeSize").val("");
+          // $("#otherBonnet").val("");
 
-          $("#shaftD").val("");
-          $("#shaftE").val("");
-          $("#shaftF").val("");
-          $("#shaftG").val("");
-          $("#shaftH").val("");
+          // $("#shaftD").val("");
+          // $("#shaftE").val("");
+          // $("#shaftF").val("");
+          // $("#shaftG").val("");
+          // $("#shaftH").val("");
 
-          $("#otherInput10").val("");
-          $("#otherControlInput10").val("");
+          // $("#otherInput10").val("");
+          // $("#otherControlInput10").val("");
 
           console.log("cleaning form via Email autentication");
         } else {
@@ -98,14 +98,15 @@ class Autenticacion {
           });
         });
         //firebase.auth.signOut()
+        $("#logreg-forms").css("display", "block");
+        // // ****
+        $("#mainForm").css("display", "none");
+        $("#inputEmail").val("");
+        $("#inputPassword").val("");
         swal({
           title: `Welcome ${nombres}, please check your e-mail to do the verification process`,
           icon: `success`
         });
-
-        $("#logreg-forms").css("display", "block");
-        // // ****
-        $("#mainForm").css("display", "none");
       })
       .catch(error => {
         console.error(error.message);
@@ -146,39 +147,39 @@ class Autenticacion {
         $("#seccion9").css("display", "none");
         $("#seccion10").css("display", "none");
 
-        $("#inputCompany").val("");
-        $("#inputContact").val("");
-        $("#inputLocation").val("");
-        $("#inputPhone").val("");
-        $("#inputCity").val("");
-        $("#inputState").val("");
-        $("#inputZip").val("");
-        $("#inputValveSize").val("");
-        $("#inputBrand").val("");
-        $("#inputSeries").val("");
-        $("#inputBrandActuator").val("");
-        $("#inputModelNumber").val("");
+        // $("#inputCompany").val("");
+        // $("#inputContact").val("");
+        // $("#inputLocation").val("");
+        // $("#inputPhone").val("");
+        // $("#inputCity").val("");
+        // $("#inputState").val("");
+        // $("#inputZip").val("");
+        // $("#inputValveSize").val("");
+        // $("#inputBrand").val("");
+        // $("#inputSeries").val("");
+        // $("#inputBrandActuator").val("");
+        // $("#inputModelNumber").val("");
 
-        $("#damageActuatorSecc5").val("");
-        $("#damageModelNumberSecc5").val("");
-        $("#damageActuatorSecc6").val("");
-        $("#damageActuatorSecc6").val("");
+        // $("#damageActuatorSecc5").val("");
+        // $("#damageModelNumberSecc5").val("");
+        // $("#damageActuatorSecc6").val("");
+        // $("#damageActuatorSecc6").val("");
 
-        $("#bonnetA").val("");
-        $("#bonnetB").val("");
-        $("#bonnetC").val("");
+        // $("#bonnetA").val("");
+        // $("#bonnetB").val("");
+        // $("#bonnetC").val("");
 
-        $("#holeSize").val("");
-        $("#otherBonnet").val("");
+        // $("#holeSize").val("");
+        // $("#otherBonnet").val("");
 
-        $("#shaftD").val("");
-        $("#shaftE").val("");
-        $("#shaftF").val("");
-        $("#shaftG").val("");
-        $("#shaftH").val("");
+        // $("#shaftD").val("");
+        // $("#shaftE").val("");
+        // $("#shaftF").val("");
+        // $("#shaftG").val("");
+        // $("#shaftH").val("");
 
-        $("#otherInput10").val("");
-        $("#otherControlInput10").val("");
+        // $("#otherInput10").val("");
+        // $("#otherControlInput10").val("");
 
         console.log("cleaning form via Google autentication");
       })
@@ -226,39 +227,39 @@ class Autenticacion {
         $("#seccion9").css("display", "none");
         $("#seccion10").css("display", "none");
 
-        $("#inputCompany").val("");
-        $("#inputContact").val("");
-        $("#inputLocation").val("");
-        $("#inputPhone").val("");
-        $("#inputCity").val("");
-        $("#inputState").val("");
-        $("#inputZip").val("");
-        $("#inputValveSize").val("");
-        $("#inputBrand").val("");
-        $("#inputSeries").val("");
-        $("#inputBrandActuator").val("");
-        $("#inputModelNumber").val("");
+        // $("#inputCompany").val("");
+        // $("#inputContact").val("");
+        // $("#inputLocation").val("");
+        // $("#inputPhone").val("");
+        // $("#inputCity").val("");
+        // $("#inputState").val("");
+        // $("#inputZip").val("");
+        // $("#inputValveSize").val("");
+        // $("#inputBrand").val("");
+        // $("#inputSeries").val("");
+        // $("#inputBrandActuator").val("");
+        // $("#inputModelNumber").val("");
 
-        $("#damageActuatorSecc5").val("");
-        $("#damageModelNumberSecc5").val("");
-        $("#damageActuatorSecc6").val("");
-        $("#damageActuatorSecc6").val("");
+        // $("#damageActuatorSecc5").val("");
+        // $("#damageModelNumberSecc5").val("");
+        // $("#damageActuatorSecc6").val("");
+        // $("#damageActuatorSecc6").val("");
 
-        $("#bonnetA").val("");
-        $("#bonnetB").val("");
-        $("#bonnetC").val("");
+        // $("#bonnetA").val("");
+        // $("#bonnetB").val("");
+        // $("#bonnetC").val("");
 
-        $("#holeSize").val("");
-        $("#otherBonnet").val("");
+        // $("#holeSize").val("");
+        // $("#otherBonnet").val("");
 
-        $("#shaftD").val("");
-        $("#shaftE").val("");
-        $("#shaftF").val("");
-        $("#shaftG").val("");
-        $("#shaftH").val("");
+        // $("#shaftD").val("");
+        // $("#shaftE").val("");
+        // $("#shaftF").val("");
+        // $("#shaftG").val("");
+        // $("#shaftH").val("");
 
-        $("#otherInput10").val("");
-        $("#otherControlInput10").val("");
+        // $("#otherInput10").val("");
+        // $("#otherControlInput10").val("");
 
         console.log("cleaning form via FB autentication");
       })

@@ -1024,14 +1024,14 @@ function editArrangements(
   enclosureRequired // radio buttons
 ) {
   if (shiftArrangement) {
-    modalContainerElectric.style.display = "block";
+    modalContainerTreeWay.style.display = "block";
     shiftArrangement = false;
     console.log(
       `%cvalor de shift dentro de IF: ${shiftArrangement}`,
       "color : green;"
     );
   } else if (!shiftArrangement) {
-    modalContainerElectric.style.display = "block";
+    modalContainerTreeWay.style.display = "block";
     shiftArrangement = true;
     console.log(
       `%cvalor de shift dentro de ELSE IF: ${shiftArrangement}`,
@@ -1133,7 +1133,7 @@ function editArrangements(
       <td>
         <button class="btn btn-primary 
           id="edit3wayArr" 
-          onclick="editArrangements()">
+          onclick="editArrangements1()">
           Update
         </button>
       </td>
@@ -1184,7 +1184,7 @@ function editArrangements(
   document.querySelector("#other2").value = otherControlSignal; //
   document.querySelector("#enclosureType").value = enclosureRequired; //
 
-  window.editArrangements = () => {
+  window.editArrangements1 = () => {
     let washingtonRef = db.collection("3_Way").doc(id);
     // Se le asigna a una variable el valor contenido
     let companyArrangements = document.querySelector("#arrangementsCompany")

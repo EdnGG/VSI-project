@@ -331,3 +331,14 @@ body {
   color: red;
   font-size: 0.1px;
 }
+
+#texto {
+  /* para separar entgre letras */
+  /* letter-spacing: 2pt;       */
+  /* para separacion entre palabras */
+  word-spacing: 5pt;
+  /* para la separacion entre lineas */
+  /* line-height: 20pt;         */
+  /* para sangrias */
+  /* text-indent: 30pt;         */
+}
