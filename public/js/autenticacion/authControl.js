@@ -42,6 +42,21 @@ $(() => {
     console.log("se ejecuto funcion autEmailPass");
   });
 
+  // ******reset password seccion********** //
+
+  //***** reset password seccion / *********** //
+
+  $("#forgot_pswd").click(toggleResetPswd);
+  $("#logreg-forms #cancel_reset").click(toggleResetPswd);
+
+  function toggleResetPswd(e) {
+    e.preventDefault();
+    //console.log("signin");
+    $("#logreg-forms .form-signin").toggle(); // display:block or none
+    //console.log("reset");
+    $("#logreg-forms .form-reset").toggle(); // display:block or none
+  }
+
   //AUTH con GOOGLE
   $("#google").click(() => {
     // se llama desde autenticaion.js
@@ -56,4 +71,31 @@ $(() => {
     objAuth.authCuentaFacebook();
     console.log("hello from Facebook authController.js");
   });
+});
+
+$("#resetPasswordEmail").click(() => {
+  var auth = firebase.auth();
+  let email = $("#resetEmail").val();
+
+  if (email != "") {
+    auth
+      .sendPasswordResetEmail(email)
+      .then(function() {
+        swal({
+          title: `We sent an email to reset your password, please check it out `,
+          icon: `success`
+        });
+      })
+      .catch(function(err) {
+        swal({
+          title: `Something went wrong: ${err}`,
+          icon: `error`
+        });
+      });
+  } else {
+    swal({
+      title: `Email address fiel is required`,
+      icon: `error`
+    });
+  }
 });

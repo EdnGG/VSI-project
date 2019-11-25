@@ -8,12 +8,6 @@ class Autenticacion {
       .signInWithEmailAndPassword(email, password)
       .then(result => {
         if (result.user.emailVerified) {
-          // $("#avatar").attr(
-          //   "src",
-          //   "https://image.flaticon.com/icons/svg/2206/2206200.svg"
-          // );
-
-          //$("#avatar").attr('src', './imagenes/usuarioauth.png')
           swal({
             title: `Welcome ${result.user.displayName}`,
             icon: `success`
@@ -78,6 +72,13 @@ class Autenticacion {
           $("#mainForm").css("display", "none");
           $("#logreg-forms").css("display", "block");
         }
+      })
+      .catch(error => {
+        console.log(`${error}`);
+        swal({
+          title: `Something went wrong: ${error}`,
+          icon: `error`
+        });
       });
   }
 
@@ -89,7 +90,7 @@ class Autenticacion {
         result.user.updateProfile({
           displayName: nombres
         });
-
+        // por aqui
         result.user.sendEmailVerification().catch(error => {
           console.error(error.message);
           swal({
@@ -101,8 +102,8 @@ class Autenticacion {
         $("#logreg-forms").css("display", "block");
         // // ****
         $("#mainForm").css("display", "none");
-        $("#inputEmail").val("");
-        $("#inputPassword").val("");
+        //$("#inputEmail").val("");
+        //$("#inputPassword").val("");
         swal({
           title: `Welcome ${nombres}, please check your e-mail to do the verification process`,
           icon: `success`

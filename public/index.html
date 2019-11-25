@@ -59,15 +59,15 @@
         <a href="#" id="forgot_pswd">Forgot password?</a>
         <hr>
 
-        <p>Don't have an account!</p>
+        <!-- <p>Don't have an account!</p> -->
 
         <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up
             New Account</button>
     </form>
 
-    <form action="/reset/password/" class="form-reset">
-        <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-        <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+    <form class="form-reset">
+        <input type="email" id="resetEmail" class="form-control" placeholder="Email address" autofocus="">
+        <button class="btn btn-primary btn-block" type="button" id="resetPasswordEmail">Reset Password</button>
         <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
     </form>
 
@@ -257,10 +257,14 @@
 
         </fieldset>
         <br><br>
+        <div class="row justify-content-center text-center">
+        <div class="col text-center">
+            <button type="button" id="btnSeccion2Prev" class="btn btn-primary ">Prev</button>
+        </div>
             <div class="col text-center">
                 <button type="button" id="btnSeccion2" class="btn btn-primary ">Next</button>
             </div>
-
+</div>
         </fieldset>
 
 <!--Ends form seccion 3  -->
@@ -481,11 +485,16 @@
                         <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="Arrangement_6">
                     </figure>
                 </div>
-            </div><br>
-
-            <div class="col text-center">
-                <button type="button" id="btnSeccion7" class="btn btn-primary ">Next</button>
-            </div> 
+            </div><br><br>
+            <div class="row justify-content-center text-center">
+                <div class="col text-center">
+                 <button type="button" id="btnSeccion7Prev" class="btn btn-primary ">Prev</button>
+                </div>
+                <div class="col text-center">
+                    <button type="button" id="btnSeccion7" class="btn btn-primary ">Next</button>
+                </div>
+            </div>
+            
 
         </fieldset>
 
@@ -580,10 +589,16 @@
     <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
     <textarea class="form-control" id="otherBonnet" name="otherBonnet" rows="3">
     </textarea>
+</div><br>
+
+<div class="row text-center">
+<div class="col text-center form-group">
+    <button type="button" id="btnSeccion8Prev" class="btn btn-primary">Prev</button>
 </div>
 
-<div class="text-center form-group">
+<div class="col text-center form-group">
     <button type="button" id="btnSeccion8" class="btn btn-primary">Next</button>
+</div>
 </div>
 </fieldset>
 
@@ -676,9 +691,14 @@
             <input type="text" class="form-control " id="shaftH" name="shaftH">
         </div>
     </div>
-    <div class="text-center form-group">
+    <div class="row justify-content-center text-center">
+<div class="col text-center form-group">
+    <button type="button" id="btnSeccion9Prev" class="btn btn-primary">Prev</button>
+</div>
+    <div class="col text-center form-group">
         <button type="button" id="btnSeccion9" class="btn btn-primary">Next</button>
     </div>
+</div>    
 </fieldset>
 
 <!-- Ends form Seccion 9  -->
