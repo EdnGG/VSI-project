@@ -48,7 +48,7 @@ loginButton.addEventListener("click", () => {
       })
       .catch(error => {
         swal({
-          title: `Something was wrong trying to sign out`,
+          title: `Something was wrong trying to sign out ${error}`,
           icon: `error`
         });
       });
@@ -174,6 +174,24 @@ btnSeccion2.addEventListener("click", () => {
   validationSeccion2();
 });
 
+//
+
+const btnSeccion2Prev = document.querySelector("#btnSeccion2Prev");
+btnSeccion2Prev.addEventListener("click", () => {
+  //console.log("seccion 2 button works");
+  //validationSeccion2();
+  console.log("working boton secc 2 preview");
+  let firstSeccion = document.querySelector("#seccion1");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let secondSeccion = document.querySelector("#seccion2");
+
+  thirdSeccion.style.display = "none";
+  secondSeccion.style.display = "none";
+  firstSeccion.style.display = "block";
+});
+
+//
+
 /**********Starts Validation seccion function 2************/
 const validationSeccion2 = () => {
   let valve2way = document.getElementById("valve2way");
@@ -192,12 +210,13 @@ const validationSeccion2 = () => {
 
   let valveSize = document.querySelector("#inputValveSize").value;
   let brand = document.querySelector("#inputBrand").value;
+  let series = document.querySelector("#inputSeries").value;
   //let location = document.querySelector("#inputLocation").value;
 
   function first() {
-    if (valveSize === "" || brand === "") {
+    if (valveSize === "" || brand === "" || series === "") {
       swal({
-        title: `Valve Size and Brand fields are required!`,
+        title: `Valve Size, Brand and Series fields are required!`,
         icon: `error`
       });
     } else {
