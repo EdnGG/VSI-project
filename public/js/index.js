@@ -4,6 +4,46 @@ $(function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
+// start service worker
+
+// navigator.serviceWorker
+//   .register("notifications-sw.js")
+//   .then(register => {
+//     console.log("service worker register!");
+//     firebase.messaging().useServiceWorker(register);
+//   })
+//   .catch(err => {
+//     console.error(`Error trying to verify serviceworker => ${err}`);
+//   });
+
+// const messaging = firebase.messaging();
+// // Register web credentials
+// messaging.usePublicVapiKey(
+//   "BEpaYJcZgxmv22Ao5Nn4iNXOvpQfOUC85II16aSY8o2dIXJAn8kruAIp259N2BYkqY3x6uIKsYwUzSux48JkhFE"
+// );
+
+// // Getting permissions for notifications
+// messaging
+//   .requestPermissions()
+//   .then(() => {
+//     console.log("permission allowed");
+//     return messaging.getToken();
+//   })
+//   .then(token => {
+//     const db = firebase.firestore();
+//     db.settings({ timestampsInSnapshots: true });
+//     db.collection("tokens")
+//       .doc(token)
+//       .set({
+//         token: token
+//       })
+//       .catch(err => {
+//         console.error(`Error al insertar el token en la DB => ${err}`);
+//       });
+//   });
+
+// ends service worker
+
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
 const loginButton = document.querySelector("#btnInicioSesion");
@@ -18,28 +58,11 @@ loginButton.addEventListener("click", () => {
     carousel.style.display = "block";
     mainForm.style.display = "none";
     console.log("1");
-    // document.querySelector("#inputCompany").innerHTML = "hey";
-    // document.querySelector("#inputContact").innerHTML = "";
-    // // document.querySelector("#inputLocation").innerHTML = "";
-    // document.querySelector("#inputPhone").innerHTML = "";
-    // document.querySelector("#inputCity").innerHTML = "";
-    // document.querySelector("#inputState").innerHTML = "";
-    // document.querySelector("#inputZip").innerHTML = "";
 
     return firebase
       .auth()
       .signOut()
       .then(() => {
-        //loginButton.innerHTML = 'Sign Out'
-
-        // document.querySelector("#inputCompany").innerHTML = "hey";
-        // document.querySelector("#inputContact").innerHTML = "";
-        // // document.querySelector("#inputLocation").innerHTML = "";
-        // document.querySelector("#inputPhone").innerHTML = "";
-        // document.querySelector("#inputCity").innerHTML = "";
-        // document.querySelector("#inputState").innerHTML = "";
-        // document.querySelector("#inputZip").innerHTML = "";
-
         $("#avatar").attr("src", "../imagenes/usuario.png");
         swal({
           title: `Sign Out succesfull`,
@@ -58,13 +81,6 @@ loginButton.addEventListener("click", () => {
   loginForm.style.display = "block";
   carousel.style.display = "none";
   //mainForm.style.display = 'block'
-  // document.querySelector("#inputCompany").innerHTML = "hey";
-  // document.querySelector("#inputContact").innerHTML = "";
-  // // document.querySelector("#inputLocation").innerHTML = "";
-  // document.querySelector("#inputPhone").innerHTML = "";
-  // document.querySelector("#inputCity").innerHTML = "";
-  // document.querySelector("#inputState").innerHTML = "";
-  // document.querySelector("#inputZip").innerHTML = "";
 });
 
 /************ Starts function that observe if user is true   **********/
@@ -72,13 +88,7 @@ loginButton.addEventListener("click", () => {
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     loginButton.innerHTML = "Log Out";
-    // document.querySelector("#inputCompany").innerHTML = "";
-    // document.querySelector("#inputContact").innerHTML = "";
-    // // document.querySelector("#inputLocation").innerHTML = "";
-    // document.querySelector("#inputPhone").innerHTML = "";
-    // document.querySelector("#inputCity").innerHTML = "";
-    // document.querySelector("#inputState").innerHTML = "";
-    // document.querySelector("#inputZip").innerHTML = "";
+
     if (user.photoURL) {
       $("#avatar").attr("src", user.photoURL);
     } else {
@@ -87,13 +97,6 @@ firebase.auth().onAuthStateChanged(user => {
   } else {
     loginButton.innerHTML = "Sign In";
     $("#avatar").attr("src", "./imagenes/usuarioauth.png");
-    // document.querySelector("#inputCompany").innerHTML = "";
-    // document.querySelector("#inputContact").innerHTML = "";
-    // // document.querySelector("#inputLocation").innerHTML = "";
-    // document.querySelector("#inputPhone").innerHTML = "";
-    // document.querySelector("#inputCity").innerHTML = "";
-    // document.querySelector("#inputState").innerHTML = "";
-    // document.querySelector("#inputZip").innerHTML = "";
   }
 });
 
@@ -138,9 +141,9 @@ const validationSeccion1 = () => {
 
   let companyName = document.querySelector("#inputCompany").value;
   //let contactName = document.querySelector("#inputContact").value;
-  //let inputPhone = document.querySelector("#inputPhone").value;
+  //let inputEmail = document.querySelector("#inputEmail").value;
 
-  if (companyName === "") {
+  if (companyName === "" || inputEmail === "") {
     swal({
       title: `Company name is required!`,
       icon: `error`
@@ -162,11 +165,11 @@ const validationSeccion1 = () => {
     tenthSeccion.style.display = "none";
   }
 };
-/**********Ends Validation seccion function 1************/
+/*Ends Validation seccion function 1*/
 
-/************Ends Seccion 1************/
+/******Ends Seccion 1*******/
 
-/************Starts Seccion 2************/
+/******Starts Seccion 2**********/
 
 const btnSeccion2 = document.querySelector("#btnSeccion2");
 btnSeccion2.addEventListener("click", () => {
@@ -174,12 +177,10 @@ btnSeccion2.addEventListener("click", () => {
   validationSeccion2();
 });
 
-//
+//*****Button prev secc 2******** */
 
 const btnSeccion2Prev = document.querySelector("#btnSeccion2Prev");
 btnSeccion2Prev.addEventListener("click", () => {
-  //console.log("seccion 2 button works");
-  //validationSeccion2();
   console.log("working boton secc 2 preview");
   let firstSeccion = document.querySelector("#seccion1");
   let thirdSeccion = document.querySelector("#seccion3");
@@ -190,7 +191,119 @@ btnSeccion2Prev.addEventListener("click", () => {
   firstSeccion.style.display = "block";
 });
 
-//
+//******Button prev secc 2 /******** */
+
+//******* Button prev secc 7****** */
+
+const btnSeccion7Prev = document.querySelector("#btnSeccion7Prev");
+btnSeccion7Prev.addEventListener("click", () => {
+  console.log("working boton secc 7 preview");
+  let seventhSeccion = document.querySelector("#seccion7");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let secondSeccion = document.querySelector("#seccion2");
+
+  thirdSeccion.style.display = "block";
+  secondSeccion.style.display = "block";
+  seventhSeccion.style.display = "none";
+});
+
+//********Button Prev secc 7 /******* */
+
+//******Button Prev secc 8 ****** */
+
+const btnSeccion8Prev = document.querySelector("#btnSeccion8Prev");
+btnSeccion8Prev.addEventListener("click", () => {
+  console.log("working boton secc 8 preview");
+  let seventhSeccion = document.querySelector("#seccion7");
+
+  let eightSeccion = document.querySelector("#seccion8");
+
+  eightSeccion.style.display = "none";
+  seventhSeccion.style.display = "block";
+});
+
+//***** Button Prev secc 8 /***** */
+
+//******Button Prev secc 9 ****** */
+
+const btnSeccion9Prev = document.querySelector("#btnSeccion9Prev");
+btnSeccion9Prev.addEventListener("click", () => {
+  console.log("working boton secc 9 preview");
+  let ninenthSeccion = document.querySelector("#seccion9");
+
+  let eightSeccion = document.querySelector("#seccion8");
+
+  eightSeccion.style.display = "block";
+  ninenthSeccion.style.display = "none";
+});
+
+//***** Button Prev secc 9 /***** */
+
+//******Button Prev secc 10 ****** */
+
+const btnSeccion10Prev = document.querySelector("#btnSeccion10Prev");
+btnSeccion10Prev.addEventListener("click", () => {
+  console.log("working boton secc 10 preview");
+  let thenthSeccion = document.querySelector("#seccion10");
+
+  let ninenthSeccion = document.querySelector("#seccion9");
+
+  ninenthSeccion.style.display = "block";
+  thenthSeccion.style.display = "none";
+});
+
+//***** Button Prev secc 10 /***** */
+
+//******Button Prev electric ****** */
+
+const btnSeccElectricPrev = document.querySelector("#btnSeccion3Prev");
+btnSeccElectricPrev.addEventListener("click", () => {
+  console.log("working boton secc 3 preview");
+
+  let electricSeccion = document.querySelector("#seccion4");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let secondSeccion = document.querySelector("#seccion2");
+
+  secondSeccion.style.display = "block";
+  thirdSeccion.style.display = "block";
+  electricSeccion.style.display = "none";
+});
+
+//***** Button Prev electric /***** */
+
+//******Button Prev High pressure ****** */
+
+const btnSeccHighPressurePrev = document.querySelector("#btnSeccion5Prev");
+btnSeccHighPressurePrev.addEventListener("click", () => {
+  console.log("working boton high pressure preview");
+
+  let highPressureSeccion = document.querySelector("#seccion5");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let secondSeccion = document.querySelector("#seccion2");
+
+  secondSeccion.style.display = "block";
+  thirdSeccion.style.display = "block";
+  highPressureSeccion.style.display = "none";
+});
+
+//***** Button Prev high pressure /***** */
+
+//******Button Prev Low pressure ****** */
+
+const btnSeccLowPressurePrev = document.querySelector("#btnSeccion4to6Prev");
+btnSeccLowPressurePrev.addEventListener("click", () => {
+  console.log("working boton high pressure preview");
+
+  let lowPressureSeccion = document.querySelector("#seccion6");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let secondSeccion = document.querySelector("#seccion2");
+
+  secondSeccion.style.display = "block";
+  thirdSeccion.style.display = "block";
+  lowPressureSeccion.style.display = "none";
+});
+
+//***** Button Prev Low pressure /***** */
 
 /**********Starts Validation seccion function 2************/
 const validationSeccion2 = () => {
@@ -212,13 +325,52 @@ const validationSeccion2 = () => {
   let brand = document.querySelector("#inputBrand").value;
   let series = document.querySelector("#inputSeries").value;
   //let location = document.querySelector("#inputLocation").value;
+  //let selectMenu = document.querySelector("#selectSeccion3");
+
+  // function first() {
+  //   if (
+  //     valveSize === "" ||
+  //     brand === "" ||
+  //     series === "" ||
+  //     !valve2way.checked
+  //   ) {
+  //     swal({
+  //       title: `Please check for all the require inputs!`,
+  //       icon: `error`
+  //     });
+  //   } else {
+  //     swal({
+  //       icon: `success`
+  //     });
+  //     second();
+  //   }
+  // }
 
   function first() {
-    if (valveSize === "" || brand === "" || series === "") {
+    if (valveSize === "") {
       swal({
-        title: `Valve Size, Brand and Series fields are required!`,
+        title: `Valve size required `,
         icon: `error`
       });
+      // second();
+    } else if (brand === "") {
+      swal({
+        title: `Valve brand required`,
+        icon: `error`
+      });
+      // second();
+    } else if (series === "") {
+      swal({
+        title: `Valve serie required`,
+        icon: `error`
+      });
+      // second();
+    } else if (!valve2way.checked) {
+      swal({
+        title: `Please select any checkbox`,
+        icon: `error`
+      });
+      second();
     } else {
       second();
     }
@@ -288,7 +440,7 @@ const validationSeccion2 = () => {
         tenthSeccion.style.display = "none";
       } else {
         swal({
-          title: `Please select any checkbox`,
+          title: `Please make sure to select any select option`,
           icon: `error`
         });
       }

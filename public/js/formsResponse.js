@@ -13,9 +13,6 @@ divTableForm3.style.display = "none";
 divTableForm4.style.display = "none";
 
 let carouselForm1 = document.querySelector("#carousel11");
-//let carouselForm2 = document.querySelector("#carousel22");
-//let carouselForm3 = document.querySelector("#carousel33");
-//let carouselForm4 = document.querySelector("#carousel44");
 
 // Ends Carousel seccion
 
@@ -112,7 +109,7 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
             <th class="">${doc.id}</th>
                 <td>${doc.data().Company_Name}</td>
                 <td>${doc.data().Contact_Name}</td>
-                
+                <td>${doc.data().Contact_Email}</td>
                 <td>${doc.data().Phone_Contact}</td>
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
@@ -127,6 +124,7 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                 <td>${doc.data().Dimension_Bonnet_B}</td>
                 <td>${doc.data().Dimension_Bonnet_C}</td>
                 <td>${doc.data().TypeOf_Bolt_Holes}</td>
+                
                 <td>${doc.data().Hole_Size}</td>
                 <td>${doc.data().Other}</td>
                 <td>${doc.data().Shaft_Type}</td>
@@ -153,7 +151,7 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                     '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
-                    
+                    '${doc.data().Contact_Email}',
                     '${doc.data().Phone_Contact}',
                     '${doc.data().City}',
                     '${doc.data().State}',
@@ -202,7 +200,7 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
             <th class="">${doc.id}</th>
                 <td>${doc.data().Company_Name}</td>
                 <td>${doc.data().Contact_Name}</td>
-                
+                <td>${doc.data().Contact_Email}</td>
                 <td>${doc.data().Phone_Contact}</td>
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
@@ -223,7 +221,9 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                 <td>
                   <button class="btn btn-warning" onclick="editElectricActuator('${
                     doc.id
-                  }','${doc.data().Company_Name}','${doc.data().Contact_Name}',
+                  }','${doc.data().Company_Name}',
+                  '${doc.data().Contact_Name}', 
+                  '${doc.data().Contact_Email}',
                   '${doc.data().Phone_Contact}',
                   '${doc.data().City}','${doc.data().State}',
                   '${doc.data().Zip}','${doc.data().Valve_Size}',
@@ -252,7 +252,7 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
             <th class="">${doc.id}</th>
                 <td>${doc.data().Company_Name}</td>
                 <td>${doc.data().Contact_Name}</td>
-                
+                <td>${doc.data().Contact_Email}</td>
                 <td>${doc.data().Phone_Contact}</td>
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
@@ -273,9 +273,12 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>
                   <button class="btn btn-warning" onclick="editHighPressure('${
                     doc.id
-                  }','${doc.data().Company_Name}','${doc.data().Contact_Name}',
+                  }','${doc.data().Company_Name}',
+                  '${doc.data().Contact_Name}',
+                  '${doc.data().Contact_Email}',
                   '${doc.data().Phone_Contact}',
-                  '${doc.data().City}','${doc.data().State}',
+                  '${doc.data().City}',
+                  '${doc.data().State}',
                   '${doc.data().Zip}','${doc.data().Valve_Size}', 
                   '${doc.data().Brand}','${doc.data().Series}',
                   '${doc.data().Brand_Actuator_HP}',
@@ -302,7 +305,7 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
             <th class="">${doc.id}</th>
                 <td>${doc.data().Company_Name}</td>
                 <td>${doc.data().Contact_Name}</td>
-                
+                <td>${doc.data().Contact_Email}</td>
                 <td>${doc.data().Phone_Contact}</td>
                 <td>${doc.data().City}</td>
                 <td>${doc.data().State}</td>
@@ -322,8 +325,10 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                 </td>
                 <td>
                   <button class="btn btn-warning" onclick="editLowPressure(
-                    '${doc.id}','${doc.data().Company_Name}',
+                    '${doc.id}',
+                    '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
+                    '${doc.data().Contact_Email}',
                     '${doc.data().Phone_Contact}',
                     '${doc.data().City}','${doc.data().State}',
                     '${doc.data().Zip}','${doc.data().Valve_Size}',
@@ -358,7 +363,7 @@ function editLowPressure(
   id,
   company,
   contactName,
-  //location,
+  email,
   phoneContact,
   city,
   state,
@@ -401,8 +406,8 @@ function editLowPressure(
             <tr class="justity-content-center text-center bg-secondary">
               <th scope="col">ID</th>
               <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              
+              <th scope="col">Email</th>
+              <th scope="col"></th>
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -423,7 +428,7 @@ function editLowPressure(
             <th >${id}</th>
                 <td ><input type="text" id="lpCompany"></td>
                 <td ><input type="text" id="lpName"></td>
-                
+                <td ><input type="text" id="lpEmail"></td>
                 <td ><input type="text" id="lpPhone"></td>
                 <td ><input type="text" id="lpCity"></td>
                 <td ><input type="text" id="lpState"></td>
@@ -462,7 +467,7 @@ function editLowPressure(
 
   document.querySelector("#lpCompany").value = company;
   document.querySelector("#lpName").value = contactName;
-  //document.querySelector("#lpLocation").value = location;
+  document.querySelector("#lpEmail").value = email;
   document.querySelector("#lpPhone").value = phoneContact;
   document.querySelector("#lpCity").value = city;
   document.querySelector("#lpState").value = state;
@@ -489,7 +494,7 @@ function editLowPressure(
 
     let companylp = document.querySelector("#lpCompany").value;
     let contactNamelp = document.querySelector("#lpName").value;
-    // let locationlp = document.querySelector("#lpLocation").value;
+    let locationEmail = document.querySelector("#lpEmail").value;
     let phoneContactlp = document.querySelector("#lpPhone").value;
     let citylp = document.querySelector("#lpCity").value;
     let statelp = document.querySelector("#lpState").value;
@@ -512,7 +517,7 @@ function editLowPressure(
       .update({
         Company_Name: companylp, //company,
         Contact_Name: contactNamelp, //contactName,
-        //Location: locationlp, //location,
+        Contact_Email: locationEmail, //location,
         Phone_Contact: phoneContactlp, //phoneContact,
         City: citylp, //city,
         State: statelp, //state,
@@ -531,7 +536,7 @@ function editLowPressure(
 
         document.querySelector("#lpCompany").value = "";
         document.querySelector("#lpName").value = "";
-        //document.querySelector("#lpLocation").value = "";
+        document.querySelector("#lpEmail").value = "";
         document.querySelector("#lpPhone").value = "";
         document.querySelector("#lpCity").value = "";
         document.querySelector("#lpState").value = "";
@@ -566,7 +571,7 @@ function editHighPressure(
   id,
   company,
   contactName,
-  //location,
+  email,
   phoneContact,
   city,
   state,
@@ -610,7 +615,7 @@ function editHighPressure(
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              
+              <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -631,7 +636,7 @@ function editHighPressure(
             <th >${id}</th>
                 <td ><input type="text" id="hpCompany"></td>
                 <td ><input type="text" id="hpName"></td>
-                
+                <td ><input type="text" id="hpEmail"></td>
                 <td ><input type="text" id="hpPhone"></td>
                 <td ><input type="text" id="hpCity"></td>
                 <td ><input type="text" id="hpState"></td>
@@ -670,7 +675,7 @@ function editHighPressure(
 
   document.querySelector("#hpCompany").value = company;
   document.querySelector("#hpName").value = contactName;
-  //document.querySelector("#hpLocation").value = location;
+  document.querySelector("#hpEmail").value = email;
   document.querySelector("#hpPhone").value = phoneContact;
   document.querySelector("#hpCity").value = city;
   document.querySelector("#hpState").value = state;
@@ -699,7 +704,7 @@ function editHighPressure(
 
     let companyhp = document.querySelector("#hpCompany").value;
     let contactNamehp = document.querySelector("#hpName").value;
-    //let locationhp = document.querySelector("#hpLocation").value;
+    let locationEmail = document.querySelector("#hpEmail").value;
     let phoneContacthp = document.querySelector("#hpPhone").value;
     let cityhp = document.querySelector("#hpCity").value;
     let statehp = document.querySelector("#hpState").value;
@@ -722,7 +727,7 @@ function editHighPressure(
       .update({
         Company_Name: companyhp, //company,
         Contact_Name: contactNamehp, //contactName,
-        //Location: locationhp, //location,
+        Contact_Email: locationEmail, //location,
         Phone_Contact: phoneContacthp, //phoneContact,
         City: cityhp, //city,
         State: statehp, //state,
@@ -741,7 +746,7 @@ function editHighPressure(
 
         document.querySelector("#hpCompany").value = "";
         document.querySelector("#hpName").value = "";
-        //document.querySelector("#hpLocation").value = "";
+        document.querySelector("#hpEmail").value = "";
         document.querySelector("#hpPhone").value = "";
         document.querySelector("#hpCity").value = "";
         document.querySelector("#hpState").value = "";
@@ -777,7 +782,7 @@ function editElectricActuator(
   id,
   company,
   contactName,
-  //location,
+  email,
   phoneContact,
   city,
   state,
@@ -823,7 +828,7 @@ function editElectricActuator(
               <th scope="col">ID</th>
               <th scope="col">Company</th>
               <th scope="col">Contact</th>
-              
+              <th scope="col">Email</th>
               <th scope="col">Phone Number</th>
               <th scope="col">City</th>
               <th scope="col">State</th>
@@ -843,8 +848,8 @@ function editElectricActuator(
 					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th>${id}</th>
                 <td ><input type="text" id="elecActuatorCompany"></td>
+                <td ><input type="text" id="elecActuatorEmail"></td>
                 <td ><input type="text" id="elecActuatorName"></td>
-                
                 <td ><input type="text" id="elecActuatorPhone"></td>
                 <td ><input type="text" id="elecActuatorCity"></td>
                 <td ><input type="text" id="elecActuatorState"></td>
@@ -882,7 +887,7 @@ function editElectricActuator(
 
   document.querySelector("#elecActuatorCompany").value = company;
   document.querySelector("#elecActuatorName").value = contactName;
-  //document.querySelector("#elecActuatorLocation").value = location;
+  document.querySelector("#elecActuatorEmail").value = email;
   document.querySelector("#elecActuatorPhone").value = phoneContact;
   document.querySelector("#elecActuatorCity").value = city;
   document.querySelector("#elecActuatorState").value = state;
@@ -908,7 +913,7 @@ function editElectricActuator(
 
     let companyEa = document.querySelector("#elecActuatorCompany").value;
     let contactNameEa = document.querySelector("#elecActuatorName").value;
-    //let locationEa = document.querySelector("#elecActuatorLocation").value;
+    let emailEa = document.querySelector("#elecActuatorEmail").value;
     let phoneContactEa = document.querySelector("#elecActuatorPhone").value;
     let cityEa = document.querySelector("#elecActuatorCity").value;
     let stateEa = document.querySelector("#elecActuatorState").value;
@@ -935,7 +940,7 @@ function editElectricActuator(
       .update({
         Company_Name: companyEa,
         Contact_Name: contactNameEa,
-        //Location: locationEa,
+        Contact_Email: emailEa,
         Phone_Contact: phoneContactEa, //phoneContact,
         City: cityEa, //city,
         State: stateEa, //state,
@@ -956,7 +961,7 @@ function editElectricActuator(
 
         document.querySelector("#elecActuatorCompany").value = "";
         document.querySelector("#elecActuatorName").value = "";
-        //document.querySelector("#elecActuatorLocation").value = "";
+        document.querySelector("#elecActuatorEmail").value = "";
         document.querySelector("#elecActuatorPhone").value = "";
         document.querySelector("#elecActuatorCity").value = "";
         document.querySelector("#elecActuatorState").value = "";
@@ -990,7 +995,7 @@ function editArrangements(
   id,
   company,
   contactName,
-  //location,
+  email,
   phoneContact,
   city,
   state,
@@ -1055,7 +1060,7 @@ function editArrangements(
       <th scope="col">ID</th>
       <th scope="col">Company</th>
       <th scope="col">Contact</th>
-      
+      <th scope="col">Email</th>
       <th scope="col">Phone Number</th>
       <th scope="col">City</th>
       <th scope="col">State</th>
@@ -1095,7 +1100,7 @@ function editArrangements(
 
     <td ><input type="text" id="arrangementsCompany"></td>
     <td ><input type="text" id="arrangementsName"></td>
-    
+    <td ><input type="text" id="arrangementsEmail"></td>
     <td ><input type="text" id="arrangementsPhone"></td>
     <td ><input type="text" id="arrangementsCity"></td>
     <td ><input type="text" id="arrangementsState"></td>
@@ -1148,7 +1153,7 @@ function editArrangements(
 
   document.querySelector("#arrangementsCompany").value = company; //
   document.querySelector("#arrangementsName").value = contactName; //
-  //document.querySelector("#arrangementsLocation").value = location;
+  document.querySelector("#arrangementsEmail").value = email;
   document.querySelector("#arrangementsPhone").value = phoneContact; //
   document.querySelector("#arrangementsCity").value = city; //
   document.querySelector("#arrangementsState").value = state; //
@@ -1191,7 +1196,7 @@ function editArrangements(
       .value;
     let contactNameArrangements = document.querySelector("#arrangementsName")
       .value;
-    //let locationArrangements = document.querySelector("#arrangementsLocation")
+    let emailArrangements = document.querySelector("#arrangementsEmail").value;
 
     let phoneContactArrangements = document.querySelector("#arrangementsPhone")
       .value;
@@ -1236,7 +1241,7 @@ function editArrangements(
         // por aqui esta el bug
         Company_Name: companyArrangements, //company,
         Contact_Name: contactNameArrangements, //contactName,
-        //Location: locationArrangements,
+        Contact_Email: emailArrangements,
         Phone_Contact: phoneContactArrangements, //phoneContact,
         City: cityArrangements, //city,
         State: stateArrangements, //state,
@@ -1278,7 +1283,7 @@ function editArrangements(
 
         document.querySelector("#arrangementsCompany").value = "";
         document.querySelector("#arrangementsName").value = "";
-        //document.querySelector("#arrangementsLocation").value = "";
+        document.querySelector("#arrangementsEmail").value = "";
         document.querySelector("#arrangementsPhone").value = "";
         document.querySelector("#arrangementsCity").value = "";
         document.querySelector("#arrangementsState").value = "";

@@ -7,7 +7,7 @@ function postElectric() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  //let location = document.querySelector("#inputLocation").value;
+  let email = document.querySelector("#inputEmail").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -34,7 +34,7 @@ function postElectric() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      //Location: location,
+      Contact_Email: email,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -79,7 +79,7 @@ function postHp() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  //let location = document.querySelector("#inputLocation").value;
+  let email = document.querySelector("#inputEmail").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -114,7 +114,7 @@ function postHp() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      //Location: location,
+      Contact_Email: email,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -152,7 +152,7 @@ function postLp() {
   let company = document.querySelector("#inputCompany").value;
 
   let contactName = document.querySelector("#inputContact").value;
-  //let location = document.querySelector("#inputLocation").value;
+  let email = document.querySelector("#inputEmail").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -181,7 +181,7 @@ function postLp() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      //Location: location,
+      Contact_Email: email,
       Phone_Contact: phoneContact,
       City: city,
       State: state,
@@ -217,7 +217,7 @@ function threeWay() {
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
-  //let location = document.querySelector("#inputLocation").value;
+  let email = document.querySelector("#inputEmail").value;
   let phoneContact = document.querySelector("#inputPhone").value;
   let city = document.querySelector("#inputCity").value;
   let state = document.querySelector("#inputState").value;
@@ -284,7 +284,7 @@ function threeWay() {
     .add({
       Company_Name: company,
       Contact_Name: contactName,
-      //Location: location,
+      Contact_Email: email,
       Phone_Contact: phoneContact,
       City: city,
       State: state,

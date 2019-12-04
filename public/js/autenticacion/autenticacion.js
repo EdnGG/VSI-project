@@ -1,6 +1,6 @@
 class Autenticacion {
   autEmailPass(email, password) {
-    $("#inputEmail").val("");
+    $("#inputEmaiOne").val("");
     $("#inputPassword").val("");
 
     firebase
