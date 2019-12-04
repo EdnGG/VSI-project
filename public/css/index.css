@@ -1,6 +1,10 @@
 body {
   background-color: lightslategrey;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Avenir"; */
+  /* font-family: "Varela Round", sans-serif; */
+  /* font-family: "Alatsi", sans-serif; */
+  /* font-family: "Days One", sans-serif; */
+  font-family: "Fjalla One", sans-serif;
 }
 
 /* Header */
