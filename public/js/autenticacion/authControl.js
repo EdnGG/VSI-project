@@ -27,7 +27,6 @@ $(() => {
   });
 
   $("#emailLogin").click(() => {
-    //const auth = new Autenticacion();
     const email = $("#inputEmailOne").val();
     const password = $("#inputPassword").val();
     // TODO : LLamar auth cuenta con email

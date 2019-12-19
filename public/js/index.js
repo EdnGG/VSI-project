@@ -141,11 +141,21 @@ const validationSeccion1 = () => {
 
   let companyName = document.querySelector("#inputCompany").value;
   //let contactName = document.querySelector("#inputContact").value;
-  //let inputEmail = document.querySelector("#inputEmail").value;
+  let inputEmail = document.querySelector("#inputEmail").value;
 
-  if (companyName === "" || inputEmail === "") {
+  if (companyName === "" && inputEmail === "") {
     swal({
-      title: `Company name is required!`,
+      title: `Please fill out all the required fields!`,
+      icon: `error`
+    });
+  } else if (companyName === "") {
+    swal({
+      title: `Company name is required`,
+      icon: `error`
+    });
+  } else if (inputEmail === "") {
+    swal({
+      title: `Email is required`,
       icon: `error`
     });
   } else {
@@ -327,27 +337,19 @@ const validationSeccion2 = () => {
   //let location = document.querySelector("#inputLocation").value;
   //let selectMenu = document.querySelector("#selectSeccion3");
 
-  // function first() {
-  //   if (
-  //     valveSize === "" ||
-  //     brand === "" ||
-  //     series === "" ||
-  //     !valve2way.checked
-  //   ) {
-  //     swal({
-  //       title: `Please check for all the require inputs!`,
-  //       icon: `error`
-  //     });
-  //   } else {
-  //     swal({
-  //       icon: `success`
-  //     });
-  //     second();
-  //   }
-  // }
-
   function first() {
-    if (valveSize === "") {
+    if (
+      valveSize === "" &&
+      brand === "" &&
+      series === "" &&
+      !valve2way.checked &&
+      !valve3way.checked
+    ) {
+      swal({
+        title: `Please fill out all the required fields`,
+        icon: `error`
+      });
+    } else if (valveSize === "") {
       swal({
         title: `Valve size required `,
         icon: `error`
