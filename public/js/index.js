@@ -115,7 +115,7 @@ const btnSeccion1 = document.querySelector("#btnSeccion1");
 
 /******** Starts Hidding Elements Seccion **********/
 
-mainForm.style.display = "none"; //Poner "block" para desarrollo
+mainForm.style.display = "block"; //Poner "block" para desarrollo
 loginForm.style.display = "none"; //none
 
 /******** Ends Hidding Elements Seccion **********/
@@ -143,6 +143,7 @@ const validationSeccion1 = () => {
   //let contactName = document.querySelector("#inputContact").value;
   let inputEmail = document.querySelector("#inputEmail").value;
 
+<<<<<<< HEAD
   if (companyName === "" && inputEmail === "") {
     swal({
       title: `Please fill out all the required fields!`,
@@ -151,11 +152,20 @@ const validationSeccion1 = () => {
   } else if (companyName === "") {
     swal({
       title: `Company name is required`,
+=======
+  if (companyName === "") {
+    swal({
+      title: `Company Name is required!`,
+>>>>>>> dc37106ca7655aa85a004ca28f654a65faa2b726
       icon: `error`
     });
   } else if (inputEmail === "") {
     swal({
+<<<<<<< HEAD
       title: `Email is required`,
+=======
+      title: `Email is required!`,
+>>>>>>> dc37106ca7655aa85a004ca28f654a65faa2b726
       icon: `error`
     });
   } else {
