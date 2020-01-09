@@ -5,6 +5,7 @@ body {
   /* font-family: "Alatsi", sans-serif; */
   /* font-family: "Days One", sans-serif; */
   font-family: "Fjalla One", sans-serif;
+  margin: 0px;
 }
 
 /* Header */
@@ -345,4 +346,12 @@ body {
   /* line-height: 20pt;         */
   /* para sangrias */
   /* text-indent: 30pt;         */
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
+  /* It's possible to hide the image if the screen becomes too small */
+  .img-fluid {
+    min-width: 10%;
+  }
 }

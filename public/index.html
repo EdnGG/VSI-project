@@ -16,7 +16,7 @@
 
     
     <link rel="stylesheet" href="./css/index.css">
-    <!-- <link rel="manifest" href="manifest.json"> -->
+    <link rel="manifest" href="manifest.json">
     <title>VSI</title>
 </head>
 
@@ -56,7 +56,7 @@
         <input type="email" id="inputEmailOne" class="form-control" placeholder="Email address"  autofocus="" required="">
         <input type="password" id="inputPassword" class="form-control" placeholder="Password">
 
-        <button id="emailLogin" class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign
+        <button id="emailLogin" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Sign
             in</button>
         <a href="#" id="forgot_pswd">Forgot password?</a>
         <hr>
@@ -143,7 +143,7 @@
 <!-- Ends Carousel -->
 
 <!-- Starts Main Form-->
-<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex container justify-content-center" >
+<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex pr-auto pl-auto container justify-content-center" >
     <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
         <legend class="d-flex text-center justify-content-center" >Valve Retrofit Form</legend>
         
@@ -400,20 +400,85 @@
     </fieldset>
     <br>
 
-        
-
 <!-- Ends form seccion 6 -->
 
 <!-- Starts form seccion 7 -->
 
         <fieldset class="text-center" id="seccion7">
-            <div class="col-12 row text-center">
+       
+            <div class="form-row text-center">
+                <div class="col justify-content-center">
                 <legend class="justify-content-center">Three Way Arrangements</legend><br><br>
                 <legend class="justify-content-center">Top View</legend>
             </div>
+            </div>
+<!-- ejemplo -->
+        <div class="form-row">
+            <div class="col justify-content-center">
 
-            <div class="col-12 form-row">
-                <table class="table table-hover table-dark">
+                <div class="col-12 container">
+                    <img class="img-fluid center-block" src="./imagenes/table.png" alt="Test"><br><br>
+                    
+                    
+                </div>
+                <!-- <table class="table table-hover table-dark table-sm table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Arrangement</th>
+                            <th scope="col">Actuated Valve</th>
+                            <th scope="col">Normally Closed</th>
+                            <th scope="col">Normally Open</th>
+                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Valve A</td>
+                            <td>Valve A</td>
+                            <td>Valve B</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Valve A</td>
+                            <td>Valve A</td>
+                            <td>Valve c</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Valve B</td>
+                            <td>Valve B</td>
+                            <td>Valve C</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Valve B</td>
+                            <td>Valve B</td>
+                            <td>Valve A</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Valve C</td>
+                            <td>Valve C</td>
+                            <td>Valve B</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Valve C</td>
+                            <td>Valve C</td>
+                            <td>Valve A</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+
+            </div>
+        </div>
+<!-- / ejemplo -->
+            <!-- <div class="form-row text-center">
+            <div class="mt-3 pt-3 mb-3 pb-3 pr-5 pl-5 col-12 form-group justify-content-center">
+            
+        
+                <table class="table table-hover table-dark table-sm">
                     <thead>
                     <tr>
                         <th scope="col">Arrangement</th>
@@ -461,13 +526,16 @@
                             <td>Valve A</td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
             </div>
+        </div>    
+    -->
 
-            <div class="container-fluid">   
-            <div class="form-row">
+    <div class="container-fluid justify-content-center">   
+        <div class="form-row">
+                <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
                 <figure class="col-lg-4">
-                    <img class="img-rounded img-responsive center-block" src="./imagenes/Final-b1-removebg.png"  alt="Test"><br><br>
+                    <img class="img-rounded img-fluid center-block" src="./imagenes/Final-b1-removebg.png"  alt="Test"><br><br>
                     <label class="form-check-label text-center">
                     Arrangement 1 </label><br>
                     <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
@@ -476,7 +544,7 @@
                 <br>
         
                 <figure class="col-lg-4">
-                    <img class="img- rounded img-responsive center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
+                    <img class="img- rounded img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
                     <label class="form-check-label text-center">
                     Arrangement 2</label><br>
                     <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="Arrangement_2">
@@ -484,21 +552,23 @@
                 <br>
 
                 <figure class="col-lg-4">
-                    <img class="img- rounded img-responsive center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
+                    <img class="img- rounded img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
                     <label class="form-check-label text-center">
                     Arrangement 3 </label><br>
                     <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="Arrangement_3">
                 </figure>
 <br>
 
-            </div>
-            </div>
+            <!-- </div> -->
             <br><br><br>
 
-            <div class="container-fluid">
-                <div class="row">
+            <div class="container-fluid justify-content-center">
+            <div class="form-row">
+                    <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
+
+                    
                     <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/Final-b1-removebg.png" alt="Test"><br><br>
+                        <img class="img-fluid center-block" src="./imagenes/Final-b1-removebg.png" alt="Test"><br><br>
                         <label class="form-check-label text-center">
                         Arrangement 4
                         </label><br>
@@ -506,20 +576,22 @@
                     </figure>
     
                     <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
+                        <img class="img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
                         <label class="form-check-label text-center">
                         Arrangement 5 </label><br>
                         <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="Arrangement_5">
                     </figure>
     
                     <figure class="col-lg-4">
-                        <img class="img-responsive center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
+                        <img class="img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
                         <label class="form-check-label text-center">
                         Arrangement 6 </label><br>
                         <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="Arrangement_6">
                     </figure>
-                </div>
-            </div><br><br>
+                <!-- </div>  -->
+             </div>
+            
+            <br><br>
             <div class="row justify-content-center text-center">
                 <div class="col text-center">
                  <button type="button" id="btnSeccion7Prev" class="btn btn-dark ">Prev</button>
@@ -529,8 +601,8 @@
                 </div>
             </div>
             
-
-        </fieldset>
+    
+</fieldset>
 
 <!-- Ends form Seccion 7  -->
 
@@ -913,8 +985,8 @@
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
 <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script> -->
-<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -928,6 +1000,8 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
 crossorigin="anonymous"></script>
     
 <script src="./config/configFirebase.js"></script>
+<!-- <script src="notifications-sw.js"></script> -->
+<script src="./js/notifications.js"></script>
 <script src="./js/index.js"></script>
 <script src="./js/autenticacion/authControl.js"></script>
 <script src="./js/autenticacion/autenticacion.js"></script>

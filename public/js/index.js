@@ -4,45 +4,6 @@ $(function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-// start service worker
-
-// navigator.serviceWorker
-//   .register("notifications-sw.js")
-//   .then(register => {
-//     console.log("service worker register!");
-//     firebase.messaging().useServiceWorker(register);
-//   })
-//   .catch(err => {
-//     console.error(`Error trying to verify serviceworker => ${err}`);
-//   });
-
-// const messaging = firebase.messaging();
-// // Register web credentials
-// messaging.usePublicVapiKey(
-//   "BEpaYJcZgxmv22Ao5Nn4iNXOvpQfOUC85II16aSY8o2dIXJAn8kruAIp259N2BYkqY3x6uIKsYwUzSux48JkhFE"
-// );
-
-// // Getting permissions for notifications
-// messaging
-//   .requestPermissions()
-//   .then(() => {
-//     console.log("permission allowed");
-//     return messaging.getToken();
-//   })
-//   .then(token => {
-//     const db = firebase.firestore();
-//     db.settings({ timestampsInSnapshots: true });
-//     db.collection("tokens")
-//       .doc(token)
-//       .set({
-//         token: token
-//       })
-//       .catch(err => {
-//         console.error(`Error al insertar el token en la DB => ${err}`);
-//       });
-//   });
-
-// ends service worker
 
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
@@ -109,18 +70,17 @@ const carousel = document.querySelector("#carousel");
 
 /********Ends carousel seccion***************/
 
+/****************Seccion 1 ************/
+
 /********Start Main Form seccion*****************/
 const mainForm = document.querySelector("#mainForm");
 const btnSeccion1 = document.querySelector("#btnSeccion1");
-
 /******** Starts Hidding Elements Seccion **********/
 
-mainForm.style.display = "block"; //Poner "block" para desarrollo
+mainForm.style.display = "none"; //Poner "block" para desarrollo
 loginForm.style.display = "none"; //none
 
 /******** Ends Hidding Elements Seccion **********/
-
-/****************Seccion 1 ************/
 
 btnSeccion1.addEventListener("click", () => {
   console.log("validating first seccion");
@@ -143,7 +103,6 @@ const validationSeccion1 = () => {
   //let contactName = document.querySelector("#inputContact").value;
   let inputEmail = document.querySelector("#inputEmail").value;
 
-<<<<<<< HEAD
   if (companyName === "" && inputEmail === "") {
     swal({
       title: `Please fill out all the required fields!`,
@@ -151,21 +110,12 @@ const validationSeccion1 = () => {
     });
   } else if (companyName === "") {
     swal({
-      title: `Company name is required`,
-=======
-  if (companyName === "") {
-    swal({
-      title: `Company Name is required!`,
->>>>>>> dc37106ca7655aa85a004ca28f654a65faa2b726
-      icon: `error`
+      title: `Company name is required`
     });
   } else if (inputEmail === "") {
     swal({
-<<<<<<< HEAD
       title: `Email is required`,
-=======
       title: `Email is required!`,
->>>>>>> dc37106ca7655aa85a004ca28f654a65faa2b726
       icon: `error`
     });
   } else {
