@@ -1,5 +1,6 @@
 {
   "projects": {
-    "vsi": "vsi-project"
+    "vsi": "vsi-project",
+    "default": "vsi-project"
   }
 }
