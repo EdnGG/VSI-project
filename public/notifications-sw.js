@@ -1,5 +1,6 @@
 importScripts("https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js");
+// importScripts("/__/firebase/init.js");
 
 // Initialize Firebase
 const config = {
@@ -12,24 +13,27 @@ const config = {
 };
 
 /*********** Inicializando Firebase**************************/
-firebase.initializeApp(
-  config
+firebase.initializeApp({
+  projectId: "vsi-project",
+  messagingSenderId: "345953099682"
+});
 
-  // {
-  //   projectId: "vsi-project",
-  //   messagingSenderID: "345953099682"
-  // }
-);
+/*********** / Inicializando Firebase**************************/
 
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(function(payload) {
-  const title = "Hello World";
-  const options = {
-    body: payload.data.status,
-    // icon: "/firebase-logo.png",
-    // click_action: "https://vsi-project.firebaseapp.com/forms2.html",
-    click_action: "http://localhost:5500/public/forms2.html"
-  };
-  return self.registration.showNotification(title, options);
-});
+// messaging.setBackgroundMessageHandler(function(payload) {
+//   console.log("[notifications-ws.js] Received background message", payload);
+//   const title = "Hello World";
+//   const options = {
+//     body: `Background message body`,
+//     icon: "./imagenes/usuario.png"
+//   };
+//   return self.registration.showNotification(title, options);
+// });
+
+// self.addEventListener("notificationsclick", e => {
+//   if (e.action == "More") {
+//     // open window
+//   }
+// });

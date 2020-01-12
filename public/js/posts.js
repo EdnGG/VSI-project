@@ -52,8 +52,7 @@ function postElectric() {
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
 
-      console.log("post2");
-      // clearData();
+      console.log("Generate new porst fom Electric actuator");
 
       mainForm.style.display = "none";
       loginForm.style.display = "none";

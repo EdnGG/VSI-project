@@ -102,7 +102,7 @@ let tableForm = document.querySelector("#table");
 db.collection("3_Way").onSnapshot(querySnapshot => {
   tableForm.innerHTML = ""; // checar
   querySnapshot.forEach(doc => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    //console.log(`${doc.id} => ${doc.data()}`);
     // console.table(`${doc.data()}`);
     tableForm.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
@@ -190,11 +190,20 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
   });
 });
 
+// db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
+//   //console.log("Current data: ", doc.data());
+//   swal({
+//     text: `New post on Electric Actuator Table ${querySnapshot}`,
+//     icon: "info"
+//   });
+// });
+
 let tableForm2 = document.querySelector("#table2");
 db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
   tableForm2.innerHTML = "";
   querySnapshot.forEach(doc => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    //console.log(`${doc.id} => ${doc.data()}`);
+
     tableForm2.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
@@ -246,7 +255,7 @@ let tableForm3 = document.querySelector("#table3");
 db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
   tableForm3.innerHTML = "";
   querySnapshot.forEach(doc => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    //console.log(`${doc.id} => ${doc.data()}`);
     tableForm3.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
@@ -299,7 +308,7 @@ let tableForm4 = document.querySelector("#table4");
 db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
   tableForm4.innerHTML = "";
   querySnapshot.forEach(doc => {
-    console.log(`${doc.id} => ${doc.data()}`);
+    //console.log(`${doc.id} => ${doc.data()}`);
     tableForm4.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
@@ -1390,3 +1399,15 @@ function deleteArrangements(id) {
 }
 
 // Ends Delete Seccion
+
+// Escuchar cuando se genere nuevo documento en DB
+
+function listenerForElectActuator() {
+  db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
+    //console.log("Current data: ", doc.data());
+    swal({
+      text: `New post on Electric Actuator Table`,
+      icon: "info"
+    });
+  });
+}

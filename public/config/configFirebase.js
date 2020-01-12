@@ -10,15 +10,20 @@ const config = {
 
 /*********** Inicializando Firebase**************************/
 firebase.initializeApp(config);
+/*********** / Inicializando Firebase**************************/
+
+/******** Inicializando Firebase-Firestore ***************/
+let db = firebase.firestore();
+/********  / Inicializando Firebase-Firestore ***************/
 
 // // Register web credentials
-// const messaging = firebase.messaging();
+//const messaging = firebase.messaging();
 
 // messaging.usePublicVapiKey(
 //   "BEpaYJcZgxmv22Ao5Nn4iNXOvpQfOUC85II16aSY8o2dIXJAn8kruAIp259N2BYkqY3x6uIKsYwUzSux48JkhFE"
 // );
 
-// // Getting permissions for notifications
+// Getting permissions for notifications
 // messaging
 //   .requestPermissions()
 //   .then(() => {
@@ -27,7 +32,6 @@ firebase.initializeApp(config);
 //   })
 //   .then(token => {
 //     const db = firebase.firestore();
-//     db.settings({ timestampsInSnapshots: true });
 //     db.collection("tokens")
 //       .doc(token)
 //       .set({
@@ -38,7 +42,8 @@ firebase.initializeApp(config);
 //       });
 //   });
 
-//ends service worker
+// messaging.onMessage(function(payload) {
+//   console.log("onMessage: ", payload);
+// });
 
-/******** Inicializando Firebase-Firestore ***************/
-let db = firebase.firestore();
+//ends service worker
