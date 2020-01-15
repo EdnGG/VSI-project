@@ -42,13 +42,13 @@ messaging
 messaging.onMessage(function(payload) {
   console.log("onMessage", payload);
 
-  //db.collection("Electric_Actuator").onSnapshot(doc => {
-  //console.log("Current data: ", doc.data());
-  swal({
-    text: "New post on Electric Actuator Table",
-    icon: "info"
-  });
-  //});
+  // db.collection("Electric_Actuator").onSnapshot(doc => {
+  //   console.log("Current data: ", doc.data());
+  //   swal({
+  //     text: "New post on Electric Actuator Table",
+  //     icon: "info"
+  //   });
+  // });
 });
 
 // getting token when refresh window

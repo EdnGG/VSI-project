@@ -22,15 +22,15 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-// messaging.setBackgroundMessageHandler(function(payload) {
-//   console.log("[notifications-ws.js] Received background message", payload);
-//   const title = "Hello World";
-//   const options = {
-//     body: `Background message body`,
-//     icon: "./imagenes/usuario.png"
-//   };
-//   return self.registration.showNotification(title, options);
-// });
+messaging.setBackgroundMessageHandler(function(payload) {
+  console.log("[notifications-ws.js] Received background message", payload);
+  const title = "Hello World";
+  const options = {
+    body: `Background message body`,
+    icon: "./imagenes/usuario.png"
+  };
+  return self.registration.showNotification(title, options);
+});
 
 // self.addEventListener("notificationsclick", e => {
 //   if (e.action == "More") {
