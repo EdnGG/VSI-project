@@ -25,7 +25,7 @@ exports.registrarTopico = functions.firestore
 exports.enviarNotificacion = functions.firestore
   .document("/Electric_Actuator/{id}")
   .onCreate(dataSnapshot => {
-    const titulo = dataSnapshot.data().Contact_Name;
+    const titulo = dataSnapshot.data().Company_Name;
     const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
