@@ -58,7 +58,11 @@ messaging.onTokenRefresh(() => {
 // Messaging
 messaging.onMessage(function(payload) {
   console.log("onMessage", payload);
-  console.log(`Payload message : ${payload.data.titulo}`);
+  console.log(`Payload message : ${payload.data.Company_Name}`);
+  swal({
+    text: `Tenemos nuevo post, revisalo ${payload.data.Company_Name}`,
+    icon: "success"
+  });
 });
 
 //ends service worker
