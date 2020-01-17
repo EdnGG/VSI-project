@@ -24,16 +24,12 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log("[notifications-ws.js] Received background message", payload);
-  const title = "Hello World";
+  const tituloNot = "Hello World";
   const options = {
-    body: `Background message body`,
-    icon: "./imagenes/usuario.png"
+    body: payload.data.titulo,
+    icon: "./imagenes/usuario.png",
+    click_action: "https://vsi-project.web.app/"
   };
-  return self.registration.showNotification(title, options);
+  // Se le dice a window que muestre la notificacion
+  return self.registration.showNotification(tituloNot, options);
 });
-
-// self.addEventListener("notificationsclick", e => {
-//   if (e.action == "More") {
-//     // open window
-//   }
-// });

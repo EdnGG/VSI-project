@@ -36,28 +36,14 @@ messaging
         console.error(`Error: ${err}`);
       });
   })
-  .catch(err => console.error(`No se dio el permiso: ${err}`));
-
-// Messaging
-messaging.onMessage(function(payload) {
-  console.log("onMessage", payload);
-
-  // db.collection("Electric_Actuator").onSnapshot(doc => {
-  //   console.log("Current data: ", doc.data());
-  //   swal({
-  //     text: "New post on Electric Actuator Table",
-  //     icon: "info"
-  //   });
-  // });
-});
+  .catch(err => console.error(`No se dio el permiso: ${err}`)); // checar esta linea
 
 // getting token when refresh window
-
 messaging.onTokenRefresh(() => {
   messaging.getToken().then(token => {
     console.log("Token updated");
     const db = firebase.firestore();
-    db.settings({ timestampsInSnapshots: true });
+    //db.settings({ timestampsInSnapshots: true });
     db.collection("tokens")
       .doc(token)
       .set({
@@ -67,6 +53,12 @@ messaging.onTokenRefresh(() => {
         console.error(`Error: ${err}`);
       });
   });
+});
+
+// Messaging
+messaging.onMessage(function(payload) {
+  console.log("onMessage", payload);
+  console.log(`Payload message : ${payload.data.titulo}`);
 });
 
 //ends service worker

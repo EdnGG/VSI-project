@@ -1,28 +1,9 @@
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
 //const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
 
-//const key = functions.config().sendgrid.key;
-//const nodemailer = require("nodemailer");
-//const express = require("express");
-//const cors = require('cors') ({ origin:true })
-////const cors = require("cors");
-
 //admin.firestore().settings({ timestampInSnapshot: true });
-
-const SENDGRID_API_KEY = functions.config().sendgrid.key;
-
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(SENDGRID_API_KEY);
-//const app = express();
 
 exports.firestoreEmail = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
@@ -52,55 +33,6 @@ exports.firestoreEmail = functions.firestore
       .then(() => console.log(`Email sent`))
       .catch(err => console.error(`Error ${err}`));
   });
-
-//app.use(cors({ origin: true }));
-
-//if (process.env.NODE_ENV !== "production") {
-//require("dotenv").config();
-//}
-
-// exports.notificationSubmitForm = functions.firestore
-//   .document("test/{id}")
-//   .onCreate((snap, context) => {
-//     const email = snap.data().email;
-//     const name = snap.data().name;
-//     return submitNotification(email, name);
-//   });
-
-// const transport = nodemailer.createTransport({
-//   service: "Gmail",
-//   auth: {
-//     user: "gresseden@gmail.com",
-//     pass: "somePassword"
-//   }
-// });
-
-// exports.welcomeMail = functions.firestore
-// .document("Electric_Actuator/{id}")
-// .onCreate((snap, context) => {
-//   const email = snap.data().email;
-//   const name = snap.data().contactName;
-//   return submitNotification(email, name);
-// });
-
-// Aux function
-
-// function submitNotification(email, name) {
-//   return transport
-//     .sendMail({
-//       from: "gresseden@gmail.com", // quien esta enviando
-//       to: email,
-//       subject: "Testing",
-//       html: `<h1>Hello ${name} </h1>
-//         <p> Thanks</p>
-//         <a href="https://vsi-project.firebaseapp.com/forms2.html">Click me</a>
-//         `
-//     })
-//     .then(result => result)
-//     .catch(err => {
-//       console.error(err);
-//     });
-// }
 
 //
 
@@ -205,37 +137,6 @@ exports.firestoreEmail = functions.firestore
 
 // exports.listenerForElectActuator = functions.firestore
 //   .document("Electric_Actuator/{Electric_ActuatorId}")
-//   .onCreate((snap, context) => {
-//     console.log("nuevo post from electric actuator");
-//     const original = snap.data().original;
-//     console.log(
-//       "Mes from firebase functions",
-//       context.params.documentId,
-//       original
-//     );
-
-//     return console.log("promise from  firebase funtions");
-//     // let datos = snap.data();
-//     //let afterData = change.after.data();
-//   });
-
-// Listens for new messages added to /messages/:pushId/original and creates an
-// uppercase version of the message to /messages/:pushId/uppercase
-// exports.listenerForElectActuator = functions.firestore
-//   .document("/Electric_Actuator/{id}")
-//   .onWrite((change, context) => {
-//     // Grab the current value of what was written to the Realtime Database.
-//     //const original = snapshot.val();
-//     console.log("Testing cloud functions", context.params.pushId, original);
-//     // const uppercase = original.toUpperCase();
-//     // You must return a Promise when performing asynchronous tasks inside a Functions such as
-//     // writing to the Firebase Realtime Database.
-//     // Setting an "uppercase" sibling in the Realtime Database returns a Promise.
-//     // return snapshot.ref.parent.child("uppercase").set(uppercase);
-//   });
-
-// exports.listenerForElectActuator = functions.firestore
-//   .document("Electric_Actuator/{Electric_ActuatorId}")
 //   .onWrite((change, context) => {
 //     console.log("nuevo post from electric actuator");
 //     const electricId = context.params.Electric_actuatorId;
@@ -263,15 +164,6 @@ exports.newFunction = functions.firestore
       console.log(`Hello ${contexto}`);
     });
   });
-
-// Fucntion auxiliar
-// function sweetA() {
-//   const html = {
-//     title: `Hello`,
-//     body: "World"
-//   };
-//   return html;
-// }
 
 exports.testTwo = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
@@ -301,11 +193,3 @@ exports.testTwo = functions.firestore
     // perform desired operations ...
     //return `${newValue}    ${name}`;
   });
-
-// exports.registrarTopico = functions.firestore
-//   .document("/tokens/{id}")
-//   .onCreate(notificacionController.creacionTokenController);
-
-// exports.enviarNotificacion = functions.firestore
-//   .document("posts/{idPost}")
-//   .onUpdate(postsController.actualizacionPostController);
