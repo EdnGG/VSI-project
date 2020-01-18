@@ -2,7 +2,82 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-exports.registrarTopico = functions.firestore
+/**  Registrando a topico Tree Way*/
+exports.registrarTopico3Way = functions.firestore
+  .document("/tokens3/{id}")
+  .onCreate(dataSnapshot => {
+    const token3 = dataSnapshot.data().token;
+    const registrationTokens3 = [token3];
+
+    return (
+      admin
+        .messaging()
+        .subscribeToTopic(registrationTokens3, "3_Way") // NuevosPosts es una collecion (Electric_Actuator)
+        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+        // a registrar
+        .then(() => {
+          return console.log("Adicinando correctamente al topico Three Way");
+        })
+        .catch(err => {
+          console.error(
+            `Error registrando al topico el token Three Way ${err}` // checar esta linea
+          );
+        })
+    );
+  });
+/**  /Registrando a topico Tree Way*/
+
+/**  Registrando a topico Low Pressure*/
+exports.registrarTopicoLP = functions.firestore
+  .document("/tokens2/{id}")
+  .onCreate(dataSnapshot => {
+    const token2 = dataSnapshot.data().token;
+    const registrationTokens2 = [token2];
+
+    return (
+      admin
+        .messaging()
+        .subscribeToTopic(registrationTokens2, "LowP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
+        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+        // a registrar
+        .then(() => {
+          return console.log("Adicinando correctamente al topico LP");
+        })
+        .catch(err => {
+          console.error(`Error registrando al topico el token LP ${err}`);
+        })
+    );
+  });
+/**  /Registrando a topico Low pressure*/
+
+/**  Registrando a topico High Pressure*/
+exports.registrarTopicoHP = functions.firestore
+  .document("/tokens1/{id}")
+  .onCreate(dataSnapshot => {
+    const token1 = dataSnapshot.data().token;
+    const registrationTokens1 = [token1];
+
+    return (
+      admin
+        .messaging()
+        .subscribeToTopic(registrationTokens1, "HP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
+        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+        // a registrar
+        .then(() => {
+          return console.log("Adicinando correctamente al topico HP");
+        })
+        .catch(err => {
+          console.error(`Error registrando al topico el token HP ${err}`);
+        })
+    );
+  });
+/**  /Registrando a topico High pressure*/
+
+/**  Registrando a topico Electric Actuator*/
+exports.registrarTopicoEA = functions.firestore
   .document("/tokens/{id}")
   .onCreate(dataSnapshot => {
     const token = dataSnapshot.data().token;
@@ -14,15 +89,17 @@ exports.registrarTopico = functions.firestore
         .subscribeToTopic(registrationTokens, "Electric_Actuator") // NuevosPosts es una collecion (Electric_Actuator)
         // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
         .then(() => {
-          return console.log("Adicinado correctamente al topico");
+          return console.log("Adicinando correctamente al topico Electric");
         })
         .catch(err => {
-          console.error(`Error registrando al topico el token ${err}`);
+          console.error(`Error registrando al topico el token Electric${err}`);
         })
     );
   });
+/**  /Registrando a topico Electric Actuator*/
 
-exports.enviarNotificacion = functions.firestore
+/** Electric Actuator cloud Function*/
+exports.electActuatorNotification = functions.firestore
   .document("/Electric_Actuator/{id}")
   .onCreate(dataSnapshot => {
     const titulo = dataSnapshot.data().Company_Name;
@@ -40,12 +117,98 @@ exports.enviarNotificacion = functions.firestore
       .messaging()
       .send(mensaje)
       .then(() => {
-        return console.log("Mensaje enviado correctamente");
+        return console.log("Mensaje enviado correctamente Electric");
       })
       .catch(err => {
-        console.error(`Error enviando mensaje ${err}`);
+        console.error(`Error enviando mensaje Electric ${err}`);
       });
   });
+
+/** / Electric Actuator cloud Function*/
+
+/** High Pressure cloud Function*/
+exports.highPressureNotification = functions.firestore
+  .document("/HP_Pneumatic/{id}")
+  .onCreate(dataSnapshot => {
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
+
+    const mensaje = {
+      data: {
+        titulo: titulo,
+        descripcion: descripcion
+      },
+      topic: "HP_Pneumatic"
+    };
+
+    return admin
+      .messaging()
+      .send(mensaje)
+      .then(() => {
+        return console.log("Mensaje enviado correctamente HP");
+      })
+      .catch(err => {
+        console.error(`Error enviando mensaje HP ${err}`);
+      });
+  });
+
+/** / High Pressure cloud Function*/
+
+/** Low Pressure cloud Function*/
+exports.lowPressureNotification = functions.firestore
+  .document("/LowP_Pneumatic/{id}")
+  .onCreate(dataSnapshot => {
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
+
+    const mensaje = {
+      data: {
+        titulo: titulo,
+        descripcion: descripcion
+      },
+      topic: "LowP_Pneumatic"
+    };
+
+    return admin
+      .messaging()
+      .send(mensaje)
+      .then(() => {
+        return console.log("Mensaje enviado correctamente LP");
+      })
+      .catch(err => {
+        console.error(`Error enviando mensaje LP ${err}`);
+      });
+  });
+
+/** / Low Pressure cloud Function*/
+
+/** Tree way cloud Function*/
+exports.threeWayNotification = functions.firestore
+  .document("/3_Way/{id}")
+  .onCreate(dataSnapshot => {
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
+
+    const mensaje = {
+      data: {
+        titulo: titulo,
+        descripcion: descripcion
+      },
+      topic: "3_Way"
+    };
+
+    return admin
+      .messaging()
+      .send(mensaje)
+      .then(() => {
+        return console.log("Mensaje enviado correctamente 3 Way");
+      })
+      .catch(err => {
+        console.error(`Error enviando mensaje 3 Way ${err}`);
+      });
+  });
+
+/** / Tree way cloud Function*/
 
 //const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
 

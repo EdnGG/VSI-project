@@ -12,6 +12,8 @@ const config = {
   messagingSenderId: "345953099682"
 };
 
+/*********** Se vuelven a declarar  la instacia de messaging porque este archivo corre en paralelo al flujo de la aplicacion **************************/
+
 /*********** Inicializando Firebase**************************/
 firebase.initializeApp({
   projectId: "vsi-project",
@@ -24,12 +26,12 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log("[notifications-ws.js] Received background message", payload);
-  const tituloNot = `Electric Actuator request from: `;
+  const titulo = `We got a new retrofit form request `;
   const options = {
     body: `${payload.data.titulo}`,
     icon: "./imagenes/valve.png",
     click_action: "https://vsi-project.web.app/"
   };
   // Se le dice a window que muestre la notificacion
-  return self.registration.showNotification(tituloNot, options);
+  return self.registration.showNotification(titulo, options);
 });
