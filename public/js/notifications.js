@@ -58,10 +58,11 @@ messaging.onTokenRefresh(() => {
 // Messaging
 messaging.onMessage(function(payload) {
   console.log("onMessage", payload);
-  console.log(`Payload message : ${payload.data.Company_Name}`);
+  console.log(`Payload message : ${payload.data.descripcion}`);
   swal({
-    text: `Tenemos nuevo post, revisalo ${payload.data.Company_Name}`,
-    icon: "success"
+    title: `Check Electric Actuator table from Company: ${payload.data.titulo}`,
+    text: `Email's Client: ${payload.data.descripcion}`,
+    icon: "info"
   });
 });
 

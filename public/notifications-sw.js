@@ -24,10 +24,10 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log("[notifications-ws.js] Received background message", payload);
-  const tituloNot = "Hello World";
+  const tituloNot = `Electric Actuator request from: `;
   const options = {
-    body: payload.data.titulo,
-    icon: "./imagenes/usuario.png",
+    body: `${payload.data.titulo}`,
+    icon: "./imagenes/valve.png",
     click_action: "https://vsi-project.web.app/"
   };
   // Se le dice a window que muestre la notificacion
