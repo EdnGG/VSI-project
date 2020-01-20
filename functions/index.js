@@ -3,77 +3,78 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 
 /**  Registrando a topico Tree Way*/
-exports.registrarTopico3Way = functions.firestore
-  .document("/tokens3/{id}")
-  .onCreate(dataSnapshot => {
-    const token3 = dataSnapshot.data().token;
-    const registrationTokens3 = [token3];
+// exports.registrarTopico3Way = functions.firestore
+//   .document("/tokens3/{id}")
+//   .onCreate(dataSnapshot => {
+//     const token3 = dataSnapshot.data().token;
+//     const registrationTokens3 = [token3];
 
-    return (
-      admin
-        .messaging()
-        .subscribeToTopic(registrationTokens3, "3_Way") // NuevosPosts es una collecion (Electric_Actuator)
-        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
-        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
-        // a registrar
-        .then(() => {
-          return console.log("Adicinando correctamente al topico Three Way");
-        })
-        .catch(err => {
-          console.error(
-            `Error registrando al topico el token Three Way ${err}` // checar esta linea
-          );
-        })
-    );
-  });
+//     return (
+//       admin
+//         .messaging()
+//         .subscribeToTopic(registrationTokens3, "3_Way") // NuevosPosts es una collecion (Electric_Actuator)
+//         // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+//         // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+//         // a registrar
+//         .then(() => {
+//           return console.log("Adicinando correctamente al topico Three Way");
+//         })
+//         .catch(err => {
+//           console.error(
+//             `Error registrando al topico el token Three Way ${err}` // checar esta linea
+//           );
+//         })
+//     );
+//   });
 /**  /Registrando a topico Tree Way*/
 
 /**  Registrando a topico Low Pressure*/
-exports.registrarTopicoLP = functions.firestore
-  .document("/tokens2/{id}")
-  .onCreate(dataSnapshot => {
-    const token2 = dataSnapshot.data().token;
-    const registrationTokens2 = [token2];
-
-    return (
-      admin
-        .messaging()
-        .subscribeToTopic(registrationTokens2, "LowP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
-        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
-        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
-        // a registrar
-        .then(() => {
-          return console.log("Adicinando correctamente al topico LP");
-        })
-        .catch(err => {
-          console.error(`Error registrando al topico el token LP ${err}`);
-        })
-    );
-  });
+// exports.registrarTopicoLP = functions.firestore
+//   .document("/tokens2/{id}")
+//   .onCreate(dataSnapshot => {
+//     const token2 = dataSnapshot.data().token;
+//     const registrationTokens2 = [token2];
+//     console.log(`${token2} ${registrationTokens2}`);
+//     return (
+//       admin
+//         .messaging()
+//         .subscribeToTopic(registrationTokens2, "LowP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
+//         // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+//         // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+//         // a registrar
+//         .then(() => {
+//           return console.log("Adicinando correctamente al topico LP");
+//         })
+//         .catch(err => {
+//           console.error(`Error registrando al topico el token LP ${err}`);
+//         })
+//     );
+//   });
 /**  /Registrando a topico Low pressure*/
 
 /**  Registrando a topico High Pressure*/
-exports.registrarTopicoHP = functions.firestore
-  .document("/tokens1/{id}")
-  .onCreate(dataSnapshot => {
-    const token1 = dataSnapshot.data().token;
-    const registrationTokens1 = [token1];
+// exports.registrarTopicoHP = functions.firestore
+//   .document("/tokens1/{id}")
+//   .onCreate(dataSnapshot => {
+//     const token1 = dataSnapshot.data().token;
+//     const registrationTokens1 = [token1];
+//     console.log(`${token1} ${registrationTokens1}`);
 
-    return (
-      admin
-        .messaging()
-        .subscribeToTopic(registrationTokens1, "HP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
-        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
-        // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
-        // a registrar
-        .then(() => {
-          return console.log("Adicinando correctamente al topico HP");
-        })
-        .catch(err => {
-          console.error(`Error registrando al topico el token HP ${err}`);
-        })
-    );
-  });
+//     return (
+//       admin
+//         .messaging()
+//         .subscribeToTopic(registrationTokens1, "HP_Pneumatic") // NuevosPosts es una collecion (Electric_Actuator)
+//         // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+//         // El segundo parametro de este metodo es un string y es el topico (coleccion) al que se va
+//         // a registrar
+//         .then(() => {
+//           return console.log("Adicinando correctamente al topico HP");
+//         })
+//         .catch(err => {
+//           console.error(`Error registrando al topico el token HP ${err}`);
+//         })
+//     );
+//   });
 /**  /Registrando a topico High pressure*/
 
 /**  Registrando a topico Electric Actuator*/
@@ -82,11 +83,14 @@ exports.registrarTopicoEA = functions.firestore
   .onCreate(dataSnapshot => {
     const token = dataSnapshot.data().token;
     const registrationTokens = [token];
+    console.log(`${token} ${registrationTokens}`);
 
     return (
       admin
         .messaging()
-        .subscribeToTopic(registrationTokens, "Electric_Actuator") // NuevosPosts es una collecion (Electric_Actuator)
+        .subscribeToTopic(registrationTokens, "Actuators")
+
+        // NuevosPosts es una collecion (Electric_Actuator)
         // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
         .then(() => {
           return console.log("Adicinando correctamente al topico Electric");
