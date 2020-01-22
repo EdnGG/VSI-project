@@ -24,26 +24,15 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(function(payload) {
+messaging.setBackgroundMessageHandler(payload => {
   console.log("[notifications-ws.js] Received background message", payload);
   const titulo = `We got a new retrofit form request `;
   const options = {
+    //title: "From Firebase",
     body: payload.data.titulo,
-    icon: "./imagenes/valve.png",
-    click_action: "https://vsi-project.web.app/"
+    icon: "./imagenes/valve.png"
+    //link: "https://vsi-project.web.app"
   };
   // Se le dice a window que muestre la notificacion
   return self.registration.showNotification(titulo, options);
 });
-
-// messaging.setBackgroundMessageHandler(function(payload1) {
-//   console.log("[notifications-ws.js] Received background message", payload1);
-//   const titulo1 = `We got a new retrofit form request `;
-//   const options1 = {
-//     body: `${payload1.data.titulo}`,
-//     icon: "./imagenes/valve.png",
-//     click_action: "https://vsi-project.web.app/"
-//   };
-//   // Se le dice a window que muestre la notificacion
-//   return self.registration.showNotification(titulo1, options1);
-// });
