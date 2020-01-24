@@ -2,6 +2,68 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
+const nodemailer = require("nodemailer");
+
+var transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "gresseden@gmail.com",
+    pass: "GogE8528GRESS"
+  }
+});
+
+exports.sendEmail = functions.firestore
+  .document("Electric_Actuator/{Electric_ActuatorId}")
+  .onCreate((snap, context) => {
+    const mailOptions = {
+      from: `gresseden@gmail.com`,
+      to: snap.data().Contact_Email,
+      subject: `Hello from Valve Solutions Inc`,
+      html: `<h1>Retrofit Form Request</h1>
+        <h2>Hey ${
+          snap.data().Company_Name
+        } We received your Retrofit form request from this  E-mail: ${
+        snap.data().Contact_Email
+      }</h2><br><br><br>
+      <p> We'll keep in touch soon </p><br><br><br>
+         <a target="_blank" href="https://valvesolutions.com/">
+
+                <button>Visit us!!</button>
+            </a>
+      `
+    };
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log("Sent!");
+    });
+  });
+// const sgMail = require("@sendgrid/mail");
+
+// const API_KEY = functions.config().sendgrid.key;
+// const TEMPLATE_ID = functions.config().sendgrid.template;
+// sgMail.setApiKey(API_KEY);
+
+// exports.testEmail = functions.firestore
+//   .document("Electric_Actuator/{Electric_ActuatorId}")
+//   .onCreate(snapshot => {
+//     const msg = {
+//       to: snapshot.data().Contact_Email,
+//       from: "test@gmail.com",
+//       templateId: TEMPLATE_ID,
+//       dynamic_template_data: {
+//         subject: "Welcome to my app",
+//         name: snapshot.data().Company_Name
+//         // text: ``
+//       }
+//     };
+//     return sgMail.send(msg);
+//   });
+
 /**  Registrando a topico Electric Actuator*/
 exports.registrarTopicoEA = functions.firestore
   .document("/tokens/{id}")
@@ -13,10 +75,16 @@ exports.registrarTopicoEA = functions.firestore
     return (
       admin
         .messaging()
-        .subscribeToTopic(registrationTokens, "Electric_Actuator")
+        .subscribeToTopic(
+          registrationTokens,
+          "Electric_Actuator",
+          "HP_Pneumatic",
+          "LowP_Pneumatic",
+          "3_way"
+        )
 
         // NuevosPosts es una collecion (Electric_Actuator)
-        // parece que el segundo argumento no apunta a la coleccion, sino e s solo un string
+        // parece que el segundo argumento no apunta a la coleccion, sino es solo un string
         .then(() => {
           return console.log("Adicinando correctamente al topico Electric");
         })
@@ -28,60 +96,60 @@ exports.registrarTopicoEA = functions.firestore
 /**  /Registrando a topico Electric Actuator*/
 
 /** Electric Actuator cloud Function*/
-exports.electActuatorNotification = functions.firestore
-  .document("/Electric_Actuator/{id}")
-  .onCreate(dataSnapshot => {
-    const titulo = dataSnapshot.data().Company_Name;
-    const descripcion = dataSnapshot.data().Contact_Email;
+// exports.electActuatorNotification = functions.firestore
+//   .document("/Electric_Actuator/{id}")
+//   .onCreate(dataSnapshot => {
+//     const titulo = dataSnapshot.data().Company_Name;
+//     const descripcion = dataSnapshot.data().Contact_Email;
+
+//     const mensaje = {
+//       data: {
+//         titulo: titulo,
+//         descripcion: descripcion
+//       },
+//       topic: "Electric_Actuator"
+//     };
+
+//     return admin
+//       .messaging()
+//       .send(mensaje)
+//       .then(() => {
+//         return console.log(
+//           `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
+//         );
+//       })
+//       .catch(err => {
+//         console.error(`Error enviando mensaje Electric ${err}`);
+//       });
+//   });
+
+/** / Electric Actuator cloud Function*/
+
+/** High Pressure cloud Function*/
+exports.highPressureNotification = functions.firestore
+  .document("/HP_Pneumatic/{hpId}")
+  .onCreate(async (dataSnapshot, context) => {
+    const titulo = await dataSnapshot.data().Company_Name;
+    const descripcion = await dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
         titulo: titulo,
         descripcion: descripcion
       },
-      topic: "Electric_Actuator"
+      topic: context.params.hpId
     };
 
     return admin
       .messaging()
       .send(mensaje)
-      .then(() => {
+      .then(response => {
         return console.log(
-          `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
+          `Mensaje enviado correctamente HP ${mensaje.data.titulo} ${response}`
         );
       })
       .catch(err => {
-        console.error(`Error enviando mensaje Electric ${err}`);
-      });
-  });
-
-/** / Electric Actuator cloud Function*/
-
-/** High Pressure cloud Function*/
-exports.highPressureNotification = functions.firestore
-  .document("/HP_Pneumatic/{id}")
-  .onCreate(dataSnapshot => {
-    const titulo2 = dataSnapshot.data().Company_Name;
-    const descripcion2 = dataSnapshot.data().Contact_Email;
-
-    const mensaje = {
-      data: {
-        titulo: titulo2,
-        descripcion: descripcion2
-      },
-      topic: "HP_Pneumatic"
-    };
-
-    return admin
-      .messaging()
-      .send(mensaje)
-      .then(() => {
-        return console.log(
-          `Mensaje enviado correctamente HP ${mensaje.data.titulo2}`
-        );
-      })
-      .catch(err => {
-        console.error(`Error enviando mensaje HP ${err}`);
+        return console.error(`Error enviando mensaje HP ${err}`);
       });
   });
 
@@ -91,13 +159,13 @@ exports.highPressureNotification = functions.firestore
 exports.lowPressureNotification = functions.firestore
   .document("/LowP_Pneumatic/{id}")
   .onCreate(dataSnapshot => {
-    const titulo3 = dataSnapshot.data().Company_Name;
-    const descripcion3 = dataSnapshot.data().Contact_Email;
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
-        titulo: titulo3,
-        descripcion: descripcion3
+        titulo: titulo,
+        descripcion: descripcion
       },
       topic: "LowP_Pneumatic"
     };
@@ -107,7 +175,7 @@ exports.lowPressureNotification = functions.firestore
       .send(mensaje)
       .then(() => {
         return console.log(
-          `Mensaje enviado correctamente LP ${mensaje.data.titulo3}`
+          `Mensaje enviado correctamente LP ${mensaje.data.titulo}`
         );
       })
       .catch(err => {
@@ -121,13 +189,13 @@ exports.lowPressureNotification = functions.firestore
 exports.threeWayNotification = functions.firestore
   .document("/3_Way/{id}")
   .onCreate(dataSnapshot => {
-    const titulo4 = dataSnapshot.data().Company_Name;
-    const descripcion4 = dataSnapshot.data().Contact_Email;
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
-        titulo: titulo4,
-        descripcion: descripcion4
+        titulo: titulo,
+        descripcion: descripcion
       },
       topic: "3_Way"
     };
@@ -137,7 +205,7 @@ exports.threeWayNotification = functions.firestore
       .send(mensaje)
       .then(() => {
         return console.log(
-          `Mensaje enviado correctamente 3 Way ${mensaje.data.titulo4}`
+          `Mensaje enviado correctamente 3 Way ${mensaje.data.titulo}`
         );
       })
       .catch(err => {
