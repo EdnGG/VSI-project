@@ -24,14 +24,17 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(payload => {
+messaging.setBackgroundMessageHandler(function(payload) {
   console.log("[notifications-ws.js] Received background message", payload);
   const titulo = `We got a new retrofit form request `;
   const options = {
-    //title: "From Firebase",
-    body: payload.data.titulo,
-    icon: "./imagenes/valve.png"
-    //link: "https://vsi-project.web.app"
+    //content_available: false,
+    data: {
+      title: "From Firebase",
+      body: payload.data.titulo,
+      icon: "./imagenes/valve.png",
+      click_action: "https://vsi-project.web.app"
+    }
   };
   // Se le dice a window que muestre la notificacion
   return self.registration.showNotification(titulo, options);
