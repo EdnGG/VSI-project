@@ -4,7 +4,6 @@ $(function() {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
 const loginButton = document.querySelector("#btnInicioSesion");
@@ -102,6 +101,7 @@ const validationSeccion1 = () => {
   let companyName = document.querySelector("#inputCompany").value;
   //let contactName = document.querySelector("#inputContact").value;
   let inputEmail = document.querySelector("#inputEmail").value;
+  let Mailregex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (companyName === "" && inputEmail === "") {
     swal({
@@ -112,10 +112,9 @@ const validationSeccion1 = () => {
     swal({
       title: `Company name is required`
     });
-  } else if (inputEmail === "") {
+  } else if (!Mailregex.test(inputEmail)) {
     swal({
-      title: `Email is required`,
-      title: `Email is required!`,
+      title: `Please provide a valid e-mail!`,
       icon: `error`
     });
   } else {
