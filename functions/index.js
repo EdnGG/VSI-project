@@ -2,6 +2,8 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
+/**Starts email senders */
+
 const nodemailer = require("nodemailer");
 
 var transporter = nodemailer.createTransport({
@@ -14,23 +16,24 @@ var transporter = nodemailer.createTransport({
   }
 });
 
-exports.sendEmail = functions.firestore
+exports.sendEmailEa = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
   .onCreate((snap, context) => {
     const mailOptions = {
-      from: `gresseden@gmail.com`,
+      from: `noreply@vsi-project.firebaseapp.com`,
       to: snap.data().Contact_Email,
-      subject: `Hello from Valve Solutions Inc`,
+      subject: `Hello from Valve Solutions Inc.`,
       html: `<h1>Retrofit Form Request</h1>
-        <h2>Hey ${
+        <h2>Hello "${
           snap.data().Company_Name
-        } We received your Retrofit form request from this  E-mail: ${
+        }" We received your Retrofit form request from this  E-mail: ${
         snap.data().Contact_Email
-      }</h2><br><br><br>
-      <p> We'll keep in touch soon </p><br><br><br>
+      }</h2><br>
+      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
+      <p> We'll keep in touch soon </p><br><br>
          <a target="_blank" href="https://valvesolutions.com/">
 
-                <button>Visit us!!</button>
+                <button><strong>Visit us!!</strong></button>
             </a>
       `
     };
@@ -42,6 +45,99 @@ exports.sendEmail = functions.firestore
       console.log("Sent!");
     });
   });
+
+exports.sendEmailHp = functions.firestore
+  .document("HP_Pneumatic/{HP_PneumaticId}")
+  .onCreate((snap, context) => {
+    const mailOptions = {
+      from: `noreply@vsi-project.firebaseapp.com`,
+      to: snap.data().Contact_Email,
+      subject: `Hello from Valve Solutions Inc.`,
+      html: `<h1>Retrofit Form Request</h1>
+        <h2>Hello "${
+          snap.data().Company_Name
+        }" We received your Retrofit form request from this  E-mail: ${
+        snap.data().Contact_Email
+      }</h2><br>
+      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
+      <p> We'll keep in touch soon </p><br><br>
+         <a target="_blank" href="https://valvesolutions.com/">
+
+                <button><strong>Visit us!!</strong></button>
+            </a>
+      `
+    };
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log("Sent!");
+    });
+  });
+
+exports.sendEmailLp = functions.firestore
+  .document("LowP_Pneumatic/{LowP_PneumaticId}")
+  .onCreate((snap, context) => {
+    const mailOptions = {
+      from: `noreply@vsi-project.firebaseapp.com`,
+      to: snap.data().Contact_Email,
+      subject: `Hello from Valve Solutions Inc.`,
+      html: `<h1>Retrofit Form Request</h1>
+        <h2>Hello "${
+          snap.data().Company_Name
+        }" We received your Retrofit form request from this  E-mail: ${
+        snap.data().Contact_Email
+      }</h2><br>
+      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
+      <p> We'll keep in touch soon </p><br><br>
+         <a target="_blank" href="https://valvesolutions.com/">
+
+                <button><strong>Visit us!!</strong></button>
+            </a>
+      `
+    };
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log("Sent!");
+    });
+  });
+
+exports.sendEmail3Way = functions.firestore
+  .document("3_Way/{3_WayId}")
+  .onCreate((snap, context) => {
+    const mailOptions = {
+      from: `noreply@vsi-project.firebaseapp.com`,
+      to: snap.data().Contact_Email,
+      subject: `Hello from Valve Solutions Inc.`,
+      html: `<h1>Retrofit Form Request</h1>
+        <h2>Hello "${
+          snap.data().Company_Name
+        }" We received your Retrofit form request from this  E-mail: ${
+        snap.data().Contact_Email
+      }</h2><br>
+      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
+      <p> We'll keep in touch soon </p><br><br>
+         <a target="_blank" href="https://valvesolutions.com/">
+
+                <button><strong>Visit us!!</strong></button>
+            </a>
+      `
+    };
+    return transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+      console.log("Sent!");
+    });
+  });
+
+/**Ends email senders */
+
 // const sgMail = require("@sendgrid/mail");
 
 // const API_KEY = functions.config().sendgrid.key;
