@@ -192,32 +192,32 @@ exports.registrarTopicoEA = functions.firestore
 /**  /Registrando a topico Electric Actuator*/
 
 /** Electric Actuator cloud Function*/
-// exports.electActuatorNotification = functions.firestore
-//   .document("/Electric_Actuator/{id}")
-//   .onCreate(dataSnapshot => {
-//     const titulo = dataSnapshot.data().Company_Name;
-//     const descripcion = dataSnapshot.data().Contact_Email;
+exports.electActuatorNotification = functions.firestore
+  .document("/Electric_Actuator/{id}")
+  .onCreate(dataSnapshot => {
+    const titulo = dataSnapshot.data().Company_Name;
+    const descripcion = dataSnapshot.data().Contact_Email;
 
-//     const mensaje = {
-//       data: {
-//         titulo: titulo,
-//         descripcion: descripcion
-//       },
-//       topic: "Electric_Actuator"
-//     };
+    const mensaje = {
+      data: {
+        titulo: titulo,
+        descripcion: descripcion
+      },
+      topic: "Electric_Actuator"
+    };
 
-//     return admin
-//       .messaging()
-//       .send(mensaje)
-//       .then(() => {
-//         return console.log(
-//           `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
-//         );
-//       })
-//       .catch(err => {
-//         console.error(`Error enviando mensaje Electric ${err}`);
-//       });
-//   });
+    return admin
+      .messaging()
+      .send(mensaje)
+      .then(() => {
+        return console.log(
+          `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
+        );
+      })
+      .catch(err => {
+        console.error(`Error enviando mensaje Electric ${err}`);
+      });
+  });
 
 /** / Electric Actuator cloud Function*/
 
