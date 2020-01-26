@@ -20,22 +20,106 @@ exports.sendEmailEa = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
   .onCreate((snap, context) => {
     const mailOptions = {
-      from: `noreply@vsi-project.firebaseapp.com`,
+      from: `vsi-project.firebaseapp.com`,
       to: snap.data().Contact_Email,
       subject: `Hello from Valve Solutions Inc.`,
-      html: `<h1>Retrofit Form Request</h1>
-        <h2>Hello "${
-          snap.data().Company_Name
-        }" We received your Retrofit form request from this  E-mail: ${
-        snap.data().Contact_Email
-      }</h2><br>
-      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
-      <p> We'll keep in touch soon </p><br><br>
+      html: `
+      <body style="font-family:sans-serif;">
+      <div style="
+      width: 100%;
+      heigth:100%;
+      background-color:#a9a9a9;
+      position: absolute;
+      text-align: center;">
+      <h1 style="color:green;
+      ">Retrofit Form Request</h1>
+        <h2 style="
+            font-size:20pt;">Hello "${
+              snap.data().Contact_Name
+            }" We received your Retrofit form request </h2><br>
+      <img style="
+            width:400px;
+            height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
+        <h3 style="
+            font-size:18pt;">
+          Here is some information you provied us
+        </h3>
+        <section>
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-02se{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-xcnk{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+.tg .tg-fzpw{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-qmta{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-fzpw">Company</th>
+    <th class="tg-xcnk">${snap.data().Company_Name}</th>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Contact</td>
+    <td class="tg-xcnk">${snap.data().Contact_Name}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Email</td>
+    <td class="tg-xcnk">${snap.data().Contact_Email}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Phone number</td>
+    <td class="tg-xcnk">${snap.data().Phone_Contact}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve size</td>
+    <td class="tg-xcnk">${snap.data().Valve_Size}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Brand</td>
+    <td class="tg-xcnk">${snap.data().Brand}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Series</td>
+    <td class="tg-xcnk">${snap.data().Series}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Valve Type</td>
+    <td class="tg-qmta">${snap.data().Valve_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Actuator Type</td>
+    <td class="tg-qmta">${snap.data().Actuator_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se"> Type Electric Actuator</td>
+    <td class="tg-qmta">${snap.data().Electric_Actuator}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Brand</td>
+    <td class="tg-qmta">${snap.data().Brand_Electric_Actuator}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Model</td>
+    <td class="tg-qmta">${snap.data().Model_Electric_Actuator}</td>
+  </tr>
+</table></div>
+        </section>
+      <p> We'll keep in touch </p><br><br>
          <a target="_blank" href="https://valvesolutions.com/">
 
-                <button><strong>Visit us!!</strong></button>
+                <button style="
+                background-color:4CAF50;
+                color: white;
+                text-align:center;
+                display: inline-block;
+                font-size: 12px;
+                padding:12px 28px;
+                "><strong>Check us out!!</strong></button>
             </a>
-      `
+      </div>
+      </body>
+            `
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -53,19 +137,103 @@ exports.sendEmailHp = functions.firestore
       from: `noreply@vsi-project.firebaseapp.com`,
       to: snap.data().Contact_Email,
       subject: `Hello from Valve Solutions Inc.`,
-      html: `<h1>Retrofit Form Request</h1>
-        <h2>Hello "${
-          snap.data().Company_Name
-        }" We received your Retrofit form request from this  E-mail: ${
-        snap.data().Contact_Email
-      }</h2><br>
-      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
-      <p> We'll keep in touch soon </p><br><br>
+      html: `
+      <body style="font-family:sans-serif;">
+      <div style="
+      width: 100%;
+      heigth:100%;
+      background-color:#a9a9a9;
+      position: absolute;
+      text-align: center;">
+      <h1 style="color:green;
+      ">Retrofit Form Request</h1>
+        <h2 style="
+            font-size:20pt;">Hello "${
+              snap.data().Contact_Name
+            }" We received your Retrofit form request </h2><br>
+      <img style="
+            width:400px;
+            height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
+        <h3 style="
+            font-size:18pt;">
+          Here is some information you provied us
+        </h3>
+        <section>
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-02se{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-xcnk{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+.tg .tg-fzpw{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-qmta{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-fzpw">Company</th>
+    <th class="tg-xcnk">${snap.data().Company_Name}</th>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Contact</td>
+    <td class="tg-xcnk">${snap.data().Contact_Name}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Email</td>
+    <td class="tg-xcnk">${snap.data().Contact_Email}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Phone number</td>
+    <td class="tg-xcnk">${snap.data().Phone_Contact}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve size</td>
+    <td class="tg-xcnk">${snap.data().Valve_Size}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Brand</td>
+    <td class="tg-xcnk">${snap.data().Brand}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Series</td>
+    <td class="tg-xcnk">${snap.data().Series}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Valve Type</td>
+    <td class="tg-qmta">${snap.data().Valve_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Actuator Type</td>
+    <td class="tg-qmta">${snap.data().Actuator_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se"> Actuator Mode</td>
+    <td class="tg-qmta">${snap.data().Actuator_Mode}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Brand</td>
+    <td class="tg-qmta">${snap.data().Brand_Actuator_HP}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Model</td>
+    <td class="tg-qmta">${snap.data().Model_Actuator_HP}</td>
+  </tr>
+</table></div>
+        </section>
+      <p> We'll keep in touch </p><br><br>
          <a target="_blank" href="https://valvesolutions.com/">
 
-                <button><strong>Visit us!!</strong></button>
+                <button style="
+                background-color:4CAF50;
+                color: white;
+                text-align:center;
+                display: inline-block;
+                font-size: 12px;
+                padding:12px 28px;
+                "><strong>Check us out!!</strong></button>
             </a>
-      `
+      </div>
+      </body>
+            `
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -83,19 +251,107 @@ exports.sendEmailLp = functions.firestore
       from: `noreply@vsi-project.firebaseapp.com`,
       to: snap.data().Contact_Email,
       subject: `Hello from Valve Solutions Inc.`,
-      html: `<h1>Retrofit Form Request</h1>
-        <h2>Hello "${
-          snap.data().Company_Name
-        }" We received your Retrofit form request from this  E-mail: ${
-        snap.data().Contact_Email
-      }</h2><br>
-      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
-      <p> We'll keep in touch soon </p><br><br>
+      html: `
+      <body style="font-family:sans-serif;">
+      <div style="
+      width: 100%;
+      heigth:100%;
+      background-color:#a9a9a9;
+      position: absolute;
+      text-align: center;">
+      <h1 style="color:green;
+      ">Retrofit Form Request</h1>
+        <h2 style="
+            font-size:20pt;">Hello "${
+              snap.data().Contact_Name
+            }" We received your Retrofit form request </h2><br>
+      <img style="
+            width:400px;
+            height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
+        <h3 style="
+            font-size:18pt;">
+          Here is some information you provied us
+        </h3>
+        <section style="
+        justify-content:center;
+        ">
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-02se{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-xcnk{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+.tg .tg-fzpw{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-qmta{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans
+
+-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg" style="border="1" style="margin: 0 auto;">
+  <tr>
+    <th class="tg-fzpw">Company</th>
+    <th class="tg-xcnk">${snap.data().Company_Name}</th>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Contact</td>
+    <td class="tg-xcnk">${snap.data().Contact_Name}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Email</td>
+    <td class="tg-xcnk">${snap.data().Contact_Email}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Phone number</td>
+    <td class="tg-xcnk">${snap.data().Phone_Contact}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve size</td>
+    <td class="tg-xcnk">${snap.data().Valve_Size}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Brand</td>
+    <td class="tg-xcnk">${snap.data().Brand}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Series</td>
+    <td class="tg-xcnk">${snap.data().Series}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Valve Type</td>
+    <td class="tg-qmta">${snap.data().Valve_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Actuator Type</td>
+    <td class="tg-qmta">${snap.data().Actuator_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se"> Actuator Mode</td>
+    <td class="tg-qmta">${snap.data().Actuator_Mode}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Brand</td>
+    <td class="tg-qmta">${snap.data().Brand_Actuator_LP}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Model</td>
+    <td class="tg-qmta">${snap.data().Model_Actuator_LP}</td>
+  </tr>
+</table></div>
+        </section>
+      <p> We'll keep in touch </p><br><br>
          <a target="_blank" href="https://valvesolutions.com/">
 
-                <button><strong>Visit us!!</strong></button>
+                <button style="
+                background-color:4CAF50;
+                color: white;
+                text-align:center;
+                display: inline-block;
+                font-size: 12px;
+                padding:12px 28px;
+                "><strong>Check us out!!</strong></button>
             </a>
-      `
+      </div>
+      </body>
+            `
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -113,19 +369,177 @@ exports.sendEmail3Way = functions.firestore
       from: `noreply@vsi-project.firebaseapp.com`,
       to: snap.data().Contact_Email,
       subject: `Hello from Valve Solutions Inc.`,
-      html: `<h1>Retrofit Form Request</h1>
-        <h2>Hello "${
-          snap.data().Company_Name
-        }" We received your Retrofit form request from this  E-mail: ${
-        snap.data().Contact_Email
-      }</h2><br>
-      <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuuqfmozQ_upSLe585RrTCVMz0swhhGCQcQmFUhptiDEJpZk3w">
-      <p> We'll keep in touch soon </p><br><br>
+      html: `
+      <body style="font-family:sans-serif;">
+      <div style="
+      width: 100%;
+      heigth:100%;
+      background-color:#a9a9a9;
+      position: absolute;
+      text-align: center;">
+      <h1 style="color:green;
+      ">Retrofit Form Request</h1>
+        <h2 style="
+            font-size:20pt;">Hello "${
+              snap.data().Contact_Name
+            }" We received your Retrofit form request </h2><br>
+      <img style="
+            width:400px;
+            height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
+        <h3 style="
+            font-size:18pt;">
+          Here is some information you provied us
+        </h3>
+        <section>
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-02se{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-xcnk{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+.tg .tg-fzpw{font-weight:bold;font-size:18px;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#cbcefb;text-align:center;vertical-align:top}
+.tg .tg-qmta{font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif !important;;background-color:#96fffb;text-align:center;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg">
+  <tr>
+    <th class="tg-fzpw">Company</th>
+    <th class="tg-xcnk">${snap.data().Company_Name}</th>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Contact</td>
+    <td class="tg-xcnk">${snap.data().Contact_Name}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Email</td>
+    <td class="tg-xcnk">${snap.data().Contact_Email}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Phone number</td>
+    <td class="tg-xcnk">${snap.data().Phone_Contact}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve size</td>
+    <td class="tg-xcnk">${snap.data().Valve_Size}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Brand</td>
+    <td class="tg-xcnk">${snap.data().Brand}</td>
+  </tr>
+  <tr>
+    <td class="tg-fzpw">Valve Series</td>
+    <td class="tg-xcnk">${snap.data().Series}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Valve Type</td>
+    <td class="tg-qmta">${snap.data().Valve_Type}</td>
+  </tr>
+
+
+  <tr>
+    <td class="tg-02se">Arrangement Type</td>
+    <td class="tg-qmta">${snap.data().Arrangement_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se"> Bonnet Type</td>
+    <td class="tg-qmta">${snap.data().Bonnet_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Dimmension A</td>
+    <td class="tg-qmta">${snap.data().Dimension_Bonnet_A}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Dimmension B</td>
+    <td class="tg-qmta">${snap.data().Dimension_Bonnet_B}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Dimmensions C</td>
+    <td class="tg-qmta">${snap.data().Dimension_Bonnet_C}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Type of bolt holes</td>
+    <td class="tg-qmta">${snap.data().TypeOf_Bolt_Holes}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Hole Size</td>
+    <td class="tg-qmta">${snap.data().Hole_Size}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Other</td>
+    <td class="tg-qmta">${snap.data().Other}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft Type</td>
+    <td class="tg-qmta">${snap.data().Shaft_Type}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft dimensions D</td>
+    <td class="tg-qmta">${snap.data().Shaft_Dimensions_D}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft dimensions E</td>
+    <td class="tg-qmta">${snap.data().Shaft_Dimensions_E}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft dimensions F</td>
+    <td class="tg-qmta">${snap.data().Shaft_Dimensions_F}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft dimensions G</td>
+    <td class="tg-qmta">${snap.data().Shaft_Dimensions_G}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Shaft dimensions H</td>
+    <td class="tg-qmta">${snap.data().Shaft_Dimensions_H}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Requirements 1</td>
+    <td class="tg-qmta">${snap.data().Actuator_Requirements_Secc_1}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Requirements 2</td>
+    <td class="tg-qmta">${snap.data().Actuator_Requirements_Secc_2}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Requirements 3</td>
+    <td class="tg-qmta">${snap.data().Actuator_Requirements_Secc_3}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Requirements 4</td>
+    <td class="tg-qmta">${snap.data().Actuator_Requirements_Secc_4}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Pneunamic or Electric</td>
+    <td class="tg-qmta">${snap.data().Pneumatic_Or_Electric}</td>
+  </tr>
+  <tr>
+    <td class="tg-02se">Control Signal</td>
+    <td class="tg-qmta">${snap.data().Control_Signal}</td>
+  </tr>
+   <tr>
+    <td class="tg-02se">Other</td>
+    <td class="tg-qmta">${snap.data().Other2}</td>
+  </tr>
+   <tr>
+    <td class="tg-02se">Enclosure required</td>
+    <td class="tg-qmta">${snap.data().Enclosure_Required}</td>
+  </tr>
+</table></div>
+        </section>
+      <p> We'll keep in touch </p><br><br>
          <a target="_blank" href="https://valvesolutions.com/">
 
-                <button><strong>Visit us!!</strong></button>
+                <button style="
+                background-color:4CAF50;
+                color: white;
+                text-align:center;
+                display: inline-block;
+                font-size: 12px;
+                padding:12px 28px;
+                "><strong>Check us out!!</strong></button>
             </a>
-      `
+      </div>
+      </body>
+            `
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -137,28 +551,6 @@ exports.sendEmail3Way = functions.firestore
   });
 
 /**Ends email senders */
-
-// const sgMail = require("@sendgrid/mail");
-
-// const API_KEY = functions.config().sendgrid.key;
-// const TEMPLATE_ID = functions.config().sendgrid.template;
-// sgMail.setApiKey(API_KEY);
-
-// exports.testEmail = functions.firestore
-//   .document("Electric_Actuator/{Electric_ActuatorId}")
-//   .onCreate(snapshot => {
-//     const msg = {
-//       to: snapshot.data().Contact_Email,
-//       from: "test@gmail.com",
-//       templateId: TEMPLATE_ID,
-//       dynamic_template_data: {
-//         subject: "Welcome to my app",
-//         name: snapshot.data().Company_Name
-//         // text: ``
-//       }
-//     };
-//     return sgMail.send(msg);
-//   });
 
 /**  Registrando a topico Electric Actuator*/
 exports.registrarTopicoEA = functions.firestore
@@ -310,3 +702,25 @@ exports.threeWayNotification = functions.firestore
   });
 
 /** / Tree way cloud Function*/
+
+// const sgMail = require("@sendgrid/mail");
+
+// const API_KEY = functions.config().sendgrid.key;
+// const TEMPLATE_ID = functions.config().sendgrid.template;
+// sgMail.setApiKey(API_KEY);
+
+// exports.testEmail = functions.firestore
+//   .document("Electric_Actuator/{Electric_ActuatorId}")
+//   .onCreate(snapshot => {
+//     const msg = {
+//       to: snapshot.data().Contact_Email,
+//       from: "test@gmail.com",
+//       templateId: TEMPLATE_ID,
+//       dynamic_template_data: {
+//         subject: "Welcome to my app",
+//         name: snapshot.data().Company_Name
+//         // text: ``
+//       }
+//     };
+//     return sgMail.send(msg);
+//   });

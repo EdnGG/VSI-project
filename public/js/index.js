@@ -1,8 +1,8 @@
 console.log("hello");
 
-$(function() {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+// $(function() {
+//   $('[data-toggle="tooltip"]').tooltip();
+// });
 
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
@@ -17,7 +17,7 @@ loginButton.addEventListener("click", () => {
     loginForm.style.display = "none";
     carousel.style.display = "block";
     mainForm.style.display = "none";
-    console.log("1");
+    console.log("sign out");
 
     return firebase
       .auth()
@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
-/************ Starts function that observe if user is true   **********/
+/************ Ends function that observe if user is true   **********/
 
 /**********Ends Login Form Seccion*********/
 
@@ -99,7 +99,7 @@ const validationSeccion1 = () => {
   let tenthSeccion = document.querySelector("#seccion10");
 
   let companyName = document.querySelector("#inputCompany").value;
-  //let contactName = document.querySelector("#inputContact").value;
+  let contactName = document.querySelector("#inputContact").value;
   let inputEmail = document.querySelector("#inputEmail").value;
   let Mailregex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -110,7 +110,8 @@ const validationSeccion1 = () => {
     });
   } else if (companyName === "") {
     swal({
-      title: `Company name is required`
+      title: `Company name is required`,
+      icon: `error`
     });
   } else if (!Mailregex.test(inputEmail)) {
     swal({
@@ -160,7 +161,7 @@ btnSeccion2Prev.addEventListener("click", () => {
   firstSeccion.style.display = "block";
 });
 
-//******Button prev secc 2 /******** */
+//****** Ends button prev secc 2 ******** */
 
 //******* Button prev secc 7****** */
 
@@ -415,44 +416,6 @@ const validationSeccion2 = () => {
 
 /**********Ends Validation seccion function 2************/
 
-/**********Starts Seccion 3************/
-
-const btnSeccion3 = document.querySelector("#btnSeccion7");
-btnSeccion3.addEventListener("click", () => {
-  validationSeccion3();
-});
-/********Starts Main form seccion3 *****************/
-
-const validationSeccion3 = () => {
-  let firstSeccion = document.querySelector("#seccion1");
-  let secondSeccion = document.querySelector("#seccion2");
-  let thirdSeccion = document.querySelector("#seccion3");
-  let fourthSeccion = document.querySelector("#seccion4");
-  let fifthSeccion = document.querySelector("#seccion5");
-  let sixthSeccion = document.querySelector("#seccion6");
-  let seventhSeccion = document.querySelector("#seccion7");
-  let eigthSeccion = document.querySelector("#seccion8");
-  let ninethSeccion = document.querySelector("#seccion9");
-  let tenthSeccion = document.querySelector("#seccion10");
-
-  swal({ icon: `success` });
-
-  firstSeccion.style.display = "none";
-  secondSeccion.style.display = "none";
-  thirdSeccion.style.display = "none";
-  fourthSeccion.style.display = "none";
-  fifthSeccion.style.display = "none";
-  sixthSeccion.style.display = "none";
-  seventhSeccion.style.display = "none";
-  eigthSeccion.style.display = "block";
-  ninethSeccion.style.display = "none";
-  tenthSeccion.style.display = "none";
-};
-
-/*****Ends Seccion 3************/
-
-/********Ends Main form seccion3 *****************/
-
 /**********Starts Seccion 4************/
 
 const btnSeccion4 = document.querySelector("#btnSeccion8");
@@ -473,20 +436,86 @@ const validationSeccion4 = () => {
   let ninethSeccion = document.querySelector("#seccion9");
   let tenthSeccion = document.querySelector("#seccion10");
 
-  swal({ icon: `success` });
+  let bonnet1 = document.getElementById("bonnet1"); // Radio buttons
+  let bonnet_2 = document.getElementById("bonnet2"); // Radio buttons
+  let bonnet_3 = document.getElementById("bonnet3"); // Radio buttons
+  let inputBonnetA = document.getElementById("bonnetA").value; // inputs
+  let inputBonnetB = document.getElementById("bonnetB").value; // inputs
+  let inputBonnetC = document.getElementById("bonnetC").value; // inputs
+  let boltDrilled = document.getElementById("boltDrilled"); // Radio buttons
+  let boltDrilledAndTapped = document.getElementById("boltDrilledAndTapped"); // Radio buttons
+  let holeSize = document.getElementById("holeSize").value; // inputs
+  let otherBonnet = document.getElementById("otherBonnet").value; // inputs
 
-  firstSeccion.style.display = "none";
-  secondSeccion.style.display = "none";
-  thirdSeccion.style.display = "none";
-  fourthSeccion.style.display = "none";
-  fifthSeccion.style.display = "none";
-  sixthSeccion.style.display = "none";
-  seventhSeccion.style.display = "none";
-  eigthSeccion.style.display = "none";
-  ninethSeccion.style.display = "block";
-  tenthSeccion.style.display = "none";
+  if (
+    !bonnet1.checked &&
+    !bonnet_2.checked &&
+    !bonnet_3.checked &&
+    !boltDrilled.checked &&
+    !boltDrilledAndTapped.checked &&
+    inputBonnetA === "" &&
+    inputBonnetB === "" &&
+    inputBonnetC === "" &&
+    holeSize === "" &&
+    otherBonnet === ""
+  ) {
+    swal({
+      text: `Please fill up all the form`,
+      icon: `error`
+    });
+  } else if (
+    !bonnet1.checked &&
+    !bonnet_2.checked &&
+    !bonnet_3.checked
+    // !boltDrilled.checked &&
+    // !boltDrilledAndTapped.checked
+  ) {
+    swal({
+      text: `Please select the right checkbox for the Bonnet seccion`,
+      icon: `error`
+    });
+  } else if (!boltDrilled.checked && !boltDrilledAndTapped.checked) {
+    swal({
+      text: `What kind of bolt drilled do you ask?`,
+      icon: `error`
+    });
+  } else if (inputBonnetA === "") {
+    swal({
+      text: `Please provide a value for Bonnet A`,
+      icon: `error`
+    });
+  } else if (inputBonnetB === "") {
+    swal({
+      text: `Please provide a value for Bonnet B`,
+      icon: `error`
+    });
+  } else if (inputBonnetC === "") {
+    swal({
+      text: `Please provide a value for Bonnet C`,
+      icon: `error`
+    });
+  } else if (holeSize === "") {
+    swal({
+      text: `Please provide a value for Hole Size `,
+      icon: `error`
+    });
+  } else {
+    swal({
+      icon: `success`
+    });
+
+    firstSeccion.style.display = "none";
+    secondSeccion.style.display = "none";
+    thirdSeccion.style.display = "none";
+    fourthSeccion.style.display = "none";
+    fifthSeccion.style.display = "none";
+    sixthSeccion.style.display = "none";
+    seventhSeccion.style.display = "none";
+    eigthSeccion.style.display = "none";
+    ninethSeccion.style.display = "block";
+    tenthSeccion.style.display = "none";
+  }
 };
-
 /**********Starts Seccion 5************/
 
 const btnSeccion5 = document.querySelector("#btnSeccion9");
@@ -555,3 +584,167 @@ const validationSeccion6 = () => {
   ninethSeccion.style.display = "none";
   tenthSeccion.style.display = "block";
 };
+
+/** Sarts logic for Electric Actuator submit   */
+const btnSubmitElectric = document.querySelector("#btnSeccion3");
+btnSubmitElectric.addEventListener("click", () => {
+  validationElectric();
+});
+
+function validationElectric() {
+  console.log("valid electric works");
+  let inputBrandElectric = document.querySelector("#inputBrandActuator").value;
+  let inputModelElectric = document.querySelector("#inputModelNumber").value;
+  //let input
+
+  if (inputBrandElectric === "" && inputModelElectric === "") {
+    swal({
+      text: "Fill up all the fields",
+      icon: "error"
+    });
+  } else if (inputBrandElectric === "") {
+    swal({
+      text: "Brand Field is required",
+      icon: "error"
+    });
+  } else if (inputModelElectric === "") {
+    swal({
+      text: "Model Field is required",
+      icon: "error"
+    });
+  } else {
+    postElectric();
+  }
+}
+/** Ends logic for Electric Actuator submit   */
+
+/** Sarts logic for High Performance Actuator submit   */
+const btnSubmitHp = document.querySelector("#btnSeccion5");
+btnSubmitHp.addEventListener("click", () => {
+  validationHP();
+});
+
+function validationHP() {
+  console.log("valid electric works");
+  let damageActuatorHP = document.querySelector("#damageActuatorSecc5").value;
+  let damageModelHP = document.querySelector("#damageModelNumberSecc5").value;
+  //let input
+
+  if (damageActuatorHP === "" && damageModelHP === "") {
+    swal({
+      text: "Fill up all the fields",
+      icon: "error"
+    });
+  } else if (damageActuatorHP === "") {
+    swal({
+      text: "Brand Field is required",
+      icon: "error"
+    });
+  } else if (damageModelHP === "") {
+    swal({
+      text: "Model Number Field is required",
+      icon: "error"
+    });
+  } else {
+    postHp();
+  }
+}
+/** Ends logic for High Performance Actuator submit   */
+
+/** Sarts logic for Low Performance Actuator submit   */
+const btnSubmitLP = document.querySelector("#btnSeccion4to6");
+btnSubmitLP.addEventListener("click", () => {
+  validationHP();
+});
+
+function validationLP() {
+  console.log("validation Lp works");
+  let damageActuatorLP = document.querySelector("#damageActuatorSecc6").value;
+  let damageModelLP = document.querySelector("#damageModelNumberSecc6").value;
+  //let input
+
+  if (damageActuatorLP === "" && damageModelLP === "") {
+    swal({
+      text: "Fill up all the fields",
+      icon: "error"
+    });
+  } else if (damageActuatorLP === "") {
+    swal({
+      text: "Brand Field is required",
+      icon: "error"
+    });
+  } else if (damageModelLP === "") {
+    swal({
+      text: "Model Number Field is required",
+      icon: "error"
+    });
+  } else {
+    postLp();
+  }
+}
+/** Ends logic for Low Performance Actuator submit   */
+
+/** Sarts logic for 3 Way Actuator submit   */
+
+/**********Starts Seccion 3************/
+
+const btnSeccion3 = document.querySelector("#btnSeccion7");
+btnSeccion3.addEventListener("click", () => {
+  validationSeccion3();
+});
+/********Starts Main form seccion3 *****************/
+
+const validationSeccion3 = () => {
+  let firstSeccion = document.querySelector("#seccion1");
+  let secondSeccion = document.querySelector("#seccion2");
+  let thirdSeccion = document.querySelector("#seccion3");
+  let fourthSeccion = document.querySelector("#seccion4");
+  let fifthSeccion = document.querySelector("#seccion5");
+  let sixthSeccion = document.querySelector("#seccion6");
+  let seventhSeccion = document.querySelector("#seccion7");
+  let eigthSeccion = document.querySelector("#seccion8");
+  let ninethSeccion = document.querySelector("#seccion9");
+  let tenthSeccion = document.querySelector("#seccion10");
+
+  let arrang1 = document.getElementById("a1");
+  let arrang2 = document.getElementById("a2");
+  let arrang3 = document.getElementById("a3");
+  let arrang4 = document.getElementById("a4");
+  let arrang5 = document.getElementById("a5");
+  let arrang6 = document.getElementById("a6");
+
+  if (
+    !arrang1.checked &&
+    !arrang2.checked &&
+    !arrang3.checked &&
+    !arrang4.checked &&
+    !arrang5.checked &&
+    !arrang6.checked
+  ) {
+    swal({
+      text: `Please select the arrangement you're looking for`,
+      icon: `error`
+    });
+  } else {
+    swal({
+      icon: `success`
+    });
+
+    firstSeccion.style.display = "none";
+    secondSeccion.style.display = "none";
+    thirdSeccion.style.display = "none";
+    fourthSeccion.style.display = "none";
+    fifthSeccion.style.display = "none";
+    sixthSeccion.style.display = "none";
+    seventhSeccion.style.display = "none";
+    eigthSeccion.style.display = "block";
+    ninethSeccion.style.display = "none";
+    tenthSeccion.style.display = "none";
+  }
+};
+
+/*****Ends Seccion 3************/
+
+/********Ends Main form seccion3 *****************/
+
+/** Ends logic for 3 Way  Performance Actuator submit   */

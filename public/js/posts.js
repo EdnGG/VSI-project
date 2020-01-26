@@ -121,8 +121,8 @@ function postHp() {
       Valve_Size: valveSizeSecc2,
       Brand: brandSecc2,
       Series: seriesSecc2,
-      Brand_Actuator_HP: brandActuatorSecc5,
-      Model_Actuator_HP: modelActuatorSecc5,
+      Brand_Actuator_HP: brandActuatorSecc5, //
+      Model_Actuator_HP: modelActuatorSecc5, //
       Valve_Type: typeValveSecc3_HP,
       Actuator_Type: dropdown_HP,
       Actuator_Mode: radioButtonsHP
@@ -185,14 +185,14 @@ function postLp() {
       City: city,
       State: state,
       Zip: zip,
-      Valve_Size: valveSizeSecc2,
-      Brand: brandSecc2,
-      Series: seriesSecc2,
+      Valve_Size: valveSizeSecc2, //
+      Brand: brandSecc2, //
+      Series: seriesSecc2, //
       Brand_Actuator_LP: brandActuatorSecc6, // #lpBrandDamageActuator
       Model_Actuator_LP: modelActuatorSecc6, // #lpModelDamageActuator
-      Valve_Type: typeValveSecc3,
-      Actuator_Type: dropdown,
-      Actuator_Mode: radioButtonsLP
+      Valve_Type: typeValveSecc3, //
+      Actuator_Type: dropdown, //
+      Actuator_Mode: radioButtonsLP //
     })
 
     .then(function(docRef) {
@@ -281,43 +281,43 @@ function threeWay() {
 
   db.collection("3_Way")
     .add({
-      Company_Name: company,
-      Contact_Name: contactName,
-      Contact_Email: email,
-      Phone_Contact: phoneContact,
+      Company_Name: company,//
+      Contact_Name: contactName,//
+      Contact_Email: email,//
+      Phone_Contact: phoneContact,//
       City: city,
       State: state,
       Zip: zip,
-      Valve_Size: valveSizeSecc2,
-      Brand: brandSecc2,
-      Series: seriesSecc2,
+      Valve_Size: valveSizeSecc2,//
+      Brand: brandSecc2,//
+      Series: seriesSecc2,///
       //Brand_Actuator_LP: brandActuatorSecc6,
       //Model_Actuator_LP: modelActuatorSecc6,
-      Valve_Type: typeValveSecc3,
+      Valve_Type: typeValveSecc3,//
       //Actuator_Type: dropdown,
       //Actuator_Mode: radioButtonsLP,
-      Arrangement_Type: radioButtonsArrangements,
-      Bonnet_Type: radioButtonsBonnets,
-      Dimension_Bonnet_A: dimensionBonnetA,
-      Dimension_Bonnet_B: dimensionBonnetB,
-      Dimension_Bonnet_C: dimensionBonnetC,
-      TypeOf_Bolt_Holes: boltHoles,
-      Hole_Size: holeSize,
-      Other: other,
-      Shaft_Type: shaftType,
-      Shaft_Dimensions_D: optionShaftD,
-      Shaft_Dimensions_E: optionShaftE,
-      Shaft_Dimensions_F: optionShaftF,
-      Shaft_Dimensions_G: optionShaftG,
-      Shaft_Dimensions_H: optionShaftH,
-      Actuator_Requirements_Secc_1: actReqSecc1,
+      Arrangement_Type: radioButtonsArrangements,//
+      Bonnet_Type: radioButtonsBonnets,//
+      Dimension_Bonnet_A: dimensionBonnetA,//
+      Dimension_Bonnet_B: dimensionBonnetB,//
+      Dimension_Bonnet_C: dimensionBonnetC,//
+      TypeOf_Bolt_Holes: boltHoles,//
+      Hole_Size: holeSize,//
+      Other: other,//
+      Shaft_Type: shaftType,//
+      Shaft_Dimensions_D: optionShaftD,//
+      Shaft_Dimensions_E: optionShaftE,//
+      Shaft_Dimensions_F: optionShaftF,//
+      Shaft_Dimensions_G: optionShaftG,//
+      Shaft_Dimensions_H: optionShaftH,//
+      Actuator_Requirements_Secc_1: actReqSecc1,//
       Actuator_Requirements_Secc_2: actReqSecc2, //
-      Actuator_Requirements_Secc_3: actReqSecc3,
-      Actuator_Requirements_Secc_4: actReqSecc4,
-      Pneumatic_Or_Electric: otherPneumaticOrElec,
-      Control_Signal: controlSignal,
-      Other2: otherControlSignal,
-      Enclosure_Required: enclosureRequired
+      Actuator_Requirements_Secc_3: actReqSecc3,//
+      Actuator_Requirements_Secc_4: actReqSecc4,//
+      Pneumatic_Or_Electric: otherPneumaticOrElec,//
+      Control_Signal: controlSignal,//
+      Other2: otherControlSignal,//
+      Enclosure_Required: enclosureRequired//
     })
 
     // if promise is succesfull
