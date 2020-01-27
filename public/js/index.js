@@ -536,53 +536,199 @@ const validationSeccion5 = () => {
   let ninethSeccion = document.querySelector("#seccion9");
   let tenthSeccion = document.querySelector("#seccion10");
 
-  swal({ icon: `success` });
+  // Start variables input radius
+  let shaft1 = document.querySelector("#shaft1");
+  let shaft2 = document.querySelector("#shaft2");
+  let shaft3 = document.querySelector("#shaft3");
+  let shaft4 = document.querySelector("#shaft4");
+  let shaft5 = document.querySelector("#shaft5");
+  // Ends variables input radius
 
-  firstSeccion.style.display = "none";
-  secondSeccion.style.display = "none";
-  thirdSeccion.style.display = "none";
-  fourthSeccion.style.display = "none";
-  fifthSeccion.style.display = "none";
-  sixthSeccion.style.display = "none";
-  seventhSeccion.style.display = "none";
-  eigthSeccion.style.display = "none";
-  ninethSeccion.style.display = "none";
-  tenthSeccion.style.display = "block";
+  // Start variables input
+  let shaftD = document.querySelector("#shaftD").value;
+  let shaftE = document.querySelector("#shaftE").value;
+  let shaftF = document.querySelector("#shaftF").value;
+  let shaftG = document.querySelector("#shaftG").value;
+  let shaftH = document.querySelector("#shaftH").value;
+  // Ends variables input
+
+  if (
+    shaftD === "" &&
+    shaftE === "" &&
+    shaftF === "" &&
+    shaftG === "" &&
+    shaftH === "" &&
+    !shaft1.checked &&
+    !shaft2.checked &&
+    !shaft3.checked &&
+    !shaft4.checked &&
+    !shaft5.checked
+  ) {
+    swal({
+      text: `Please dont left any field empty`,
+      icon: `error`
+    });
+  } else if (
+    !shaft1.checked &&
+    !shaft2.checked &&
+    !shaft3.checked &&
+    !shaft4.checked &&
+    !shaft5.checked
+  ) {
+    swal({
+      text: `Please select a shaft you need`,
+      icon: `error`
+    });
+  } else if (
+    shaftD === "" &&
+    shaftE === "" &&
+    shaftF === "" &&
+    shaftG === "" &&
+    shaftH === ""
+  ) {
+    swal({
+      text: `Please select any input field you need`,
+      icon: `error`
+    });
+  } else if (shaftD === "") {
+    swal({
+      text: `Please fill up shaft D field`,
+      icon: `error`
+    });
+  } else if (shaftE === "") {
+    swal({
+      text: `Please fill up shaft E field`,
+      icon: `error`
+    });
+  } else if (shaftF === "") {
+    swal({
+      text: `Please fill up shaft F field`,
+      icon: `error`
+    });
+  } else if (shaftG === "") {
+    swal({
+      text: `Please fill up shaft G field`,
+      icon: `error`
+    });
+  } else if (shaftH === "") {
+    swal({
+      text: `Please fill up shaft H field`,
+      icon: `error`
+    });
+  } else {
+    swal({ icon: `success` });
+    firstSeccion.style.display = "none";
+    secondSeccion.style.display = "none";
+    thirdSeccion.style.display = "none";
+    fourthSeccion.style.display = "none";
+    fifthSeccion.style.display = "none";
+    sixthSeccion.style.display = "none";
+    seventhSeccion.style.display = "none";
+    eigthSeccion.style.display = "none";
+    ninethSeccion.style.display = "none";
+    tenthSeccion.style.display = "block";
+  }
 };
 
 /**********Starts Seccion 5************/
 
-// const btnSeccion6 = document.querySelector('#btnSeccion10');
-// btnSeccion6.addEventListener('click', ()=> {
-
-//    validationSeccion6()
-// });
+const btnSeccion6 = document.querySelector("#btnSeccion10");
+btnSeccion6.addEventListener("click", () => {
+  validationSeccion6();
+});
 /********Starts Main form seccion4 *****************/
 
 const validationSeccion6 = () => {
-  let firstSeccion = document.querySelector("#seccion1");
-  let secondSeccion = document.querySelector("#seccion2");
-  let thirdSeccion = document.querySelector("#seccion3");
-  let fourthSeccion = document.querySelector("#seccion4");
-  let fifthSeccion = document.querySelector("#seccion5");
-  let sixthSeccion = document.querySelector("#seccion6");
-  let seventhSeccion = document.querySelector("#seccion7");
-  let eigthSeccion = document.querySelector("#seccion8");
-  let ninethSeccion = document.querySelector("#seccion9");
-  let tenthSeccion = document.querySelector("#seccion10");
+  // Start Variables de radio buttons 1 seccion
+  let actRequirement1 = document.querySelector("#electricRadioButtonSecc10");
+  let actRequirement2 = document.querySelector("#pneumaticRadioButtonSecc10");
+  let actRequirement3 = document.querySelector("#positionRadioButtonSecc10");
+  let actRequirement4 = document.querySelector("#modulatingRadioButtonSecc10");
+  let actRequirement5 = document.querySelector("#springReturnSecc10");
+  let actRequirement6 = document.querySelector("#ncSecc10");
+  let actRequirement7 = document.querySelector("#noSpringReturnSecc10");
+  let actRequirement8 = document.querySelector("#noSecc10");
+  // Ends Variables de radio buttons 1 seccion
 
-  swal({ icon: `success` });
+  // Start Variables de radio buttons 2 seccion
 
-  firstSeccion.style.display = "none";
-  secondSeccion.style.display = "none";
-  thirdSeccion.style.display = "none";
-  fourthSeccion.style.display = "none";
-  fifthSeccion.style.display = "none";
-  sixthSeccion.style.display = "none";
-  seventhSeccion.style.display = "none";
-  eigthSeccion.style.display = "none";
-  ninethSeccion.style.display = "none";
-  tenthSeccion.style.display = "block";
+  let actPower1 = document.querySelector(".option1"); // revisar aqui selectores validos
+  let actPower2 = document.querySelector(".option2");
+  let actPower3 = document.querySelector(".option3");
+  let actPower4 = document.querySelector(".option4");
+
+  // Ends Variables de radio buttons 2 seccion
+
+  // Starts Variables de radio buttons 3 seccion
+
+  let controlSignal1 = document.querySelector(".four20");
+  let controlSignal2 = document.querySelector(".three15");
+  let controlSignal3 = document.querySelector(".two-10");
+  let controlSignal4 = document.querySelector("#floatingSecc10");
+
+  // Ends Variables de radio buttons 3 seccion
+
+  // Starts Variables de radio buttons 4 seccion
+  let nema1 = document.querySelector("#yesSecc10");
+  let nema2 = document.querySelector("#notSecc10");
+
+  // Ends Variables de radio buttons 4 seccion
+
+  // Starts Variables inputs
+  let other1 = document.querySelector("#otherInput10").value;
+  let other2 = document.querySelector("#otherControlInput10").value;
+
+  // Ends Variables inputs
+
+  if (
+    !actRequirement1.checked &&
+    !actRequirement2.checked &&
+    !actRequirement3.checked &&
+    !actRequirement4.checked &&
+    !actRequirement5.checked &&
+    !actRequirement6.checked &&
+    !actRequirement7.checked &&
+    !actRequirement8.checked
+  ) {
+    swal({
+      text: `Don't forget to pick your actuator requirements`,
+      icon: `info`
+    });
+  } else if (
+    !actPower1.checked &&
+    !actPower2.checked &&
+    !actPower3.checked &&
+    !actPower4.checked
+  ) {
+    swal({
+      text: `Don't forget to pick the rigth power requirements`,
+      icon: `info`
+    });
+  } else if (!nema1.checked && !nema2.checked) {
+    swal({
+      text: `Don't forget to pick the enclosure required`,
+      icon: `info`
+    });
+  } else if (
+    !controlSignal1.checked &&
+    !controlSignal2.checked &&
+    !controlSignal3.checked &&
+    !controlSignal4.checked
+  ) {
+    swal({
+      text: `Don't forget to pick the rigth control signal`,
+      icon: `info`
+    });
+  }
+  // else if (other1 === "" && other2 === "") {
+  //   swal({
+  //     text: `Please fill up all fields`,
+  //     icon: `success`
+  //   });
+  // }
+  else {
+    threeWay();
+  }
 };
 
 /** Sarts logic for Electric Actuator submit   */
