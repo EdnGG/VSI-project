@@ -5,6 +5,7 @@ admin.initializeApp();
 /**Starts email senders */
 
 const nodemailer = require("nodemailer");
+let alternativeMail = "adriss89edn@gmail.com";
 
 var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -21,7 +22,7 @@ exports.sendEmailEa = functions.firestore
   .onCreate((snap, context) => {
     const mailOptions = {
       from: `vsi-project.firebaseapp.com`,
-      to: snap.data().Contact_Email,
+      to: `${snap.data().Contact_Email}, ${alternativeMail}`,
       subject: `Hello from Valve Solutions Inc.`,
       html: `
       <body style="font-family:sans-serif;">
@@ -135,7 +136,7 @@ exports.sendEmailHp = functions.firestore
   .onCreate((snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
-      to: snap.data().Contact_Email,
+      to: `${snap.data().Contact_Email}, ${alternativeMail}`,
       subject: `Hello from Valve Solutions Inc.`,
       html: `
       <body style="font-family:sans-serif;">
@@ -249,7 +250,7 @@ exports.sendEmailLp = functions.firestore
   .onCreate((snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
-      to: snap.data().Contact_Email,
+      to: `${snap.data().Contact_Email}, ${alternativeMail}`,
       subject: `Hello from Valve Solutions Inc.`,
       html: `
       <body style="font-family:sans-serif;">
@@ -367,7 +368,7 @@ exports.sendEmail3Way = functions.firestore
   .onCreate((snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
-      to: snap.data().Contact_Email,
+      to: `${snap.data().Contact_Email}, ${alternativeMail}`,
       subject: `Hello from Valve Solutions Inc.`,
       html: `
       <body style="font-family:sans-serif;">
@@ -564,6 +565,8 @@ exports.registrarTopicoEA = functions.firestore
       admin
         .messaging()
         .subscribeToTopic(
+          // Pienso que aqu esta el problema de las notificaciones
+          //
           registrationTokens,
           "Electric_Actuator",
           "HP_Pneumatic",
