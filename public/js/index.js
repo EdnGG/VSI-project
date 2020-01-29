@@ -1,9 +1,5 @@
 console.log("hello");
 
-// $(function() {
-//   $('[data-toggle="tooltip"]').tooltip();
-// });
-
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
 const loginButton = document.querySelector("#btnInicioSesion");
@@ -411,8 +407,6 @@ const validationSeccion2 = () => {
 
   first();
 };
-
-/************Ends Seccion 2************/
 
 /**********Ends Validation seccion function 2************/
 

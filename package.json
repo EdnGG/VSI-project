@@ -1,0 +1,22 @@
+{
+  "name": "project-vsi",
+  "version": "1.0.0",
+  "description": "Retrofit form VSI",
+  "main": "./public/js/routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdnGG/VSI-project.git"
+  },
+  "author": "Eden Gress <gresseden@gmail.com> (https://www.facebook.com/liledn.mexikn)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdnGG/VSI-project/issues"
+  },
+  "homepage": "https://github.com/EdnGG/VSI-project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
