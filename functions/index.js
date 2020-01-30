@@ -1,5 +1,6 @@
 const functions = require("firebase-functions");
-const admin = require("firebase-admin");
+const admin = require("firebase-admin"); // para insertar en la DB
+
 admin.initializeApp();
 
 /**Starts email senders */
@@ -129,6 +130,7 @@ exports.sendEmailEa = functions.firestore
       }
       console.log("Sent!");
     });
+    //});
   });
 
 exports.sendEmailHp = functions.firestore
@@ -705,25 +707,3 @@ exports.threeWayNotification = functions.firestore
   });
 
 /** / Tree way cloud Function*/
-
-// const sgMail = require("@sendgrid/mail");
-
-// const API_KEY = functions.config().sendgrid.key;
-// const TEMPLATE_ID = functions.config().sendgrid.template;
-// sgMail.setApiKey(API_KEY);
-
-// exports.testEmail = functions.firestore
-//   .document("Electric_Actuator/{Electric_ActuatorId}")
-//   .onCreate(snapshot => {
-//     const msg = {
-//       to: snapshot.data().Contact_Email,
-//       from: "test@gmail.com",
-//       templateId: TEMPLATE_ID,
-//       dynamic_template_data: {
-//         subject: "Welcome to my app",
-//         name: snapshot.data().Company_Name
-//         // text: ``
-//       }
-//     };
-//     return sgMail.send(msg);
-//   });

@@ -10,6 +10,10 @@
       {
         "source": "!/@(js|css)/**",
         "destination": "/404.html"
+      },
+      {
+        "source": "/admin",
+        "destination": "/forms.html"
       }
     ]
   },
