@@ -45,15 +45,24 @@
       </div>
       <div>
         <h2 class="titulo ">Valve Solutions Inc</h2>
+        <button
+          type="button"
+          id="btnCloseSecion"
+          class="btnPpal btn btn-default btn-rounded inline-block"
+          data-toggle="modal"
+          data-target="#elegantModalForm"
+        >
+          <strong>Sign Out</strong>
+        </button>
       </div>
     </header>
 
     <!-- Starts Login form -->
 
-    <div id="particles-js"></div>
+    <!-- <div id="particles-js"></div> -->
 
     <!-- <body class="login"> -->
-    <div class="container" id="form_container">
+    <div id="form_container">
       <div class="login-container-wrapper clearfix">
         <div class="logo">
           <i class="fa fa-sign-in"></i>
@@ -66,7 +75,7 @@
               id="login_username"
               class="form-control input-lg"
               type="email"
-              placeholder="Username"
+              placeholder="Email"
               required
             />
             <i class="fa fa-user"></i>
@@ -82,7 +91,11 @@
             <i class="fa fa-lock"></i>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">
+            <button
+              type="button"
+              class="btn btn-success btn-lg btn-block"
+              id="submit"
+            >
               Login
             </button>
           </div>
@@ -113,6 +126,7 @@
 
     <div
       class="container justity-content-center col-12 mr-12 ml-2 pt-2 pl-2 pr-2"
+      id="main"
     >
       <!-- carrousel -->
       <div class="row justify-content-center text-center" id="carousel11">
@@ -448,13 +462,16 @@
     <!-- Scripts  -->
 
     <script src="./config/configFirebase.js"></script>
-    <!-- <script src="./notifications-sw.js"></script> -->
+    <!-- <!-- <script src="./notifications-sw.js"></script> -->
+    -->
     <script src="./js/index-forms.js"></script>
     <script src="./js/formsResponse.js"></script>
     <script src="./js/notifications.js"></script>
     <script src="./js/posts.js"></script>
-    <script src="./js/stats.js"></script>
-    <script src="./js/particles.js"></script>
+    <script src="./js/autenticacion-form/autentication.js"></script>
+    <script src="./js/autenticacion-form/auth-control.js"></script>
+    <!-- <script src="./js/stats.js"></script> -->
+    <!-- <script src="./js/particles.js"></script> -->
 
     <!--  -->
     <!-- <script src="./js/index.js"></script> -->

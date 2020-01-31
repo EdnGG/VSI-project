@@ -1,5 +1,7 @@
 class Autenticacion {
   autEmailPass(email, password) {
+    // after receive data from those input fields
+    // its necesary set a empty string field
     $("#inputEmailOne").val("");
     $("#inputPassword").val("");
 
