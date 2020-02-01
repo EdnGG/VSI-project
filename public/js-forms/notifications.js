@@ -36,7 +36,7 @@ messaging
         token: token
       })
       .catch(err => {
-        console.error(`Error: ${err}`);
+        //console.error(`Error: ${err}`);
       });
   })
   .catch(err => console.error(`No se dio el permiso: ${err}`)); // checar esta linea
