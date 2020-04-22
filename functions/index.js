@@ -14,8 +14,8 @@ var transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "gresseden@gmail.com",
-    pass: "GogE8528GRESS"
-  }
+    pass: "212826GEGI!*",
+  },
 });
 
 exports.sendEmailEa = functions.firestore
@@ -121,7 +121,7 @@ exports.sendEmailEa = functions.firestore
             </a>
       </div>
       </body>
-            `
+            `,
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -236,7 +236,7 @@ exports.sendEmailHp = functions.firestore
             </a>
       </div>
       </body>
-            `
+            `,
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -354,7 +354,7 @@ exports.sendEmailLp = functions.firestore
             </a>
       </div>
       </body>
-            `
+            `,
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -542,7 +542,7 @@ exports.sendEmail3Way = functions.firestore
             </a>
       </div>
       </body>
-            `
+            `,
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
@@ -558,7 +558,7 @@ exports.sendEmail3Way = functions.firestore
 /**  Registrando a topico Electric Actuator*/
 exports.registrarTopicoEA = functions.firestore
   .document("/tokens/{id}")
-  .onCreate(dataSnapshot => {
+  .onCreate((dataSnapshot) => {
     const token = dataSnapshot.data().token;
     const registrationTokens = [token];
     console.log(`${token} ${registrationTokens}`);
@@ -581,7 +581,7 @@ exports.registrarTopicoEA = functions.firestore
         .then(() => {
           return console.log("Adicinando correctamente al topico Electric");
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(`Error registrando al topico el token Electric${err}`);
         })
     );
@@ -591,16 +591,16 @@ exports.registrarTopicoEA = functions.firestore
 /** Electric Actuator cloud Function*/
 exports.electActuatorNotification = functions.firestore
   .document("/Electric_Actuator/{id}")
-  .onCreate(dataSnapshot => {
+  .onCreate((dataSnapshot) => {
     const titulo = dataSnapshot.data().Company_Name;
     const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
         titulo: titulo,
-        descripcion: descripcion
+        descripcion: descripcion,
       },
-      topic: "Electric_Actuator"
+      topic: "Electric_Actuator",
     };
 
     return admin
@@ -611,7 +611,7 @@ exports.electActuatorNotification = functions.firestore
           `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
         );
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(`Error enviando mensaje Electric ${err}`);
       });
   });
@@ -628,20 +628,20 @@ exports.highPressureNotification = functions.firestore
     const mensaje = {
       data: {
         titulo: titulo,
-        descripcion: descripcion
+        descripcion: descripcion,
       },
-      topic: context.params.hpId
+      topic: context.params.hpId,
     };
 
     return admin
       .messaging()
       .send(mensaje)
-      .then(response => {
+      .then((response) => {
         return console.log(
           `Mensaje enviado correctamente HP ${mensaje.data.titulo} ${response}`
         );
       })
-      .catch(err => {
+      .catch((err) => {
         return console.error(`Error enviando mensaje HP ${err}`);
       });
   });
@@ -651,16 +651,16 @@ exports.highPressureNotification = functions.firestore
 /** Low Pressure cloud Function*/
 exports.lowPressureNotification = functions.firestore
   .document("/LowP_Pneumatic/{id}")
-  .onCreate(dataSnapshot => {
+  .onCreate((dataSnapshot) => {
     const titulo = dataSnapshot.data().Company_Name;
     const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
         titulo: titulo,
-        descripcion: descripcion
+        descripcion: descripcion,
       },
-      topic: "LowP_Pneumatic"
+      topic: "LowP_Pneumatic",
     };
 
     return admin
@@ -671,7 +671,7 @@ exports.lowPressureNotification = functions.firestore
           `Mensaje enviado correctamente LP ${mensaje.data.titulo}`
         );
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(`Error enviando mensaje LP ${err}`);
       });
   });
@@ -681,16 +681,16 @@ exports.lowPressureNotification = functions.firestore
 /** Tree way cloud Function*/
 exports.threeWayNotification = functions.firestore
   .document("/3_Way/{id}")
-  .onCreate(dataSnapshot => {
+  .onCreate((dataSnapshot) => {
     const titulo = dataSnapshot.data().Company_Name;
     const descripcion = dataSnapshot.data().Contact_Email;
 
     const mensaje = {
       data: {
         titulo: titulo,
-        descripcion: descripcion
+        descripcion: descripcion,
       },
-      topic: "3_Way"
+      topic: "3_Way",
     };
 
     return admin
@@ -701,7 +701,7 @@ exports.threeWayNotification = functions.firestore
           `Mensaje enviado correctamente 3 Way ${mensaje.data.titulo}`
         );
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(`Error enviando mensaje 3 Way ${err}`);
       });
   });
