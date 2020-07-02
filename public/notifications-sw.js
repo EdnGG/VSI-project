@@ -24,7 +24,7 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(function(payload) {
+messaging.setBackgroundMessageHandler(function (payload) {
   console.log("[notifications-ws.js] Received background message", payload);
   const titulo = `We got a new retrofit form request `;
   const options = {

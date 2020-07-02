@@ -1,3 +1,4 @@
+// require("dotenv").config();
 const functions = require("firebase-functions");
 const admin = require("firebase-admin"); // para insertar en la DB
 
@@ -14,7 +15,7 @@ var transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "gresseden@gmail.com",
-    pass: "PASSWORD",
+    pass: "212826GEGI!*",
   },
 });
 
