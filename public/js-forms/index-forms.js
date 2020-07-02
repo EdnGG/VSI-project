@@ -2,8 +2,8 @@ const formContainer = document.querySelector("#form_container");
 const mainContainer = document.querySelector("#main");
 const btnCloseSecion = document.querySelector("#btnCloseSecion");
 
-formContainer.style.display = "none"; //block
-mainContainer.style.display = "block"; // none
+formContainer.style.display = "block"; //block
+mainContainer.style.display = "none"; // none
 btnCloseSecion.style.display = "none";
 
 btnCloseSecion.addEventListener("click", () => {
