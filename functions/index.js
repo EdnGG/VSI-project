@@ -1,4 +1,4 @@
-// require("dotenv").config();
+//require("dotenv").config();
 const functions = require("firebase-functions");
 const admin = require("firebase-admin"); // para insertar en la DB
 
@@ -14,6 +14,8 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
+    // user: process.env.EMAIL_ADMIN,
+    // pass: process.env.PASSWORD,
     user: "gresseden@gmail.com",
     pass: "212826GEGI!*",
   },
@@ -38,8 +40,8 @@ exports.sendEmailEa = functions.firestore
       ">Retrofit Form Request</h1>
         <h2 style="
             font-size:20pt;">Hello "${
-              snap.data().Contact_Name
-            }" We received your Retrofit form request </h2><br>
+        snap.data().Contact_Name
+        }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
             height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
@@ -153,8 +155,8 @@ exports.sendEmailHp = functions.firestore
       ">Retrofit Form Request</h1>
         <h2 style="
             font-size:20pt;">Hello "${
-              snap.data().Contact_Name
-            }" We received your Retrofit form request </h2><br>
+        snap.data().Contact_Name
+        }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
             height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
@@ -267,8 +269,8 @@ exports.sendEmailLp = functions.firestore
       ">Retrofit Form Request</h1>
         <h2 style="
             font-size:20pt;">Hello "${
-              snap.data().Contact_Name
-            }" We received your Retrofit form request </h2><br>
+        snap.data().Contact_Name
+        }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
             height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">
@@ -385,8 +387,8 @@ exports.sendEmail3Way = functions.firestore
       ">Retrofit Form Request</h1>
         <h2 style="
             font-size:20pt;">Hello "${
-              snap.data().Contact_Name
-            }" We received your Retrofit form request </h2><br>
+        snap.data().Contact_Name
+        }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
             height:300px;" src="https://static.wixstatic.com/media/69f70f_27d1b55cde814d3daf8d8ac641fcfe01~mv2.png" alt="VSI">

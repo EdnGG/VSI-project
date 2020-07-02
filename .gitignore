@@ -1,6 +1,7 @@
 # Vscode configuration
 .vscode
 /functions/*.js
+.env
 
 # Logs
 logs

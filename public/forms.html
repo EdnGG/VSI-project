@@ -1,477 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Forms</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="./css/form-styles/index2.css" />
-    <link rel="manifest" href="manifest.json" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Forms</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body class="login">
-    <header class="headerppal  col-12 pt-2 pb-6">
-      <div>
-        <figure class="header-logotipo text-center text-md-left">
-          <img src="./imagenes/vsi.jpg" alt="Blog Logotipo" />
-        </figure>
-      </div>
-      <div>
-        <h2 class="titulo ">Valve Solutions Inc</h2>
-        <button
-          type="button"
-          id="btnCloseSecion"
-          class="btnPpal btn btn-default btn-rounded inline-block"
-          data-toggle="modal"
-          data-target="#elegantModalForm"
-        >
-          <strong>Sign Out</strong>
-        </button>
-      </div>
-    </header>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./css/form-styles/index2.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
 
-    <!-- Starts Login form -->
+<body class="login">
 
-    <!-- <div id="particles-js"></div> -->
-
-    <!-- <body class="login"> -->
-    <div id="form_container">
-      <div class="login-container-wrapper clearfix">
-        <div class="logo">
-          <i class="fa fa-sign-in"></i>
-        </div>
-        <div class="welcome"><strong>Welcome,</strong></div>
-
-        <form class="form-horizontal login-form">
-          <div class="form-group relative">
-            <input
-              id="login_username"
-              class="form-control input-lg"
-              type="email"
-              placeholder="Email"
-              required
-            />
-            <i class="fa fa-user"></i>
-          </div>
-          <div class="form-group relative password">
-            <input
-              id="login_password"
-              class="form-control input-lg"
-              type="password"
-              placeholder="Password"
-              required
-            />
-            <i class="fa fa-lock"></i>
-          </div>
-          <div class="form-group">
-            <button
-              type="button"
-              class="btn btn-success btn-lg btn-block"
-              id="submit"
-            >
-              Login
-            </button>
-          </div>
-          <!-- <div class="checkbox pull-left">
-              <label><input type="checkbox" /> Remember</label>
-            </div>
-            <div class="checkbox pull-right">
-              <label>
-                <a class="forget" href="" title="forget"
-                  >Forgot your password</a
-                >
-              </label>
-            </div> -->
-        </form>
-      </div>
-
-      <!-- <h4 class="text-center">
-          <a target="_blank" href="https://codepen.io/Peeyush200/pen/mLwvJB">
-            Check out Social login form
-          </a>
-        </h4> -->
+  <header class="headerppal  col-12 pt-2 pb-6">
+    <!-- Start Logo div -->
+    <div>
+      <figure class="header-logotipo text-center text-md-left">
+        <img src="./imagenes/vsi.jpg" alt="Blog Logotipo" />
+      </figure>
     </div>
+    <!-- Ends Logo div -->
+    <div>
+      <h2 class="titulo ">Valve Solutions Inc</h2>
+      <button type="button" id="btnCloseSecion" class="btnPpal btn btn-default btn-rounded inline-block"
+        data-toggle="modal" data-target="#elegantModalForm">
+        <strong>Sign Out</strong>
+      </button>
+    </div>
+  </header>
 
-    <!-- Ends Login form -->
+  <!-- Starts Login form -->
+  <div id="form_container">
+    <div class="login-container-wrapper clearfix">
+      <div class="logo">
+        <i class="fa fa-sign-in"></i>
+      </div>
+      <div class="welcome"><strong>Welcome,</strong></div>
 
-    <br /><br />
+      <form class="form-horizontal login-form">
+        <div class="form-group relative">
+          <input id="login_username" class="form-control input-lg" type="email" placeholder="Email" required />
+          <i class="fa fa-user"></i>
+        </div>
+        <div class="form-group relative password">
+          <input id="login_password" class="form-control input-lg" type="password" placeholder="Password" required />
+          <i class="fa fa-lock"></i>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-success btn-lg btn-block" id="submit">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Ends Login form -->
 
-    <div
-      class="container justity-content-center col-12 mr-12 ml-2 pt-2 pl-2 pr-2"
-      id="main"
-    >
-      <!-- carrousel -->
-      <div class="row justify-content-center text-center" id="carousel11">
-        <div
-          id="carousel1"
-          class="row carousel slide carousel-fade justify-content-center col-12 mr-12 ml-2 pt-2 pl-2 pr-2"
-          data-ride="carousel"
-          data-pause="false"
-        >
+  <br /><br />
+
+  <div class="container justity-content-center col-12" id="main">
+
+    <!-- carrousel -->
+    <div class="container">
+      <div class="row justify-content-center text-center" id="carousel-admin_seccion">
+        <div id="carousel-admin" class="row carousel-inner slide carousel-fade justify-content-center"
+          data-ride="carousel" data-pause="false">
           <div class="col-sm-4 carousel-inner">
             <div class="carousel-item active">
-              <img
-                class="d-block w-100 justify-content-center"
-                src="./imagenes/formImages/threeWay/t1.png"
-                alt="First slide"
-              />
+              <img class="d-block w-100 justify-content-center" src="./imagenes/formImages/threeWay/t1.png"
+                alt="First slide" />
             </div>
             <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="./imagenes/formImages/threeWay/t2-removebg-preview.png"
-                alt="Second slide"
-              />
+              <img class="d-block w-100" src="./imagenes/formImages/threeWay/t2-removebg-preview.png"
+                alt="Second slide" />
             </div>
             <div class="carousel-item">
-              <img
-                class="d-block w-100"
-                src="./imagenes/formImages/threeWay/t3-removebg-preview.png"
-                alt="Third slide"
-              />
+              <img class="d-block w-100" src="./imagenes/formImages/threeWay/t3-removebg-preview.png"
+                alt="Third slide" />
             </div>
           </div>
         </div>
       </div>
-      <!-- carrousel / -->
+    </div>
+    <!-- carrousel / -->
 
-      <!-- Starts Threeway table -->
-      <div
-        class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableOne"
-      >
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for 3 Way Requests
-          </caption>
-
-          <thead class="">
-            <tr class="justity-content-center text-center bg-secondary">
-              <!-- <th scope="col">3 Way Request</th> -->
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Arrangement Type</th>
-              <th scope="col">Bonnet Type</th>
-              <th scope="col">Dimension Bonnet A</th>
-              <th scope="col">Dimension Bonnet B</th>
-              <th scope="col">Dimension Bonnet C</th>
-              <th scope="col">Bolt Holes Type</th>
-              <th scope="col">Hole Size</th>
-              <th scope="col">Other</th>
-              <th scope="col">Shaft Type</th>
-              <th scope="col">Shaft Dimensions D</th>
-              <th scope="col">Shaft Dimensions E</th>
-              <th scope="col">Shaft Dimensions F</th>
-              <th scope="col">Shaft Dimensions G</th>
-              <th scope="col">Shaft Dimensions H</th>
-              <th scope="col">Actuator Requirements 1</th>
-              <th scope="col">Actuator Requirements 2</th>
-              <th scope="col">Actuator Requirements 3</th>
-              <th scope="col">Actuator Requirements 4</th>
-              <th scope="col">Pneumatic || Electric</th>
-              <th scope="col">Actuator Control Signal</th>
-              <th scope="col">Other</th>
-              <th scope="col">Enclosure Required</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Edit</th>
-            </tr>
-          </thead>
-          <tbody id="table"></tbody>
-        </table>
-      </div>
-      <!-- treeway table -->
-
-      <!-- Electric table -->
-      <div
-        class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableTwo"
-      >
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for Electric Actuators Requests
-          </caption>
-
-          <!-- <h1 class="justity-content-center bg-primary text-center bg-success">Electric Actuator</h1> -->
-          <thead class="">
-            <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Electric Actuator</th>
-              <th scope="col">Model Electric Actuator</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Electric Actuator</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Edit</th>
-            </tr>
-          </thead>
-          <tbody id="table2"></tbody>
-        </table>
-      </div>
-      <!--  Ends Electric table -->
-
-      <!-- Starts HP table -->
-      <div
-        class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableThree"
-      >
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for High Pressure Actuators Requests
-          </caption>
-
-          <!-- <h1 class="justity-content-center bg-primary text-center bg-success">High Pressure Pneumatic</h1> -->
-          <thead class="">
-            <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Actuator HP</th>
-              <th scope="col">Model Actuator HP</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Actuator Mode</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Edit</th>
-            </tr>
-          </thead>
-          <tbody id="table3"></tbody>
-        </table>
-      </div>
-      <!-- Ends HP table -->
-
-      <!-- Starts LP table -->
-      <div
-        class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableFour"
-      >
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for Low Pressure Actuators Requests
-          </caption>
-
-          <div style="overflow-x:auto;">
-            <!-- <h1 class="justity-content-center bg-primary text-center bg-success">Low Pressure Pneumatic</h1> -->
-          </div>
-          <thead class="">
-            <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Actuator LP</th>
-              <th scope="col">Model Actuator LP</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Actuator Mode</th>
-              <th scope="col">Delete</th>
-              <th scope="col">Edit</th>
-            </tr>
-          </thead>
-          <!-- se agrega el contenido dinamicamente -->
-          <tbody id="table4"></tbody>
-        </table>
-      </div>
-      <br /><br />
-      <!-- Ends LP table  -->
-
-
-      <!-- modal Electric -->
-      <div class="col-12 justify-content-center text-center" id="modalE"></div>
-      <!-- modal HP -->
-      <div class="col-12 justify-content-center text-center" id="modalHP"></div>
-      <!-- modal LP -->
-      <div class="col-12 justify-content-center text-center" id="modalLP"></div>
-      <!-- modal TreeWay -->
-      <div
-        class="col-12 justify-content-center text-center"
-        id="modalTreeWay"
-      ></div>
-
-
-      <!-- buttons seccion -->
+    <!-- Start buttons seccion -->
+    <div class="container">
       <div class="row justify-content-center">
         <!-- <div class="col-12  justify-content-center"> -->
         <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-          <button
-            id="threeWayRequest"
-            type="button"
-            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-            onclick="togle()"
-          >
+          <button id="threeWayRequest" type="button" class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button" aria-pressed="false" autocomplete="off" onclick="togle()">
             3 Way Request
           </button>
         </div>
 
         <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-          <button
-            id="elecActuator"
-            type="button"
-            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-            onclick="togle1()"
-          >
+          <button id="elecActuator" type="button" class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button" aria-pressed="false" autocomplete="off" onclick="togle1()">
             Electric Actuator Request
           </button>
         </div>
 
         <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-          <button
-            id="hpPneumaticBtn"
-            type="button"
-            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-            onclick="togle2()"
-          >
+          <button id="hpPneumaticBtn" type="button" class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button" aria-pressed="false" autocomplete="off" onclick="togle2()">
             High Pressure Pneumatic
           </button>
         </div>
 
         <div class="justify-content-center ml-2 mr-2 pt-2 pl-2 pr-2">
-          <button
-            id="lpPneumaticBtn"
-            type="button"
-            class="btn btn-info btn-lg btn-rounded mx-auto d-block"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-            onclick="togle3()"
-          >
+          <button id="lpPneumaticBtn" type="button" class="btn btn-info btn-lg btn-rounded mx-auto d-block"
+            data-toggle="button" aria-pressed="false" autocomplete="off" onclick="togle3()">
             Low Pressure Pneumatic
           </button>
         </div>
         <!-- </div> -->
       </div>
-      <!-- buttons seccion / -->
-
-      <!-- modal Electric -->
-      <!-- <div class="col-12 justify-content-center text-center" id="modalE"></div> -->
-      <!-- modal HP -->
-      <!-- <div class="col-12 justify-content-center text-center" id="modalHP"></div> -->
-      <!-- modal LP -->
-      <!-- <div class="col-12 justify-content-center text-center" id="modalLP"></div> -->
-      <!-- modal TreeWay -->
-      <!-- <div class="col-12 justify-content-center text-center" id="modalTreeWay"></div> -->
     </div>
-    <!--  end div .container     -->
+    <!-- End buttons seccion -->
 
-    <!-- Firebase App is always required and must be first -->
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
+  <!-- Second main div for fix alignment on tables -->
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Scripts  -->
+  <!-- Start Table for Treeway Arrangements -->
+  <div class="container ml-1 mr-2 pr-2">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableOne">
+      <table class="table table-hover responsetable">
+        <caption>
+          Retrofit Forms for 3 Way Requests
+        </caption>
 
-    <script src="./config/configFirebase.js"></script>
-    <script src="./notifications-sw.js"></script>
-  
-    <script src="./js-forms/index-forms.js"></script>
-    <script src="./js-forms/formsResponse.js"></script>
-    <script src="./js-forms/notifications.js"></script>
-    <!-- <script src="./js-forms/posts.js"></script> -->
-    <script src="./js-forms/autenticacion-form/autentication.js"></script>
-    <script src="./js-forms/autenticacion-form/auth-control.js"></script>
-    <!-- <script src="./js/stats.js"></script> -->
-    <!-- <script src="./js/particles.js"></script> -->
+        <thead class="">
+          <tr class="justity-content-center text-center bg-secondary">
+            <!-- <th scope="col">3 Way Request</th> -->
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Company</th>
+            <th scope="col" class="text-center">Contact</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Phone Number</th>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">Zip Code</th>
+            <th scope="col" class="text-center">Valve Size</th>
+            <th scope="col" class="text-center">Valve Brand</th>
+            <th scope="col" class="text-center">Valve Series</th>
+            <th scope="col" class="text-center">Valve Type</th>
+            <th scope="col" class="text-center">Arrangement Type</th>
+            <th scope="col" class="text-center">Bonnet Type</th>
+            <th scope="col" class="text-center">Dimension Bonnet A</th>
+            <th scope="col" class="text-center">Dimension Bonnet B</th>
+            <th scope="col" class="text-center">Dimension Bonnet C</th>
+            <th scope="col" class="text-center">Bolt Holes Type</th>
+            <th scope="col" class="text-center">Hole Size</th>
+            <th scope="col" class="text-center">Other</th>
+            <th scope="col" class="text-center">Shaft Type</th>
+            <th scope="col" class="text-center">Shaft Dimensions D</th>
+            <th scope="col" class="text-center">Shaft Dimensions E</th>
+            <th scope="col" class="text-center">Shaft Dimensions F</th>
+            <th scope="col" class="text-center">Shaft Dimensions G</th>
+            <th scope="col" class="text-center">Shaft Dimensions H</th>
+            <th scope="col" class="text-center">Actuator Requirements 1</th>
+            <th scope="col" class="text-center">Actuator Requirements 2</th>
+            <th scope="col" class="text-center">Actuator Requirements 3</th>
+            <th scope="col" class="text-center">Actuator Requirements 4</th>
+            <th scope="col" class="text-center">Pneumatic || Electric</th>
+            <th scope="col" class="text-center">Actuator Control Signal</th>
+            <th scope="col" class="text-center">Other</th>
+            <th scope="col" class="text-center">Enclosure Required</th>
+            <th scope="col" class="text-center">Delete</th>
+            <th scope="col" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Ends Table for Treeway Arrangements -->
 
-    <!--  -->
-    <!-- <script src="./js/index.js"></script> -->
-    <!-- <script src="./js/autenticacion/authControl.js"></script> -->
-    <!-- <script src="./js/autenticacion/autenticacion.js"></script> -->
-    <!-- <script src="./js/posts.js" defer></script> -->
-    <!-- <script src="./js/formsResponse.js" defer></script> -->
 
-    <!-- Sweet Alert library -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </body>
+  <!-- Start Table for Electric Actuator -->
+  <div class="container ml-1">
+    <!-- Start Electric table -->
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableTwo">
+      <table class="table table-hover responsetable">
+        <caption>
+          Retrofit Forms for Electric Actuators Requests
+        </caption>
+
+        <thead class="justify-content-center text-center">
+          <tr class="bg-secondary text-center">
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Company</th>
+            <th scope="col" class="text-center">Contact</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Phone Number</th>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">Zip Code</th>
+            <!-- <th scope="col" class="text-center">Valve Type</th> -->
+            <th scope="col" class="text-center">Valve Size</th>
+            <th scope="col" class="text-center">Valve Brand</th>
+            <th scope="col" class="text-center">Valve Series</th>
+            <th scope="col" class="text-center">Brand Electric Actuator</th>
+            <th scope="col" class="text-center">Model Electric Actuator</th>
+            <th scope="col" class="text-center">Valve Type</th>
+            <th scope="col" class="text-center">Actuator Type</th>
+            <th scope="col" class="text-center">Electric Actuator</th>
+            <th scope="col" class="text-center">Delete</th>
+            <th scope="col" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody id="table2"></tbody>
+      </table>
+    </div>
+    <!-- Ends Table for Electric Actuator -->
+
+
+    <!-- Ends second main div -->
+  </div>
+  <!-- End Table for Electric Actuator -->
+
+  <!-- Start Table for HP Actuator -->
+  <div class="container ml-1 mr-1">
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableThree">
+      <table class="table table-hover responsetable">
+        <caption>
+          Retrofit Forms for High Pressure Actuators Requests
+        </caption>
+        <thead class="">
+          <tr class="justity-content-center text-center bg-secondary">
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Company</th>
+            <th scope="col" class="text-center">Contact</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Phone Number</th>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">Zip Code</th>
+            <th scope="col" class="text-center">Valve Size</th>
+            <th scope="col" class="text-center">Valve Brand</th>
+            <th scope="col" class="text-center"> Valve Series</th>
+            <th scope="col" class="text-center">Brand Actuator HP</th>
+            <th scope="col" class="text-center">Model Actuator HP</th>
+            <th scope="col" class="text-center">Valve Type</th>
+            <th scope="col" class="text-center">Actuator Type</th>
+            <th scope="col" class="text-center">Actuator Mode</th>
+            <th scope="col" class="text-center">Delete</th>
+            <th scope="col" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody id="table3"></tbody>
+      </table>
+    </div>
+  </div>
+  <!-- End Table for HP Actuator -->
+
+  <!-- Start Table for LP Actuator -->
+  <div class="container ml-1 mr-1">
+    <!-- Starts LP table -->
+    <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableFour">
+      <table class="table table-hover responsetable">
+        <caption>
+          Retrofit Forms for Low Pressure Actuators Requests
+        </caption>
+
+        <div style="overflow-x:auto;">
+
+        </div>
+        <thead class="">
+          <tr class="justity-content-center text-center bg-secondary">
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Company</th>
+            <th scope="col" class="text-center">Contact</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Phone Number</th>
+            <th scope="col" class="text-center">City</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">Zip Code</th>
+            <th scope="col" class="text-center">Valve Size</th>
+            <th scope="col" class="text-center">Valve Brand</th>
+            <th scope="col" class="text-center">Valve Series</th>
+            <th scope="col" class="text-center">Brand Actuator LP</th>
+            <th scope="col" class="text-center">Model Actuator LP</th>
+            <th scope="col" class="text-center">Valve Type</th>
+            <th scope="col" class="text-center">Actuator Type</th>
+            <th scope="col" class="text-center">Actuator Mode</th>
+            <th scope="col" class="text-center">Delete</th>
+            <th scope="col" class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <!-- se agrega el contenido dinamicamente -->
+        <tbody id="table4"></tbody>
+      </table>
+    </div>
+    <br /><br />
+    <!-- Ends LP table  -->
+  </div>
+  <!-- End Table for LP Actuator -->
+
+  <!-- modal TreeWay -->
+  <div class="col-12 justify-content-center text-center" id="modalTreeWay"></div>
+  <!-- modal Electric -->
+  <div class="container ml-1" id="modalE"></div>
+  <!-- modal HP -->
+  <div class="col-12 justify-content-center text-center" id="modalHP"></div>
+  <!-- modal LP -->
+  <div class="col-12 justify-content-center text-center" id="modalLP"></div>
+
+  <!-- Firebase App is always required and must be first -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Scripts  -->
+
+  <script src="./config/configFirebase.js"></script>
+  <script src="./notifications-sw.js"></script>
+
+  <script src="./js-forms/index-forms.js"></script>
+  <script src="./js-forms/formsResponse.js"></script>
+  <script src="./js-forms/notifications.js"></script>
+  <!-- <script src="./js-forms/posts.js"></script> -->
+  <script src="./js-forms/autenticacion-form/autentication.js"></script>
+  <script src="./js-forms/autenticacion-form/auth-control.js"></script>
+  <!-- <script src="./js/stats.js"></script> -->
+  <script src="./js/particles.js"></script>
+
+  <!-- Sweet Alert library -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
 </html>

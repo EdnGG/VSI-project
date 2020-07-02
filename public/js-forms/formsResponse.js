@@ -12,7 +12,7 @@ divTableForm2.style.display = "none";
 divTableForm3.style.display = "none";
 divTableForm4.style.display = "none";
 
-let carouselForm1 = document.querySelector("#carousel11");
+let carouselForm1 = document.querySelector("#carousel-admin_seccion");
 
 // Ends Carousel seccion
 
@@ -22,7 +22,7 @@ function togle() {
   if (flag === true) {
     document.querySelector("#tableOne").style.display = "block";
     document.querySelector("#threeWayRequest").innerHTML = "Hide Table";
-    carouselForm1.style.display = "none";
+    // carouselForm1.style.display = "none";
     // document.querySelector("#carousel1").style.display = "none";
     console.log("flag = 1 ", flag);
     flag = false;
@@ -30,7 +30,7 @@ function togle() {
     document.querySelector("#tableOne").style.display = "none";
     document.querySelector("#threeWayRequest").innerHTML = "3 Way Requests";
     // document.querySelector("#carousel1").style.display = "block";
-    carouselForm1.style.display = "block";
+    // carouselForm1.style.display = "block";
     console.log("flag = 2", flag);
     flag = true;
   }
@@ -190,13 +190,6 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
   });
 });
 
-// db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
-//   //console.log("Current data: ", doc.data());
-//   swal({
-//     text: `New post on Electric Actuator Table ${querySnapshot}`,
-//     icon: "info"
-//   });
-// });
 
 let tableForm2 = document.querySelector("#table2");
 db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
@@ -224,13 +217,13 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                 <td>${doc.data().Electric_Actuator}</td>
                 <td>
                   <button class="btn btn-danger" onclick="deleteElectricAct('${
-                    doc.id
-                  }')">Delete</button>
+      doc.id
+      }')">Delete</button>
                 </td>
                 <td>
                   <button class="btn btn-warning" onclick="editElectricActuator('${
-                    doc.id
-                  }','${doc.data().Company_Name}',
+      doc.id
+      }','${doc.data().Company_Name}',
                   '${doc.data().Contact_Name}', 
                   '${doc.data().Contact_Email}',
                   '${doc.data().Phone_Contact}',
@@ -276,13 +269,13 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>${doc.data().Actuator_Mode}</td>
                 <td>
                   <button class="btn btn-danger" onclick="deleteHighPressure('${
-                    doc.id
-                  }')">Delete</button>
+      doc.id
+      }')">Delete</button>
                 </td>
                 <td>
                   <button class="btn btn-warning" onclick="editHighPressure('${
-                    doc.id
-                  }','${doc.data().Company_Name}',
+      doc.id
+      }','${doc.data().Company_Name}',
                   '${doc.data().Contact_Name}',
                   '${doc.data().Contact_Email}',
                   '${doc.data().Phone_Contact}',
@@ -329,8 +322,8 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>${doc.data().Actuator_Mode}</td>
                 <td>
                   <button class="btn btn-danger" onclick="deleteLowPressure('${
-                    doc.id
-                  }')">Delete</button>
+      doc.id
+      }')">Delete</button>
                 </td>
                 <td>
                   <button class="btn btn-warning" onclick="editLowPressure(
@@ -356,6 +349,14 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
       `; // En el boton con la funcion que esta dentro del metodo "onclick" contiene el valor de las variables que se encuentran en la DB
   });
 });
+
+// db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
+//   //console.log("Current data: ", doc.data());
+//   swal({
+//     text: `New post on Electric Actuator Table ${querySnapshot}`,
+//     icon: "info"
+//   });
+// });
 
 // Ends Getting data from firestore to seed tables
 
@@ -413,23 +414,23 @@ function editLowPressure(
           </div>
           <thead class="">
             <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Email</th>
-              <th scope="col"></th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Actuator LP</th>
-              <th scope="col">Model Actuator LP</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Actuator Mode</th>
-              <th scope="col">Edit</th>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Company</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center"></th>
+              <th scope="col" class="text-center">Phone Number</th>
+              <th scope="col" class="text-center">City</th>
+              <th scope="col" class="text-center">State</th>
+              <th scope="col" class="text-center">Zip Code</th>
+              <th scope="col" class="text-center">Valve Size</th>
+              <th scope="col" class="text-center">Valve Brand</th>
+              <th scope="col" class="text-center">Valve Series</th>
+              <th scope="col" class="text-center">Brand Actuator LP</th>
+              <th scope="col" class="text-center">Model Actuator LP</th>
+              <th scope="col" class="text-center">Valve Type</th>
+              <th scope="col" class="text-center">Actuator Type</th>
+              <th scope="col" class="text-center">Actuator Mode</th>
+              <th scope="col" class="text-center">Edit</th>
             </tr>
           </thead>
 					<tbody id="table4">
@@ -540,7 +541,7 @@ function editLowPressure(
         Actuator_Type: actuatorTypeLP,
         Actuator_Mode: modulatingOr2PositionsLP
       })
-      .then(function() {
+      .then(function () {
         console.log(`%cDocument successfully updated!`, "color : orange;");
 
         document.querySelector("#lpCompany").value = "";
@@ -568,7 +569,7 @@ function editLowPressure(
           "color : orange;"
         );
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
@@ -621,23 +622,23 @@ function editHighPressure(
           </div>
           <thead class="">
             <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Actuator LP</th>
-              <th scope="col">Model Actuator LP</th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Actuator Mode</th>
-              <th scope="col">Edit</th>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Company</th>
+              <th scope="col" class="text-center">Contact</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center">Phone Number</th>
+              <th scope="col" class="text-center">City</th>
+              <th scope="col" class="text-center">State</th>
+              <th scope="col" class="text-center">Zip Code</th>
+              <th scope="col" class="text-center">Valve Size</th>
+              <th scope="col" class="text-center">Valve Brand</th>
+              <th scope="col" class="text-center">Valve Series</th>
+              <th scope="col" class="text-center">Brand Actuator LP</th>
+              <th scope="col" class="text-center">Model Actuator LP</th>
+              <th scope="col" class="text-center">Valve Type</th>
+              <th scope="col" class="text-center">Actuator Type</th>
+              <th scope="col" class="text-center">Actuator Mode</th>
+              <th scope="col" class="text-center">Edit</th>
             </tr>
           </thead>
 					<tbody id="table3">
@@ -750,7 +751,7 @@ function editHighPressure(
         Actuator_Type: actuatorTypeHP,
         Actuator_Mode: modulatingOr2PositionsHP
       })
-      .then(function() {
+      .then(function () {
         console.log("Document successfully updated!");
 
         document.querySelector("#hpCompany").value = "";
@@ -779,7 +780,7 @@ function editHighPressure(
         );
         //   })
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
@@ -829,28 +830,28 @@ function editElectricActuator(
             Retrofit Forms for High Pressure Actuators Requests
           </caption>
 
-          <div style="overflow-x:auto;">
+          
             
           </div>
           <thead>
             <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col">ID</th>
-              <th scope="col">Company</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone Number</th>
-              <th scope="col">City</th>
-              <th scope="col">State</th>
-              <th scope="col">Zip Code</th>
-              <th scope="col">Valve Size</th>
-              <th scope="col">Brand</th>
-              <th scope="col">Series</th>
-              <th scope="col">Brand Electric Actuator </th>
-              <th scope="col">Model Electric Actuator </th>
-              <th scope="col">Valve Type</th>
-              <th scope="col">Actuator Type</th>
-              <th scope="col">Electric Actuator</th>
-              <th scope="col">Edit</th>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">Company</th>
+              <th scope="col" class="text-center">Contact</th>
+              <th scope="col" class="text-center">Email</th>
+              <th scope="col" class="text-center">Phone Number</th>
+              <th scope="col" class="text-center">City</th>
+              <th scope="col" class="text-center">State</th>
+              <th scope="col" class="text-center">Zip Code</th>
+              <th scope="col" class="text-center">Valve Size</th>
+              <th scope="col" class="text-center">Brand</th>
+              <th scope="col" class="text-center">Series</th>
+              <th scope="col" class="text-center">Brand Electric Actuator </th>
+              <th scope="col" class="text-center">Model Electric Actuator </th>
+              <th scope="col" class="text-center">Valve Type</th>
+              <th scope="col" class="text-center">Actuator Type</th>
+              <th scope="col" class="text-center">Electric Actuator</th>
+              <th scope="col" class="text-center">Edit</th>
             </tr>
           </thead>
 					<tbody id="table2">
@@ -965,7 +966,7 @@ function editElectricActuator(
         Actuator_Type: dropdown_E,
         Electric_Actuator: elecActuator
       })
-      .then(function() {
+      .then(function () {
         console.log("Document successfully updated!");
 
         document.querySelector("#elecActuatorCompany").value = "";
@@ -992,7 +993,7 @@ function editElectricActuator(
           "color : orange;"
         );
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
@@ -1066,41 +1067,41 @@ function editArrangements(
           </div>
           <thead>
             <tr class="justity-content-center text-center bg-secondary">
-      <th scope="col">ID</th>
-      <th scope="col">Company</th>
-      <th scope="col">Contact</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">City</th>
-      <th scope="col">State</th>
-      <th scope="col">Zip Code</th>
-      <th scope="col">Valve Size</th>
-      <th scope="col">Brand</th>
-      <th scope="col">Series</th>
-      <th scope="col">Valve Type</th>
-      <th scope="col">Arrangement Type</th>
-      <th scope="col">Bonnet Type</th>
-      <th scope="col">Dimension Bonnet A</th>
-      <th scope="col">Dimension Bonnet B</th>
-      <th scope="col">Dimension Bonnet C</th>
-      <th scope="col">Bolt Holes Type</th>
-      <th scope="col">Hole Size</th>
-      <th scope="col">Other</th>
-      <th scope="col">Shaft Type</th>
-      <th scope="col">Shaft Dimensions D</th>
-      <th scope="col">Shaft Dimensions E</th>
-      <th scope="col">Shaft Dimensions F</th>
-      <th scope="col">Shaft Dimensions G</th>
-      <th scope="col">Shaft Dimensions H</th>
-      <th scope="col">Actuator Requirements 1</th>
-      <th scope="col">Actuator Requirements 2</th>
-      <th scope="col">Actuator Requirements 3</th>
-      <th scope="col">Actuator Requirements 4</th>
-      <th scope="col">Pneumatic || Electric</th>
-      <th scope="col">Actuator Control Signal</th>
-      <th scope="col">Other</th>
-      <th scope="col">Enclosure Required</th>
-      <th scope="col">Update</th>
+      <th scope="col" class="text-center">ID</th>
+      <th scope="col" class="text-center">Company</th>
+      <th scope="col" class="text-center">Contact</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Phone Number</th>
+      <th scope="col" class="text-center">City</th>
+      <th scope="col" class="text-center">State</th>
+      <th scope="col" class="text-center">Zip Code</th>
+      <th scope="col" class="text-center">Valve Size</th>
+      <th scope="col" class="text-center">Valve Brand</th>
+      <th scope="col" class="text-center">Valve Series</th>
+      <th scope="col" class="text-center">Valve Type</th>
+      <th scope="col" class="text-center">Arrangement Type</th>
+      <th scope="col" class="text-center">Bonnet Type</th>
+      <th scope="col" class="text-center">Dimension Bonnet A</th>
+      <th scope="col" class="text-center">Dimension Bonnet B</th>
+      <th scope="col" class="text-center">Dimension Bonnet C</th>
+      <th scope="col" class="text-center">Bolt Holes Type</th>
+      <th scope="col" class="text-center">Hole Size</th>
+      <th scope="col" class="text-center">Other</th>
+      <th scope="col" class="text-center">Shaft Type</th>
+      <th scope="col" class="text-center">Shaft Dimensions D</th>
+      <th scope="col" class="text-center">Shaft Dimensions E</th>
+      <th scope="col" class="text-center">Shaft Dimensions F</th>
+      <th scope="col" class="text-center">Shaft Dimensions G</th>
+      <th scope="col" class="text-center">Shaft Dimensions H</th>
+      <th scope="col" class="text-center">Actuator Requirements 1</th>
+      <th scope="col" class="text-center">Actuator Requirements 2</th>
+      <th scope="col" class="text-center">Actuator Requirements 3</th>
+      <th scope="col" class="text-center">Actuator Requirements 4</th>
+      <th scope="col" class="text-center">Pneumatic || Electric</th>
+      <th scope="col" class="text-center">Actuator Control Signal</th>
+      <th scope="col" class="text-center">Other</th>
+      <th scope="col" class="text-center">Enclosure Required</th>
+      <th scope="col" class="text-center">Update</th>
 
             </tr>
           </thead>
@@ -1287,7 +1288,7 @@ function editArrangements(
         Other2: other2,
         Enclosure_Required: enclosureType
       })
-      .then(function() {
+      .then(function () {
         console.log("Document successfully updated!");
 
         document.querySelector("#arrangementsCompany").value = "";
@@ -1338,7 +1339,7 @@ function editArrangements(
           "color : orange;"
         );
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
@@ -1351,10 +1352,10 @@ function deleteLowPressure(id) {
   db.collection("LowP_Pneumatic")
     .doc(id)
     .delete()
-    .then(function() {
+    .then(function () {
       console.log("Document successfully deleted!");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error removing document: ", error);
     });
 }
@@ -1364,10 +1365,10 @@ function deleteHighPressure(id) {
   db.collection("HP_Pneumatic")
     .doc(id)
     .delete()
-    .then(function() {
+    .then(function () {
       console.log("Document successfully deleted!");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error removing document: ", error);
     });
 }
@@ -1377,10 +1378,10 @@ function deleteElectricAct(id) {
   db.collection("Electric_Actuator")
     .doc(id)
     .delete()
-    .then(function() {
+    .then(function () {
       console.log("Document successfully deleted!");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error removing document: ", error);
     });
 }
@@ -1390,10 +1391,10 @@ function deleteArrangements(id) {
   db.collection("3_Way")
     .doc(id)
     .delete()
-    .then(function() {
+    .then(function () {
       console.log("Document successfully deleted!");
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error removing document: ", error);
     });
 }
@@ -1402,12 +1403,12 @@ function deleteArrangements(id) {
 
 // Escuchar cuando se genere nuevo documento en DB
 
-function listenerForElectActuator() {
-  db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
-    //console.log("Current data: ", doc.data());
-    swal({
-      text: `New post on Electric Actuator Table`,
-      icon: "info"
-    });
-  });
-}
+// function listenerForElectActuator() {
+//   db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
+//     //console.log("Current data: ", doc.data());
+//     swal({
+//       text: `New post on Electric Actuator Table`,
+//       icon: "info"
+//     });
+//   });
+// }

@@ -49,7 +49,7 @@ function postElectric() {
       Electric_Actuator: electricActuator
     })
     // if promise is succesfull
-    .then(function(docRef) {
+    .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
 
       console.log("Generate new porst fom Electric actuator");
@@ -66,7 +66,7 @@ function postElectric() {
       firebase.auth().signOut();
     })
     // if promise is reject
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error adding document: ", error);
     });
 }
@@ -128,7 +128,7 @@ function postHp() {
       Actuator_Mode: radioButtonsHP
     })
     // if promise is succesfull
-    .then(function(docRef) {
+    .then(function (docRef) {
       swal({
         title: `Thanks!! We'll contact you soon`,
         icon: `success`
@@ -138,7 +138,7 @@ function postHp() {
       firebase.auth().signOut();
     })
     // if promise is reject
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error adding document: ", error);
     });
 }
@@ -195,7 +195,7 @@ function postLp() {
       Actuator_Mode: radioButtonsLP //
     })
 
-    .then(function(docRef) {
+    .then(function (docRef) {
       swal({
         title: `Thanks!! We'll contact you soon`,
         icon: `success`
@@ -204,7 +204,7 @@ function postLp() {
       firebase.auth().signOut();
     })
     // if promise is reject
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error adding document: ", error);
     });
 }
@@ -321,7 +321,7 @@ function threeWay() {
     })
 
     // if promise is succesfull
-    .then(function(docRef) {
+    .then(function (docRef) {
       console.log("Document written with ID: ", docRef.id);
 
       swal({
@@ -332,7 +332,7 @@ function threeWay() {
       firebase.auth().signOut();
     })
     // if promise is reject
-    .catch(function(error) {
+    .catch(function (error) {
       console.error("Error adding document: ", error.message);
     });
 }
