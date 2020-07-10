@@ -1,4 +1,4 @@
-//require("dotenv").config();
+require("dotenv").config();
 const functions = require("firebase-functions");
 const admin = require("firebase-admin"); // para insertar en la DB
 
@@ -7,17 +7,15 @@ admin.initializeApp();
 /**Starts email senders */
 
 const nodemailer = require("nodemailer");
-let alternativeMail = "adriss89edn@gmail.com";
+let alternativeMail = process.env.ALTERNATIVE_EMAIL;
 
 var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   secure: true,
   auth: {
-    // user: process.env.EMAIL_ADMIN,
-    // pass: process.env.PASSWORD,
-    user: "gresseden@gmail.com",
-    pass: "212826GEGI!*",
+    user: process.env.EMAIL_ADMIN,
+    pass: process.env.PASSWORD,
   },
 });
 
