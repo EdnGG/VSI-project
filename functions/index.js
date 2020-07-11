@@ -10,8 +10,10 @@ const nodemailer = require("nodemailer");
 let alternativeMail = process.env.ALTERNATIVE_EMAIL;
 
 var transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
+  // host: "smtp.gmail.com",
+  host: process.env.HOST,
+  // port: 465,
+  port: process.env.PORT,
   secure: true,
   auth: {
     user: process.env.EMAIL_ADMIN,
