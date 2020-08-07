@@ -3,6 +3,7 @@ console.log("hello");
 /*********Login Form Seccion*****************/
 const loginForm = document.querySelector("#logreg-forms");
 const loginButton = document.querySelector("#btnInicioSesion");
+const footer = document.querySelector("#footer")
 
 loginButton.addEventListener("click", () => {
   console.log("Login button works");
@@ -13,6 +14,7 @@ loginButton.addEventListener("click", () => {
     loginForm.style.display = "none";
     carousel.style.display = "block";
     mainForm.style.display = "none";
+    //footer.style.display = "block"
     console.log("sign out");
 
     return firebase
@@ -20,6 +22,7 @@ loginButton.addEventListener("click", () => {
       .signOut()
       .then(() => {
         $("#avatar").attr("src", "../imagenes/usuario.png");
+        $("#footer").css("display", "none");
         swal({
           title: `Sign Out succesfull`,
           icon: `success`
@@ -36,6 +39,7 @@ loginButton.addEventListener("click", () => {
   //loginButton.innerHTML = "Log Out"
   loginForm.style.display = "block";
   carousel.style.display = "none";
+  // footer.style.display = "none"
   //mainForm.style.display = 'block'
 });
 
@@ -44,6 +48,7 @@ loginButton.addEventListener("click", () => {
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     loginButton.innerHTML = "Log Out";
+    // footer.style.display = "block"
 
     if (user.photoURL) {
       $("#avatar").attr("src", user.photoURL);
@@ -74,6 +79,7 @@ const btnSeccion1 = document.querySelector("#btnSeccion1");
 
 mainForm.style.display = "none"; //Poner "block" para desarrollo
 loginForm.style.display = "none"; //none
+footer.style.display = "none"
 
 /******** Ends Hidding Elements Seccion **********/
 

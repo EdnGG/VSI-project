@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -7,128 +7,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integr  ity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integr
+        ity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alatsi|Days+One|Fjalla+One&display=swap" rel="stylesheet">
 
-    
-    <link rel="stylesheet" href="./css/index-styles/index.css"> 
+
+    <link rel="stylesheet" href="./css/index-styles/index.css">
     <!-- <link rel="manifest" href="manifest.json"> -->
     <title>VSI</title>
 </head>
 
 <body>
-    
-<!-- Starts header -->
 
-<header class=" headerppal  col-12 pt-1 pb-6">
-    <div>
-        <figure class="header-logotipo text-center text-md-left">
-            <img src="./imagenes/vsi.jpg" alt="Blog Logotipo">
-        </figure>
-        <h2 class="titulo  titulo1 text-center ">Valve Solutions Inc</h2>
-            <a id="btnInicioSesion" class="btnPpal btn btn-default btn-rounded" data-toggle="modal" data-target="#elegantModalForm">Sign In</a>
+    <!-- Starts header -->
 
-        <figure class="header-avatar d-none d-md-block">
-            <img id="avatar" src="./imagenes/usuarioauth.png" alt="Avatar">
-        </figure>
-    </div>
-</header>
+    <header class=" headerppal  col-12 pt-1 pb-6">
+        <div>
+            <figure class="header-logotipo text-center text-md-left">
+                <img src="./imagenes/vsi.jpg" alt="Blog Logotipo">
+            </figure>
+            <h2 class="titulo  titulo1 text-center ">Valve Solutions Inc</h2>
+            <a id="btnInicioSesion" class="btnPpal btn btn-default btn-rounded" data-toggle="modal"
+                data-target="#elegantModalForm">Sign In</a>
 
-<!-- Ends header -->
-    
-<!-- Starts modal de inicio de sesión -->
+            <figure class="header-avatar d-none d-md-block">
+                <img id="avatar" src="./imagenes/usuarioauth.png" alt="Avatar">
+            </figure>
+        </div>
+    </header>
 
-<div id="logreg-forms" class="pt-4 pb-4">
-    <form class="form-signin rounded">
-        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-        <div class="social-login">
-            <!-- <button class="btn facebook-btn social-btn" type="button" id="facebook"><span><i
+    <!-- Ends header -->
+
+    <!-- Starts modal de inicio de sesión -->
+
+    <div id="logreg-forms" class="pt-4 pb-4">
+        <form class="form-signin rounded">
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <div class="social-login">
+                <!-- <button class="btn facebook-btn social-btn" type="button" id="facebook"><span><i
             class="fab fa-facebook-f"></i> Facebook</span> 
             </button> -->
-            <button class="btn google-btn social-btn" type="button" id="google"><span><i class="fab fa-google-plus-g"></i> Google</span> 
-            </button>
-        </div>
-        <p style="text-align:center"> OR </p>
-        <input type="email" id="inputEmailOne" class="form-control" placeholder="Email address"  autofocus="" required="">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password">
-
-        <button id="emailLogin" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Sign
-            in</button>
-        <a href="#" id="forgot_pswd">Forgot password?</a>
-        <hr>
-
-        <!-- <p>Don't have an account!</p> -->
-
-        <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up
-            New Account</button>
-    </form>
-
-    <form class="form-reset">
-        <input type="email" id="resetEmail" class="form-control" placeholder="Email address" autofocus="">
-        <button class="btn btn-primary btn-block" type="button" id="resetPasswordEmail">Reset Password</button>
-        <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
-    </form>
-
-    <form class="form-signup" id="signup-form">
-        <div class="social-login">
-            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> 
-            </button>
-        </div>
-        <div class="social-login">
-            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google</span> </button>
-        </div>
-
-        <!-- <p style="text-align:center">OR</p> -->
-
-        <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
-        <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
-        <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
-        
-        <button id="signup-email" class="btn btn-primary btn-block" type="button"><i class="fas fa-user-plus"></i> Sign Up </button>
-        <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
-    </form>
-    <br>
-
-</div>
-
-<!-- Ends modal de inicio de sesión -->
-
-<!-- Starts Carousel -->
-<seccion id="carousel">
-    <div id="carouselFade " class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
-        <div class="carousel-inner">
-            <div class="carousel-item active justify-content-center text-center">
-                <img class="d-block w-50" src="./imagenes/mainCarouselImages/download-removebg-preview.png" alt="First slide">
+                <button class="btn google-btn social-btn" type="button" id="google"><span><i
+                            class="fab fa-google-plus-g"></i> Google</span>
+                </button>
             </div>
-            <div class="carousel-item justify-content-center text-center">
-                <img class="d-block w-50" src="./imagenes/mainCarouselImages/Series-7400-Three-Piece-Full-Port-Ball-Valve-600x600-removebg-preview.png" alt="Second slide">
+            <p style="text-align:center"> OR </p>
+            <input type="email" id="inputEmailOne" class="form-control" placeholder="Email address" autofocus=""
+                required="">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+
+            <button id="emailLogin" class="btn btn-success btn-block"><i class="fas fa-sign-in-alt"></i> Sign
+                in</button>
+            <a href="#" id="forgot_pswd">Forgot password?</a>
+            <hr>
+
+            <!-- <p>Don't have an account!</p> -->
+
+            <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>
+                Sign up
+                New Account</button>
+        </form>
+
+        <form class="form-reset">
+            <input type="email" id="resetEmail" class="form-control" placeholder="Email address" autofocus="">
+            <button class="btn btn-primary btn-block" type="button" id="resetPasswordEmail">Reset Password</button>
+            <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
+        </form>
+
+        <form class="form-signup" id="signup-form">
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign
+                        up with Facebook</span>
+                </button>
             </div>
-            <div class="carousel-item justify-content-center text-center">
-                <img class="d-block w-50" src="./imagenes/mainCarouselImages/series-2100-200-psi-2-way-butterfly-valve-with-johnson-modulating-damper-actuator-removebg-preview.png" alt="Third slide">
+            <div class="social-login">
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign
+                        up with Google</span> </button>
             </div>
-            <div class="carousel-item justify-content-center text-center">
-                <img class="d-block w-50" src="./imagenes/mainCarouselImages/kisspng-valve-solutions-inc-ball-valve-automation-check-va-scotch-yoke-5b3a4faaa8e193-removebg-preview.png" alt="Fourth slide">
-            </div>
-            <div class="carousel-item justify-content-center text-center">
-                <img class="d-block w-50" src="./imagenes/mainCarouselImages/imgbin-butterfly-valve-ball-valve-valve-actuator-valve-solutions-inc-seal-pYEeMDgCP6ZytzWu70LHLCd8V-removebg-preview.png" alt="Fifth slide">
-            </div>
-            <div class="overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="col md-6 offset-md-6 text-center text-md-right">
-                            <h1>VSI valves </h1>
-                            <p class="d-none d-md-block">Valve solutions inc</p>
+
+            <!-- <p style="text-align:center">OR</p> -->
+
+            <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
+            <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
+            <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+
+            <button id="signup-email" class="btn btn-primary btn-block" type="button"><i class="fas fa-user-plus"></i>
+                Sign Up </button>
+            <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+        </form>
+        <br>
+
+    </div>
+
+    <!-- Ends modal de inicio de sesión -->
+
+    <!-- Starts Carousel -->
+    <seccion id="carousel">
+        <div id="carouselFade " class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active justify-content-center text-center">
+                    <img class="d-block w-50" src="./imagenes/mainCarouselImages/download-removebg-preview.png"
+                        alt="First slide">
+                </div>
+                <div class="carousel-item justify-content-center text-center">
+                    <img class="d-block w-50"
+                        src="./imagenes/mainCarouselImages/Series-7400-Three-Piece-Full-Port-Ball-Valve-600x600-removebg-preview.png"
+                        alt="Second slide">
+                </div>
+                <div class="carousel-item justify-content-center text-center">
+                    <img class="d-block w-50"
+                        src="./imagenes/mainCarouselImages/series-2100-200-psi-2-way-butterfly-valve-with-johnson-modulating-damper-actuator-removebg-preview.png"
+                        alt="Third slide">
+                </div>
+                <div class="carousel-item justify-content-center text-center">
+                    <img class="d-block w-50"
+                        src="./imagenes/mainCarouselImages/kisspng-valve-solutions-inc-ball-valve-automation-check-va-scotch-yoke-5b3a4faaa8e193-removebg-preview.png"
+                        alt="Fourth slide">
+                </div>
+                <div class="carousel-item justify-content-center text-center">
+                    <img class="d-block w-50"
+                        src="./imagenes/mainCarouselImages/imgbin-butterfly-valve-ball-valve-valve-actuator-valve-solutions-inc-seal-pYEeMDgCP6ZytzWu70LHLCd8V-removebg-preview.png"
+                        alt="Fifth slide">
+                </div>
+                <div class="overlay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col md-6 offset-md-6 text-center text-md-right">
+                                <h1>VSI valves </h1>
+                                <p class="d-none d-md-block">Valve solutions inc</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+
+            <!-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
@@ -137,774 +153,823 @@
             <span class="sr-only">Next</span>
         </a> -->
 
-    </div>
-</seccion>
+        </div>
+    </seccion>
 
-<!-- Ends Carousel -->
+    <!-- Ends Carousel -->
 
-<!-- Starts Main Form-->
-<div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex pr-auto pl-auto container justify-content-center" >
-    <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
-        <legend class="d-flex text-center justify-content-center" >Valve Retrofit Form</legend>
-        
-<!-- Starts costumer information form -->
-        <fieldset id="seccion1">
-            <div class="row">
-                <p class="col text-center ">Costumer Information</p>
-            </div>
-            <div class="form-row " >
-                <div class="col-md-6  form-group" >
-                    <label for="inputCompanyLabel">    
-                        <!-- <mark data-toggle="tooltip" title="Required"> -->
+    <!-- Starts Main Form-->
+    <div class=" mb-4 mt-4 pb-4 pt-4 ml-auto mr-auto d-flex pr-auto pl-auto container justify-content-center">
+        <form id="mainForm" class="mb-2 mt-2 pb-2 pt-2 margin-left ml-auto mr-auto rounded">
+            <legend class="d-flex text-center justify-content-center">Valve Retrofit Form</legend>
+
+            <!-- Starts costumer information form -->
+            <fieldset id="seccion1">
+                <div class="row">
+                    <p class="col text-center ">Costumer Information</p>
+                </div>
+                <div class="form-row ">
+                    <div class="col-md-6  form-group">
+                        <label for="inputCompanyLabel">
+                            <!-- <mark data-toggle="tooltip" title="Required"> -->
                             Company:
-                        <!-- </mark>  -->
-                        <!-- <span class="required">
+                            <!-- </mark>  -->
+                            <!-- <span class="required">
                             <abbr title="">
                                 required
                             </abbr>
                         </span> -->
+                        </label>
+                        <input type="text" class="form-control" id="inputCompany" placeholder="Required" required>
+                    </div>
+                    <div class="form-group  col-md-6 ">
+                        <label for="inputContactLabel">Contact</label>
+                        <input type="text" class="form-control" id="inputContact" placeholder="Contact Name" required>
+                    </div>
+                </div>
+                <!-- Input text below pending to aprove -->
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Required">
+                </div>
+                <div class="form-group">
+                    <label for="inputPhoneLabel">Phone Number</label>
+                    <input type="number" class="form-control" id="inputPhone" placeholder="678 -123-4567" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCityLabel">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputStateLabel">State</label>
+                        <input type="text" class="form-control" id="inputState">
+
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZipLabel">Zip</label>
+                        <input type="number" class="form-control" id="inputZip">
+                    </div>
+                </div>
+                <br>
+                <div class="col text-center">
+                    <button type="button" id="btnSeccion1" class="btn btn-dark ">Next</button>
+                </div>
+            </fieldset>
+
+            <!-- Ends costumer information form -->
+
+            <!-- Starts Valve information form -->
+
+            <fieldset id="seccion2">
+                <div class="row">
+                    <p class="col text-center ">Valve Information</p>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 ">
+                        <label for="valveSize">Valve Size</label>
+                        <input type="text" class="form-control" id="inputValveSize" placeholder="Required" required>
+                    </div>
+                    <div class="col-md-6 ">
+                        <label for="Brand">Valve Brand</label>
+                        <input type="text" class="form-control" id="inputBrand" placeholder="Required" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="series">Valve Series</label>
+                    <input type="text" class="form-control" id="inputSeries" placeholder="Required">
+                </div>
+
+            </fieldset>
+
+            <!--Start form seccion 3  -->
+
+            <fieldset id="seccion3" class="text-center">
+                <div class="row text-center">
+                    <p class="col text-center ">Valve Type</p>
+                </div>
+                <div class="form-check-inline text-center">
+                    <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way"
+                        value="2way">
+                    <label class="form-check-label text-center" for="exampleRadios1">
+                        2 way </label>
+                </div>
+                <div class="form-check-inline text-center">
+                    <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way"
+                        value="3way">
+                    <label class="form-check-label text-center" for="exampleRadios1">
+                        3 way </label>
+                </div>
+                <br><br>
+
+                <fieldset class="text-center">
+                    <div class="row text-center">
+                        <p class="col text-center ">Actuator Type</p>
+                    </div>
+
+                    <!-- <label for="size">Model:</label> -->
+                    <select id="selectSeccion3" class="text-center" name="select-seccion-3">
+                        <option value="select" selected>Select one</option>
+                        <option value="Electric" id="electric">Electric Actuator</option>
+                        <option value="HP" id="hp">High Pressure Pneumatic</option>
+                        <option value="LP" id="lp">Low Pressure Pneumatic</option>
+                    </select>
+
+                </fieldset>
+                <br><br>
+                <div class="row justify-content-center text-center">
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion2Prev" class="btn btn-dark ">Prev</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion2" class="btn btn-dark ">Next</button>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--Ends form seccion 3  -->
+
+            <!-- Start form seccion 4 -->
+
+            <fieldset class="text-center" id="seccion4">
+                <br>
+                <div class="row text-center">
+                    <legend class="justify-content-center legend1">Electric Actuator</legend>
+                </div><br>
+                <div class="form-row text-center">
+                    <!-- <div class="col-12-lg"> -->
+                    <div class="col-12  justify-content-center">
+                        <select id="selectSeccion4" name="select-seccion-4">
+                            <option value="selectSeccion4" selected>Select one</option>
+                            <option value="Damage_Actuator">Damage Actuator</option>
+                            <option value="Rotary_Actuator">Rotary Actuator</option>
+                        </select>
+                        <!-- <p class="col text-center ">Damage Actuator</p> -->
+                    </div><br>
+
+                    <div class="pt-3 mt-3 pb-3 mb-3 col-12 form-group text-center">
+                        <label for="brand-damage-actuator">Brand</label>
+                        <input type="text" class="form-control" id="inputBrandActuator"><br>
+                        <label for="model-number-actuator">Model Number</label>
+                        <input type="text" class="form-control" id="inputModelNumber">
+                    </div>
+
+                    <br><br>
+                    <!-- <div class="row justify-content-center text-center"> -->
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion3Prev" class="btn btn-dark">
+                            Prev
+                        </button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion3" class="btn btn-success">Submit</button>
+                    </div>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </fieldset>
+
+            <!-- Ends form seccion 4 -->
+
+            <!-- Start form seccion 5  -->
+
+            <fieldset class="text-center" id="seccion5">
+                <div class="row text-center">
+                    <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
+                </div>
+
+                <div class="form-row text-center">
+
+                    <div class="mt-3 pt-3 mb-3 pb-3 col-12 form-group justify-content-center">
+                        <label for="brand-damage-actuator">Brand</label>
+                        <input type="text" class="form-control" id="damageActuatorSecc5">
+                        <label for="model-number-actuator">Model Number</label>
+                        <input type="text" class="form-control" id="damageModelNumberSecc5">
+                    </div>
+                    <div class="col-12 mb-3 pb-3 justify-content-center">
+                        <div class="form-check-inline text-center">
+                            <input class="form-check-input text-center" type="radio" name="radioButtonsSecc5"
+                                id="hp2positions" value="HP-2positions">
+                            <label class="form-check-label text-center">
+                                2 Positions </label>
+                        </div>
+                        <div class="form-check-inline text-center">
+                            <input class="form-check-input text-center" type="radio" name="radioButtonsSecc5"
+                                id="hpModulating" value="HP-Modulating" checked>
+                            <label class="form-check-label text-center">
+                                Modulating </label>
+                        </div>
+                    </div>
+                    <br><br>
+                    <!-- <div class="row justify-content-center text-center"> -->
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion5Prev" class="btn btn-dark">Prev</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion5" class="btn btn-success">Submit</button>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </fieldset>
+
+            <!-- Ends form seccion 5 -->
+
+            <!-- Starts form seccion 6 -->
+
+            <fieldset class="text-center" id="seccion6">
+                <div class="row text-center">
+                    <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
+                </div>
+                <div class="form-row text-center">
+                    <div class="col-12 mt-3 pt-3 mb-3 pb-3 form-group justify-content-center">
+                        <label for="brand-damage-actuator">Brand</label>
+                        <input type="text" class="form-control" id="damageActuatorSecc6">
+                        <label for="model-number-actuator">Model Number</label>
+                        <input type="text" class="form-control" id="damageModelNumberSecc6">
+
+                    </div>
+                    <div class="col-12 mb-3 pb-3 justify-content-center">
+                        <div class="form-check-inline text-center">
+                            <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6"
+                                id="lp2positions" value="lp-2positions">
+                            <label class="form-check-label text-center">
+                                2 Positions </label>
+                        </div>
+                        <div class="form-check-inline text-center">
+                            <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6"
+                                id="lpModulating" value="lpModulating" checked>
+                            <label class="form-check-label text-center">
+                                Modulating
+                            </label>
+                        </div>
+                    </div>
+                    <br><br>
+
+                    <!-- <div class="row justify-content-center text-center">   -->
+
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion4to6Prev" class="btn btn-dark">Prev</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" id="btnSeccion4to6" class="btn btn-success">Submit</button>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </fieldset>
+            <br>
+
+            <!-- Ends form seccion 6 -->
+
+            <!-- Starts form seccion 7 -->
+
+            <fieldset class="text-center" id="seccion7">
+
+                <div class="form-row text-center">
+                    <div class="col justify-content-center">
+                        <legend class="justify-content-center">Three Way Arrangements</legend><br><br>
+                        <legend class="justify-content-center">Top View</legend>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col justify-content-center">
+
+                        <div class="col-12 container">
+                            <img class="img-fluid center-block" src="./imagenes/table.png" alt="Test"><br><br>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container-fluid justify-content-center">
+                    <div class="form-row">
+                        <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
+                        <figure class="col-lg-4">
+                            <img class="img-rounded img-fluid center-block" src="./imagenes/Final-b1-removebg.png"
+                                alt="Test"><br><br>
+                            <label class="form-check-label text-center">
+                                Arrangement 1 </label><br>
+                            <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
+                                value="Arrangement_1">
+                        </figure>
+                        <br>
+
+                        <figure class="col-lg-4">
+                            <img class="img- rounded img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png"
+                                alt="Test"><br><br>
+                            <label class="form-check-label text-center">
+                                Arrangement 2</label><br>
+                            <input class="form-check-input text-center" type="radio" name="arrangements" id="a2"
+                                value="Arrangement_2">
+                        </figure>
+                        <br>
+
+                        <figure class="col-lg-4">
+                            <img class="img- rounded img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png"
+                                alt="Test"><br><br>
+                            <label class="form-check-label text-center">
+                                Arrangement 3 </label><br>
+                            <input class="form-check-input text-center" type="radio" name="arrangements" id="a3"
+                                value="Arrangement_3">
+                        </figure>
+                        <br>
+
+                        <!-- </div> -->
+                        <br><br><br>
+
+                        <div class="container-fluid justify-content-center">
+                            <div class="form-row">
+                                <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
+
+
+                                <figure class="col-lg-4">
+                                    <img class="img-fluid center-block" src="./imagenes/Final-b1-removebg.png"
+                                        alt="Test"><br><br>
+                                    <label class="form-check-label text-center">
+                                        Arrangement 4
+                                    </label><br>
+                                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a4"
+                                        value="Arrangement_4">
+                                </figure>
+
+                                <figure class="col-lg-4">
+                                    <img class="img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png"
+                                        alt="Test"><br><br>
+                                    <label class="form-check-label text-center">
+                                        Arrangement 5 </label><br>
+                                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a5"
+                                        value="Arrangement_5">
+                                </figure>
+
+                                <figure class="col-lg-4">
+                                    <img class="img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png"
+                                        alt="Test"><br><br>
+                                    <label class="form-check-label text-center">
+                                        Arrangement 6 </label><br>
+                                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a6"
+                                        value="Arrangement_6">
+                                </figure>
+                                <!-- </div>  -->
+                            </div>
+
+                            <br><br>
+                            <div class="row justify-content-center text-center">
+                                <div class="col text-center">
+                                    <button type="button" id="btnSeccion7Prev" class="btn btn-dark ">Prev</button>
+                                </div>
+                                <div class="col text-center">
+                                    <button type="button" id="btnSeccion7" class="btn btn-dark ">Next</button>
+                                </div>
+                            </div>
+
+
+            </fieldset>
+
+            <!-- Ends form Seccion 7  -->
+
+            <!-- Start form Seccion 8  -->
+
+            <fieldset class="text-center" id="seccion8">
+                <!-- <div class="row text-center"> -->
+                <div class="form-row d-flex row justify-content-md-center">
+                    <legend class=" justify-content-center legend1">Bonnet Information</legend>
+                </div><br>
+
+                <div class=" d-flex row justify-content-md-center">
+                    <div class="col-lg-auto  ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet1 (1).png"
+                                alt="Bonnet_1"><br>
+                            <br>
+                            <input class="form-check-input text-center form-check-inline" type="radio"
+                                name="BonnetsRadioButtons" id="bonnet1" value="Bonnet_1">
+                        </figure>
+                        <br>
+                    </div>
+
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet2 (1).png"
+                                alt="Bonnet_2">
+                            <br><br>
+                            <input class="form-check-input text-center form-check-inline" type="radio"
+                                name="BonnetsRadioButtons" id="bonnet2" value="Bonnet_2">
+                        </figure>
+                        <br>
+                    </div>
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet3 (1).png"
+                                alt="Bonnet_3">
+                            <br><br>
+                            <input class="form-check-input text-center form-check-inline" type="radio"
+                                name="BonnetsRadioButtons" id="bonnet3" value="Bonnet_3">
+                        </figure>
+                        <br>
+                    </div>
+
+
+                </div> <br>
+
+                <div class="row form-group justify-content-md-center">
+                    <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10  justify-content-md-center form-inline">
+                        <span class=" d-inline-block" id="texto">A</span>
+                        <input type="text" class="form-control " id="bonnetA" name="bonnetA">
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row form-group justify-content-md-center"> -->
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">B</span>
+                        <input type="text" class="form-control " id="bonnetB" name="bonnetB">
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="row form-group justify-content-md-center"> -->
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">C</span>
+                        <input type="text" class="form-control " id="bonnetC" name="bonnetC">
+                    </div>
+                    <!-- </div> -->
+                </div>
+
+                <div class="row text-center">
+                    <legend class=" justify-content-center legend1">Bolt Holes</legend>
+                </div><br>
+                <div class="form-check-inline text-center">
+                    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilled"
+                        value="Bolt_Drilled">
+                    <label class="form-check-label text-center">
+                        Drilled </label>
+                </div>
+                <div class="form-check-inline text-center">
+                    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilledAndTapped"
+                        value="Bolt_Drilled_&_Tapped">
+                    <label class="form-check-label text-center">
+                        Drilled & Tapped
                     </label>
-                    <input type="text" class="form-control" id="inputCompany" placeholder="Required" required>
-                </div>  
-                <div class="form-group  col-md-6 ">
-                    <label for="inputContactLabel">Contact</label>
-                    <input type="text" class="form-control" id="inputContact" placeholder="Contact Name" required>
                 </div>
-            </div>
-            <!-- Input text below pending to aprove -->
-            <div class="form-group">
-                <label for="inputEmail">Email</label>
-                <input type="text" class="form-control" id="inputEmail" placeholder="Required">
-            </div>
-            <div class="form-group">
-                <label for="inputPhoneLabel">Phone Number</label>
-                <input type="number" class="form-control" id="inputPhone" placeholder="678 -123-4567" required>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputCityLabel">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputStateLabel">State</label>
-                    <input type="text" class="form-control" id="inputState">
-
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="inputZipLabel">Zip</label>
-                    <input type="number" class="form-control" id="inputZip">
-                </div>
-            </div>
-            <br>
-            <div class="col text-center">
-                <button type="button" id="btnSeccion1" class="btn btn-dark ">Next</button>
-            </div>
-        </fieldset>
-
-<!-- Ends costumer information form -->
-
-<!-- Starts Valve information form -->
-
-        <fieldset id="seccion2">
-            <div class="row">
-                <p class="col text-center ">Valve Information</p>
-            </div>
-            <div class="form-row">
-                <div class="col-md-6 ">
-                    <label for="valveSize">Valve Size</label>
-                    <input type="text" class="form-control" id="inputValveSize" placeholder="Required" required>
-                </div>
-                <div class="col-md-6 ">
-                    <label for="Brand">Valve Brand</label>
-                    <input type="text" class="form-control" id="inputBrand" placeholder="Required" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="series">Valve Series</label>
-                <input type="text" class="form-control" id="inputSeries"
-                placeholder="Required">
-            </div>
-    
-        </fieldset>
-
-<!--Start form seccion 3  -->
-
-        <fieldset id="seccion3" class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Valve Type</p>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve2way" value="2way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-                2 way </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="exampleRadios" id="valve3way" value="3way" >
-                <label class="form-check-label text-center" for="exampleRadios1">
-            3 way </label>
-            </div>
-            <br><br>
-
-        <fieldset class="text-center">
-            <div class="row text-center">
-                <p class="col text-center ">Actuator Type</p>
-            </div>
-
-            <!-- <label for="size">Model:</label> -->
-            <select id="selectSeccion3" class="text-center" name="select-seccion-3">
-                <option  value="select" selected>Select one</option>
-                <option  value="Electric" id="electric">Electric Actuator</option>
-                <option  value="HP" id="hp">High Pressure Pneumatic</option>
-                <option  value="LP" id="lp">Low Pressure Pneumatic</option>
-            </select>
-
-        </fieldset>
-        <br><br>
-        <div class="row justify-content-center text-center">
-        <div class="col text-center">
-            <button type="button" id="btnSeccion2Prev" class="btn btn-dark ">Prev</button>
-        </div>
-            <div class="col text-center">
-                <button type="button" id="btnSeccion2" class="btn btn-dark ">Next</button>
-            </div>
-</div>
-        </fieldset>
-
-<!--Ends form seccion 3  -->
-
-<!-- Start form seccion 4 -->
-
-        <fieldset class="text-center" id="seccion4">
-            <br><div class="row text-center">
-                <legend class="justify-content-center legend1">Electric Actuator</legend>
-            </div><br>
-<div class="form-row text-center">
-    <!-- <div class="col-12-lg"> -->
-            <div class="col-12  justify-content-center">
-                <select id="selectSeccion4" name="select-seccion-4">
-                    <option value="selectSeccion4" selected>Select one</option>
-                    <option value="Damage_Actuator">Damage Actuator</option>
-                    <option value="Rotary_Actuator">Rotary Actuator</option>
-                </select>
-                <!-- <p class="col text-center ">Damage Actuator</p> -->
-            </div><br>
-    
-            <div class="pt-3 mt-3 pb-3 mb-3 col-12 form-group text-center">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="inputBrandActuator"><br>             
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="inputModelNumber">
-            </div>
-
-            <br><br>
-            <!-- <div class="row justify-content-center text-center"> -->
-            <div class="col text-center">
-                <button type="button" id="btnSeccion3Prev" class="btn btn-dark">
-                    Prev
-                </button>
-            </div>
-            <div class="col text-center">
-                <button type="button" id="btnSeccion3" class="btn btn-success" 
-                >Submit</button>
-            </div>
-            <!-- </div> -->
-            <!-- </div> -->
-            </div>
-        </fieldset>
-
-<!-- Ends form seccion 4 -->
-
-<!-- Start form seccion 5  -->
-
-        <fieldset class="text-center" id="seccion5">
-            <div class="row text-center">
-                <legend class="justify-content-center legend1">High Pressure Pneumatic</legend>
-            </div>
-
-<div class="form-row text-center">
-
-            <div class="mt-3 pt-3 mb-3 pb-3 col-12 form-group justify-content-center">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="damageActuatorSecc5">
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="damageModelNumberSecc5">
-            </div>
-<div class="col-12 mb-3 pb-3 justify-content-center">
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc5" id="hp2positions" value="HP-2positions">
-                <label class="form-check-label text-center">
-                2 Positions </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc5" id="hpModulating" value="HP-Modulating"
-                checked>
-                <label class="form-check-label text-center" >
-                Modulating </label>
-            </div>
-            </div>
-            <br><br>
-    <!-- <div class="row justify-content-center text-center"> -->
-            <div class="col text-center">
-                <button type="button" id="btnSeccion5Prev" class="btn btn-dark">Prev</button>
-            </div>
-            <div class="col text-center">
-                <button type="button" id="btnSeccion5" class="btn btn-success">Submit</button>
-            </div>
-<!-- </div> -->
-</div>
-        </fieldset>
-
-<!-- Ends form seccion 5 -->
-
-<!-- Starts form seccion 6 -->
-
-        <fieldset class="text-center" id="seccion6">
-            <div class="row text-center">
-                <legend class="justify-content-center legend1">Low Pressure Pneumatic</legend>
-            </div>
-        <div class="form-row text-center">    
-            <div class="col-12 mt-3 pt-3 mb-3 pb-3 form-group justify-content-center">
-                <label for="brand-damage-actuator">Brand</label>
-                <input type="text" class="form-control" id="damageActuatorSecc6">
-                <label for="model-number-actuator">Model Number</label>
-                <input type="text" class="form-control" id="damageModelNumberSecc6">
-
-            </div>
-        <div class="col-12 mb-3 pb-3 justify-content-center">
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="lp2positions"
-                value="lp-2positions">
-                <label class="form-check-label text-center">
-                2 Positions </label>
-            </div>
-            <div class="form-check-inline text-center">
-                <input class="form-check-input text-center" type="radio" name="radioButtonsSecc6" id="lpModulating"
-                value="lpModulating"
-                checked>
-                <label class="form-check-label text-center">
-                Modulating
-                </label>
-            </div>
-            </div>
-            <br><br>
-
-<!-- <div class="row justify-content-center text-center">   -->
-
-    <div class="col text-center">
-        <button type="button" id="btnSeccion4to6Prev" class="btn btn-dark" >Prev</button>
-    </div>
-    <div class="col text-center">
-        <button type="button" id="btnSeccion4to6" class="btn btn-success">Submit</button>
-    </div>
-<!-- </div> -->
-</div>
-    </fieldset>
-    <br>
-
-<!-- Ends form seccion 6 -->
-
-<!-- Starts form seccion 7 -->
-
-        <fieldset class="text-center" id="seccion7">
-       
-            <div class="form-row text-center">
-                <div class="col justify-content-center">
-                <legend class="justify-content-center">Three Way Arrangements</legend><br><br>
-                <legend class="justify-content-center">Top View</legend>
-            </div>
-            </div>
-        <div class="form-row">
-            <div class="col justify-content-center">
-
-                <div class="col-12 container">
-                    <img class="img-fluid center-block" src="./imagenes/table.png" alt="Test"><br><br>
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
-
-    <div class="container-fluid justify-content-center">   
-        <div class="form-row">
-                <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
-                <figure class="col-lg-4">
-                    <img class="img-rounded img-fluid center-block" src="./imagenes/Final-b1-removebg.png"  alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 1 </label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a1"
-                    value="Arrangement_1">
-                </figure>
                 <br>
-        
-                <figure class="col-lg-4">
-                    <img class="img- rounded img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 2</label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a2" value="Arrangement_2">
-                </figure>
                 <br>
-
-                <figure class="col-lg-4">
-                    <img class="img- rounded img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
-                    <label class="form-check-label text-center">
-                    Arrangement 3 </label><br>
-                    <input class="form-check-input text-center" type="radio" name="arrangements" id="a3" value="Arrangement_3">
-                </figure>
-<br>
-
-            <!-- </div> -->
-            <br><br><br>
-
-            <div class="container-fluid justify-content-center">
-            <div class="form-row">
-                    <!-- <div class="d-inline-flex mt-3 pt-3 pr-5 pl-5 mb-3 pb-3 col-12 form-group justify-content-center"> -->
-
-                    
-                    <figure class="col-lg-4">
-                        <img class="img-fluid center-block" src="./imagenes/Final-b1-removebg.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 4
-                        </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a4" value="Arrangement_4">
-                    </figure>
-    
-                    <figure class="col-lg-4">
-                        <img class="img-fluid center-block" src="./imagenes/a3-5-removebg-preview.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 5 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a5" value="Arrangement_5">
-                    </figure>
-    
-                    <figure class="col-lg-4">
-                        <img class="img-fluid center-block" src="./imagenes/b6-2-removebg-preview.png" alt="Test"><br><br>
-                        <label class="form-check-label text-center">
-                        Arrangement 6 </label><br>
-                        <input class="form-check-input text-center" type="radio" name="arrangements" id="a6" value="Arrangement_6">
-                    </figure>
-                <!-- </div>  -->
-             </div>
-            
-            <br><br>
-            <div class="row justify-content-center text-center">
-                <div class="col text-center">
-                 <button type="button" id="btnSeccion7Prev" class="btn btn-dark ">Prev</button>
+                <div class="col text-center form-group">
+                    <legend class=" justify-content-center legend1">Hole Size And/Or Thread/Inch</legend>
+                    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
+                    <input type="text" class="form-control" id="holeSize">
                 </div>
-                <div class="col text-center">
-                    <button type="button" id="btnSeccion7" class="btn btn-dark ">Next</button>
-                </div>
-            </div>
-            
-    
-</fieldset>
 
-<!-- Ends form Seccion 7  -->
-
-<!-- Start form Seccion 8  -->
-
-<fieldset class="text-center" id="seccion8">
-    <!-- <div class="row text-center"> -->
-    <div class="form-row d-flex row justify-content-md-center">
-        <legend class=" justify-content-center legend1">Bonnet Information</legend>
-    </div><br>
-
-<div class=" d-flex row justify-content-md-center">
-    <div class="col-lg-auto  ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet1 (1).png" alt="Bonnet_1"><br>
-            <br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet1" value="Bonnet_1">
-        </figure>
-        <br>
-    </div>
-
-    <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet2 (1).png" alt="Bonnet_2">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet2" value="Bonnet_2">
-        </figure>
-        <br>
-    </div>
-    <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/bonnet3 (1).png" alt="Bonnet_3">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="BonnetsRadioButtons" id="bonnet3" value="Bonnet_3">
-        </figure>
-        <br>
-    </div>
-    
-    
-</div> <br>
-
-<div class="row form-group justify-content-md-center">
-    <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
-</div>
-<div class="row form-group justify-content-md-center">
-    <div class="form-group col-sm-10  justify-content-md-center form-inline">
-        <span class=" d-inline-block" id="texto">A</span>
-        <input type="text" class="form-control " id="bonnetA" name="bonnetA">
-    </div>
-<!-- </div> -->
-<!-- <div class="row form-group justify-content-md-center"> -->
-    <div class="form-group col-sm-10 justify-content-md-center form-inline">
-        <span class=" d-inline-block">B</span>
-        <input type="text" class="form-control " id="bonnetB" name="bonnetB">
-    </div>
-<!-- </div> -->
-<!-- <div class="row form-group justify-content-md-center"> -->
-    <div class="form-group col-sm-10 justify-content-md-center form-inline">
-        <span class=" d-inline-block">C</span>
-        <input type="text" class="form-control " id="bonnetC" name="bonnetC">
-    </div>
-<!-- </div> -->
-</div>
-
-<div class="row text-center">
-    <legend class=" justify-content-center legend1">Bolt Holes</legend>
-</div><br>
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilled" value="Bolt_Drilled">
-    <label class="form-check-label text-center">
-        Drilled </label>
-</div>
-<div class="form-check-inline text-center">
-    <input class="form-check-input text-center" type="radio" name="boltHoles" id="boltDrilledAndTapped"
-        value="Bolt_Drilled_&_Tapped">
-    <label class="form-check-label text-center">
-        Drilled & Tapped
-    </label>
-</div>
-<br>
-<br>
-<div class="col text-center form-group">
-    <legend class=" justify-content-center legend1">Hole Size And/Or Thread/Inch</legend>
-    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-    <input type="text" class="form-control" id="holeSize">
-</div>
-
-<div class="col text-center form-group">
-    <legend class=" justify-content-center legend1">Other</legend>
-    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-    <textarea class="form-control" id="otherBonnet" name="otherBonnet" rows="3">
+                <div class="col text-center form-group">
+                    <legend class=" justify-content-center legend1">Other</legend>
+                    <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
+                    <textarea class="form-control" id="otherBonnet" name="otherBonnet" rows="3">
     </textarea>
-</div><br>
+                </div><br>
 
-<div class="row text-center">
-<div class="col text-center form-group">
-    <button type="button" id="btnSeccion8Prev" class="btn btn-dark">Prev</button>
-</div>
+                <div class="row text-center">
+                    <div class="col text-center form-group">
+                        <button type="button" id="btnSeccion8Prev" class="btn btn-dark">Prev</button>
+                    </div>
 
-<div class="col text-center form-group">
-    <button type="button" id="btnSeccion8" class="btn btn-dark">Next</button>
-</div>
-</div>
-</fieldset>
+                    <div class="col text-center form-group">
+                        <button type="button" id="btnSeccion8" class="btn btn-dark">Next</button>
+                    </div>
+                </div>
+            </fieldset>
 
-<!-- Ends form Seccion 8  -->
+            <!-- Ends form Seccion 8  -->
 
-<!-- Starts form Seccion 9  -->
+            <!-- Starts form Seccion 9  -->
 
-<fieldset class="text-center" id="seccion9">
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">Shaft Information</legend>
-    </div><br>
-    <div class="row justify-content-md-center">   
-        <div class="col-lg-auto  ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatt1.png" alt="Test"><br>
-            <br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft1" value="Shaft_1"
-                >
-        </figure>
-        <br>
-        </div>
+            <fieldset class="text-center" id="seccion9">
+                <div class="form-row">
+                    <legend class=" justify-content-center legend1">Shaft Information</legend>
+                </div><br>
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-auto  ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatt1.png"
+                                alt="Test"><br>
+                            <br>
+                            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft"
+                                id="shaft1" value="Shaft_1">
+                        </figure>
+                        <br>
+                    </div>
 
-        <div class="col-lg-auto ">        
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft2.png" alt="Test">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft2" value="Shaft_2">
-        </figure>
-        <br>
-        </div>
-        <div class="col-lg-auto ">
-        <figure class="col-lg-4 justify-content-center">
-            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft3.png" alt="Test">
-            <br><br>
-            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft" id="shaft3" value="Shaft_3">
-        </figure>
-        <br>
-        </div>
-        <div class="col-lg-auto ">
-            <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf4.png" alt="Test">
-                <br><br>
-                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft4" value="Shaft_4">
-            </figure>
-            <br>
-        </div>
-        <div class="col-lg-auto ">
-            <figure class="col-lg-4 justify-content-center">
-                <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf5.png" alt="Test">
-                <br><br>
-            <div class="form-check-inline justify-content-center">    
-                <input class="form-check-input text-center form-check-inline " type="radio" name="radioShaft" id="shaft5" value="Shaft_5">
-            </div>
-            </figure>
-            <br>
-        </div>
-</div>
-<br>         
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft2.png"
+                                alt="Test">
+                            <br><br>
+                            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft"
+                                id="shaft2" value="Shaft_2">
+                        </figure>
+                        <br>
+                    </div>
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shaft3.png"
+                                alt="Test">
+                            <br><br>
+                            <input class="form-check-input text-center form-check-inline" type="radio" name="radioShaft"
+                                id="shaft3" value="Shaft_3">
+                        </figure>
+                        <br>
+                    </div>
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf4.png"
+                                alt="Test">
+                            <br><br>
+                            <input class="form-check-input text-center form-check-inline " type="radio"
+                                name="radioShaft" id="shaft4" value="Shaft_4">
+                        </figure>
+                        <br>
+                    </div>
+                    <div class="col-lg-auto ">
+                        <figure class="col-lg-4 justify-content-center">
+                            <img class="img-rounded img-responsive rounded" src="./imagenes/shafts/shatf5.png"
+                                alt="Test">
+                            <br><br>
+                            <div class="form-check-inline justify-content-center">
+                                <input class="form-check-input text-center form-check-inline " type="radio"
+                                    name="radioShaft" id="shaft5" value="Shaft_5">
+                            </div>
+                        </figure>
+                        <br>
+                    </div>
+                </div>
+                <br>
 
-<div class="row form-group justify-content-md-center">
-        <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">D</span>
-            <input type="text" class="form-control " id="shaftD" name="shaftD">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">    
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">E</span>
-            <input type="text" class="form-control " id="shaftE" name="shaftE">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">F</span>
-            <input type="text" class="form-control " id="shaftF" name="shaftF">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">G</span>
-            <input type="text" class="form-control " id="shaftG" name="shaftG">
-        </div>
-    </div>
-    <div class="row form-group justify-content-md-center">
-        <div class="form-group col-sm-10 justify-content-md-center form-inline">
-            <span class=" d-inline-block">H</span>
-            <input type="text" class="form-control " id="shaftH" name="shaftH">
-        </div>
-    </div>
-    <div class="row justify-content-center text-center">
-<div class="col text-center form-group">
-    <button type="button" id="btnSeccion9Prev" class="btn btn-dark">Prev</button>
-</div>
-    <div class="col text-center form-group">
-        <button type="button" id="btnSeccion9" class="btn btn-dark">Next</button>
-    </div>
-</div>    
-</fieldset>
+                <div class="row form-group justify-content-md-center">
+                    <legend class=" justify-content-center legend1">Dimensions (Closets 0.001")</legend>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">D</span>
+                        <input type="text" class="form-control " id="shaftD" name="shaftD">
+                    </div>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">E</span>
+                        <input type="text" class="form-control " id="shaftE" name="shaftE">
+                    </div>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">F</span>
+                        <input type="text" class="form-control " id="shaftF" name="shaftF">
+                    </div>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">G</span>
+                        <input type="text" class="form-control " id="shaftG" name="shaftG">
+                    </div>
+                </div>
+                <div class="row form-group justify-content-md-center">
+                    <div class="form-group col-sm-10 justify-content-md-center form-inline">
+                        <span class=" d-inline-block">H</span>
+                        <input type="text" class="form-control " id="shaftH" name="shaftH">
+                    </div>
+                </div>
+                <div class="row justify-content-center text-center">
+                    <div class="col text-center form-group">
+                        <button type="button" id="btnSeccion9Prev" class="btn btn-dark">Prev</button>
+                    </div>
+                    <div class="col text-center form-group">
+                        <button type="button" id="btnSeccion9" class="btn btn-dark">Next</button>
+                    </div>
+                </div>
+            </fieldset>
 
-<!-- Ends form Seccion 9  -->
+            <!-- Ends form Seccion 9  -->
 
-<!-- Starts form Seccion 10  -->
+            <!-- Starts form Seccion 10  -->
 
-<fieldset class="text-center" id="seccion10">
-    <div class="row text-center">
-        <legend class=" justify-content-center legend1">Actuator Requirements</legend>
-    </div><br>
-<!-- <fieldset> -->
-    <div class="form-row text-center">
-<div class="col-12 justify-content-center">
-    <div class="form-row custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric" class="form-check-input text-center form-check-inline" >
-        <label for="electricRadioButtonSecc10">Electric</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="pneumaticRadioButtonSecc10" name="seccion10" value="Pneumatic" class="form-check-input text-center form-check-inline">
-        <label for="pneumaticRadioButtonSecc10">Pneumatic</label>
-    </div>
-<!-- </div> -->
-    <!-- </fieldset> -->
-    <br><hr><br>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions" class="form-check-input text-center form-check-inline">
-        <label for="positionRadioButtonSecc10">2 Positions</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline form-check-inline">
-        <input type="radio" id="modulatingRadioButtonSecc10" name="seccion10.1" value="Modulating" class="form-check-input text-center form-check-inline">
-        <label for="modulatingRadioButtonSecc10">Modulating</label>
-    </div>
-    <br><br><hr><br>
-    
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="springReturnSecc10" name="seccion10.2" value="Spring_Return(Failsafe)" class="form-check-input text-center form-check-inline">
-        <label for="springReturnSecc10">Spring Return (Failsafe)</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="ncSecc10" name="seccion10.2" value="N.C." class="form-check-input text-center form-check-inline">
-        <label  for="ncSecc10">N.C.</label>
-    </div>
-    <br><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSpringReturnSecc10" name="seccion10.2" value="No_Spring_Return" class="form-check-input text-center form-check-inline">
-        <label for="noSpringReturnSecc10">No Spring Return</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="noSecc10" name="seccion10.2" value="N.O." class="form-check-input text-center form-check-inline">
-        <label for="noSecc10">N.O</label>
-    </div>
-    <br><br><hr>
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">Power (Electric or Pneumatic)</legend>
-    </div><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC" class="option1 form-check-input text-center form-check-inline" >
-        <label for="120vacSecc10">120 VAC</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="20PsigSecc10" name="seccion10.3" value="20_Psig" class="option2 form-check-input text-center form-check-inline">
-        <label for="20PsigSecc10">20 psig</label>
-    </div><br><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="24vacSecc10" name="seccion10.3" value="24_V_AC" class="option3 form-check-input text-center form-check-inline">
-        <label for="24vacSecc10">24 VAC</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="80PsigSecc10" name="seccion10.3" value="80_Psig" class="option4 form-check-input text-center form-check-inline">
-        <label for="80PsigSecc10">80 psig</label>
-    </div><br><br>
-    
-    <div class="col text-center form-group">
-        <legend class=" justify-content-center legend1">Other</legend>
-        <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-        <textarea class="form-control" id="otherInput10" name="otherBonnet" rows="3">
+            <fieldset class="text-center" id="seccion10">
+                <div class="row text-center">
+                    <legend class=" justify-content-center legend1">Actuator Requirements</legend>
+                </div><br>
+                <!-- <fieldset> -->
+                <div class="form-row text-center">
+                    <div class="col-12 justify-content-center">
+                        <div class="form-row custom-control custom-radio custom-control-inline form-check-inline">
+                            <input type="radio" id="electricRadioButtonSecc10" name="seccion10" value="Electric"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="electricRadioButtonSecc10">Electric</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline form-check-inline">
+                            <input type="radio" id="pneumaticRadioButtonSecc10" name="seccion10" value="Pneumatic"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="pneumaticRadioButtonSecc10">Pneumatic</label>
+                        </div>
+                        <!-- </div> -->
+                        <!-- </fieldset> -->
+                        <br>
+                        <hr><br>
+                        <div class="custom-control custom-radio custom-control-inline form-check-inline">
+                            <input type="radio" id="positionRadioButtonSecc10" name="seccion10.1" value="2_Positions"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="positionRadioButtonSecc10">2 Positions</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline form-check-inline">
+                            <input type="radio" id="modulatingRadioButtonSecc10" name="seccion10.1" value="Modulating"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="modulatingRadioButtonSecc10">Modulating</label>
+                        </div>
+                        <br><br>
+                        <hr><br>
+
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="springReturnSecc10" name="seccion10.2"
+                                value="Spring_Return(Failsafe)" class="form-check-input text-center form-check-inline">
+                            <label for="springReturnSecc10">Spring Return (Failsafe)</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="ncSecc10" name="seccion10.2" value="N.C."
+                                class="form-check-input text-center form-check-inline">
+                            <label for="ncSecc10">N.C.</label>
+                        </div>
+                        <br><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="noSpringReturnSecc10" name="seccion10.2" value="No_Spring_Return"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="noSpringReturnSecc10">No Spring Return</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="noSecc10" name="seccion10.2" value="N.O."
+                                class="form-check-input text-center form-check-inline">
+                            <label for="noSecc10">N.O</label>
+                        </div>
+                        <br><br>
+                        <hr>
+                        <div class="form-row">
+                            <legend class=" justify-content-center legend1">Power (Electric or Pneumatic)</legend>
+                        </div><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="120vacSecc10" name="seccion10.3" value="120_V_AC"
+                                class="option1 form-check-input text-center form-check-inline">
+                            <label for="120vacSecc10">120 VAC</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="20PsigSecc10" name="seccion10.3" value="20_Psig"
+                                class="option2 form-check-input text-center form-check-inline">
+                            <label for="20PsigSecc10">20 psig</label>
+                        </div><br><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="24vacSecc10" name="seccion10.3" value="24_V_AC"
+                                class="option3 form-check-input text-center form-check-inline">
+                            <label for="24vacSecc10">24 VAC</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="80PsigSecc10" name="seccion10.3" value="80_Psig"
+                                class="option4 form-check-input text-center form-check-inline">
+                            <label for="80PsigSecc10">80 psig</label>
+                        </div><br><br>
+
+                        <div class="col text-center form-group">
+                            <legend class=" justify-content-center legend1">Other</legend>
+                            <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
+                            <textarea class="form-control" id="otherInput10" name="otherBonnet" rows="3">
         </textarea>
-    </div>
-   
-        <div class="form-row">
-            <legend class=" justify-content-center legend1">Control Signal</legend>
-        </div><br>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="4-20mASecc10" name="seccion10.4" value="4-20mA" class="four20 form-check-input text-center form-check-inline">
-            <label  for="4-20mASecc10">4-20 mA</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="3-15psig" name="seccion10.4" value="3-15_Psig" class="three15 form-check-input text-center form-check-inline">
-            <label  for="3-15psig">3-15 psig</label>
-        </div><br><br>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC" class="two-10 form-check-input text-center form-check-inline">
-            <label  for="2-10vdcSecc10">2-10 VDC</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="floatingSecc10" name="seccion10.4" value="Floating" class="form-check-input text-center form-check-inline">
-            <label  for="floatingSecc10">Floating</label>
-        </div><br><br>
-        
-        <div class="col text-center form-group">
-            <legend class=" justify-content-center legend1">Other</legend>
-            <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
-            <textarea class="form-control" id="otherControlInput10" name="otherSecc10.2" raws="3">
+                        </div>
+
+                        <div class="form-row">
+                            <legend class=" justify-content-center legend1">Control Signal</legend>
+                        </div><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="4-20mASecc10" name="seccion10.4" value="4-20mA"
+                                class="four20 form-check-input text-center form-check-inline">
+                            <label for="4-20mASecc10">4-20 mA</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="3-15psig" name="seccion10.4" value="3-15_Psig"
+                                class="three15 form-check-input text-center form-check-inline">
+                            <label for="3-15psig">3-15 psig</label>
+                        </div><br><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="2-10vdcSecc10" name="seccion10.4" value="2-10_VDC"
+                                class="two-10 form-check-input text-center form-check-inline">
+                            <label for="2-10vdcSecc10">2-10 VDC</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="floatingSecc10" name="seccion10.4" value="Floating"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="floatingSecc10">Floating</label>
+                        </div><br><br>
+
+                        <div class="col text-center form-group">
+                            <legend class=" justify-content-center legend1">Other</legend>
+                            <!-- <label for="holeSize">Hole Size And/Or Thread/Inch</label> -->
+                            <textarea class="form-control" id="otherControlInput10" name="otherSecc10.2" raws="3">
             </textarea>
-        </div>
+                        </div>
 
-    <div class="form-row">
-        <legend class=" justify-content-center legend1">NEMA 4 Enclosure Required</legend>
-    </div><br>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes" class="form-check-input text-center form-check-inline">
-        <label for="yesSecc10">Yes</label>
+                        <div class="form-row">
+                            <legend class=" justify-content-center legend1">NEMA 4 Enclosure Required</legend>
+                        </div><br>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="yesSecc10" name="seccion10.5" value="Yes"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="yesSecc10">Yes</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="notSecc10" name="seccion10.5" value="No"
+                                class="form-check-input text-center form-check-inline">
+                            <label for="notSecc10">No</label>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+
+
+
+                        <div class="row justify-content-center text-center">
+
+                            <div class="col text-center form-group">
+                                <button type="button" id="btnSeccion10Prev" class="btn btn-dark">Prev</button>
+                            </div>
+
+                            <div class="col text-center form-group ">
+                                <button type="button" id="btnSeccion10" class="btn btn-success">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Ends form Seccion 10  -->
+
+
+            <!-- Ends Product information form -->
+
+
+        </form>
     </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="notSecc10" name="seccion10.5" value="No" class="form-check-input text-center form-check-inline">
-        <label for="notSecc10">No</label>
-    </div>
-    <br>
-    <br>
-    <br>
-
-    
-
-    <div class="row justify-content-center text-center">
-        
-    <div class="col text-center form-group">
-        <button type="button" id="btnSeccion10Prev" class="btn btn-dark">Prev</button>
-    </div>
-
-    <div class="col text-center form-group ">
-        <button type="button" id="btnSeccion10" class="btn btn-success">Submit</button>
-    </div>
-    
-    </div>
-    </div>
-    </div>
-</fieldset>
-
-<!-- Ends form Seccion 10  -->
 
 
-<!-- Ends Product information form -->
 
-        
-    </form>
-</div>
-    
-    
-
-<!-- Footer -->
+    <!-- Footer -->
 
     <footer id="footer" class="pb-2 pt-2 container-fluid bg-dark">
         <div class="mb-2 mt-2 pb-2 pt-2 ml-auto mr-auto d-flex container justify-content-center">
-            
+
             <!-- <h1 class=" text-center justify-content-md-center">By EdnGG</h1>
             <a class="logo-github" target="_blank" href="https://github.com/EdnGG">
             
                 <i class="fab fa-github-alt "></i>
             </a> -->
-           
+
         </div>
-        <!-- <div class="mb-2 mt-2 pb-2 pt-2 ml-auto mr-auto d-flex container justify-content-center">
+        <div id="footer" class="mb-2 mt-2 pb-2 pt-2 ml-auto mr-auto d-flex container justify-content-center">
             <a class="logo-github" target="_blank" href="./forms.html">
 
-                <button class="btn-success">Results</button>
+                <button class="btn-success">Corporative</button>
             </a>
-        </div> -->
-        
+        </div>
+
     </footer>
 
     <!-- /Footer -->
 
-    
-    
-<!-- Firebase App is always required and must be first -->
-    
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-<!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
 
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-crossorigin="anonymous"></script>
-    
-<script src="./config/configFirebase.js"></script>
-<!-- <script src="notifications-sw.js"></script> -->
-<!-- <script src="./js/notifications.js"></script> -->
-<script src="./js/index.js"></script>
-<script src="./js/autenticacion/authControl.js"></script>
-<script src="./js/autenticacion/autenticacion.js"></script>
-<script src="./js/posts.js"></script>
-<!-- <script src="./js/routes/routes.js"></script>   -->
 
-<!-- Sweet Alert library -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   
+    <!-- Firebase App is always required and must be first -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="./config/configFirebase.js"></script>
+    <!-- <script src="notifications-sw.js"></script> -->
+    <!-- <script src="./js/notifications.js"></script> -->
+    <script src="./js/index.js"></script>
+    <script src="./js/autenticacion/authControl.js"></script>
+    <script src="./js/autenticacion/autenticacion.js"></script>
+    <script src="./js/posts.js"></script>
+    <!-- <script src="./js/routes/routes.js"></script>   -->
+
+    <!-- Sweet Alert library -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>

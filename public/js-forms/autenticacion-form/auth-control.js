@@ -1,4 +1,4 @@
-// require('dotenv').config()
+// require("dotenv").config();
 console.log("Hello from auth-control.js");
 
 const btnSubmit = document.querySelector("#submit");
@@ -16,7 +16,7 @@ btnSubmit.addEventListener("click", () => {
       icon: 'error'
     })
     console.log('user not autorized')
-    console.log(process.env.EMAIL_VSI)
+    console.log(process.env.EMAIl)
   } else {
     auth.emailLogin(email, password);
 

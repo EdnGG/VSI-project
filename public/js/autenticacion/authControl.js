@@ -72,6 +72,8 @@ $(() => {
   });
 });
 
+
+// RESET password
 $("#resetPasswordEmail").click(() => {
   var auth = firebase.auth();
   let email = $("#resetEmail").val();
@@ -79,13 +81,13 @@ $("#resetPasswordEmail").click(() => {
   if (email != "") {
     auth
       .sendPasswordResetEmail(email)
-      .then(function() {
+      .then(function () {
         swal({
           title: `We sent an email to reset your password, please check it out `,
           icon: `success`
         });
       })
-      .catch(function(err) {
+      .catch(function (err) {
         swal({
           title: `Something went wrong: ${err}`,
           icon: `error`

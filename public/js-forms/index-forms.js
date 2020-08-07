@@ -1,3 +1,5 @@
+//require("dotenv").config();
+
 const formContainer = document.querySelector("#form_container");
 const mainContainer = document.querySelector("#main");
 const btnCloseSecion = document.querySelector("#btnCloseSecion");
