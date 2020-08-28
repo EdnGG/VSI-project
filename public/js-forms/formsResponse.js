@@ -97,10 +97,10 @@ function togle3() {
 
 // Ends Toggle buttons
 
-// Getting data from firestore to full those tables
+// Getting data from firestore to seed all tables
 let tableForm = document.querySelector("#table");
 db.collection("3_Way").onSnapshot(querySnapshot => {
-  tableForm.innerHTML = ""; // checar
+  tableForm.innerHTML = "";
   querySnapshot.forEach(doc => {
     //console.log(`${doc.id} => ${doc.data()}`);
     // console.table(`${doc.data()}`);
@@ -185,6 +185,11 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                     Edit
                 </button>
               </td>
+              <td>
+                <button class="btn btn-info"
+                    onclick="deleteArrangements('${doc.id}')">PDF
+                </button>
+              </td>
         </tr>
       `;
   });
@@ -195,8 +200,6 @@ let tableForm2 = document.querySelector("#table2");
 db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
   tableForm2.innerHTML = "";
   querySnapshot.forEach(doc => {
-    //console.log(`${doc.id} => ${doc.data()}`);
-
     tableForm2.innerHTML += `
         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
             <th class="">${doc.id}</th>
@@ -216,14 +219,13 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                 <td>${doc.data().Actuator_Type}</td>
                 <td>${doc.data().Electric_Actuator}</td>
                 <td>
-                  <button class="btn btn-danger" onclick="deleteElectricAct('${
-      doc.id
-      }')">Delete</button>
+                  <button class="btn btn-danger" 
+                  onclick="deleteElectricAct('${doc.id}')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" onclick="editElectricActuator('${
-      doc.id
-      }','${doc.data().Company_Name}',
+                  <button class="btn btn-warning" onclick="editElectricActuator('
+                  ${doc.id}',
+                  '${doc.data().Company_Name}',
                   '${doc.data().Contact_Name}', 
                   '${doc.data().Contact_Email}',
                   '${doc.data().Phone_Contact}',
@@ -237,12 +239,116 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                   '${doc.data().Electric_Actuator}')">Edit
                   </button>
                 </td>
+                <td>
+                <button class="btn btn-info"
+                    onclick="elecActuatorPDF('${doc.id}',
+                  '${doc.data().Company_Name}',
+                  '${doc.data().Contact_Name}', 
+                  '${doc.data().Contact_Email}',
+                  '${doc.data().Phone_Contact}',
+                  '${doc.data().City}','${doc.data().State}',
+                  '${doc.data().Zip}','${doc.data().Valve_Size}',
+                  '${doc.data().Brand}','${doc.data().Series}',
+                  '${doc.data().Brand_Electric_Actuator}',
+                  '${doc.data().Model_Electric_Actuator}',
+                  '${doc.data().Valve_Type}',
+                  '${doc.data().Actuator_Type}',
+                  '${doc.data().Electric_Actuator}')">PDF
+                </button>
+              </td>
                 
         </tr>
       
       `;
   });
 });
+
+function elecActuatorPDF(id,
+  company,
+  contactName,
+  email,
+  phoneContact,
+  city,
+  state,
+  zip,
+  valveSizeSecc2,
+  brandSecc2,
+  seriesSecc2,
+  brandActuatorSecc4,
+  modelActuatorSecc4,
+  typeValveSecc3,
+  dropdown,
+  electricActuator) {
+
+  let containerPdf = document.querySelector("#pdf")
+
+  let pdf = new jsPDF({
+    orientation: 'p',
+    unit: 'mm',
+    format: 'a4',
+    putOnlyUsedFonts: true,
+    floatPrecision: 16 // or "smart", default is 16
+  });
+  let options = {
+    backgroundColor: '#ffffff',
+  }
+
+  let template = `
+  <div class="container justify-content-center template">
+  <div class="row title">
+<figure class="header-logotipo text-center text-md-left">
+        <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo" />
+      </figure>    <h1 class="costumer-info-title">Costumer information</h1>
+
+      </div>
+        <div class="row">
+          <div class="col-4">
+              <span>Company</span>
+              <p>${company}</p>
+          </div>
+
+          <div class="col-4 ">
+              <span>Contact</span>
+              <p>${contactName}</p>
+          </div>
+          <div class="col-4">
+              <span>Email</span>
+              <p>${email}</p>
+          </div>
+        </div>
+                
+        <div class="row">
+          <div class="col-3">
+              <span for="inputPhoneLabel">Phone Number</span>
+              <p>${phoneContact}</p>
+          </div>
+          <div class="col-3">
+              <span>City</span>
+              <p>${city}</p>
+          </div>
+          <div class="col-3">
+              <span>State</span>
+              <p>${state}</p>
+          </div>
+          <div class="col-3">
+              <span>Zip</span>
+              <p>${zip}</p>
+          </div>
+        </div>
+    </div>
+  `
+  containerPdf.innerHTML = template
+
+  // pdf.addHTML(document.querySelector('#pdfElectric'), options, function () {
+  //   pdf.save(`test.pdf`)
+  // })
+
+  pdf.addHTML(containerPdf, options, function () {
+    pdf.save(`${company}.pdf`)
+    containerPdf.innerHTML = ''
+  })
+
+}
 
 let tableForm3 = document.querySelector("#table3");
 db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
@@ -290,6 +396,11 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                   '${doc.data().Actuator_Mode}')">Edit
                   </button>
                 </td>
+                <td>
+                <button class="btn btn-info"
+                    onclick="deleteArrangements('${doc.id}')">PDF
+                </button>
+              </td>
                 
         </tr>
       
@@ -343,20 +454,17 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                     )">Edit
                   </button>
                 </td>
+                <td>
+                <button class="btn btn-info"
+                    onclick="deleteArrangements('${doc.id}')">PDF
+                </button>
+              </td>
 
         </tr>
       
       `; // En el boton con la funcion que esta dentro del metodo "onclick" contiene el valor de las variables que se encuentran en la DB
   });
 });
-
-// db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
-//   //console.log("Current data: ", doc.data());
-//   swal({
-//     text: `New post on Electric Actuator Table ${querySnapshot}`,
-//     icon: "info"
-//   });
-// });
 
 // Ends Getting data from firestore to seed tables
 
@@ -366,7 +474,6 @@ var modalContainerHP = document.querySelector("#modalHP");
 var modalContainerElectric = document.querySelector("#modalE");
 var modalContainerTreeWay = document.querySelector("#modalTreeWay");
 
-//
 
 let shiftLP = true;
 function editLowPressure(
@@ -1349,54 +1456,131 @@ function editArrangements(
 // Delete Seccion
 function deleteLowPressure(id) {
   // Delete Data Low Pressure Pneumatic Actuator
-  db.collection("LowP_Pneumatic")
-    .doc(id)
-    .delete()
-    .then(function () {
-      console.log("Document successfully deleted!");
-    })
-    .catch(function (error) {
-      console.error("Error removing document: ", error);
+
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this document!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        db.collection("LowP_Pneumatic")
+          .doc(id)
+          .delete()
+          .then(function () {
+            console.log("Document successfully deleted!");
+          })
+          .catch(function (error) {
+            console.error("Error removing document: ", error);
+          });
+
+        swal("Poof! Your document has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your document is safe!");
+      }
     });
+
+
 }
 
 function deleteHighPressure(id) {
   // Delete Data High Pressure Pneumatic Actuator
-  db.collection("HP_Pneumatic")
-    .doc(id)
-    .delete()
-    .then(function () {
-      console.log("Document successfully deleted!");
-    })
-    .catch(function (error) {
-      console.error("Error removing document: ", error);
+
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this document!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        db.collection("HP_Pneumatic")
+          .doc(id)
+          .delete()
+          .then(function () {
+            console.log("Document successfully deleted!");
+          })
+          .catch(function (error) {
+            console.error("Error removing document: ", error);
+          });
+
+        swal("Poof! Your document has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your document is safe!");
+      }
     });
+
 }
 
 function deleteElectricAct(id) {
   // Delete Data Electric Actuator
-  db.collection("Electric_Actuator")
-    .doc(id)
-    .delete()
-    .then(function () {
-      console.log("Document successfully deleted!");
-    })
-    .catch(function (error) {
-      console.error("Error removing document: ", error);
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        db.collection("Electric_Actuator")
+          .doc(id)
+          .delete()
+          .then(function () {
+            console.log("Document successfully deleted!");
+          })
+          .catch(function (error) {
+            console.error("Error removing document: ", error);
+          });
+        swal("Poof! Your file has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your file is safe!");
+      }
     });
+
+
+
 }
 
 function deleteArrangements(id) {
   // Delete Data 3 way Arrangemets
-  db.collection("3_Way")
-    .doc(id)
-    .delete()
-    .then(function () {
-      console.log("Document successfully deleted!");
-    })
-    .catch(function (error) {
-      console.error("Error removing document: ", error);
+
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this document!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+      if (willDelete) {
+        db.collection("3_Way")
+          .doc(id)
+          .delete()
+          .then(function () {
+            console.log("Document successfully deleted!");
+          })
+          .catch(function (error) {
+            console.error("Error removing document: ", error);
+          });
+
+        swal("Poof! Your document has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your document is safe!");
+      }
     });
+
 }
 
 // Ends Delete Seccion

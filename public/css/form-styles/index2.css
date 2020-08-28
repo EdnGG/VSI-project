@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Varela);
 body{
   margin: 0px;
   padding: 0px;
@@ -74,6 +75,25 @@ tr:hover {
   margin-right: 85px;
 }
 
+.header-logotipo{
+  transform: scale(1.2);
+  border-right-style: solid;
+  border-width: 2px;
+  border-color: #fff;
+  border-radius: 60%;
+  height: 140px;
+  padding: 20px;
+  width: 140px;
+  transition: 0.6s;
+  -webkit-border-radius: 60%;
+  -moz-border-radius: 60%;
+  -ms-border-radius: 60%;
+  -o-border-radius: 60%;
+  margin-right: 5em;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
 .headerppal .header-avatar img {
   border-radius: 70%;
   height: 100px;
@@ -90,36 +110,6 @@ body {
   background-color: #cfcdcd;
 }
 
-/* Carousel */
-
-#carousel .carousel-inner img {
-  max-height: 40vh;
-  object-fit: cover;
-  /* filter: grayscale(100%);
-  -webkit-filter: grayscale(100%); */
-}
-
-#carouselFade {
-  position: relative;
-}
-
-#carouselFade .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-}
-
-#carouselFade .overlay .container,
-#carouselFade .overlay .row {
-  height: 40%;
-}
-/* Ends Carousel */
-
-@import url(https://fonts.googleapis.com/css?family=Varela);
 
 html {
   height: 100%;
@@ -319,3 +309,33 @@ select:-webkit-autofill {
 }
 
 /* Ends login form seccion */
+
+.electPDF{
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  font-size: 8px;
+}
+.template{
+  font-size: 8px;
+}
+ /* .title{
+   display: flex;
+   flex-direction: row;
+ } */
+
+ .image{
+  width:100px;
+}
+.title{
+   display: flex;
+   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+ }
+.costumer-info-title{
+  padding-left: 150px;
+/*   display: flex; */
+/*   justify-content: center; */
+  
+}

@@ -4,6 +4,7 @@ function postElectric() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
   let mainForm = document.querySelector("#mainForm");
+  let footer = document.querySelector("#footer")
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
@@ -57,6 +58,8 @@ function postElectric() {
       mainForm.style.display = "none";
       loginForm.style.display = "none";
       carousel.style.display = "block";
+      footer.style.display = "none"
+
 
       swal({
         title: `Thanks!! We'll contact you soon`,
@@ -75,6 +78,7 @@ function postHp() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
   let mainForm = document.querySelector("#mainForm");
+  let footer = document.querySelector("#footer")
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
@@ -108,6 +112,8 @@ function postHp() {
   mainForm.style.display = "none";
   loginForm.style.display = "none";
   carousel.style.display = "block";
+  footer.style.display = "none"
+
 
   db.collection("HP_Pneumatic")
     .add({
@@ -147,9 +153,10 @@ function postLp() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
   let mainForm = document.querySelector("#mainForm");
+  let footer = document.querySelector("#footer")
+  footer.style.display = "none"
 
   let company = document.querySelector("#inputCompany").value;
-
   let contactName = document.querySelector("#inputContact").value;
   let email = document.querySelector("#inputEmail").value;
   let phoneContact = document.querySelector("#inputPhone").value;
@@ -175,6 +182,7 @@ function postLp() {
   mainForm.style.display = "none";
   loginForm.style.display = "none";
   carousel.style.display = "block";
+  footer.style.display = "none"
 
   db.collection("LowP_Pneumatic")
     .add({
@@ -213,6 +221,7 @@ function threeWay() {
   let carousel = document.querySelector("#carousel");
   let loginForm = document.querySelector("#logreg-forms");
   let mainForm = document.querySelector("#mainForm");
+  let footer = document.querySelector("#footer")
 
   let company = document.querySelector("#inputCompany").value;
   let contactName = document.querySelector("#inputContact").value;
@@ -278,6 +287,7 @@ function threeWay() {
   mainForm.style.display = "none";
   loginForm.style.display = "none";
   carousel.style.display = "block";
+  footer.style.display = "none"
 
   db.collection("3_Way")
     .add({

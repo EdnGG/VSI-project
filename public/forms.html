@@ -70,31 +70,7 @@
 
   <div class="container justity-content-center col-12" id="main">
 
-    <!-- carrousel -->
-    <!-- <div class="container">
-      <div class="row justify-content-center text-center" id="carousel-admin_seccion">
-        <div id="carousel-admin" class="row carousel-inner slide carousel-fade justify-content-center"
-          data-ride="carousel" data-pause="false">
-          <div class="col-sm-4 carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-100 justify-content-center" src="./imagenes/formImages/threeWay/t1.png"
-                alt="First slide" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="./imagenes/formImages/threeWay/t2-removebg-preview.png"
-                alt="Second slide" />
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="./imagenes/formImages/threeWay/t3-removebg-preview.png"
-                alt="Third slide" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- carrousel / -->
-
-    <!-- Start buttons seccion -->
+    <!-- Start toogle buttons seccion -->
     <div class="container">
       <div class="row justify-content-center">
         <!-- <div class="col-12  justify-content-center"> -->
@@ -181,6 +157,7 @@
             <th scope="col" class="text-center">Enclosure Required</th>
             <th scope="col" class="text-center">Delete</th>
             <th scope="col" class="text-center">Edit</th>
+            <th scope="col" class="text-center">PDF</th>
           </tr>
         </thead>
         <tbody id="table"></tbody>
@@ -191,7 +168,7 @@
 
 
   <!-- Start Table for Electric Actuator -->
-  <div class="container ml-1">
+  <div class="container ml-1" id="pdfElectric">
     <!-- Start Electric table -->
     <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableTwo">
       <table class="table table-hover responsetable">
@@ -220,6 +197,7 @@
             <th scope="col" class="text-center">Electric Actuator</th>
             <th scope="col" class="text-center">Delete</th>
             <th scope="col" class="text-center">Edit</th>
+            <th scope="col" class="text-center">PDF</th>
           </tr>
         </thead>
         <tbody id="table2"></tbody>
@@ -259,6 +237,7 @@
             <th scope="col" class="text-center">Actuator Mode</th>
             <th scope="col" class="text-center">Delete</th>
             <th scope="col" class="text-center">Edit</th>
+            <th scope="col" class="text-center">PDF</th>
           </tr>
         </thead>
         <tbody id="table3"></tbody>
@@ -299,6 +278,7 @@
             <th scope="col" class="text-center">Actuator Mode</th>
             <th scope="col" class="text-center">Delete</th>
             <th scope="col" class="text-center">Edit</th>
+            <th scope="col" class="text-center">PDF</th>
           </tr>
         </thead>
         <!-- se agrega el contenido dinamicamente -->
@@ -319,6 +299,8 @@
   <!-- modal LP -->
   <div class="col-12 justify-content-center text-center" id="modalLP"></div>
 
+  <div id="pdf" class="electPDF"></div>
+
   <!-- Firebase App is always required and must be first -->
 
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
@@ -327,6 +309,7 @@
   <!-- <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-database.js"></script>-->
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-messaging.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-functions.js"></script>
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -339,7 +322,15 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
   <!-- Scripts  -->
+
+  <!-- PDF Libraries -->
+
+  <script defer src="./vendor/html2canvas.js"></script>
+  <script defer src="./vendor/jspdf.js"></script>
+
+  <!--  / PDF Libraries -->
 
   <script src="./config/configFirebase.js"></script>
   <script src="./notifications-sw.js"></script>
@@ -351,7 +342,7 @@
   <script src="./js-forms/autenticacion-form/autentication.js"></script>
   <script src="./js-forms/autenticacion-form/auth-control.js"></script>
   <!-- <script src="./js/stats.js"></script> -->
-  <script src="./js/particles.js"></script>
+  <!-- <script src="./js/particles.js"></script> -->
 
   <!-- Sweet Alert library -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
