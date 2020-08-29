@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Forms</title>
-  <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap CSS -->
@@ -69,6 +68,9 @@
   <br /><br />
 
   <div class="container justity-content-center col-12" id="main">
+
+
+
 
     <!-- Start toogle buttons seccion -->
     <div class="container">
@@ -168,7 +170,7 @@
 
 
   <!-- Start Table for Electric Actuator -->
-  <div class="container ml-1" id="pdfElectric">
+  <div class="container ml-1 mr-1">
     <!-- Start Electric table -->
     <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable" id="tableTwo">
       <table class="table table-hover responsetable">
@@ -204,8 +206,6 @@
       </table>
     </div>
     <!-- Ends Table for Electric Actuator -->
-
-
     <!-- Ends second main div -->
   </div>
   <!-- End Table for Electric Actuator -->
@@ -217,7 +217,7 @@
         <caption>
           Retrofit Forms for High Pressure Actuators Requests
         </caption>
-        <thead class="">
+        <thead class="justify-content-center text-center">
           <tr class="justity-content-center text-center bg-secondary">
             <th scope="col" class="text-center">ID</th>
             <th scope="col" class="text-center">Company</th>
@@ -255,9 +255,7 @@
           Retrofit Forms for Low Pressure Actuators Requests
         </caption>
 
-        <div style="overflow-x:auto;">
 
-        </div>
         <thead class="">
           <tr class="justity-content-center text-center bg-secondary">
             <th scope="col" class="text-center">ID</th>
@@ -290,6 +288,10 @@
   </div>
   <!-- End Table for LP Actuator -->
 
+
+
+
+
   <!-- modal TreeWay -->
   <div class="col-12 justify-content-center text-center" id="modalTreeWay"></div>
   <!-- modal Electric -->
@@ -298,6 +300,162 @@
   <div class="col-12 justify-content-center text-center" id="modalHP"></div>
   <!-- modal LP -->
   <div class="col-12 justify-content-center text-center" id="modalLP"></div>
+
+
+  <!-- MODAL -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <!-- PDF -->
+        <div class="modal-header header-container">
+
+          <!-- <figure class="logo">
+            <img src="./assets/images/logo-valvesolutions.png" alt="Blog Logotipo">
+          </figure> -->
+          <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body data-seccion">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputCompany" class="col-sm-3 col-form-label">Company</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputCompany">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputContact" class="col-sm-3 col-form-label">Contact</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputContact">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputEmail">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" id="inputPhone">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputCity" class="col-sm-3 col-form-label">City</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputCity">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputState" class="col-sm-3 col-form-label">State</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputState">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputZipcode" class="col-sm-3 col-form-label">Zipcode</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" id="inputZipcode">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body data-seccion">
+          <!-- Second part -->
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputValveSize">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputValveBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputValveBrand">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputValveSeries" class="col-sm-3 col-form-label">Valve Series</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputValveSeries">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputValveType" class="col-sm-3 col-form-label">Valve Type</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputValveType">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputActuatorType">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+            <!-- / Second part -->
+          </div>
+        </div>
+        <div class="modal-body data-seccion">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputElectricActuator" class="col-sm-3 col-form-label">Electric Actuator</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputElectricActuator">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+                <label for="inputBrand" class="col-sm-3 col-form-label">Brand</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputBrand">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="inputModelNumber" class="col-sm-3 col-form-label">Model Number</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputModelNumber">
+                  <!-- <h6> ejemplo 1</h6> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENDS MODAL -->
 
   <div id="pdf" class="electPDF"></div>
 
@@ -333,11 +491,11 @@
   <!--  / PDF Libraries -->
 
   <script src="./config/configFirebase.js"></script>
-  <script src="./notifications-sw.js"></script>
+  <!-- <script src="./notifications-sw.js"></script> -->
 
   <script src="./js-forms/index-forms.js"></script>
   <script src="./js-forms/formsResponse.js"></script>
-  <script src="./js-forms/notifications.js"></script>
+  <!-- <script src="./js-forms/notifications.js"></script> -->
   <!-- <script src="./js-forms/posts.js"></script> -->
   <script src="./js-forms/autenticacion-form/autentication.js"></script>
   <script src="./js-forms/autenticacion-form/auth-control.js"></script>

@@ -1,7 +1,5 @@
 console.log("Hello from formResponse.js");
 
-// Carousel seccion
-
 let divTableForm = document.querySelector("#tableOne");
 let divTableForm2 = document.querySelector("#tableTwo");
 let divTableForm3 = document.querySelector("#tableThree");
@@ -12,9 +10,6 @@ divTableForm2.style.display = "none";
 divTableForm3.style.display = "none";
 divTableForm4.style.display = "none";
 
-let carouselForm1 = document.querySelector("#carousel-admin_seccion");
-
-// Ends Carousel seccion
 
 // Toggle buttons
 let flag = true;
@@ -223,23 +218,13 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                   onclick="deleteElectricAct('${doc.id}')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning"  
+                  <button 
+                  type="button"
+                  class="btn btn-warning"  
                   data-toggle="modal"  
                   data-target="#staticBackdrop"
-                  onclick="editElectricActuator('
-                  ${doc.id}',
-                  '${doc.data().Company_Name}',
-                  '${doc.data().Contact_Name}', 
-                  '${doc.data().Contact_Email}',
-                  '${doc.data().Phone_Contact}',
-                  '${doc.data().City}','${doc.data().State}',
-                  '${doc.data().Zip}','${doc.data().Valve_Size}',
-                  '${doc.data().Brand}','${doc.data().Series}',
-                  '${doc.data().Brand_Electric_Actuator}',
-                  '${doc.data().Model_Electric_Actuator}',
-                  '${doc.data().Valve_Type}',
-                  '${doc.data().Actuator_Type}',
-                  '${doc.data().Electric_Actuator}')">Edit
+                  onclick="editElectricActuator()"
+                  ">Edit
                   </button>
                 </td>
                 <td>
@@ -892,7 +877,8 @@ function editHighPressure(
   };
 }
 
-let shiftElectric = true;
+
+// let shiftElectric = true
 function editElectricActuator(
   id,
   company,
@@ -911,345 +897,383 @@ function editElectricActuator(
   dropdown,
   electricActuator
 ) {
-  if (shiftElectric) {
-    modalContainerElectric.style.display = "block";
-    shiftElectric = false;
-    console.log(
-      `%cvalor de shift dentro de IF: ${shiftElectric}`,
-      "color : green;"
-    );
-  } else if (!shiftElectric) {
-    modalContainerElectric.style.display = "block";
-    shiftElectric = true;
-    console.log(
-      `%cvalor de shift dentro de ELSE IF: ${shiftElectric}`,
-      "color : yellow;"
-    );
-  }
 
-  let modalElectric2 = `
-      <!-- Start Modal -->
-      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-          <div id="contenidoPdf1" class="modal-content">
-            <!-- PDF -->
-            <div class="modal-header header-container">
+  console.log('works')
+  // if (shiftElectric) {
+  //   modalContainerElectric.style.display = "block";
+  //   shiftElectric = false;
+  //   console.log(
+  //     `%cvalor de shift dentro de IF: ${shiftElectric}`,
+  //     "color : green;"
+  //   );
+  // } else if (!shiftElectric) {
+  //   modalContainerElectric.style.display = "block";
+  //   shiftElectric = true;
+  //   console.log(
+  //     `%cvalor de shift dentro de ELSE IF: ${shiftElectric}`,
+  //     "color : yellow;"
+  //   );
 
-              <figure class="logo">
-                <img src="./assets/images/logo-valvesolutions.png" alt="Blog Logotipo">
-              </figure>
-              <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body data-seccion">
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputCompany" class="col-sm-3 col-form-label">Company</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputCompany">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputContact" class="col-sm-3 col-form-label">Contact</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputContact">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
-                    <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
-                    <div class="col-sm-9">
-                      <input type="number" class="form-control" id="inputPhone">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputCity" class="col-sm-3 col-form-label">City</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputCity">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputState" class="col-sm-3 col-form-label">State</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputState">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputZipcode" class="col-sm-3 col-form-label">Zipcode</label>
-                    <div class="col-sm-9">
-                      <input type="number" class="form-control" id="inputZipcode">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-body data-seccion">
-              <!-- Second part -->
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputValveSize" class="col-sm-3 col-form-label">Valve Size</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputValveSize">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputValveBrand" class="col-sm-3 col-form-label">Valve Brand</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputValveBrand">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputValveSeries" class="col-sm-3 col-form-label">Valve Series</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputValveSeries">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputValveType" class="col-sm-3 col-form-label">Valve Type</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputValveType">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputActuatorType">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-                <!-- / Second part -->
-              </div>
-            </div>
-            <div class="modal-body data-seccion">
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputElectricActuator" class="col-sm-3 col-form-label">Electric Actuator</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputElectricActuator">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                    <label for="inputBrand" class="col-sm-3 col-form-label">Brand</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputBrand">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group row">
-                    <label for="inputModelNumber" class="col-sm-3 col-form-label">Model Number</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputModelNumber">
-                      <!-- <h6> ejemplo 1</h6> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-  `
-
-  let modalElectric = `
-<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableTwoModal">
-    <table class="table table-hover responsetable">
-      <caption>
-        Retrofit Forms for High Pressure Actuators Requests
-      </caption>
-  
-  <div style="overflow-x:auto;">
-  </div>
-  <thead>
-    <tr class="justity-content-center text-center bg-secondary">
-      <th scope="col" class="text-center">ID</th>
-      <th scope="col" class="text-center">Company</th>
-      <th scope="col" class="text-center">Contact</th>
-      <th scope="col" class="text-center">Email</th>
-      <th scope="col" class="text-center">Phone Number</th>
-      <th scope="col" class="text-center">City</th>
-      <th scope="col" class="text-center">State</th>
-      <th scope="col" class="text-center">Zip Code</th>
-      <th scope="col" class="text-center">Valve Size</th>
-      <th scope="col" class="text-center">Brand</th>
-      <th scope="col" class="text-center">Series</th>
-      <th scope="col" class="text-center">Brand Electric Actuator </th>
-      <th scope="col" class="text-center">Model Electric Actuator </th>
-      <th scope="col" class="text-center">Valve Type</th>
-      <th scope="col" class="text-center">Actuator Type</th>
-      <th scope="col" class="text-center">Electric Actuator</th>
-      <th scope="col" class="text-center">Edit</th>
-    </tr>
-  </thead>
-  <tbody id="table2">
-		<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-      <th>${id}</th>
-        <td><input type="text" id="elecActuatorCompany"></td>
-        <td><input type="text" id="elecActuatorEmail"></td>
-        <td><input type="text" id="elecActuatorName"></td>
-        <td><input type="text" id="elecActuatorPhone"></td>
-        <td><input type="text" id="elecActuatorCity"></td>
-        <td><input type="text" id="elecActuatorState"></td>
-        <td><input type="text" id="elecActuatorZip"></td>
-        <td><input type="text" id="elecActuatorValveSize"></td>
-        <td><input type="text" id="elecActuatorBrand"></td>
-        <td><input type="text" id="elecActuatorSeries"></td>
-        <td><input type="text" id="electricBrandDamageActuator"></td>
-        <td><input type="text" id="electricModelDamageActuator"></td>
-        <td><input type="text" id="valve2way"></td>
-        <td><input type="text" id="electricActuatorType"></td>
-        <td><input type="text" id="actuator"></td>
-        <td><button class="btn btn-primary 
-                    onclick="editElectric()">
-                      Update
-              </button>
-        </td>
-    </tr>
-	</tbody>
-  </table>
- </div> <!-- checar -->
-
-	`;
-
-  modalContainerElectric.innerHTML = modalElectric2; // pintando la tabla dentro del HTML
-
-  document.querySelector("#elecActuatorCompany").value = company;
-  document.querySelector("#elecActuatorName").value = contactName;
-  document.querySelector("#elecActuatorEmail").value = email;
-  document.querySelector("#elecActuatorPhone").value = phoneContact;
-  document.querySelector("#elecActuatorCity").value = city;
-  document.querySelector("#elecActuatorState").value = state;
-  document.querySelector("#elecActuatorZip").value = zip;
-  document.querySelector("#elecActuatorValveSize").value = valveSizeSecc2;
-  document.querySelector("#elecActuatorBrand").value = brandSecc2;
-  document.querySelector("#elecActuatorSeries").value = seriesSecc2;
-
-  //   document.querySelector("#elecActuatorSeries").value = seriesSecc2;
-
-  document.querySelector(
-    "#electricBrandDamageActuator"
-  ).value = brandActuatorSecc4;
-  document.querySelector(
-    "#electricModelDamageActuator"
-  ).value = modelActuatorSecc4;
-  document.querySelector("#valve2way").value = typeValveSecc3;
-  document.querySelector("#electricActuatorType").value = dropdown;
-  document.querySelector("#actuator").value = electricActuator;
-
-  window.editElectric = () => {
-    let washingtonRef = db.collection("Electric_Actuator").doc(id);
-
-    let companyEa = document.querySelector("#elecActuatorCompany").value;
-    let contactNameEa = document.querySelector("#elecActuatorName").value;
-    let emailEa = document.querySelector("#elecActuatorEmail").value;
-    let phoneContactEa = document.querySelector("#elecActuatorPhone").value;
-    let cityEa = document.querySelector("#elecActuatorCity").value;
-    let stateEa = document.querySelector("#elecActuatorState").value;
-    let zipEa = document.querySelector("#elecActuatorZip").value;
-    let valveSizeEa = document.querySelector("#elecActuatorValveSize").value;
-    let brandEa = document.querySelector("#elecActuatorBrand").value;
-    let seriesEa = document.querySelector("#elecActuatorSeries").value;
-
-    let electricDamageAct = document.querySelector(
-      "#electricBrandDamageActuator"
-    ).value;
-
-    let electricModelDamageAct = document.querySelector(
-      "#electricModelDamageActuator"
-    ).value;
-
-    let electricValveType = document.querySelector("#valve2way").value;
-
-    let dropdown_E = document.querySelector("#electricActuatorType").value;
-
-    let elecActuator = document.querySelector("#actuator").value;
-
-    return washingtonRef
-      .update({
-        Company_Name: companyEa,
-        Contact_Name: contactNameEa,
-        Contact_Email: emailEa,
-        Phone_Contact: phoneContactEa, //phoneContact,
-        City: cityEa, //city,
-        State: stateEa, //state,
-        Zip: zipEa, //zip,
-        Valve_Size: valveSizeEa, //valveSizeSecc2,
-        Brand: brandEa, //brandSecc2,
-        Series: seriesEa, //seriesSecc2,
-
-        Brand_Electric_Actuator: electricDamageAct,
-        Model_Electric_Actuator: electricModelDamageAct,
-
-        Valve_Type: electricValveType,
-        Actuator_Type: dropdown_E,
-        Electric_Actuator: elecActuator
-      })
-      .then(function () {
-        console.log("Document successfully updated!");
-
-        document.querySelector("#elecActuatorCompany").value = "";
-        document.querySelector("#elecActuatorName").value = "";
-        document.querySelector("#elecActuatorEmail").value = "";
-        document.querySelector("#elecActuatorPhone").value = "";
-        document.querySelector("#elecActuatorCity").value = "";
-        document.querySelector("#elecActuatorState").value = "";
-        document.querySelector("#elecActuatorZip").value = "";
-        document.querySelector("#elecActuatorValveSize").value = "";
-        document.querySelector("#elecActuatorBrand").value = "";
-        document.querySelector("#elecActuatorSeries").value = "";
-
-        document.querySelector("#electricBrandDamageActuator").value = "";
-        document.querySelector("#electricModelDamageActuator").value = "";
-        document.querySelector("#valve2way").value = "";
-        document.querySelector("#electricActuatorType").value = "";
-        document.querySelector("#actuator").value = "";
-
-        modalContainerElectric.style.display = "none";
-        shiftElectric = false;
-        console.log(
-          `%cvalor de shift dentro de .then : ${shiftElectric}`,
-          "color : orange;"
-        );
-      })
-      .catch(function (error) {
-        // The document probably doesn't exist.
-        console.error("Error updating document: ", error);
-      });
-  };
+  // }
 }
+//   }// let shiftElectric = true;
+// function editElectricActuator(
+//   id,
+//   company,
+//   contactName,
+//   email,
+//   phoneContact,
+//   city,
+//   state,
+//   zip,
+//   valveSizeSecc2,
+//   brandSecc2,
+//   seriesSecc2,
+//   brandActuatorSecc4,
+//   modelActuatorSecc4,
+//   typeValveSecc3,
+//   dropdown,
+//   electricActuator
+// ) {
+//   if (shiftElectric) {
+//     modalContainerElectric.style.display = "block";
+//     shiftElectric = false;
+//     console.log(
+//       `%cvalor de shift dentro de IF: ${shiftElectric}`,
+//       "color : green;"
+//     );
+//   } else if (!shiftElectric) {
+//     modalContainerElectric.style.display = "block";
+//     shiftElectric = true;
+//     console.log(
+//       `%cvalor de shift dentro de ELSE IF: ${shiftElectric}`,
+//       "color : yellow;"
+//     );
+//   }
+
+//   let modalElectric2 = `
+//       <!-- Start Modal -->
+// <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+//   aria-labelledby="staticBackdropLabel" aria-hidden="true">
+//   <div class="modal-dialog modal-xl">
+//     <div id="contenidoPdf1" class="modal-content">
+//       <!-- PDF -->
+//       <div class="modal-header header-container">
+
+//         <figure class="logo">
+//           <img src="./assets/images/logo-valvesolutions.png" alt="Blog Logotipo">
+//         </figure>
+//         <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
+//         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+//           <span aria-hidden="true">&times;</span>
+//         </button>
+//       </div>
+//       <div class="modal-body data-seccion">
+//         <div class="row">
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputCompany" class="col-sm-3 col-form-label">Company</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputCompany">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputContact" class="col-sm-3 col-form-label">Contact</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputContact">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+//               <div class="col-sm-9">
+//                 <input type="email" class="form-control" id="inputEmail">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
+//               <div class="col-sm-9">
+//                 <input type="number" class="form-control" id="inputPhone">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputCity" class="col-sm-3 col-form-label">City</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputCity">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputState" class="col-sm-3 col-form-label">State</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputState">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputZipcode" class="col-sm-3 col-form-label">Zipcode</label>
+//               <div class="col-sm-9">
+//                 <input type="number" class="form-control" id="inputZipcode">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//       <div class="modal-body data-seccion">
+//         <!-- Second part -->
+//         <div class="row">
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputValveSize">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputValveBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputValveBrand">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputValveSeries" class="col-sm-3 col-form-label">Valve Series</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputValveSeries">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputValveType" class="col-sm-3 col-form-label">Valve Type</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputValveType">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//             <div class="form-group row">
+//               <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputActuatorType">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//           <!-- / Second part -->
+//         </div>
+//       </div>
+//       <div class="modal-body data-seccion">
+//         <div class="row">
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputElectricActuator" class="col-sm-3 col-form-label">Electric Actuator</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputElectricActuator">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//               <label for="inputBrand" class="col-sm-3 col-form-label">Brand</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputBrand">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//           <div class="col-6">
+//             <div class="form-group row">
+//               <label for="inputModelNumber" class="col-sm-3 col-form-label">Model Number</label>
+//               <div class="col-sm-9">
+//                 <input type="text" class="form-control" id="inputModelNumber">
+//                 <!-- <h6> ejemplo 1</h6> -->
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         <div class="modal-footer">
+//           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+//           <button type="button" class="btn btn-primary">Update</button>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+//   `
+
+//   let modalElectric = `
+// <div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+//         id="tableTwoModal">
+//     <table class="table table-hover responsetable">
+//       <caption>
+//         Retrofit Forms for High Pressure Actuators Requests
+//       </caption>
+
+//   <div style="overflow-x:auto;">
+//   </div>
+//   <thead>
+//     <tr class="justity-content-center text-center bg-secondary">
+//       <th scope="col" class="text-center">ID</th>
+//       <th scope="col" class="text-center">Company</th>
+//       <th scope="col" class="text-center">Contact</th>
+//       <th scope="col" class="text-center">Email</th>
+//       <th scope="col" class="text-center">Phone Number</th>
+//       <th scope="col" class="text-center">City</th>
+//       <th scope="col" class="text-center">State</th>
+//       <th scope="col" class="text-center">Zip Code</th>
+//       <th scope="col" class="text-center">Valve Size</th>
+//       <th scope="col" class="text-center">Brand</th>
+//       <th scope="col" class="text-center">Series</th>
+//       <th scope="col" class="text-center">Brand Electric Actuator </th>
+//       <th scope="col" class="text-center">Model Electric Actuator </th>
+//       <th scope="col" class="text-center">Valve Type</th>
+//       <th scope="col" class="text-center">Actuator Type</th>
+//       <th scope="col" class="text-center">Electric Actuator</th>
+//       <th scope="col" class="text-center">Edit</th>
+//     </tr>
+//   </thead>
+//   <tbody id="table2">
+// 		<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+//       <th>${id}</th>
+//         <td><input type="text" id="elecActuatorCompany"></td>
+//         <td><input type="text" id="elecActuatorEmail"></td>
+//         <td><input type="text" id="elecActuatorName"></td>
+//         <td><input type="text" id="elecActuatorPhone"></td>
+//         <td><input type="text" id="elecActuatorCity"></td>
+//         <td><input type="text" id="elecActuatorState"></td>
+//         <td><input type="text" id="elecActuatorZip"></td>
+//         <td><input type="text" id="elecActuatorValveSize"></td>
+//         <td><input type="text" id="elecActuatorBrand"></td>
+//         <td><input type="text" id="elecActuatorSeries"></td>
+//         <td><input type="text" id="electricBrandDamageActuator"></td>
+//         <td><input type="text" id="electricModelDamageActuator"></td>
+//         <td><input type="text" id="valve2way"></td>
+//         <td><input type="text" id="electricActuatorType"></td>
+//         <td><input type="text" id="actuator"></td>
+//         <td><button class="btn btn-primary 
+//                     onclick="editElectric()">
+//                       Update
+//               </button>
+//         </td>
+//     </tr>
+// 	</tbody>
+//   </table>
+//  </div> <!-- checar -->
+
+// 	`;
+
+//   modalContainerElectric.innerHTML = modalElectric2; // pintando la tabla dentro del HTML
+
+//   document.querySelector("#elecActuatorCompany").value = company;
+//   document.querySelector("#elecActuatorName").value = contactName;
+//   document.querySelector("#elecActuatorEmail").value = email;
+//   document.querySelector("#elecActuatorPhone").value = phoneContact;
+//   document.querySelector("#elecActuatorCity").value = city;
+//   document.querySelector("#elecActuatorState").value = state;
+//   document.querySelector("#elecActuatorZip").value = zip;
+//   document.querySelector("#elecActuatorValveSize").value = valveSizeSecc2;
+//   document.querySelector("#elecActuatorBrand").value = brandSecc2;
+//   document.querySelector("#elecActuatorSeries").value = seriesSecc2;
+
+//   //   document.querySelector("#elecActuatorSeries").value = seriesSecc2;
+
+//   document.querySelector(
+//     "#electricBrandDamageActuator"
+//   ).value = brandActuatorSecc4;
+//   document.querySelector(
+//     "#electricModelDamageActuator"
+//   ).value = modelActuatorSecc4;
+//   document.querySelector("#valve2way").value = typeValveSecc3;
+//   document.querySelector("#electricActuatorType").value = dropdown;
+//   document.querySelector("#actuator").value = electricActuator;
+
+//   window.editElectric = () => {
+//     let washingtonRef = db.collection("Electric_Actuator").doc(id);
+
+//     let companyEa = document.querySelector("#elecActuatorCompany").value;
+//     let contactNameEa = document.querySelector("#elecActuatorName").value;
+//     let emailEa = document.querySelector("#elecActuatorEmail").value;
+//     let phoneContactEa = document.querySelector("#elecActuatorPhone").value;
+//     let cityEa = document.querySelector("#elecActuatorCity").value;
+//     let stateEa = document.querySelector("#elecActuatorState").value;
+//     let zipEa = document.querySelector("#elecActuatorZip").value;
+//     let valveSizeEa = document.querySelector("#elecActuatorValveSize").value;
+//     let brandEa = document.querySelector("#elecActuatorBrand").value;
+//     let seriesEa = document.querySelector("#elecActuatorSeries").value;
+
+//     let electricDamageAct = document.querySelector(
+//       "#electricBrandDamageActuator"
+//     ).value;
+
+//     let electricModelDamageAct = document.querySelector(
+//       "#electricModelDamageActuator"
+//     ).value;
+
+//     let electricValveType = document.querySelector("#valve2way").value;
+
+//     let dropdown_E = document.querySelector("#electricActuatorType").value;
+
+//     let elecActuator = document.querySelector("#actuator").value;
+
+//     return washingtonRef
+//       .update({
+//         Company_Name: companyEa,
+//         Contact_Name: contactNameEa,
+//         Contact_Email: emailEa,
+//         Phone_Contact: phoneContactEa, //phoneContact,
+//         City: cityEa, //city,
+//         State: stateEa, //state,
+//         Zip: zipEa, //zip,
+//         Valve_Size: valveSizeEa, //valveSizeSecc2,
+//         Brand: brandEa, //brandSecc2,
+//         Series: seriesEa, //seriesSecc2,
+
+//         Brand_Electric_Actuator: electricDamageAct,
+//         Model_Electric_Actuator: electricModelDamageAct,
+
+//         Valve_Type: electricValveType,
+//         Actuator_Type: dropdown_E,
+//         Electric_Actuator: elecActuator
+//       })
+//       .then(function () {
+//         console.log("Document successfully updated!");
+
+//         document.querySelector("#elecActuatorCompany").value = "";
+//         document.querySelector("#elecActuatorName").value = "";
+//         document.querySelector("#elecActuatorEmail").value = "";
+//         document.querySelector("#elecActuatorPhone").value = "";
+//         document.querySelector("#elecActuatorCity").value = "";
+//         document.querySelector("#elecActuatorState").value = "";
+//         document.querySelector("#elecActuatorZip").value = "";
+//         document.querySelector("#elecActuatorValveSize").value = "";
+//         document.querySelector("#elecActuatorBrand").value = "";
+//         document.querySelector("#elecActuatorSeries").value = "";
+
+//         document.querySelector("#electricBrandDamageActuator").value = "";
+//         document.querySelector("#electricModelDamageActuator").value = "";
+//         document.querySelector("#valve2way").value = "";
+//         document.querySelector("#electricActuatorType").value = "";
+//         document.querySelector("#actuator").value = "";
+
+//         modalContainerElectric.style.display = "none";
+//         shiftElectric = false;
+//         console.log(
+//           `%cvalor de shift dentro de .then : ${shiftElectric}`,
+//           "color : orange;"
+//         );
+//       })
+//       .catch(function (error) {
+//         // The document probably doesn't exist.
+//         console.error("Error updating document: ", error);
+//       });
+//   };
+// }
 
 let shiftArrangement = true;
 function editArrangements(
