@@ -223,7 +223,10 @@ db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
                   onclick="deleteElectricAct('${doc.id}')">Delete</button>
                 </td>
                 <td>
-                  <button class="btn btn-warning" onclick="editElectricActuator('
+                  <button class="btn btn-warning"  
+                  data-toggle="modal"  
+                  data-target="#staticBackdrop"
+                  onclick="editElectricActuator('
                   ${doc.id}',
                   '${doc.data().Company_Name}',
                   '${doc.data().Contact_Name}', 
@@ -302,19 +305,14 @@ function elecActuatorPDF(id,
 
       </div>
         <div class="row">
-          <div class="col-4">
+          <div class="col">
               <span>Company</span>
               <p>${company}</p>
-          </div>
-
-          <div class="col-4 ">
               <span>Contact</span>
               <p>${contactName}</p>
-          </div>
-          <div class="col-4">
               <span>Email</span>
               <p>${email}</p>
-          </div>
+            </div>
         </div>
                 
         <div class="row">
@@ -774,7 +772,7 @@ function editHighPressure(
                 
                 <td>
                   <button class="btn btn-primary 
-                    id="editHighPressureActuator" 
+                     
                     onclick="editHP()">
                       Update
                   </button>
@@ -929,78 +927,224 @@ function editElectricActuator(
     );
   }
 
-  let modalElectric = `
-	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableTwoModal">
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for High Pressure Actuators Requests
-          </caption>
+  let modalElectric2 = `
+      <!-- Start Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div id="contenidoPdf1" class="modal-content">
+            <!-- PDF -->
+            <div class="modal-header header-container">
 
-          
-            
+              <figure class="logo">
+                <img src="./assets/images/logo-valvesolutions.png" alt="Blog Logotipo">
+              </figure>
+              <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputCompany" class="col-sm-3 col-form-label">Company</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputCompany">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputContact" class="col-sm-3 col-form-label">Contact</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputContact">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" id="inputEmail">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="inputPhone">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputCity" class="col-sm-3 col-form-label">City</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputCity">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputState" class="col-sm-3 col-form-label">State</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputState">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputZipcode" class="col-sm-3 col-form-label">Zipcode</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="inputZipcode">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body data-seccion">
+              <!-- Second part -->
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputValveSize">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputValveBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputValveBrand">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputValveSeries" class="col-sm-3 col-form-label">Valve Series</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputValveSeries">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputValveType" class="col-sm-3 col-form-label">Valve Type</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputValveType">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputActuatorType">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <!-- / Second part -->
+              </div>
+            </div>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputElectricActuator" class="col-sm-3 col-form-label">Electric Actuator</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputElectricActuator">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                    <label for="inputBrand" class="col-sm-3 col-form-label">Brand</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputBrand">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="inputModelNumber" class="col-sm-3 col-form-label">Model Number</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputModelNumber">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Update</button>
+              </div>
+            </div>
           </div>
-          <thead>
-            <tr class="justity-content-center text-center bg-secondary">
-              <th scope="col" class="text-center">ID</th>
-              <th scope="col" class="text-center">Company</th>
-              <th scope="col" class="text-center">Contact</th>
-              <th scope="col" class="text-center">Email</th>
-              <th scope="col" class="text-center">Phone Number</th>
-              <th scope="col" class="text-center">City</th>
-              <th scope="col" class="text-center">State</th>
-              <th scope="col" class="text-center">Zip Code</th>
-              <th scope="col" class="text-center">Valve Size</th>
-              <th scope="col" class="text-center">Brand</th>
-              <th scope="col" class="text-center">Series</th>
-              <th scope="col" class="text-center">Brand Electric Actuator </th>
-              <th scope="col" class="text-center">Model Electric Actuator </th>
-              <th scope="col" class="text-center">Valve Type</th>
-              <th scope="col" class="text-center">Actuator Type</th>
-              <th scope="col" class="text-center">Electric Actuator</th>
-              <th scope="col" class="text-center">Edit</th>
-            </tr>
-          </thead>
-					<tbody id="table2">
-					<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-            <th>${id}</th>
-                <td ><input type="text" id="elecActuatorCompany"></td>
-                <td ><input type="text" id="elecActuatorEmail"></td>
-                <td ><input type="text" id="elecActuatorName"></td>
-                <td ><input type="text" id="elecActuatorPhone"></td>
-                <td ><input type="text" id="elecActuatorCity"></td>
-                <td ><input type="text" id="elecActuatorState"></td>
-                <td ><input type="text" id="elecActuatorZip"></td>
-                <td ><input type="text" id="elecActuatorValveSize"></td>
-                <td ><input type="text" id="elecActuatorBrand"></td>
-                <td ><input type="text" id="elecActuatorSeries"></td>
-                <td ><input type="text" id="electricBrandDamageActuator"></td>
-                <td ><input type="text" id="electricModelDamageActuator"></td>
-								
-                <td ><input type="text"                 id="valve2way">
-                </td>
+        </div>
+      </div>
+  
+  `
 
-                <td ><input type="text" id="electricActuatorType"></td>
-      
-                <td ><input type="text" id="actuator"></td>
-                
-                <td>
-                  <button class="btn btn-primary 
-                    id="editHighPressureActuator" 
+  let modalElectric = `
+<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
+        id="tableTwoModal">
+    <table class="table table-hover responsetable">
+      <caption>
+        Retrofit Forms for High Pressure Actuators Requests
+      </caption>
+  
+  <div style="overflow-x:auto;">
+  </div>
+  <thead>
+    <tr class="justity-content-center text-center bg-secondary">
+      <th scope="col" class="text-center">ID</th>
+      <th scope="col" class="text-center">Company</th>
+      <th scope="col" class="text-center">Contact</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Phone Number</th>
+      <th scope="col" class="text-center">City</th>
+      <th scope="col" class="text-center">State</th>
+      <th scope="col" class="text-center">Zip Code</th>
+      <th scope="col" class="text-center">Valve Size</th>
+      <th scope="col" class="text-center">Brand</th>
+      <th scope="col" class="text-center">Series</th>
+      <th scope="col" class="text-center">Brand Electric Actuator </th>
+      <th scope="col" class="text-center">Model Electric Actuator </th>
+      <th scope="col" class="text-center">Valve Type</th>
+      <th scope="col" class="text-center">Actuator Type</th>
+      <th scope="col" class="text-center">Electric Actuator</th>
+      <th scope="col" class="text-center">Edit</th>
+    </tr>
+  </thead>
+  <tbody id="table2">
+		<tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
+      <th>${id}</th>
+        <td><input type="text" id="elecActuatorCompany"></td>
+        <td><input type="text" id="elecActuatorEmail"></td>
+        <td><input type="text" id="elecActuatorName"></td>
+        <td><input type="text" id="elecActuatorPhone"></td>
+        <td><input type="text" id="elecActuatorCity"></td>
+        <td><input type="text" id="elecActuatorState"></td>
+        <td><input type="text" id="elecActuatorZip"></td>
+        <td><input type="text" id="elecActuatorValveSize"></td>
+        <td><input type="text" id="elecActuatorBrand"></td>
+        <td><input type="text" id="elecActuatorSeries"></td>
+        <td><input type="text" id="electricBrandDamageActuator"></td>
+        <td><input type="text" id="electricModelDamageActuator"></td>
+        <td><input type="text" id="valve2way"></td>
+        <td><input type="text" id="electricActuatorType"></td>
+        <td><input type="text" id="actuator"></td>
+        <td><button class="btn btn-primary 
                     onclick="editElectric()">
                       Update
-                  </button>
-                </td>
-                
-
-        </tr>
-					</tbody>
-        </table>
-      </div>
+              </button>
+        </td>
+    </tr>
+	</tbody>
+  </table>
+ </div> <!-- checar -->
 
 	`;
 
-  modalContainerElectric.innerHTML = modalElectric; // pintando la tabla dentro del HTML
+  modalContainerElectric.innerHTML = modalElectric2; // pintando la tabla dentro del HTML
 
   document.querySelector("#elecActuatorCompany").value = company;
   document.querySelector("#elecActuatorName").value = contactName;

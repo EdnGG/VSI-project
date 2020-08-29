@@ -7,21 +7,24 @@ admin.initializeApp();
 /**Starts email senders */
 
 const nodemailer = require("nodemailer");
+const smtpTransport = require('nodemailer-smtp-transport');
+
 let alternativeMail = process.env.ALTERNATIVE_EMAIL;
 
-var transporter = nodemailer.createTransport({
+var transporter = nodemailer.createTransport(smtpTransport({
   // host: "smtp.gmail.com",
   host: process.env.HOST,
   // port: 465,
   port: process.env.PORT,
-  secure: true,
+  // secure: true,
+  secure: false,
   auth: {
     // user: "gresseden@gmail.com",
     // pass: "212826GEGI!*"
     user: process.env.EMAIL_ADMIN,
     pass: process.env.PASSWORD,
   },
-});
+}));
 
 exports.sendEmailEa = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
