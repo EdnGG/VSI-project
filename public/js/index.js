@@ -21,6 +21,7 @@ loginButton.addEventListener("click", () => {
       .auth()
       .signOut()
       .then(() => {
+
         $("#avatar").attr("src", "../imagenes/usuario.png");
         $("#footer").css("display", "none");
         swal({
@@ -771,12 +772,16 @@ btnSubmitHp.addEventListener("click", () => {
 });
 
 function validationHP() {
-  console.log("valid electric works");
-  let damageActuatorHP = document.querySelector("#damageActuatorSecc5").value;
-  let damageModelHP = document.querySelector("#damageModelNumberSecc5").value;
-  //let input
+  console.log("validating HP actuators");
+  let damageActuatorHP = document.querySelector("#damageActuatorSecc6").value;
+  let damageModelHP = document.querySelector("#damageModelNumberSecc6").value;
+  let hp2positions = document.querySelector("hp2positions")
+  let hpModulating = document.querySelector("hpModulating")
 
-  if (damageActuatorHP === "" && damageModelHP === "") {
+  // I need to check the radio butttons, I set one of those with
+  // the propertie "checked" 
+
+  if (damageActuatorHP === "" && damageModelHP === "" && !hp2positions || !hpModulating) {
     swal({
       text: "Fill up all the fields",
       icon: "error"
@@ -800,16 +805,19 @@ function validationHP() {
 /** Sarts logic for Low Performance Actuator submit   */
 const btnSubmitLP = document.querySelector("#btnSeccion4to6");
 btnSubmitLP.addEventListener("click", () => {
-  validationHP();
+  validationLP();
 });
 
 function validationLP() {
   console.log("validation Lp works");
   let damageActuatorLP = document.querySelector("#damageActuatorSecc6").value;
   let damageModelLP = document.querySelector("#damageModelNumberSecc6").value;
-  //let input
+  let lp2positions = document.querySelector("#lp2positions")
+  let lpModulating = document.querySelector("#lpModulating")
 
-  if (damageActuatorLP === "" && damageModelLP === "") {
+  // I need to check the radio butttons, I set one of those with
+  // the propertie "checked" 
+  if (damageActuatorLP === "" && damageModelLP === "" && !lp2positions.checked || !lpModulating.checked) {
     swal({
       text: "Fill up all the fields",
       icon: "error"

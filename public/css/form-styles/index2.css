@@ -310,21 +310,52 @@ select:-webkit-autofill {
 
 /* Ends login form seccion */
 
+/*  MODAL PDF CLASES */
+
+.modal--group_first,
+.modal--group_second,
+.modal--group_third
+{
+  border-style: solid;
+  /* color:black; */
+  border-radius: 10px;
+  margin:0;
+  padding:0;
+  line-height: 0px;
+}
+
 .electPDF{
   background-color: white;
-  width: 80%;
+  /* width: 80%;
   margin: auto;
-  font-size: 8px;
+  font-size: 8px; */
+
+  width: auto;
+  padding: 90px;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.background--pdf{
+background-color: white;
+}
+
+.label-font{
+  font-size: 1.5em;
+}
+
+h6{
+
+  text-align: left;
+  /* font-size: 4em; */
 }
 .template{
   font-size: 8px;
 }
- /* .title{
-   display: flex;
-   flex-direction: row;
- } */
 
- .image{
+.image{
   width:100px;
 }
 .title{
@@ -339,3 +370,27 @@ select:-webkit-autofill {
 /*   justify-content: center; */
   
 }
+
+strong{
+  font-weight:bold; 
+  font-size: 1.5em;
+}
+
+/* .modal-content{
+  width: 100vw;
+} */
+/* .modal--content-width{
+  width: 100vw;
+} */
+
+/* .modal--dialog-width{
+  max-width: 90vw !important;
+  margin: 0;
+  width: 100%;
+} */
+
+/* .modal-dialog{
+  max-width: 90vw !important;
+  margin: 0;
+  width: 100%;
+} */
