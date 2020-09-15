@@ -773,15 +773,15 @@ btnSubmitHp.addEventListener("click", () => {
 
 function validationHP() {
   console.log("validating HP actuators");
-  let damageActuatorHP = document.querySelector("#damageActuatorSecc6").value;
-  let damageModelHP = document.querySelector("#damageModelNumberSecc6").value;
-  let hp2positions = document.querySelector("hp2positions")
-  let hpModulating = document.querySelector("hpModulating")
+  let damageActuatorHP = document.querySelector("#damageActuatorSecc5").value;
+  let damageModelHP = document.querySelector("#damageModelNumberSecc5").value;
+  // let hp2positions = document.querySelector("#hp2positions")
+  // let hpModulating = document.querySelector("#hpModulating")
 
   // I need to check the radio butttons, I set one of those with
   // the propertie "checked" 
 
-  if (damageActuatorHP === "" && damageModelHP === "" && !hp2positions || !hpModulating) {
+  if (damageActuatorHP === "" && damageModelHP === "") {
     swal({
       text: "Fill up all the fields",
       icon: "error"

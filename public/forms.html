@@ -67,17 +67,29 @@
 
   <br /><br />
 
-
-
-  <!-- PDF Container -->
-  <!-- <div id="pdf" class="electPDF"></div> -->
+  <!-- Starts PDF Container -->
   <div class="container mx-auto electPDF" id="pdf" tabindex="-1"></div>
-  <!-- PDF Container -->
+  <!-- Ends PDF Container -->
+
+  <!-- MODAL DIV CONTAINER -->
+  <div class="modal container" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+
+  <div class="modal container" id="staticBackdropLP" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+
+  <div class="modal container" id="staticBackdropHP" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+
+  <div class="modal container" id="staticBackdrop3Way" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+  <!-- / MODAL DIV CONTAINER -->
 
 
+
+  <!-- Start toogle buttons seccion -->
   <div class="container justity-content-center col-12" id="main">
 
-    <!-- Start toogle buttons seccion -->
     <div class="container">
       <div class="row justify-content-center">
         <!-- <div class="col-12  justify-content-center"> -->
@@ -111,11 +123,9 @@
         <!-- </div> -->
       </div>
     </div>
-    <!-- End buttons seccion -->
-
   </div>
+  <!-- End buttons seccion -->
 
-  <!-- Second main div for fix alignment on tables -->
 
   <!-- Start Table for Treeway Arrangements -->
   <div class="container ml-1 mr-2 pr-2">
@@ -294,16 +304,6 @@
   <!-- End Table for LP Actuator -->
 
 
-  <!-- MODAL DIV CONTAINER LP-->
-  <!-- <div class="modal container" id="staticBackdropLP" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLPLabel" aria-hidden="true"></div> -->
-  <!-- / MODAL DIV CONTAINER LP -->
-
-  <!-- MODAL DIV CONTAINER -->
-  <div class="modal container" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
-  <!-- / MODAL DIV CONTAINER -->
-
   <!-- Firebase App is always required and must be first -->
 
   <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase-app.js"></script>
@@ -337,11 +337,13 @@
 
   <script src="./config/configFirebase.js"></script>
   <!-- <script src="./notifications-sw.js"></script> -->
-
-  <script src="./js-forms/index-forms.js"></script>
+  <script src="./js-forms/login-form/login-form.js"></script>
   <script src="./js-forms/formsResponse.js"></script>
-  <!-- <script src="./js-forms/notifications.js"></script> -->
-  <!-- <script src="./js-forms/posts.js"></script> -->
+  <script src="./js-forms/toggle-buttons/toggle-buttons.js"></script>
+  <script src="./js-forms/elect-table-seccion/elecActuator.js"></script>
+  <script src="./js-forms/lp-table-seccion/lpActuatorsSeccion.js"></script>
+  <script src="./js-forms/hp-table-seccion/hpActuatorsSeccion.js"></script>
+  <script src="./js-forms/three-way-arrangements/threeWayArrangements.js"></script>
   <script src="./js-forms/autenticacion-form/autentication.js"></script>
   <script src="./js-forms/autenticacion-form/auth-control.js"></script>
 

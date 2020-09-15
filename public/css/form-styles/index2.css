@@ -319,9 +319,20 @@ select:-webkit-autofill {
   border-style: solid;
   /* color:black; */
   border-radius: 10px;
-  margin:0;
-  padding:0;
+  /* margin:0; */
+  padding:0px;
   line-height: 0px;
+  margin:0px;
+  outline:none;
+  vertical-align: top;
+
+
+}
+
+.myclass{
+   line-height: 0px;
+   margin: 5px;
+   padding: 5px;
 }
 
 .electPDF{
