@@ -1,7 +1,7 @@
 // STARTS HIGH PERFORMANCE ACTUATORS SEDDING TABLES
 
 // main DIV for UPDATE MODAL Seccion
-// let modalContainerHP = document.querySelector("#staticBackdropHP");
+let modalContainerHP = document.querySelector("#staticBackdropHP");
 
 let tableForm3 = document.querySelector("#table3");
 db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
@@ -278,6 +278,9 @@ function editHighPressure(
   radioButtonsHP
 ) {
 
+
+  // let modalContainerHP = document.querySelector("#staticBackdropHP");
+
   let modalHP = ` 
    <div class="modal-dialog modal-xl" style="
    max-width: 90vw !important;
@@ -419,8 +422,6 @@ function editHighPressure(
         </div>
       </div>
     </div>
-
-</div>
 `
 
   modalContainerHP.innerHTML = modalHP; // pintando el modal dentro del HTML

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="modal-dialog modal-xl" style="
+     max-width: 90vw !important;
+     width:100%;
+     margin: 0;">
+    <div class="modal-content" style="
+        width:100%">
+      <div class="modal-header header-container">
+
+        <figure class="logo">
+          <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
+        </figure>
+        <h5 class="modal-title main-title" id="staticBackdropLabel">High Pressure Actuator Retrofit Solutions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="hpCompany" class="col-sm-3 col-form-label">Company</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpCompany">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpName" class="col-sm-3 col-form-label">Contact</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpName">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpEmail" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="hpEmail">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpPhone" class="col-sm-3 col-form-label">Phone Number</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="hpPhone">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="hpCity" class="col-sm-3 col-form-label">City</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpCity">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpState" class="col-sm-3 col-form-label">State</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpState">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpZip" class="col-sm-3 col-form-label">Zipcode</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="hpZip">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="hpValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpValveSize">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpBrand">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpSeries" class="col-sm-3 col-form-label">Valve Series</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpSeries">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="valve2way" class="col-sm-3 col-form-label">Valve Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="valve2way">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hp2positions" class="col-sm-3 col-form-label">Actuator Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hp2positions">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="hpBrandDamageActuator" class="col-sm-3 col-form-label">Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpBrandDamageActuator">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="hpModelDamageActuator" class="col-sm-3 col-form-label">Model Number</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpModelDamageActuator">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="hpModulating" class="col-sm-3 col-form-label">HP Actuator</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="hpModulating">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="editHP()" data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+
+  <div class="modal-dialog modal-xl" style="
+     max-width: 90vw !important;
+     width:100%;
+     margin: 0;">
+    <div class="modal-content" style="
+        width:100%">
+      <div class="modal-header header-container">
+
+        <figure class="logo">
+          <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
+        </figure>
+        <h5 class="modal-title main-title" id="staticBackdropLabel">Low Pressure Actuator Retrofit Solutions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="lpCompany" class="col-sm-3 col-form-label">Company</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpCompany">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpName" class="col-sm-3 col-form-label">Contact</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpName">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpEmail" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="lpEmail">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpPhone" class="col-sm-3 col-form-label">Phone Number</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="lpPhone">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="lpCity" class="col-sm-3 col-form-label">City</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpCity">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpState" class="col-sm-3 col-form-label">State</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpState">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpZip" class="col-sm-3 col-form-label">Zipcode</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="lpZip">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="lpValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpValveSize">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpBrand">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpSeries" class="col-sm-3 col-form-label">Valve Series</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpSeries">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="valve2way" class="col-sm-3 col-form-label">Valve Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="valve2way">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lp2positions" class="col-sm-3 col-form-label">Actuator Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lp2positions">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="lpBrandDamageActuator" class="col-sm-3 col-form-label">Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpBrandDamageActuator">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="lpModelDamageActuator" class="col-sm-3 col-form-label">Model Number</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpModelDamageActuator">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="lpModulating" class="col-sm-3 col-form-label">LP Actuator</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="lpModulating">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="editLP()" data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--  -->
+
+  <!--  -->
+
+  <div class="modal-dialog modal-xl" style="
+   max-width: 90vw !important;
+   width:100%;
+   margin: 0;">
+    <div class="modal-content" style="
+      width:100%">
+      <div class="modal-header header-container">
+
+        <figure class="logo">
+          <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
+        </figure>
+        <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="elecActuatorCompany" class="col-sm-3 col-form-label">Company</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorCompany">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorName" class="col-sm-3 col-form-label">Contact</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorName">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorEmail" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="elecActuatorEmail">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorPhone" class="col-sm-3 col-form-label">Phone Number</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="elecActuatorPhone">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="elecActuatorCity" class="col-sm-3 col-form-label">City</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorCity">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorState" class="col-sm-3 col-form-label">State</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorState">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorZip" class="col-sm-3 col-form-label">Zipcode</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control" id="elecActuatorZip">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="elecActuatorValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorValveSize">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorBrand">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="elecActuatorSeries" class="col-sm-3 col-form-label">Valve Series</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="elecActuatorSeries">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="valve2way" class="col-sm-3 col-form-label">Valve Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="valve2way">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="electricActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="electricActuatorType">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-body data-seccion">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="actuator" class="col-sm-3 col-form-label">Electric Actuator</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="actuator">
+              </div>
+              <label for="electricBrandDamageActuator" class="col-sm-3 col-form-label">Brand</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="electricBrandDamageActuator">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group row">
+              <label for="electricModelDamageActuator" class="col-sm-3 col-form-label">Model Number</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="electricModelDamageActuator">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="editElectric()" data-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  -->
+</body>
+
+</html>

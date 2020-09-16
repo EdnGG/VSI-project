@@ -8,9 +8,12 @@ let divTableForm4 = document.querySelector("#tableFour");
 let containerPdf = document.querySelector("#pdf")
 
 // Modal container for all modals
-let modalContainer = document.querySelector("#staticBackdrop");
+// let modalContainer = document.querySelector("#staticBackdrop");
 
-let modalContainerHP = document.querySelector("#staticBackdropHP");
+// let modalContainerHP = document.querySelector("#staticBackdropHP");
+
+let modalContainerLP = document.querySelector("#staticBackdropLP");
+
 
 
 containerPdf.style.display = "none"

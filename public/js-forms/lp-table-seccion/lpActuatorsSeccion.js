@@ -1,7 +1,7 @@
 // STARTS LOW PRESSURE ACTUATORS SEDDING TABLES
 
 // main DIV for UPDATE MODAL Seccion
-let modalContainerLP = document.querySelector("#staticBackdropLP");
+// let modalContainerLP = document.querySelector("#staticBackdropLP");
 
 let tableForm4 = document.querySelector("#table4");
 db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
@@ -425,8 +425,6 @@ function editLowPressure(
         </div>
       </div>
     </div>
-
-</div>
 `
   modalContainerLP.innerHTML = modalLP;
   // pintando la tabla dentro del HTML

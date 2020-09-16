@@ -1,6 +1,6 @@
 // STARTS ELECTRIC ACTUATOR SEEDING TABLES
 
-// main DIV for UPDATE MODAL Seccion
+// // main DIV for UPDATE MODAL Seccion
 // let modalContainer = document.querySelector("#staticBackdrop");
 
 let tableForm2 = document.querySelector("#table2");
@@ -271,6 +271,9 @@ function editElectricActuator(
 ) {
   console.log('hello from modal electric')
 
+  // main DIV for UPDATE MODAL Seccion
+  let modalContainer = document.querySelector("#staticBackdrop");
+
   let modalElectric = ` 
    <div class="modal-dialog modal-xl" style="
    max-width: 90vw !important;
@@ -410,8 +413,6 @@ function editElectricActuator(
         </div>
       </div>
     </div>
-
-</div>
 `
 
   modalContainer.innerHTML = modalElectric;
