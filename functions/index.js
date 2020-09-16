@@ -19,10 +19,9 @@ var transporter = nodemailer.createTransport({
   secure: true,
   // secure: false,
   auth: {
-    user: "gresseden@gmail.com",
-    pass: "212826GEGI!*"
-    // user: process.env.EMAIL_ADMIN,
-    // pass: process.env.PASSWORD,
+
+    user: process.env.EMAIL_ADMIN,
+    pass: process.env.PASSWORD,
   },
 });
 
