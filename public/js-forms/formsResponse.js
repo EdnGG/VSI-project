@@ -25,11 +25,8 @@ divTableForm4.style.display = "none";
 // Ends Hidding tables seccion 
 
 
-// main DIV for UPDATE MODAL Seccion
-// let modalContainer = document.querySelector("#staticBackdrop");
 
-// let modalContainerLP = document.querySelector("#staticBackdropLP");
-// let modalLow = document.querySelector("#modalLow");
+
 
 
 // ENDS main DIV for UPDATE MODAL Seccion

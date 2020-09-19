@@ -110,13 +110,13 @@ function elecActuatorPDF(id,
   containerPdf.style.display = "block"
   let template = `
   <div class="background--pdf">
-        <div style="display:flex; 
+        <div style="display:flex;
         align-items: center;
         flex-flow: column wrap;">
           <figure class="logo">
             <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
           </figure><br >
-          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for Electric Actuator</strong>
+          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for High Pressure Actuator</strong>
         </div><br >
         <div class="modal-body data-seccion modal--group_first">
           <div class="row">
@@ -214,28 +214,30 @@ function elecActuatorPDF(id,
           <div class="row">
             <div class="col-6">
               <div class="form-group row">
-                <label for="inputElectricActuator" class="col-sm-6 col-form-label label-font">Electric Actuator:</label>
+                <label for="inputElectricActuator" class="col-sm-6 col-form-label label-font">Brand:</label>
                 <div class="col-sm-6">
                   
-                  <h6>${electricActuator}</h6>
-                </div>
-                <label class="col-sm-6 col-form-label label-font">Brand:</label>
-                <div class="col-sm-6">
                   <h6>${brandActuatorSecc4}</h6>
+                </div>
+                <label class="col-sm-6 col-form-label label-font">Model Number:</label>
+                <div class="col-sm-6">
+                  <h6>${modelActuatorSecc4}</h6>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group row">
-                <label class="col-sm-6 col-form-label label-font">Model Number:</label>
+                <label class="col-sm-6 col-form-label label-font">Rotary or Damaged:</label>
                 <div class="col-sm-6">
-                  <h6>${modelActuatorSecc4}</h6>
+                  <h6>${electricActuator}</h6>
                   
                 </div>
               </div>
             </div>
           </div>
-        </div>  `
+        </div> 
+      </div>  
+        `
   containerPdf.innerHTML = template
 
   // pdf.addHTML(containerPdf, options, function () {

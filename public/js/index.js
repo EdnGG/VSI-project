@@ -812,12 +812,12 @@ function validationLP() {
   console.log("validation Lp works");
   let damageActuatorLP = document.querySelector("#damageActuatorSecc6").value;
   let damageModelLP = document.querySelector("#damageModelNumberSecc6").value;
-  let lp2positions = document.querySelector("#lp2positions")
-  let lpModulating = document.querySelector("#lpModulating")
+  // let lp2positions = document.querySelector("#lp2positions")
+  // let lpModulating = document.querySelector("#lpModulating")
 
   // I need to check the radio butttons, I set one of those with
   // the propertie "checked" 
-  if (damageActuatorLP === "" && damageModelLP === "" && !lp2positions.checked || !lpModulating.checked) {
+  if (damageActuatorLP === "" && damageModelLP === "") {
     swal({
       text: "Fill up all the fields",
       icon: "error"

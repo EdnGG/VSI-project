@@ -1,7 +1,5 @@
 // STARTS LOW PRESSURE ACTUATORS SEDDING TABLES
 
-// main DIV for UPDATE MODAL Seccion
-// let modalContainerLP = document.querySelector("#staticBackdropLP");
 
 let tableForm4 = document.querySelector("#table4");
 db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
@@ -27,16 +25,16 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>${doc.data().Actuator_Type}</td>
                 <td>${doc.data().Actuator_Mode}</td>
                 <td>
-                  <button class="btn btn-danger" onclick="deleteLowPressure('${
-      doc.id
+                  <button class="btn btn-danger"
+                  onclick="deleteLowPressure('${doc.id
       }')">Delete</button>
                 </td>
                 <td>
-                  <button class=
-                  "btn btn-warning"
+                  <button 
+                  class="btn btn-warning"
                   data-toggle="modal"  
                   data-target="#staticBackdropLP"
-                  onclick="editLowPressure(
+                  onclick="editLowPressure( 
                     '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
@@ -52,14 +50,13 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                     '${doc.data().Model_Actuator_LP}',
                     '${doc.data().Valve_Type}',
                     '${doc.data().Actuator_Type}',
-                    '${doc.data().Actuator_Mode}'
-                    )">Edit
+                    '${doc.data().Actuator_Mode}')"
+                    >Edit
                   </button>
                 </td>
                 <td>
                 <button class="btn btn-info"
                 onclick="lpActuatorPDF(
-                    '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
                     '${doc.data().Contact_Email}',
@@ -74,8 +71,7 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                     '${doc.data().Model_Actuator_LP}',
                     '${doc.data().Valve_Type}',
                     '${doc.data().Actuator_Type}',
-                    '${doc.data().Actuator_Mode}'
-                    )"
+                    '${doc.data().Actuator_Mode}')"
                 >PDF
                 </button>
               </td>
@@ -102,7 +98,6 @@ function lpActuatorPDF(
   seriesSecc2,
   brandActuatorSecc6,
   modelActuatorSecc6,
-
   typeValveSecc3,
   dropdown,
   radioButtonsLP
@@ -247,7 +242,8 @@ function lpActuatorPDF(
               </div>
             </div>
           </div>
-        </div>   
+        </div> 
+      </div>  
         `
   containerPdf.innerHTML = template
 
@@ -263,6 +259,11 @@ function lpActuatorPDF(
 
 // STARTS LOW PRESSURE EDIT SECCION
 
+
+// function editLowPressure2() {
+//   alert('hello')
+// }
+
 function editLowPressure(
   id,
   company,
@@ -277,14 +278,15 @@ function editLowPressure(
   seriesSecc2,
   brandActuatorSecc6,
   modelActuatorSecc6,
-
   typeValveSecc3,
   dropdown,
   radioButtonsLP
 ) {
 
+  let modalContainerLP = document.querySelector("#staticBackdropLP");
 
-  let modalLP = `
+  let modalLP =
+    `
 	 <div class="modal-dialog modal-xl" style="
    max-width: 90vw !important;
    width:100%;
@@ -387,7 +389,7 @@ function editLowPressure(
                 </div>
               </div>
             </div>
-          
+
           </div>
         </div>
         <div class="modal-body data-seccion">
@@ -427,10 +429,8 @@ function editLowPressure(
     </div>
 `
   modalContainerLP.innerHTML = modalLP;
-  // pintando la tabla dentro del HTML
 
   // pintando la tabla dentro del HTML
-
   document.querySelector("#lpCompany").value = company;
   document.querySelector("#lpName").value = contactName;
   document.querySelector("#lpEmail").value = email;
@@ -515,7 +515,6 @@ function editLowPressure(
         document.querySelector("#lp2positions").value = "";
         document.querySelector("#lpModulating").value = ""; // checar ID
 
-        // modalContainerLP.innerHTML = ""
 
         swal({
           title: "Document updated successfull",

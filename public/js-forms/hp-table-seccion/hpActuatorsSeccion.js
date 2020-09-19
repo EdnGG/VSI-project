@@ -1,9 +1,5 @@
 // STARTS HIGH PERFORMANCE ACTUATORS SEDDING TABLES
 
-// main DIV for UPDATE MODAL Seccion
-// let modalContainerHP = document.querySelector("#staticBackdropHP");
-let modalContainerHP = document.querySelector("#highPressure");
-
 
 let tableForm3 = document.querySelector("#table3");
 db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
@@ -35,29 +31,33 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                 </td>
                 <td>
                   <button 
-                  class="btn btn-warning"
-                  onclick="editHighPressure('
-                  ${doc.id}',
-                  '${doc.data().Company_Name}',
-                  '${doc.data().Contact_Name}',
-                  '${doc.data().Contact_Email}',
-                  '${doc.data().Phone_Contact}',
-                  '${doc.data().City}',
-                  '${doc.data().State}',
-                  '${doc.data().Zip}',
-                  '${doc.data().Valve_Size}', 
-                  '${doc.data().Brand}',
-                  '${doc.data().Series}',
-                  '${doc.data().Brand_Actuator_HP}',
-                  '${doc.data().Model_Actuator_HP}',
-                  '${doc.data().Valve_Type}',
-                  '${doc.data().Actuator_Type}',
-                  '${doc.data().Actuator_Mode}')">Edit
+                  class="btn btn-warning" 
+                  data-toggle="modal"  
+                  data-target="#staticBackdropHP"
+                  onclick="editHighPressure(
+                    '${doc.id}',
+                    '${doc.data().Company_Name}',
+                    '${doc.data().Contact_Name}',
+                    '${doc.data().Contact_Email}',
+                    '${doc.data().Phone_Contact}',
+                    '${doc.data().City}',
+                    '${doc.data().State}',
+                    '${doc.data().Zip}',
+                    '${doc.data().Valve_Size}',
+                    '${doc.data().Brand}',
+                    '${doc.data().Series}',
+                    '${doc.data().Brand_Actuator_HP}',
+                    '${doc.data().Model_Actuator_HP}',
+                    '${doc.data().Valve_Type}',
+                    '${doc.data().Actuator_Type}',
+                    '${doc.data().Actuator_Mode}')"
+                  >Edit
                   </button>
                 </td>
                 <td>
                 <button class="btn btn-info"
-                    onclick="hpActuatorPDF('${doc.id}',
+                    onclick="hpActuatorPDF(
+                    '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
                     '${doc.data().Contact_Email}',
@@ -72,8 +72,8 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
                     '${doc.data().Model_Actuator_HP}',
                     '${doc.data().Valve_Type}',
                     '${doc.data().Actuator_Type}',
-                    '${doc.data().Actuator_Mode}')
-                  ">PDF
+                    '${doc.data().Actuator_Mode}')"
+                    >PDF
                 </button>
               </td>
           </tr>
@@ -81,10 +81,10 @@ db.collection("HP_Pneumatic").onSnapshot(querySnapshot => {
   });
 });
 
-// ENDS HIGH PERFORMANCE ACTUATORS SEDDING TABLES
+// ENDS HIGH PRESSURE ACTUATORS SEDDING TABLES
 
 
-// STARTS HIGH PERFORMANCE ACTUATOR PDF GENERATOR
+// STARTS HIGH PRESSURE ACTUATOR PDF GENERATOR
 
 function hpActuatorPDF(
   id,
@@ -244,7 +244,9 @@ function hpActuatorPDF(
               </div>
             </div>
           </div>
-        </div>  `
+        </div> 
+      </div>
+        `
   containerPdf.innerHTML = template
 
   // pdf.addHTML(containerPdf, options, function () {
@@ -278,12 +280,10 @@ function editHighPressure(
   radioButtonsHP
 ) {
 
-  // $('#staticBackdropHP').modal('show')
-  // let modalContainerHP = document.querySelector("#staticBackdropHP");
+  let modalContainerHP = document.querySelector("#staticBackdropHP");
 
   let modalHP = ` 
-  <div class="modal container" id="staticBackdropHP" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropHPLabel" aria-hidden="true">
+  
    <div class="modal-dialog modal-xl" style="
    max-width: 90vw !important;
    width:100%;
@@ -424,14 +424,12 @@ function editHighPressure(
         </div>
       </div>
     </div>
-    </div>
+   
+  
 `
+  modalContainerHP.innerHTML = modalHP;
 
-  modalContainerHP.innerHTML = modalHP; // pintando el modal dentro del HTML
-
-  $('#highPressure').modal('show')
-
-
+  // pintando el modal dentro del HTML
   document.querySelector("#hpCompany").value = company;
   document.querySelector("#hpName").value = contactName;
   document.querySelector("#hpEmail").value = email;
@@ -452,8 +450,6 @@ function editHighPressure(
 
   document.querySelector("#hpModulating").value = radioButtonsHP;
 
-
-  // let editButtonHp = document.querySelector("#editHighPressureActuator");
 
   window.editHP = () => {
     let washingtonRef = db.collection("HP_Pneumatic").doc(id);
