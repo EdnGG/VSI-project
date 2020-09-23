@@ -1,8 +1,5 @@
 // STARTS ELECTRIC ACTUATOR SEEDING TABLES
 
-// // main DIV for UPDATE MODAL Seccion
-// let modalContainer = document.querySelector("#staticBackdrop");
-
 let tableForm2 = document.querySelector("#table2");
 db.collection("Electric_Actuator").onSnapshot(querySnapshot => {
   tableForm2.innerHTML = "";
