@@ -249,11 +249,11 @@ function hpActuatorPDF(
         `
   containerPdf.innerHTML = template
 
-  // pdf.addHTML(containerPdf, options, function () {
-  //   pdf.save(`${company}.pdf`)
-  //   containerPdf.innerHTML = ''
-  //   containerPdf.style.display = "none"
-  // })
+  pdf.addHTML(containerPdf, options, function () {
+    pdf.save(`${company}.pdf`)
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  })
 
 }
 

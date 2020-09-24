@@ -5,134 +5,15 @@ let divTableForm = document.querySelector("#tableOne");
 let divTableForm2 = document.querySelector("#tableTwo");
 let divTableForm3 = document.querySelector("#tableThree");
 let divTableForm4 = document.querySelector("#tableFour");
+
+// CONTAINER FOR PDF GENERATOR
 let containerPdf = document.querySelector("#pdf")
-
-// Modal container for all modals
-// let modalContainer = document.querySelector("#staticBackdrop");
-
-// let modalContainerHP = document.querySelector("#staticBackdropHP");
-
-let modalContainerLP = document.querySelector("#staticBackdropLP");
-
-
 
 containerPdf.style.display = "none"
 divTableForm.style.display = "none";
 divTableForm2.style.display = "none";
 divTableForm3.style.display = "none";
 divTableForm4.style.display = "none";
-
-// Ends Hidding tables seccion 
-
-
-
-
-
-
-// ENDS main DIV for UPDATE MODAL Seccion
-
-
-// Getting data from firestore to seed all tables
-// let tableForm = document.querySelector("#table");
-// db.collection("3_Way").onSnapshot(querySnapshot => {
-//   tableForm.innerHTML = "";
-//   querySnapshot.forEach(doc => {
-//     //console.log(`${doc.id} => ${doc.data()}`);
-//     // console.table(`${doc.data()}`);
-//     tableForm.innerHTML += `
-//         <tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-//             <th class="">${doc.id}</th>
-//                 <td>${doc.data().Company_Name}</td>
-//                 <td>${doc.data().Contact_Name}</td>
-//                 <td>${doc.data().Contact_Email}</td>
-//                 <td>${doc.data().Phone_Contact}</td>
-//                 <td>${doc.data().City}</td>
-//                 <td>${doc.data().State}</td>
-//                 <td>${doc.data().Zip}</td>
-//                 <td>${doc.data().Valve_Size}</td>
-//                 <td>${doc.data().Brand}</td>
-//                 <td>${doc.data().Series}</td> 
-//                 <td>${doc.data().Valve_Type}</td>
-//                 <td>${doc.data().Arrangement_Type}</td>
-//                 <td>${doc.data().Bonnet_Type}</td>
-//                 <td>${doc.data().Dimension_Bonnet_A}</td>
-//                 <td>${doc.data().Dimension_Bonnet_B}</td>
-//                 <td>${doc.data().Dimension_Bonnet_C}</td>
-//                 <td>${doc.data().TypeOf_Bolt_Holes}</td>
-
-//                 <td>${doc.data().Hole_Size}</td>
-//                 <td>${doc.data().Other}</td>
-//                 <td>${doc.data().Shaft_Type}</td>
-//                 <td>${doc.data().Shaft_Dimensions_D}</td>
-//                 <td>${doc.data().Shaft_Dimensions_E}</td>
-//                 <td>${doc.data().Shaft_Dimensions_F}</td>
-//                 <td>${doc.data().Shaft_Dimensions_G}</td>
-//                 <td>${doc.data().Shaft_Dimensions_H}</td>
-//                 <td>${doc.data().Actuator_Requirements_Secc_1}</td>
-//                 <td>${doc.data().Actuator_Requirements_Secc_2}</td>
-//                 <td>${doc.data().Actuator_Requirements_Secc_3}</td>
-//                 <td>${doc.data().Actuator_Requirements_Secc_4}</td>
-//                 <td>${doc.data().Pneumatic_Or_Electric}</td>
-//                 <td>${doc.data().Control_Signal}</td>
-//                 <td>${doc.data().Other2}</td>
-//                 <td>${doc.data().Enclosure_Required}</td>
-//                 <td>
-//                   <button class="btn btn-danger" 
-//                     onclick="deleteArrangements('${doc.id}')">Delete</button>
-//                 </td>
-//                 <td>
-//                   <button class="btn btn-warning" 
-//                     onclick="editArrangements(
-//                     '${doc.id}',
-//                     '${doc.data().Company_Name}',
-//                     '${doc.data().Contact_Name}',
-//                     '${doc.data().Contact_Email}',
-//                     '${doc.data().Phone_Contact}',
-//                     '${doc.data().City}',
-//                     '${doc.data().State}',
-//                     '${doc.data().Zip}',
-//                     '${doc.data().Valve_Size}',
-//                     '${doc.data().Brand}',
-//                     '${doc.data().Series}',
-//                     '${doc.data().Valve_Type}',
-//                     '${doc.data().Arrangement_Type}',
-//                     '${doc.data().Bonnet_Type}',
-//                     '${doc.data().Dimension_Bonnet_A}',
-//                     '${doc.data().Dimension_Bonnet_B}',
-//                     '${doc.data().Dimension_Bonnet_C}',
-//                     '${doc.data().TypeOf_Bolt_Holes}',
-//                     '${doc.data().Hole_Size}',
-//                     '${doc.data().Other}',
-//                     '${doc.data().Shaft_Type}',
-//                     '${doc.data().Shaft_Dimensions_D}',
-//                     '${doc.data().Shaft_Dimensions_E}',
-//                     '${doc.data().Shaft_Dimensions_F}',
-//                     '${doc.data().Shaft_Dimensions_G}',
-//                     '${doc.data().Shaft_Dimensions_H}',
-//                     '${doc.data().Actuator_Requirements_Secc_1}',
-//                     '${doc.data().Actuator_Requirements_Secc_2}',
-//                     '${doc.data().Actuator_Requirements_Secc_3}',
-//                     '${doc.data().Actuator_Requirements_Secc_4}',
-//                     '${doc.data().Pneumatic_Or_Electric}',
-//                     '${doc.data().Control_Signal}', 
-//                     '${doc.data().Other2}',
-//                     '${doc.data().Enclosure_Required}')">
-//                     Edit
-//                 </button>
-//               </td>
-//               <td>
-//                 <button class="btn btn-info"
-//                     onclick="deleteArrangements('${doc.id}')">PDF
-//                 </button>
-//               </td>
-//         </tr>
-//       `;
-//   });
-// });
-
-
-
-// Ends Getting data from firestore to seed tables
 
 // function editArrangements(
 //   id,

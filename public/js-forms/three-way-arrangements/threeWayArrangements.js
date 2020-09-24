@@ -49,6 +49,8 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
                 </td>
                 <td>
                   <button class="btn btn-warning" 
+                  data-toggle="modal"  
+                  data-target="#staticBackdrop3Way"
                     onclick="editArrangements(
                     '${doc.id}',
                     '${doc.data().Company_Name}',
@@ -133,7 +135,10 @@ db.collection("3_Way").onSnapshot(querySnapshot => {
 
 // STARTS 3 WAY ARRANGEMENTS PDF GENERATOR
 
-function arrangementsPDF(id,
+
+// 
+function arrangementsPDF(
+  id,
   company,
   contactName,
   email,
@@ -144,11 +149,31 @@ function arrangementsPDF(id,
   valveSizeSecc2,
   brandSecc2,
   seriesSecc2,
-  brandActuatorSecc4,
-  modelActuatorSecc4,
   typeValveSecc3,
-  dropdown,
-  electricActuator) {
+  radioButtonsArrangements,
+  radioButtonsBonnets,
+  dimensionBonnetA,
+  dimensionBonnetB,
+  dimensionBonnetC,
+  boltHoles,
+  holeSize,
+  other,
+  shaftType,
+  optionShaftD,
+  optionShaftE,
+  optionShaftF,
+  optionShaftG,
+  optionShaftH,
+  actReqSecc1,
+  actReqSecc2,
+  actReqSecc3,
+  actReqSecc4,
+  otherPneumaticOrElec,
+  controlSignal,
+  otherControlSignal, // text area
+  enclosureRequired // radio buttons
+
+) {
 
   let pdf = new jsPDF({
     orientation: 'p',
@@ -165,130 +190,504 @@ function arrangementsPDF(id,
   let template = `
   <div class="background--pdf">
         <div style="display:flex;
-        align-items: center;
-        flex-flow: column wrap;">
-          <figure class="logo">
+        align-items: inherit;
+        flex-flow: column;">
+          <figure class="logo" >
             <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
           </figure><br >
-          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for High Pressure Actuator</strong>
-        </div><br >
-        <div class="modal-body data-seccion modal--group_first">
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group row myclass">
-                <label for="inputCompany" class="col-sm-6 col-form-label label-font">Company:</label>
-                <div class="col-sm-6">
-                  <h6>${company}</h6>
+          <strong class="modal-title main-title text-center"
+            
+            id="staticBackdropLabel"
+           >Retrofit Form for 3 Way Arrangements
+          </strong> <br>
+            <div class="modal-body data-seccion modal--group_first">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsCompany" class="col-sm-3 col-form-label">Company</label>
+                    
+                    <div class="col-sm-9">
+                      <h6>${company}</h6>
+                    </div>
+
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsName" class="col-sm-3 col-form-label">Contact</label>
+                    <div class="col-sm-9">
+                      <h6>${contactName}</h6>
+                    
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <h6>${email}</h6>
+                    
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                    <div class="col-sm-9">
+                      <h6>${phoneContact}</h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group row myclass">
-                <label for="inputContact" class="col-sm-6 col-form-label label-font">Contact:</label>
-                <div class="col-sm-6">
-                  <h6>${contactName}</h6>
-                </div>
-              </div>
-              <div class="form-group row myclass">
-                <label for="inputEmail" class="col-sm-6 col-form-label label-font">Email:</label>
-                <div class="col-sm-6">
-                  <h6>${email}</h6>
-                </div>
-              </div>
-              <div class="form-group row myclass">
-                <label for="inputPhone" class="col-sm-6 col-form-label label-font">Phone Number:</label>
-                <div class="col-sm-6">
-                  <h6>${phoneContact}</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group row myclass">
-                <label for="inputCity" class="col-sm-6 col-form-label label-font">City:</label>
-                <div class="col-sm-6">
-                  <h6>${city} 1</h6>
-                </div>
-              </div>
-              <div class="form-group row myclass">
-                <label for="inputState" class="col-sm-6 col-form-label label-font">State:</label>
-                <div class="col-sm-6">
-                  <h6>${state}</h6>
-                </div>
-              </div>
-              <div class="form-group row myclass">
-                <label for="inputZipcode" class="col-sm-6 col-form-label label-font">Zipcode:</label>
-                <div class="col-sm-6">
-                  <h6>${zip}</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><br >
-        <div class="modal-body data-seccion modal--group_second">
-          <!-- Second part -->
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group row">
-                <label class="col-sm-6 col-form-label label-font">Valve Size:</label>
-                <div class="col-sm-6">
-                  <h6>${valveSizeSecc2}</h6>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-6 
-                col-form-label label-font">Valve Brand:</label>
-                <div class="col-sm-6">
-                  <h6>${brandSecc2}</h6>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputValveSeries" class="col-sm-6 col-form-label label-font">Valve Series:</label>
-                <div class="col-sm-6">
-                  <h6>${seriesSecc2}</h6>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsCity" class="col-sm-3 col-form-label">City</label>
+                    <div class="col-sm-9">
+                      <h6>${city}</h6>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsState" class="col-sm-3 col-form-label">State</label>
+                    <div class="col-sm-9">
+                      <h6>${state}</h6>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsZip" class="col-sm-3 col-form-label">Zipcode</label>
+                    <div class="col-sm-9">
+                      <h6>${zip}</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="form-group row">
-                <label for="inputValveType" class="col-sm-6 col-form-label label-font">Valve Type:</label>
-                <div class="col-sm-6">
-                  <h6>${typeValveSecc3}</h6>
+
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+                    <div class="col-sm-9">
+                      <h6>${valveSizeSecc2}</h6>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+                    <div class="col-sm-9">
+                      <h6>${brandSecc2}</h6>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsSeries" class="col-sm-3 col-form-label">Valve Series</label>
+                    <div class="col-sm-9">
+                      <h6>${seriesSecc2}</h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group row">
-                <label for="inputActuatorType" class="col-sm-6 col-form-label label-font">Actuator Type:</label>
-                <div class="col-sm-6">
-                  <h6>${dropdown}</h6>
-                  
-                </div>
-              </div>
-            </div>
-            <!-- / Second part -->
-          </div>
-        </div><br >
-        <div class="modal-body data-seccion modal--group_third">
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group row">
-                <label for="inputElectricActuator" class="col-sm-6 col-form-label label-font">Brand:</label>
-                <div class="col-sm-6">
-                  
-                  <h6>${brandActuatorSecc4}</h6>
-                </div>
-                <label class="col-sm-6 col-form-label label-font">Model Number:</label>
-                <div class="col-sm-6">
-                  <h6>${modelActuatorSecc4}</h6>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group row">
-                <label class="col-sm-6 col-form-label label-font">Rotary or Damaged:</label>
-                <div class="col-sm-6">
-                  <h6>${electricActuator}</h6>
-                  
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="valve3wayType" class="col-sm-3 col-form-label">Valve Type</label>
+                    <div class="col-sm-9">
+                      <h6>${typeValveSecc3}</h6>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+                    <div class="col-sm-9">
+                      <h6>empty</h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Arrangement
+                    Type</h6>
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                      <figure>
+                        <img src="./imagenes/3waymodal/table.png" class="rounded mx-auto d-block" alt="Blog Logotipo"
+                          style="width: 600px;">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <h6>${radioButtonsArrangements}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Bonnet Information
+                  </h6>
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                      <figure>
+                        <img src="./imagenes/3waymodal/bonnets-images.png" class="rounded mx-auto d-block"
+                          alt="Blog Logotipo" style="width: 600px;">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <h6>${radioButtonsBonnets}</h6>
+                  </div>
+                </div>
+              </div> <br>
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Dimensions (Closets 0.001)
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" style="
+                display:flex;
+                ">
+                  <label for="dimensionBonnetA" class="col-sm-4 col-form-label">A</label>
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <h6>${dimensionBonnetA}</h6>
+                  </div>
+
+                  <label for="bonnetB" class="col-sm-4 col-form-label">B</label>
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <h6>${dimensionBonnetB}</h6>
+                  </div>
+
+                  <label for="bonnetC" class="col-sm-4 col-form-label">C</label>
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <h6>${dimensionBonnetC}</h6>
+                  </div>
+
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Bolt Holes
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12" 
+                style="display:flex;
+                text-align:center;">
+                  <h6 class="col-sm-6" style="justify-content:center">Drilled</h6>
+                  <h6 class="col-sm-6" style="justify-content:center">Drilled & Tapped</h6>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="
+                display:flex;
+                /* align-content: center; */
+                justify-content:center;
+                /* text-align:center; */
+                ">
+                    <h6>${boltHoles}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row-12 text-center">
+                <div class="col-sm-12" style="display: flex;
+                text-align: end;">
+                  <label for="holeSize" style="padding-right: 0%;" class="col-sm-8 col-form-label">Hole Size and/or
+                    Thread/Inch</label>
+                  <div class="col-sm-4" style="align-content: center;">
+                    <h6>${holeSize}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                    justify-content: center;">
+                    <h6>${other}</h6>
+                      id="other"></textarea>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="modal-body data-seccion">
+                <div class="row">
+                  <div class="col-12">
+                    <h6 style="
+                      display: flex;
+                      justify-content: center;">Shaft Information
+                    </h6>
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <figure>
+                          <img src="./imagenes/3waymodal/shaft-images.png" class="rounded mx-auto d-block"
+                            alt="Blog Logotipo" style="width: 600px;">
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="container">
+                    <div class="" style="display:flex;
+                      justify-content: center;">
+                      <h6>${shaftType}</h6>
+                    </div>
+                  </div>
+                </div><br>
+
+                <div class="row">
+                  <div class="col-12">
+                    <h6 style="
+                    display: flex;
+                    justify-content: center;">Dimensions (Closets 0.001)
+                    </h6> <br>
+                  </div>
+                </div>
+                <div class="row" style="display:flex;">
+                  <div class="col-sm-2" style="display:flex;">
+
+                    <label for="shaftD" class="col-sm-4 col-form-label">D</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <h6>${optionShaftD}</h6>
+                    </div>
+                    <label for="shaftE" class="col-sm-4 col-form-label">E</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <h6>${optionShaftE}</h6>
+                    </div>
+                    <label for="shaftF" class="col-sm-4 col-form-label">F</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <h6>${optionShaftF}</h6>
+                    </div>
+                    <label for="shaftG" class="col-sm-4 col-form-label">G</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <h6>${optionShaftG}</h6>
+                    </div>
+                    <label for="shaftH" class="col-sm-4 col-form-label">H</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <h6>${optionShaftH}</h6>
+                    </div>
+
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Actuator Requirements 1
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="modal-body data-seccion" style="display:flex;">
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+
+                    <label for="requirements1" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <h6>${actReqSecc1}</h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+                    <label for="requirements2" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <h6>${actReqSecc2}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Actuator Requirements Seccion 2
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="modal-body data-seccion" style="
+              display:flex;
+              flex-direction:row;
+              flex-wrap: nowrap;
+              ">
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;
+                  text-align: center;">
+
+                    <label for="requirements3" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <h6>${actReqSecc3}</h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+                    <label for="requirements4" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <h6>${actReqSecc4}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Power (Electric or Pneumatic)
+                  </h6> <br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12" style="display:flex;
+                  text-align:center;">
+                  <h6 class="col-sm-3" style="justify-content:center">120 VAC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">20 PSI</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">24 VAC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">80 PSI</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="container">
+                  <div style="
+                    display:flex;
+                    justify-content:center;">
+                    <h6>${controlSignal}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                    justify-content: center;">
+                    <h6>${otherPneumaticOrElec}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Control Signal
+                  </h6> <br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12" style="display:flex;
+                    text-align:center;">
+                  <h6 class="col-sm-3" style="justify-content:center">4-20 mA</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">3-15 psig</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">2-10 VDC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">Floating</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="container">
+                  <div style="
+                    display:flex;
+                    justify-content:center;">
+                    <h6>${controlSignal}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                      justify-content: center;">
+                    <h6>${otherControlSignal}</h6>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">NEMA 4 Enclosure Required
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                      justify-content: center;">
+                    <h6>${enclosureRequired}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div> 
       </div>  
         `
@@ -318,7 +717,6 @@ function editArrangements(
   valveSizeSecc2,
   brandSecc2,
   seriesSecc2,
-
   typeValveSecc3,
   radioButtonsArrangements,
   radioButtonsBonnets,
@@ -343,128 +741,532 @@ function editArrangements(
   otherControlSignal, // text area
   enclosureRequired // radio buttons
 ) {
-  if (shiftArrangement) {
-    modalContainerTreeWay.style.display = "block";
-    shiftArrangement = false;
-    console.log(
-      `%cvalor de shift dentro de IF: ${shiftArrangement}`,
-      "color : green;"
-    );
-  } else if (!shiftArrangement) {
-    modalContainerTreeWay.style.display = "block";
-    shiftArrangement = true;
-    console.log(
-      `%cvalor de shift dentro de ELSE IF: ${shiftArrangement}`,
-      "color : yellow;"
-    );
-  }
+  console.log('hello from 3 Way arrangement')
+
+  // main DIV for UPDATE MODAL Seccion
+  let modalContainer = document.querySelector("#staticBackdrop3Way");
 
   let modalArrangement = `
-	<div class="table-responsive-xl ml-2 pt-2 pl-2 pr-2 responsetable"
-        id="tableOneModal">
-        <table class="table table-hover responsetable">
-          <caption>
-            Retrofit Forms for High Pressure Actuators Requests
-          </caption>
+  <div class="modal-dialog modal-xl" style="
+   max-width: 90vw !important;
+   width:100%;
+   margin: 0;">
+      <div class="modal-content" style="
+      width:100%">
+        <div class="modal-header header-container">
+              <figure class="logo">
+                <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
+              </figure>
+              <h5 class="modal-title main-title" id="staticBackdropLabel">Retrofit Solutions</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsCompany" class="col-sm-3 col-form-label">Company</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsCompany">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsName" class="col-sm-3 col-form-label">Contact</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsName">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsEmail" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                      <input type="email" class="form-control" id="arrangementsEmail">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="arrangementsPhone">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsCity" class="col-sm-3 col-form-label">City</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsCity">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsState" class="col-sm-3 col-form-label">State</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsState">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsZip" class="col-sm-3 col-form-label">Zipcode</label>
+                    <div class="col-sm-9">
+                      <input type="number" class="form-control" id="arrangementsZip">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div style="overflow-x:auto;">
-            
-          </div>
-          <thead>
-            <tr class="justity-content-center text-center bg-secondary">
-      <th scope="col" class="text-center">ID</th>
-      <th scope="col" class="text-center">Company</th>
-      <th scope="col" class="text-center">Contact</th>
-      <th scope="col" class="text-center">Email</th>
-      <th scope="col" class="text-center">Phone Number</th>
-      <th scope="col" class="text-center">City</th>
-      <th scope="col" class="text-center">State</th>
-      <th scope="col" class="text-center">Zip Code</th>
-      <th scope="col" class="text-center">Valve Size</th>
-      <th scope="col" class="text-center">Valve Brand</th>
-      <th scope="col" class="text-center">Valve Series</th>
-      <th scope="col" class="text-center">Valve Type</th>
-      <th scope="col" class="text-center">Arrangement Type</th>
-      <th scope="col" class="text-center">Bonnet Type</th>
-      <th scope="col" class="text-center">Dimension Bonnet A</th>
-      <th scope="col" class="text-center">Dimension Bonnet B</th>
-      <th scope="col" class="text-center">Dimension Bonnet C</th>
-      <th scope="col" class="text-center">Bolt Holes Type</th>
-      <th scope="col" class="text-center">Hole Size</th>
-      <th scope="col" class="text-center">Other</th>
-      <th scope="col" class="text-center">Shaft Type</th>
-      <th scope="col" class="text-center">Shaft Dimensions D</th>
-      <th scope="col" class="text-center">Shaft Dimensions E</th>
-      <th scope="col" class="text-center">Shaft Dimensions F</th>
-      <th scope="col" class="text-center">Shaft Dimensions G</th>
-      <th scope="col" class="text-center">Shaft Dimensions H</th>
-      <th scope="col" class="text-center">Actuator Requirements 1</th>
-      <th scope="col" class="text-center">Actuator Requirements 2</th>
-      <th scope="col" class="text-center">Actuator Requirements 3</th>
-      <th scope="col" class="text-center">Actuator Requirements 4</th>
-      <th scope="col" class="text-center">Pneumatic || Electric</th>
-      <th scope="col" class="text-center">Actuator Control Signal</th>
-      <th scope="col" class="text-center">Other</th>
-      <th scope="col" class="text-center">Enclosure Required</th>
-      <th scope="col" class="text-center">Update</th>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="arrangementsValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsValveSize">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsBrand">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="arrangementsSeries" class="col-sm-3 col-form-label">Valve Series</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="arrangementsSeries">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="valve3wayType" class="col-sm-3 col-form-label">Valve Type</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="valve3wayType">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputActuatorType">
+                      <!-- <h6> ejemplo 1</h6> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            </tr>
-          </thead>
-		<tbody id="table1"><tr class="pt-2 pl-2 pr-2 justity-content-center text-center bg-light">
-<th>${id}</th>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Arrangement
+                    Type</h6>
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                      <figure>
+                        <img src="./imagenes/3waymodal/table.png" class="rounded mx-auto d-block" alt="Blog Logotipo"
+                          style="width: 600px;">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <input type="text" class="form-control" style="width:25%" id="arrangementType">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body data-seccion">
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Bonnet Information
+                  </h6>
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                      <figure>
+                        <img src="./imagenes/3waymodal/bonnets-images.png" class="rounded mx-auto d-block"
+                          alt="Blog Logotipo" style="width: 600px;">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                  justify-content: center;
+                  ">
+                    <input type="text" class="form-control" style="width:25%" id="bonneType">
+                  </div>
+                </div>
+              </div> <br>
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Dimensions (Closets 0.001)
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4" style="
+                display:flex;
+                ">
+                  <label for="bonnetA" class="col-sm-4 col-form-label">A</label>
+                  <div class="col-sm-8" style="align-content: space-between;">
+                    <input type="text" class="form-control" id="bonnetA">
+                  </div>
 
-    <td ><input type="text" id="arrangementsCompany"></td>
-    <td ><input type="text" id="arrangementsName"></td>
-    <td ><input type="text" id="arrangementsEmail"></td>
-    <td ><input type="text" id="arrangementsPhone"></td>
-    <td ><input type="text" id="arrangementsCity"></td>
-    <td ><input type="text" id="arrangementsState"></td>
-    <td ><input type="text" id="arrangementsZip"></td>
-    <td ><input type="text" id="arrangementsValveSize"></td>
-    <td ><input type="text" id="arrangementsBrand"></td>
-    <td ><input type="text" id="arrangementsSeries"></td>
+                  <label for="bonnetB" class="col-sm-4 col-form-label">B</label>
+                  <div class="col-sm-8" style="align-content: space-between;">
+                    <input type="text" class="form-control" id="bonnetB">
+                  </div>
 
-    <td ><input type="text" id="valve3wayType"></td>
-    <td ><input type="text" id="arrangementType"></td>
-                
-    <td ><input type="text" id="bonneType"></td>
-    <td ><input type="text" id="bonnetA"></td>
-    <td ><input type="text" id="bonnetB"></td>
-                
-    <td ><input type="text" id="bonnetC"></td>
-    <td ><input type="text" /id="boltHoles"></td>
-    <td ><input type="text" id="holeSize"></td>
-    <td ><input type="text" id="other"></td>
-    <td ><input type="text" id="shaftType"></td>
-    <td ><input type="text" id="shaftD"></td>
-    <td ><input type="text" id="shaftE"></td>
-    <td ><input type="text" id="shaftF"></td>
-    <td ><input type="text" id="shaftG"></td>
-    <td ><input type="text" id="shaftH"></td>
-    <td ><input type="text" id="requirements1"></td>
-    <td ><input type="text" id="requirements2"></td>
-    <td ><input type="text" id="requirements3"></td>
-    <td ><input type="text" id="requirements4"></td>
-    <td ><input type="text" id="elecOrPneum"></td>
-    <td ><input type="text" id="controlSignal"></td>
-    <td ><input type="text" id="other2"></td>
-    <td ><input type="text" id="enclosureType"></td>
+                  <label for="bonnetC" class="col-sm-4 col-form-label">C</label>
+                  <div class="col-sm-8" style="align-content: space-between;">
+                    <input type="text" class="form-control" id="bonnetC">
+                  </div>
 
-      <td>
-        <button class="btn btn-primary 
-          id="edit3wayArr" 
-          onclick="editArrangements1()">
-          Update
-        </button>
-      </td>
-      </tr>
-		</tbody>
-  </table>
-</div>
+                </div>
+              </div><br>
 
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Bolt Holes
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12" 
+                style="display:flex;
+                text-align:center;">
+                  <h6 class="col-sm-6" style="justify-content:center">Drilled</h6>
+                  <h6 class="col-sm-6" style="justify-content:center">Drilled & Tapped</h6>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="
+                display:flex;
+                /* align-content: center; */
+                justify-content:center;
+                /* text-align:center; */
+                ">
+                    <input type="text" class="form-control" id="boltHoles" style="width:25%">
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row-12 text-center">
+                <div class="col-sm-12" style="display: flex;
+                text-align: end;">
+                  <label for="holeSize" style="padding-right: 0%;" class="col-sm-8 col-form-label">Hole Size and/or
+                    Thread/Inch</label>
+                  <div class="col-sm-4" style="align-content: center;">
+                    <input type="text" class="form-control" id="holeSize" style="width:25%">
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div class="" style="display:flex;
+                    justify-content: center;">
+                    <textarea type="text" class="form-control" style="width:60%;" name="other1" rows="3" cols="50"
+                      id="other"></textarea>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="modal-body data-seccion">
+                <div class="row">
+                  <div class="col-12">
+                    <h6 style="
+                      display: flex;
+                      justify-content: center;">Shaft Information
+                    </h6>
+                    <div class="form-group row">
+                      <div class="col-sm-12">
+                        <figure>
+                          <img src="./imagenes/3waymodal/shaft-images.png" class="rounded mx-auto d-block"
+                            alt="Blog Logotipo" style="width: 600px;">
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="container">
+                    <div class="" style="display:flex;
+                      justify-content: center;">
+                      <input type="text" class="form-control" style="width:25%" id="shaftType">
+                    </div>
+                  </div>
+                </div><br>
+
+                <div class="row">
+                  <div class="col-12">
+                    <h6 style="
+                    display: flex;
+                    justify-content: center;">Dimensions (Closets 0.001)
+                    </h6> <br>
+                  </div>
+                </div>
+                <div class="row" style="display:flex;">
+                  <div class="col-sm-2" style="display:flex;">
+
+                    <label for="shaftD" class="col-sm-4 col-form-label">D</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <input type="text" class="form-control" id="shaftD">
+                    </div>
+                    <label for="shaftE" class="col-sm-4 col-form-label">E</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <input type="text" class="form-control" id="shaftE">
+                    </div>
+                    <label for="shaftF" class="col-sm-4 col-form-label">F</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <input type="text" class="form-control" id="shaftF">
+                    </div>
+                    <label for="shaftG" class="col-sm-4 col-form-label">G</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <input type="text" class="form-control" id="shaftG">
+                    </div>
+                    <label for="shaftH" class="col-sm-4 col-form-label">H</label>
+                    <div class="col-sm-8" style="align-content: space-between;">
+                      <input type="text" class="form-control" id="shaftH">
+                    </div>
+
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Actuator Requirements 1
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="modal-body data-seccion" style="display:flex;">
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+
+                    <label for="requirements1" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="col-sm-6 form-control" style="width:50%;" id="requirements1">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+                    <label for="requirements2" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="col-sm-6 form-control" style="width:50%;" id="requirements2">
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Actuator Requirements Seccion 2
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="modal-body data-seccion" style="
+              display:flex;
+              flex-direction:row;
+              flex-wrap: nowrap;
+              ">
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;
+                  text-align: center;">
+
+                    <label for="requirements3" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="col-sm-6 form-control" style="width:50%;" id="requirements3">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: center;">
+                  <div class="container" style="
+                  display:flex;
+                  justify-content:center;
+                  align-items:center;">
+                    <label for="requirements4" class="col-sm-6 col-form-label">Requirement:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="col-sm-6 form-control" style="width:50%;" id="requirements4">
+                    </div>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Power (Electric or Pneumatic)
+                  </h6> <br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12" style="display:flex;
+                  text-align:center;">
+                  <h6 class="col-sm-3" style="justify-content:center">120 VAC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">20 PSI</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">24 VAC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">80 PSI</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="container">
+                  <div style="
+                    display:flex;
+                    justify-content:center;">
+                    <input type="text" class="form-control" id="elecOrPneum" style="width:25%">
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                    justify-content: center;">
+                    <textarea type="text" class="form-control" style="width:60%;" name="other1" rows="3" cols="50"
+                      id="other2"></textarea>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Control Signal
+                  </h6> <br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12" style="display:flex;
+                    text-align:center;">
+                  <h6 class="col-sm-3" style="justify-content:center">4-20 mA</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">3-15 psig</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">2-10 VDC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center">Floating</h6>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="container">
+                  <div style="
+                    display:flex;
+                    justify-content:center;">
+                    <input type="text" class="form-control" id="controlSignal" style="width:25%">
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">Other
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                      justify-content: center;">
+                    <textarea type="text" class="form-control" style="width:60%;" name="other1" rows="3" cols="50"
+                      id="other3"></textarea>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row">
+                <div class="col-12">
+                  <h6 style="
+                    display: flex;
+                    justify-content: center;">NEMA 4 Enclosure Required
+                  </h6> <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="container">
+                  <div style="display:flex;
+                      justify-content: center;">
+                    <input type="text" class="form-control" style="width:30%;" name="other1" id="enclosureType">
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="modal-footer" display="border-top:0 !important;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editArrangements1()"
+                  data-dismiss="modal">Update</button>
+              </div>
+            </div>
+      </div>
+    </div>
+  
 `;
 
-  modalContainerTreeWay.innerHTML = modalArrangement; // pintando la tabla dentro del HTML
+  modalContainer.innerHTML = modalArrangement;
+  // pintando el modal dentro del HTML
 
   document.querySelector("#arrangementsCompany").value = company; //
   document.querySelector("#arrangementsName").value = contactName; //
@@ -477,7 +1279,8 @@ function editArrangements(
   document.querySelector("#arrangementsBrand").value = brandSecc2; //
   document.querySelector("#arrangementsSeries").value = seriesSecc2; //
 
-  document.querySelector("#valve3wayType").value = typeValveSecc3; //
+  document.querySelector("#valve3wayType").value = typeValveSecc3;
+  // Aqui estoy 
   document.querySelector("#arrangementType").value = radioButtonsArrangements; //
   document.querySelector("#bonneType").value = radioButtonsBonnets; //
   document.querySelector("#bonnetA").value = dimensionBonnetA; //
@@ -635,14 +1438,11 @@ function editArrangements(
         document.querySelector("#other2").value = "";
         document.querySelector("#enclosureType").value = "";
 
-        //
+        swal({
+          title: "Document updated successfull",
+          icon: "success",
+        })
 
-        modalContainerTreeWay.style.display = "none";
-        shiftArrangement = false;
-        console.log(
-          `%cvalor de shift dentro de .then : ${shiftArrangement}`,
-          "color : orange;"
-        );
       })
       .catch(function (error) {
         // The document probably doesn't exist.

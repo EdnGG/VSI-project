@@ -113,30 +113,30 @@ function elecActuatorPDF(id,
           <figure class="logo">
             <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
           </figure><br >
-          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for High Pressure Actuator</strong>
+          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for Electric Actuator</strong>
         </div><br >
         <div class="modal-body data-seccion modal--group_first">
           <div class="row">
             <div class="col-6">
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputCompany" class="col-sm-6 col-form-label label-font">Company:</label>
                 <div class="col-sm-6">
                   <h6>${company}</h6>
                 </div>
               </div>
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputContact" class="col-sm-6 col-form-label label-font">Contact:</label>
                 <div class="col-sm-6">
                   <h6>${contactName}</h6>
                 </div>
               </div>
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputEmail" class="col-sm-6 col-form-label label-font">Email:</label>
                 <div class="col-sm-6">
                   <h6>${email}</h6>
                 </div>
               </div>
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputPhone" class="col-sm-6 col-form-label label-font">Phone Number:</label>
                 <div class="col-sm-6">
                   <h6>${phoneContact}</h6>
@@ -144,19 +144,19 @@ function elecActuatorPDF(id,
               </div>
             </div>
             <div class="col-6">
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputCity" class="col-sm-6 col-form-label label-font">City:</label>
                 <div class="col-sm-6">
                   <h6>${city} 1</h6>
                 </div>
               </div>
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputState" class="col-sm-6 col-form-label label-font">State:</label>
                 <div class="col-sm-6">
                   <h6>${state}</h6>
                 </div>
               </div>
-              <div class="form-group row myclass">
+              <div class="form-group row testing">
                 <label for="inputZipcode" class="col-sm-6 col-form-label label-font">Zipcode:</label>
                 <div class="col-sm-6">
                   <h6>${zip}</h6>
@@ -237,11 +237,11 @@ function elecActuatorPDF(id,
         `
   containerPdf.innerHTML = template
 
-  // pdf.addHTML(containerPdf, options, function () {
-  //   pdf.save(`${company}.pdf`)
-  //   containerPdf.innerHTML = ''
-  //   containerPdf.style.display = "none"
-  // })
+  pdf.addHTML(containerPdf, options, function () {
+    pdf.save(`${company}.pdf`)
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  })
 
 }
 
@@ -506,14 +506,9 @@ function editElectricActuator(
         document.querySelector("#electricActuatorType").value = "";
         document.querySelector("#actuator").value = "";
 
-        // modalContainer.innerHTML = ""
-
         swal({
           title: "Document updated successfull",
-          // text: "Once deleted, you will not be able to recover this document!",
           icon: "success",
-          // buttons: true,
-          // dangerMode: true,
         })
 
       })

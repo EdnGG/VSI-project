@@ -57,6 +57,7 @@ db.collection("LowP_Pneumatic").onSnapshot(querySnapshot => {
                 <td>
                 <button class="btn btn-info"
                 onclick="lpActuatorPDF(
+                    '${doc.id}',
                     '${doc.data().Company_Name}',
                     '${doc.data().Contact_Name}',
                     '${doc.data().Contact_Email}',
@@ -123,7 +124,7 @@ function lpActuatorPDF(
           <figure class="logo">
             <img src="./imagenes/logo-valvesolutions.png" alt="Blog Logotipo">
           </figure><br >
-          <strong class="modal-title main-title" id="staticBackdropLabel">Retrofit Form for High Pressure Actuator</strong>
+          <strong class="modal-title main-title text-center" id="staticBackdropLabel">Retrofit Form for Low Pressure Actuator</strong>
         </div><br >
         <div class="modal-body data-seccion modal--group_first">
           <div class="row">
@@ -247,22 +248,17 @@ function lpActuatorPDF(
         `
   containerPdf.innerHTML = template
 
-  // pdf.addHTML(containerPdf, options, function () {
-  //   pdf.save(`${company}.pdf`)
-  //   containerPdf.innerHTML = ''
-  //   containerPdf.style.display = "none"
-  // })
+  pdf.addHTML(containerPdf, options, function () {
+    pdf.save(`${company}.pdf`)
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  })
 
 }
 
 // ENDS LOW PRESSURE ACTUATOR PDF GENERATOR
 
 // STARTS LOW PRESSURE EDIT SECCION
-
-
-// function editLowPressure2() {
-//   alert('hello')
-// }
 
 function editLowPressure(
   id,
