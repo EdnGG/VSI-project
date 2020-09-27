@@ -12,10 +12,10 @@ const nodemailer = require("nodemailer");
 let alternativeMail = process.env.ALTERNATIVE_EMAIL;
 
 var transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  // host: process.env.HOST,
-  port: 465,
-  // port: process.env.PORT,
+  // host: "smtp.gmail.com",
+  host: process.env.HOST,
+  // port: 465,
+  port: process.env.PORT,
   secure: true,
   // secure: false,
   auth: {
@@ -44,8 +44,7 @@ exports.sendEmailEa = functions.firestore
       <h1 style="color:green;
       ">Retrofit Form Request</h1>
         <h2 style="
-            font-size:20pt;">Hello "${
-        snap.data().Contact_Name
+            font-size:20pt;">Hello "${snap.data().Contact_Name
         }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
@@ -159,8 +158,7 @@ exports.sendEmailHp = functions.firestore
       <h1 style="color:green;
       ">Retrofit Form Request</h1>
         <h2 style="
-            font-size:20pt;">Hello "${
-        snap.data().Contact_Name
+            font-size:20pt;">Hello "${snap.data().Contact_Name
         }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
@@ -273,8 +271,7 @@ exports.sendEmailLp = functions.firestore
       <h1 style="color:green;
       ">Retrofit Form Request</h1>
         <h2 style="
-            font-size:20pt;">Hello "${
-        snap.data().Contact_Name
+            font-size:20pt;">Hello "${snap.data().Contact_Name
         }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;
@@ -391,8 +388,7 @@ exports.sendEmail3Way = functions.firestore
       <h1 style="color:green;
       ">Retrofit Form Request</h1>
         <h2 style="
-            font-size:20pt;">Hello "${
-        snap.data().Contact_Name
+            font-size:20pt;">Hello "${snap.data().Contact_Name
         }" We received your Retrofit form request </h2><br>
       <img style="
             width:400px;

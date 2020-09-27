@@ -175,6 +175,8 @@ function arrangementsPDF(
 
 ) {
 
+  // Checar como crear mas de una pagina
+
   let pdf = new jsPDF({
     orientation: 'p',
     unit: 'mm',
@@ -204,7 +206,7 @@ function arrangementsPDF(
               <div class="row">
                 <div class="col-6">
                   <div class="form-group row">
-                    <label for="arrangementsCompany" class="col-sm-3 col-form-label">Company</label>
+                    <label  class="col-sm-3 col-form-label arrangements">Company:</label>
                     
                     <div class="col-sm-9">
                       <h6>${company}</h6>
@@ -212,21 +214,21 @@ function arrangementsPDF(
 
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsName" class="col-sm-3 col-form-label">Contact</label>
+                    <label class="col-sm-3 col-form-label arrangements">Contact:</label>
                     <div class="col-sm-9">
                       <h6>${contactName}</h6>
                     
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsEmail" class="col-sm-3 col-form-label">Email</label>
+                     <label class="col-sm-3 col-form-label arrangements">Email:</label>
                     <div class="col-sm-9">
                       <h6>${email}</h6>
                     
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsPhone" class="col-sm-3 col-form-label">Phone Number</label>
+                    <label class="col-sm-3 col-form-label arrangements">Phone Number:</label>
                     <div class="col-sm-9">
                       <h6>${phoneContact}</h6>
                     </div>
@@ -234,19 +236,19 @@ function arrangementsPDF(
                 </div>
                 <div class="col-6">
                   <div class="form-group row">
-                    <label for="arrangementsCity" class="col-sm-3 col-form-label">City</label>
+                    <label  class="col-sm-3 col-form-label arrangements">City:</label>
                     <div class="col-sm-9">
                       <h6>${city}</h6>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsState" class="col-sm-3 col-form-label">State</label>
+                    <label  class="col-sm-3 col-form-label arrangements">State:</label>
                     <div class="col-sm-9">
                       <h6>${state}</h6>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsZip" class="col-sm-3 col-form-label">Zipcode</label>
+                    <label class="col-sm-3 col-form-label arrangements">Zipcode:</label>
                     <div class="col-sm-9">
                       <h6>${zip}</h6>
                     </div>
@@ -255,23 +257,23 @@ function arrangementsPDF(
               </div>
             </div>
 
-            <div class="modal-body data-seccion">
+            <div class="modal-body data-seccion modal--group_second">
               <div class="row">
                 <div class="col-6">
                   <div class="form-group row">
-                    <label for="arrangementsValveSize" class="col-sm-3 col-form-label">Valve Size</label>
+                    <label  class="col-sm-3 col-form-label arrangements">Valve Size:</label>
                     <div class="col-sm-9">
                       <h6>${valveSizeSecc2}</h6>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsBrand" class="col-sm-3 col-form-label">Valve Brand</label>
+                    <label class="col-sm-3 col-form-label arrangements">Valve Brand:</label>
                     <div class="col-sm-9">
                       <h6>${brandSecc2}</h6>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="arrangementsSeries" class="col-sm-3 col-form-label">Valve Series</label>
+                    <label class="col-sm-3 col-form-label arrangements">Valve Series:</label>
                     <div class="col-sm-9">
                       <h6>${seriesSecc2}</h6>
                     </div>
@@ -279,13 +281,13 @@ function arrangementsPDF(
                 </div>
                 <div class="col-6">
                   <div class="form-group row">
-                    <label for="valve3wayType" class="col-sm-3 col-form-label">Valve Type</label>
+                    <label class="col-sm-3 col-form-label arrangements">Valve Type:</label>
                     <div class="col-sm-9">
                       <h6>${typeValveSecc3}</h6>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
+                    <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type:</label>
                     <div class="col-sm-9">
                       <h6>empty</h6>
                     </div>
@@ -294,13 +296,17 @@ function arrangementsPDF(
               </div>
             </div>
 
-            <div class="modal-body data-seccion">
+            <div class="modal-body data-seccion modal--group_first">
               <div class="row">
                 <div class="col-12">
-                  <h6 style="
+                  <h6 
+                    class="arrangements"
+                    style="
                     display: flex;
-                    justify-content: center;">Arrangement
-                    Type</h6>
+                    justify-content: center;
+                    padding-bottom:15px;
+                    font-size:21px;">
+                    Arrangement Type:</h6>
                   <div class="form-group row">
                     <div class="col-sm-12">
                       <figure>
@@ -321,12 +327,15 @@ function arrangementsPDF(
                 </div>
               </div>
             </div>
-            <div class="modal-body data-seccion">
+            <div class="modal-body data-seccion modal--group_second">
               <div class="row">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Bonnet Information
+                    justify-content: center;
+                    padding-bottom:15px;
+                    font-size:21px;
+                    ">Bonnet Information:
                   </h6>
                   <div class="form-group row">
                     <div class="col-sm-12">
@@ -347,33 +356,36 @@ function arrangementsPDF(
                   </div>
                 </div>
               </div> <br>
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Dimensions (Closets 0.001)
+                    justify-content: center;
+                    font-size:21px;">Dimensions (Closets 0.001):
                   </h6> <br>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-4" style="
-                display:flex;
+              <div class="row"
+              style="justify-content:center">
+                <div class="col-sm-4" 
+                style="display:flex;
+                justify-content:center;
                 ">
-                  <label for="dimensionBonnetA" class="col-sm-4 col-form-label">A</label>
+                  <label class="col-sm-4 col-form-label arrangements">A:</label>
                   <div class="" style="display:flex;
                   justify-content: center;
                   ">
                     <h6>${dimensionBonnetA}</h6>
                   </div>
 
-                  <label for="bonnetB" class="col-sm-4 col-form-label">B</label>
+                  <label class="col-sm-4 col-form-label arrangements">B:</label>
                   <div class="" style="display:flex;
                   justify-content: center;
                   ">
                     <h6>${dimensionBonnetB}</h6>
                   </div>
 
-                  <label for="bonnetC" class="col-sm-4 col-form-label">C</label>
+                  <label class="col-sm-4 col-form-label arrangements">C:</label>
                   <div class="" style="display:flex;
                   justify-content: center;
                   ">
@@ -383,52 +395,40 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
-                <div class="col-12">
-                  <h6 style="
-                    display: flex;
-                    justify-content: center;">Bolt Holes
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-12" 
-                style="display:flex;
-                text-align:center;">
-                  <h6 class="col-sm-6" style="justify-content:center">Drilled</h6>
-                  <h6 class="col-sm-6" style="justify-content:center">Drilled & Tapped</h6>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="container">
-                  <div style="
-                display:flex;
-                /* align-content: center; */
-                justify-content:center;
-                /* text-align:center; */
-                ">
+            <div class="modal--group_second"> 
+              <div class="row-12 text-center ">
+                <div class="col-sm-12" style="display: flex;
+                text-align: center;">
+                  <label for="holeSize" style="padding: 0%;" class="col-sm-8 col-form-label">
+                  <strong>Bolt Holes:</strong>
+                  </label>
+                  <div class="col-sm-3" style="align-content: center;">
                     <h6>${boltHoles}</h6>
                   </div>
                 </div>
-              </div><br>
+              </div>
+              </div>
+              <br>
+
 
               <div class="row-12 text-center">
                 <div class="col-sm-12" style="display: flex;
-                text-align: end;">
-                  <label for="holeSize" style="padding-right: 0%;" class="col-sm-8 col-form-label">Hole Size and/or
-                    Thread/Inch</label>
-                  <div class="col-sm-4" style="align-content: center;">
+                text-align: center;">
+                  <label for="holeSize" style="padding: 0%;" class="col-sm-8 col-form-label">
+                  <strong>Hole Size and/or Thread/Inch:</strong>
+                  </label>
+                  <div class="col-sm-3" style="align-content: center;">
                     <h6>${holeSize}</h6>
                   </div>
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Other
+                    justify-content: center;
+                    font-size:21px;">Other:
                   </h6> <br>
                 </div>
               </div>
@@ -437,17 +437,18 @@ function arrangementsPDF(
                   <div class="" style="display:flex;
                     justify-content: center;">
                     <h6>${other}</h6>
-                      id="other"></textarea>
+                      
                   </div>
                 </div>
               </div><br>
 
-              <div class="modal-body data-seccion">
+              <div class="modal-body data-seccion modal--group_second">
                 <div class="row">
                   <div class="col-12">
                     <h6 style="
                       display: flex;
-                      justify-content: center;">Shaft Information
+                      justify-content: center;
+                      font-size:21px;">Shaft Information:
                     </h6>
                     <div class="form-group row">
                       <div class="col-sm-12">
@@ -468,34 +469,43 @@ function arrangementsPDF(
                   </div>
                 </div><br>
 
-                <div class="row">
+                <div class="row modal--group_second">
                   <div class="col-12">
                     <h6 style="
                     display: flex;
-                    justify-content: center;">Dimensions (Closets 0.001)
+                    justify-content: center;
+                    font-size:21px;">Dimensions (Closets 0.001):
                     </h6> <br>
                   </div>
                 </div>
-                <div class="row" style="display:flex;">
-                  <div class="col-sm-2" style="display:flex;">
+                <div class="row" 
+                style="
+                display:flex;
+                justify-content:center;">
+                  <div 
+                  style="
+                  width:100px;
+                  display:flex;
+                  justify-content:center;">
 
-                    <label for="shaftD" class="col-sm-4 col-form-label">D</label>
+                    <label class="col-sm-4 col-form-label arrangements">D:</label>
                     <div class="col-sm-8" style="align-content: space-between;">
                       <h6>${optionShaftD}</h6>
                     </div>
-                    <label for="shaftE" class="col-sm-4 col-form-label">E</label>
+                    <label class="col-sm-4 col-form-label arrangements">E:</label>
                     <div class="col-sm-8" style="align-content: space-between;">
                       <h6>${optionShaftE}</h6>
                     </div>
-                    <label for="shaftF" class="col-sm-4 col-form-label">F</label>
+                    <label class="col-sm-4 col-form-label arrangements">F:</label>
                     <div class="col-sm-8" style="align-content: space-between;">
                       <h6>${optionShaftF}</h6>
                     </div>
-                    <label for="shaftG" class="col-sm-4 col-form-label">G</label>
+                    <label class="col-sm-4 col-form-label 
+                    arrangements">G:</label>
                     <div class="col-sm-8" style="align-content: space-between;">
                       <h6>${optionShaftG}</h6>
                     </div>
-                    <label for="shaftH" class="col-sm-4 col-form-label">H</label>
+                    <label class="col-sm-4 col-form-label arrangements">H:</label>
                     <div class="col-sm-8" style="align-content: space-between;">
                       <h6>${optionShaftH}</h6>
                     </div>
@@ -504,23 +514,32 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Actuator Requirements 1
+                    justify-content: center;
+                    font-size:21px;">Actuator Requirements Seccion 1:
                   </h6> <br>
                 </div>
               </div>
-              <div class="modal-body data-seccion" style="display:flex;">
-                <div class="row" style="text-align: center;">
-                  <div class="container" style="
+              <div class="modal-body data-seccion" style="
+              display:flex;
+              /* justify-content:center; */
+              width:100%;
+              ">
+              <div class="row" 
+                style="display:flex;
+                text-align: center;
+                justify-content:center;
+                ">
+                  <div class="col-12" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;">
 
-                    <label for="requirements1" class="col-sm-6 col-form-label">Requirement:</label>
-                    <div class="col-sm-6">
+                    <label style="padding:10px">Requirement:</label>
+                    <div>
                       <h6>${actReqSecc1}</h6>
                     </div>
                   </div>
@@ -531,36 +550,44 @@ function arrangementsPDF(
                   display:flex;
                   justify-content:center;
                   align-items:center;">
-                    <label for="requirements2" class="col-sm-6 col-form-label">Requirement:</label>
-                    <div class="col-sm-6">
+                    <label style="padding:10px">Requirement:</label>
+                    <div>
                       <h6>${actReqSecc2}</h6>
                     </div>
                   </div>
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Actuator Requirements Seccion 2
+                    justify-content: center;
+                    font-size:21px;">Actuator Requirements Seccion 2:
                   </h6> <br>
                 </div>
               </div>
               <div class="modal-body data-seccion" style="
               display:flex;
-              flex-direction:row;
-              flex-wrap: nowrap;
+              /*justify-content:center;*/
+              widht:100%
+              /*flex-direction:row;*/
+              /*flex-wrap: nowrap;*/
               ">
-                <div class="row" style="text-align: center;">
-                  <div class="container" style="
+                <div class="row"
+                  style="
+                  display:flex;
+                  text-align: center;
+                  justify-content: center;
+                  ">
+                  <div class="col-12" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;
-                  text-align: center;">
+                  ">
 
-                    <label for="requirements3" class="col-sm-6 col-form-label">Requirement:</label>
-                    <div class="col-sm-6">
+                    <label style="padding:10px;" ">Requirement:</label>
+                    <div>
                       <h6>${actReqSecc3}</h6>
                     </div>
                   </div>
@@ -571,30 +598,44 @@ function arrangementsPDF(
                   display:flex;
                   justify-content:center;
                   align-items:center;">
-                    <label for="requirements4" class="col-sm-6 col-form-label">Requirement:</label>
-                    <div class="col-sm-6">
+                    <label style="padding:10px;">Requirement:</label>
+                    <div class="">
                       <h6>${actReqSecc4}</h6>
                     </div>
                   </div>
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Power (Electric or Pneumatic)
+                    justify-content: center;
+                    font-size:21px;
+                    ">Power (Electric or Pneumatic):
                   </h6> <br>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-sm-12" style="display:flex;
+                <div class="col-12" style="display:flex;
                   text-align:center;">
-                  <h6 class="col-sm-3" style="justify-content:center">120 VAC</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">20 PSI</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">24 VAC</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">80 PSI</h6>
+                  <h6 class="col-sm-3" style="
+                  justify-content:center;
+                  text-align:center;
+                  ">120 VAC</h6>
+                  <h6 class="col-sm-3" style="
+                  justify-content:center;
+                  text-align:center;
+                  ">20 PSI</h6>
+                  <h6 class="col-sm-3" style="
+                  justify-content:center;
+                  text-align:center;
+                  ">24 VAC</h6>
+                  <h6 class="col-sm-3" style="
+                  justify-content:center;
+                  text-align:center;
+                  ">80 PSI</h6>
                 </div>
               </div>
 
@@ -608,11 +649,12 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Other
+                    justify-content: center;
+                    font-size:21px;">Other
                   </h6> <br>
                 </div>
               </div>
@@ -625,11 +667,12 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Control Signal
+                    justify-content: center;
+                    font-size:21px;">Control Signal:
                   </h6> <br>
                 </div>
               </div>
@@ -637,10 +680,18 @@ function arrangementsPDF(
               <div class="row">
                 <div class="col-sm-12" style="display:flex;
                     text-align:center;">
-                  <h6 class="col-sm-3" style="justify-content:center">4-20 mA</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">3-15 psig</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">2-10 VDC</h6>
-                  <h6 class="col-sm-3" style="justify-content:center">Floating</h6>
+                  <h6 class="col-sm-3" style="justify-content:center;
+                  text-align:center;
+                  ">4-20 mA</h6>
+                  <h6 class="col-sm-3" style="justify-content:center;
+                  text-align:center;
+                  ">3-15 psig</h6>
+                  <h6 class="col-sm-3" style="justify-content:center;
+                  text-align:center;
+                  ">2-10 VDC</h6>
+                  <h6 class="col-sm-3" style="justify-content:center;
+                  text-align:center;
+                  ">Floating</h6>
                 </div>
               </div>
 
@@ -654,11 +705,12 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">Other
+                    justify-content: center;
+                    font-size:21px;">Other:
                   </h6> <br>
                 </div>
               </div>
@@ -671,11 +723,12 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="row">
+              <div class="row modal--group_second">
                 <div class="col-12">
                   <h6 style="
                     display: flex;
-                    justify-content: center;">NEMA 4 Enclosure Required
+                    justify-content: center;
+                    font-size:21px;">NEMA 4 Enclosure Required:
                   </h6> <br>
                 </div>
               </div>
@@ -693,11 +746,11 @@ function arrangementsPDF(
         `
   containerPdf.innerHTML = template
 
-  // pdf.addHTML(containerPdf, options, function () {
-  //   pdf.save(`${company}.pdf`)
-  //   containerPdf.innerHTML = ''
-  //   containerPdf.style.display = "none"
-  // })
+  pdf.addHTML(containerPdf, options, function () {
+    pdf.save(`${company}.pdf`)
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  })
 
 }
 
@@ -769,28 +822,24 @@ function editArrangements(
                     <label for="arrangementsCompany" class="col-sm-3 col-form-label">Company</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsCompany">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsName" class="col-sm-3 col-form-label">Contact</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsName">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsEmail" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
                       <input type="email" class="form-control" id="arrangementsEmail">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsPhone" class="col-sm-3 col-form-label">Phone Number</label>
                     <div class="col-sm-9">
                       <input type="number" class="form-control" id="arrangementsPhone">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                 </div>
@@ -799,21 +848,18 @@ function editArrangements(
                     <label for="arrangementsCity" class="col-sm-3 col-form-label">City</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsCity">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsState" class="col-sm-3 col-form-label">State</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsState">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsZip" class="col-sm-3 col-form-label">Zipcode</label>
                     <div class="col-sm-9">
                       <input type="number" class="form-control" id="arrangementsZip">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                 </div>
@@ -827,21 +873,18 @@ function editArrangements(
                     <label for="arrangementsValveSize" class="col-sm-3 col-form-label">Valve Size</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsValveSize">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsBrand" class="col-sm-3 col-form-label">Valve Brand</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsBrand">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="arrangementsSeries" class="col-sm-3 col-form-label">Valve Series</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="arrangementsSeries">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                 </div>
@@ -850,14 +893,12 @@ function editArrangements(
                     <label for="valve3wayType" class="col-sm-3 col-form-label">Valve Type</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="valve3wayType">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputActuatorType" class="col-sm-3 col-form-label">Actuator Type</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="inputActuatorType">
-                      <!-- <h6> ejemplo 1</h6> -->
                     </div>
                   </div>
                 </div>

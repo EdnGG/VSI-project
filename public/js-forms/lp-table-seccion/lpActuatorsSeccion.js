@@ -130,25 +130,37 @@ function lpActuatorPDF(
           <div class="row">
             <div class="col-6">
               <div class="form-group row myclass">
-                <label for="inputCompany" class="col-sm-6 col-form-label label-font">Company:</label>
+                <label for="inputCompany" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >Company:</label>
                 <div class="col-sm-6">
                   <h6>${company}</h6>
                 </div>
               </div>
               <div class="form-group row myclass">
-                <label for="inputContact" class="col-sm-6 col-form-label label-font">Contact:</label>
+                <label for="inputContact" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >Contact:</label>
                 <div class="col-sm-6">
                   <h6>${contactName}</h6>
                 </div>
               </div>
               <div class="form-group row myclass">
-                <label for="inputEmail" class="col-sm-6 col-form-label label-font">Email:</label>
+                <label for="inputEmail" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >Email:</label>
                 <div class="col-sm-6">
                   <h6>${email}</h6>
                 </div>
               </div>
               <div class="form-group row myclass">
-                <label for="inputPhone" class="col-sm-6 col-form-label label-font">Phone Number:</label>
+                <label for="inputPhone" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >Phone Number:</label>
                 <div class="col-sm-6">
                   <h6>${phoneContact}</h6>
                 </div>
@@ -156,19 +168,28 @@ function lpActuatorPDF(
             </div>
             <div class="col-6">
               <div class="form-group row myclass">
-                <label for="inputCity" class="col-sm-6 col-form-label label-font">City:</label>
+                <label for="inputCity" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >City:</label>
                 <div class="col-sm-6">
                   <h6>${city} 1</h6>
                 </div>
               </div>
               <div class="form-group row myclass">
-                <label for="inputState" class="col-sm-6 col-form-label label-font">State:</label>
+                <label for="inputState" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >State:</label>
                 <div class="col-sm-6">
                   <h6>${state}</h6>
                 </div>
               </div>
               <div class="form-group row myclass">
-                <label for="inputZipcode" class="col-sm-6 col-form-label label-font">Zipcode:</label>
+                <label for="inputZipcode" class="col-sm-6 col-form-label label-font" 
+                style="padding: 0%;
+                margin: 0%;"
+                >Zipcode:</label>
                 <div class="col-sm-6">
                   <h6>${zip}</h6>
                 </div>
@@ -181,20 +202,29 @@ function lpActuatorPDF(
           <div class="row">
             <div class="col-6">
               <div class="form-group row">
-                <label class="col-sm-6 col-form-label label-font">Valve Size:</label>
+                <label class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Valve Size:</label>
                 <div class="col-sm-6">
                   <h6>${valveSizeSecc2}</h6>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-6 
-                col-form-label label-font">Valve Brand:</label>
+                col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Valve Brand:</label>
                 <div class="col-sm-6">
                   <h6>${brandSecc2}</h6>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputValveSeries" class="col-sm-6 col-form-label label-font">Valve Series:</label>
+                <label for="inputValveSeries" class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Valve Series:</label>
                 <div class="col-sm-6">
                   <h6>${seriesSecc2}</h6>
                 </div>
@@ -202,13 +232,19 @@ function lpActuatorPDF(
             </div>
             <div class="col-6">
               <div class="form-group row">
-                <label for="inputValveType" class="col-sm-6 col-form-label label-font">Valve Type:</label>
+                <label for="inputValveType" class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Valve Type:</label>
                 <div class="col-sm-6">
                   <h6>${typeValveSecc3}</h6>
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputActuatorType" class="col-sm-6 col-form-label label-font">Actuator Type:</label>
+                <label for="inputActuatorType" class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Actuator Type:</label>
                 <div class="col-sm-6">
                   <h6>${dropdown}</h6>
                   
@@ -222,12 +258,18 @@ function lpActuatorPDF(
           <div class="row">
             <div class="col-6">
               <div class="form-group row">
-                <label for="inputElectricActuator" class="col-sm-6 col-form-label label-font">Brand:</label>
+                <label for="inputElectricActuator" class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Brand:</label>
                 <div class="col-sm-6">
                   
                   <h6>${brandActuatorSecc6}</h6>
                 </div>
-                <label class="col-sm-6 col-form-label label-font">Model Number:</label>
+                <label class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Model Number:</label>
                 <div class="col-sm-6">
                   <h6>${modelActuatorSecc6}</h6>
                 </div>
@@ -235,9 +277,12 @@ function lpActuatorPDF(
             </div>
             <div class="col-6">
               <div class="form-group row">
-                <label class="col-sm-6 col-form-label label-font">Type of Actuator:</label>
+                <label class="col-sm-6 col-form-label label-font"
+                style="padding: 0%;
+                margin: 0%;"
+                >Type of Actuator:</label>
                 <div class="col-sm-6">
-                  <h6>${radioButtonsLP}</h6>
+                  <h6>${radioButtonsLP}</h6> 
                   
                 </div>
               </div>

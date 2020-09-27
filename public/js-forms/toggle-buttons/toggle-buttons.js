@@ -10,7 +10,7 @@ function togle() {
     flag = false;
   } else {
     document.querySelector("#tableOne").style.display = "none";
-    document.querySelector("#threeWayRequest").innerHTML = "3 Way Requests";
+    document.querySelector("#threeWayRequest").innerHTML = "Arrangements";
     // document.querySelector("#carousel1").style.display = "block";
     // carouselForm1.style.display = "block";
     console.log("flag = 2", flag);

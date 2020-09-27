@@ -321,7 +321,7 @@ select:-webkit-autofill {
   outline:none;
   vertical-align: top;
   /* padding-top:20px; */
-  padding-bottom:5px;
+  padding-bottom:5px; 
 }
 .modal--group_third{
   /* border-style:solid; */
@@ -400,7 +400,16 @@ strong{
   margin:0px;
 } */
 
-.col-form-label{
+/* This class affect the alingment of text */
+/* .col-form-label{
   padding: 0%;
   margin: 0%;
+} */
+
+.arrangements{
+  padding: 0%;
+  margin: 0%;
+  /* font-weight:bolder; */
+  /* font-weight:500 !important; */
+  font-size: 20px;
 }
