@@ -180,7 +180,7 @@ function arrangementsPDF(
   let pdf = new jsPDF({
     orientation: 'p',
     unit: 'mm',
-    format: 'a4',
+    format: 'letter', //'a4'
     putOnlyUsedFonts: true,
     floatPrecision: 16 // or "smart", default is 16
   });
