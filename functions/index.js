@@ -1,25 +1,23 @@
 require("dotenv").config();
 const functions = require("firebase-functions");
-const admin = require("firebase-admin"); // para insertar en la DB
+
+// para insertar en la DB
+const admin = require("firebase-admin");
 
 admin.initializeApp();
 
-/**Starts email senders */
+/**Starts email transporter */
 
 const nodemailer = require("nodemailer");
 // const smtpTransport = require('nodemailer-smtp-transport');
 
 let alternativeMail = process.env.ALTERNATIVE_EMAIL;
 
-var transporter = nodemailer.createTransport({
-  // host: "smtp.gmail.com",
-  host: process.env.HOST,
-  // port: 465,
-  port: process.env.PORT,
+let transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
   secure: true,
-  // secure: false,
   auth: {
-
     user: process.env.EMAIL_ADMIN,
     pass: process.env.PASSWORD,
   },
@@ -28,7 +26,6 @@ var transporter = nodemailer.createTransport({
 exports.sendEmailEa = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
   .onCreate((snap, context) => {
-    console.log('Function was trigered')
     const mailOptions = {
       from: `vsi-project.firebaseapp.com`,
       to: `${snap.data().Contact_Email}, ${alternativeMail}`,
@@ -132,10 +129,11 @@ exports.sendEmailEa = functions.firestore
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        console.log(error);
+
+        console.log(`Something was wrong sending Email EA: ${error.message}`);
         return;
       }
-      console.log("Sent!");
+      console.log("Email has been Sent EA!");
     });
     //});
   });
@@ -246,10 +244,9 @@ exports.sendEmailHp = functions.firestore
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        console.log(error);
-        return;
+        console.log(`Something was wrong sending Email HP: ${error.message}`); return;
       }
-      console.log("Sent!");
+      console.log("Email has been sent correctly HP!");
     });
   });
 
@@ -363,10 +360,10 @@ exports.sendEmailLp = functions.firestore
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        console.log(error);
+        console.log(`Something was wrong sending Email LP: ${error.message}`);
         return;
       }
-      console.log("Sent!");
+      console.log("Email has been sent correctly LP!");
     });
   });
 
@@ -550,10 +547,10 @@ exports.sendEmail3Way = functions.firestore
     };
     return transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
-        console.log(error);
+        console.log(`Something was wrong sending Email Arrangements: ${error.message}`);
         return;
       }
-      console.log("Sent!");
+      console.log("Email has been sent correctly Arrangements!");
     });
   });
 
@@ -592,7 +589,7 @@ exports.registrarTopicoEA = functions.firestore
   });
 /**  /Registrando a topico Electric Actuator*/
 
-/** Electric Actuator cloud Function*/
+/** Electric Actuator cloud Function push notification*/
 exports.electActuatorNotification = functions.firestore
   .document("/Electric_Actuator/{id}")
   .onCreate((dataSnapshot) => {
@@ -620,9 +617,9 @@ exports.electActuatorNotification = functions.firestore
       });
   });
 
-/** / Electric Actuator cloud Function*/
+/** / Electric Actuator cloud Function push notification*/
 
-/** High Pressure cloud Function*/
+/** High Pressure cloud Function push notification*/
 exports.highPressureNotification = functions.firestore
   .document("/HP_Pneumatic/{hpId}")
   .onCreate(async (dataSnapshot, context) => {
@@ -652,7 +649,7 @@ exports.highPressureNotification = functions.firestore
 
 /** / High Pressure cloud Function*/
 
-/** Low Pressure cloud Function*/
+/** Low Pressure cloud Function push notification*/
 exports.lowPressureNotification = functions.firestore
   .document("/LowP_Pneumatic/{id}")
   .onCreate((dataSnapshot) => {
@@ -680,9 +677,9 @@ exports.lowPressureNotification = functions.firestore
       });
   });
 
-/** / Low Pressure cloud Function*/
+/** / Low Pressure cloud Function push notification*/
 
-/** Tree way cloud Function*/
+/** Tree way cloud Function push notification*/
 exports.threeWayNotification = functions.firestore
   .document("/3_Way/{id}")
   .onCreate((dataSnapshot) => {
@@ -710,4 +707,4 @@ exports.threeWayNotification = functions.firestore
       });
   });
 
-/** / Tree way cloud Function*/
+/** / Tree way cloud Function push notification*/
