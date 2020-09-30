@@ -8,11 +8,9 @@ admin.initializeApp();
 
 /**Starts email transporter */
 
-const nodemailer = require("nodemailer");
-// const smtpTransport = require('nodemailer-smtp-transport');
+let nodemailer = require("nodemailer");
 
 let alternativeMail = process.env.ALTERNATIVE_EMAIL;
-
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -25,7 +23,7 @@ let transporter = nodemailer.createTransport({
 
 exports.sendEmailEa = functions.firestore
   .document("Electric_Actuator/{Electric_ActuatorId}")
-  .onCreate((snap, context) => {
+  .onCreate(async (snap, context) => {
     const mailOptions = {
       from: `vsi-project.firebaseapp.com`,
       to: `${snap.data().Contact_Email}, ${alternativeMail}`,
@@ -127,20 +125,20 @@ exports.sendEmailEa = functions.firestore
       </body>
             `,
     };
-    return transporter.sendMail(mailOptions, (error, data) => {
-      if (error) {
 
+    // return 
+    await transporter.sendMail(mailOptions, (error, data) => {
+      if (error) {
         console.log(`Something was wrong sending Email EA: ${error.message}`);
         return;
       }
       console.log("Email has been Sent EA!");
     });
-    //});
   });
 
 exports.sendEmailHp = functions.firestore
   .document("HP_Pneumatic/{HP_PneumaticId}")
-  .onCreate((snap, context) => {
+  .onCreate(async (snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
       to: `${snap.data().Contact_Email}, ${alternativeMail}`,
@@ -242,7 +240,7 @@ exports.sendEmailHp = functions.firestore
       </body>
             `,
     };
-    return transporter.sendMail(mailOptions, (error, data) => {
+    await transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
         console.log(`Something was wrong sending Email HP: ${error.message}`); return;
       }
@@ -252,7 +250,7 @@ exports.sendEmailHp = functions.firestore
 
 exports.sendEmailLp = functions.firestore
   .document("LowP_Pneumatic/{LowP_PneumaticId}")
-  .onCreate((snap, context) => {
+  .onCreate(async (snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
       to: `${snap.data().Contact_Email}, ${alternativeMail}`,
@@ -358,7 +356,7 @@ exports.sendEmailLp = functions.firestore
       </body>
             `,
     };
-    return transporter.sendMail(mailOptions, (error, data) => {
+    await transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
         console.log(`Something was wrong sending Email LP: ${error.message}`);
         return;
@@ -369,7 +367,7 @@ exports.sendEmailLp = functions.firestore
 
 exports.sendEmail3Way = functions.firestore
   .document("3_Way/{3_WayId}")
-  .onCreate((snap, context) => {
+  .onCreate(async (snap, context) => {
     const mailOptions = {
       from: `noreply@vsi-project.firebaseapp.com`,
       to: `${snap.data().Contact_Email}, ${alternativeMail}`,
@@ -545,7 +543,7 @@ exports.sendEmail3Way = functions.firestore
       </body>
             `,
     };
-    return transporter.sendMail(mailOptions, (error, data) => {
+    await transporter.sendMail(mailOptions, (error, data) => {
       if (error) {
         console.log(`Something was wrong sending Email Arrangements: ${error.message}`);
         return;
