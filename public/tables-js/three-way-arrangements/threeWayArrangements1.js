@@ -181,14 +181,17 @@ function arrangementsPDF(
     orientation: 'p',
     unit: 'mm',
     format: 'letter', //'a4'
-    putOnlyUsedFonts: true,
+    // putOnlyUsedFonts: true,
     floatPrecision: 16 // or "smart", default is 16
   });
   let options = {
-    backgroundColor: '#ffffff',
+    pagesplit: true,
+    "backgroundColor": "#ffffff"
   }
 
   containerPdf.style.display = "block"
+  containerPdf.style.display = "block"
+
   let template = `
   <div class="background--pdf">
         <div style="display:flex;
@@ -442,316 +445,337 @@ function arrangementsPDF(
                 </div>
               </div><br>
 
-              <div class="modal-body data-seccion modal--group_second">
-                <div class="row">
-                  <div class="col-12">
-                    <h6 style="
+            <!-- AQUI VA SHAFT INFORMATION -->  
+            
+            </div>
+        </div> 
+      </div>  
+    `
+
+
+  let template1 = `
+  <div class="background--pdf">
+    <div style="
+  display:flex;
+  align-items: inherit;
+  flex-flow: column;" ">
+
+<div class=" modal-body data-seccion modal--group_second">
+      <div class="row">
+        <div class="col-12">
+          <h6 style="
                       display: flex;
                       justify-content: center;
                       font-size:21px;">Shaft Information:
-                    </h6>
-                    <div class="form-group row">
-                      <div class="col-sm-12">
-                        <figure>
-                          <img src="./imagenes/3waymodal/shaft-images.png" class="rounded mx-auto d-block"
-                            alt="Blog Logotipo" style="width: 600px;">
-                        </figure>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="container">
-                    <div class="" style="display:flex;
+          </h6>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <figure>
+                <img src="./imagenes/3waymodal/shaft-images.png" class="rounded mx-auto d-block" alt="Blog Logotipo"
+                  style="width: 600px;">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="" style="display:flex;
                       justify-content: center;">
-                      <h6>${shaftType}</h6>
-                    </div>
-                  </div>
-                </div><br>
+            <h6>${shaftType}</h6>
+          </div>
+        </div>
+      </div><br>
 
-                <div class="row modal--group_second">
-                  <div class="col-12">
-                    <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Dimensions (Closets 0.001):
-                    </h6> <br>
-                  </div>
-                </div>
-                <div class="row" 
-                style="
+          </h6> <br>
+        </div>
+      </div>
+      <div class="row" style="
                 display:flex;
                 justify-content:center;">
-                  <div 
-                  style="
+        <div style="
                   width:100px;
                   display:flex;
                   justify-content:center;">
 
-                    <label class="col-sm-4 col-form-label arrangements">D:</label>
-                    <div class="col-sm-8" style="align-content: space-between;">
-                      <h6>${optionShaftD}</h6>
-                    </div>
-                    <label class="col-sm-4 col-form-label arrangements">E:</label>
-                    <div class="col-sm-8" style="align-content: space-between;">
-                      <h6>${optionShaftE}</h6>
-                    </div>
-                    <label class="col-sm-4 col-form-label arrangements">F:</label>
-                    <div class="col-sm-8" style="align-content: space-between;">
-                      <h6>${optionShaftF}</h6>
-                    </div>
-                    <label class="col-sm-4 col-form-label 
+          <label class="col-sm-4 col-form-label arrangements">D:</label>
+          <div class="col-sm-8" style="align-content: space-between;">
+            <h6>${optionShaftD}</h6>
+          </div>
+          <label class="col-sm-4 col-form-label arrangements">E:</label>
+          <div class="col-sm-8" style="align-content: space-between;">
+            <h6>${optionShaftE}</h6>
+          </div>
+          <label class="col-sm-4 col-form-label arrangements">F:</label>
+          <div class="col-sm-8" style="align-content: space-between;">
+            <h6>${optionShaftF}</h6>
+          </div>
+          <label class="col-sm-4 col-form-label 
                     arrangements">G:</label>
-                    <div class="col-sm-8" style="align-content: space-between;">
-                      <h6>${optionShaftG}</h6>
-                    </div>
-                    <label class="col-sm-4 col-form-label arrangements">H:</label>
-                    <div class="col-sm-8" style="align-content: space-between;">
-                      <h6>${optionShaftH}</h6>
-                    </div>
+          <div class="col-sm-8" style="align-content: space-between;">
+            <h6>${optionShaftG}</h6>
+          </div>
+          <label class="col-sm-4 col-form-label arrangements">H:</label>
+          <div class="col-sm-8" style="align-content: space-between;">
+            <h6>${optionShaftH}</h6>
+          </div>
 
-                  </div>
-                </div>
-              </div><br>
+        </div>
+      </div>
+    </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+    <div class="row modal--group_second">
+      <div class="col-12">
+        <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Actuator Requirements Seccion 1:
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="modal-body data-seccion" style="
+        </h6> <br>
+      </div>
+    </div>
+    <div class="modal-body data-seccion" style="
               display:flex;
               /* justify-content:center; */
               width:100%;
               ">
-              <div class="row" 
-                style="display:flex;
+      <div class="row" style="display:flex;
                 text-align: center;
                 justify-content:center;
                 ">
-                  <div class="col-12" style="
+        <div class="col-12" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;">
 
-                    <label style="padding:10px">Requirement:</label>
-                    <div>
-                      <h6>${actReqSecc1}</h6>
-                    </div>
-                  </div>
-                </div>
+          <label style="padding:10px">Requirement:</label>
+          <div>
+            <h6>${actReqSecc1}</h6>
+          </div>
+        </div>
+      </div>
 
-                <div class="row" style="text-align: center;">
-                  <div class="container" style="
+      <div class="row" style="text-align: center;">
+        <div class="container" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;">
-                    <label style="padding:10px">Requirement:</label>
-                    <div>
-                      <h6>${actReqSecc2}</h6>
-                    </div>
-                  </div>
-                </div>
-              </div><br>
+          <label style="padding:10px">Requirement:</label>
+          <div>
+            <h6>${actReqSecc2}</h6>
+          </div>
+        </div>
+      </div>
+    </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+    <div class="row modal--group_second">
+      <div class="col-12">
+        <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Actuator Requirements Seccion 2:
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="modal-body data-seccion" style="
+        </h6> <br>
+      </div>
+    </div>
+    <div class="modal-body data-seccion" style="
               display:flex;
               /*justify-content:center;*/
               widht:100%
               /*flex-direction:row;*/
               /*flex-wrap: nowrap;*/
               ">
-                <div class="row"
-                  style="
+      <div class="row" style="
                   display:flex;
                   text-align: center;
                   justify-content: center;
                   ">
-                  <div class="col-12" style="
+        <div class="col-12" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;
                   ">
 
-                    <label style="padding:10px;" ">Requirement:</label>
+          <label style="padding:10px;" ">Requirement:</label>
                     <div>
                       <h6>${actReqSecc3}</h6>
                     </div>
                   </div>
                 </div>
 
-                <div class="row" style="text-align: center;">
-                  <div class="container" style="
+                <div class=" row" style="text-align: center;">
+            <div class="container" style="
                   display:flex;
                   justify-content:center;
                   align-items:center;">
-                    <label style="padding:10px;">Requirement:</label>
-                    <div class="">
-                      <h6>${actReqSecc4}</h6>
-                    </div>
-                  </div>
-                </div>
-              </div><br>
+              <label style="padding:10px;">Requirement:</label>
+              <div class="">
+                <h6>${actReqSecc4}</h6>
+              </div>
+            </div>
+        </div>
+      </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;
                     ">Power (Electric or Pneumatic):
-                  </h6> <br>
-                </div>
-              </div>
+          </h6> <br>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="col-12" style="display:flex;
+      <div class="row">
+        <div class="col-12" style="display:flex;
                   text-align:center;">
-                  <h6 class="col-sm-3" style="
+          <h6 class="col-sm-3" style="
                   justify-content:center;
                   text-align:center;
                   ">120 VAC</h6>
-                  <h6 class="col-sm-3" style="
+          <h6 class="col-sm-3" style="
                   justify-content:center;
                   text-align:center;
                   ">20 PSI</h6>
-                  <h6 class="col-sm-3" style="
+          <h6 class="col-sm-3" style="
                   justify-content:center;
                   text-align:center;
                   ">24 VAC</h6>
-                  <h6 class="col-sm-3" style="
+          <h6 class="col-sm-3" style="
                   justify-content:center;
                   text-align:center;
                   ">80 PSI</h6>
-                </div>
-              </div>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="container">
-                  <div style="
+      <div class="row">
+        <div class="container">
+          <div style="
                     display:flex;
                     justify-content:center;">
-                    <h6>${controlSignal}</h6>
-                  </div>
-                </div>
-              </div><br>
+            <h6>${controlSignal}</h6>
+          </div>
+        </div>
+      </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Other
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="container">
-                  <div style="display:flex;
+          </h6> <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div style="display:flex;
                     justify-content: center;">
-                    <h6>${otherPneumaticOrElec}</h6>
-                  </div>
-                </div>
-              </div><br>
+            <h6>${otherPneumaticOrElec}</h6>
+          </div>
+        </div>
+      </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Control Signal:
-                  </h6> <br>
-                </div>
-              </div>
+          </h6> <br>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="col-sm-12" style="display:flex;
+      <div class="row">
+        <div class="col-sm-12" style="display:flex;
                     text-align:center;">
-                  <h6 class="col-sm-3" style="justify-content:center;
+          <h6 class="col-sm-3" style="justify-content:center;
                   text-align:center;
                   ">4-20 mA</h6>
-                  <h6 class="col-sm-3" style="justify-content:center;
+          <h6 class="col-sm-3" style="justify-content:center;
                   text-align:center;
                   ">3-15 psig</h6>
-                  <h6 class="col-sm-3" style="justify-content:center;
+          <h6 class="col-sm-3" style="justify-content:center;
                   text-align:center;
                   ">2-10 VDC</h6>
-                  <h6 class="col-sm-3" style="justify-content:center;
+          <h6 class="col-sm-3" style="justify-content:center;
                   text-align:center;
                   ">Floating</h6>
-                </div>
-              </div>
+        </div>
+      </div>
 
-              <div class="row">
-                <div class="container">
-                  <div style="
+      <div class="row">
+        <div class="container">
+          <div style="
                     display:flex;
                     justify-content:center;">
-                    <h6>${controlSignal}</h6>
-                  </div>
-                </div>
-              </div><br>
+            <h6>${controlSignal}</h6>
+          </div>
+        </div>
+      </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">Other:
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="container">
-                  <div style="display:flex;
+          </h6> <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div style="display:flex;
                       justify-content: center;">
-                    <h6>${otherControlSignal}</h6>
-                  </div>
-                </div>
-              </div><br>
+            <h6>${otherControlSignal}</h6>
+          </div>
+        </div>
+      </div><br>
 
-              <div class="row modal--group_second">
-                <div class="col-12">
-                  <h6 style="
+      <div class="row modal--group_second">
+        <div class="col-12">
+          <h6 style="
                     display: flex;
                     justify-content: center;
                     font-size:21px;">NEMA 4 Enclosure Required:
-                  </h6> <br>
-                </div>
-              </div>
-              <div class="row">
-                <div class="container">
-                  <div style="display:flex;
+          </h6> <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div style="display:flex;
                       justify-content: center;">
-                    <h6>${enclosureRequired}</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div> 
-      </div>  
-        `
+            <h6>${enclosureRequired}</h6>
+          </div>
+        </div>
+      </div>
+  
+  `
+
   containerPdf.innerHTML = template
+  containerPdf1.innerHTML = template1
 
   pdf.addHTML(containerPdf, options, function () {
+    pdf.addpage()
+    // pdf.save(`${company}.pdf`)
+  })
+  pdf.addHTML(containerPdf1, options, function () {
+    // pdf.addpage()
     pdf.save(`${company}.pdf`)
-    containerPdf.innerHTML = ''
-    containerPdf.style.display = "none"
   })
 
+
+
+  // 
+  containerPdf.innerHTML = ''
+  containerPdf1.innerHTML = ''
+  containerPdf.style.display = "none"
+  containerPdf1.style.display = "none"
 }
 
 // ENDS 3 WAY ARRANGEMENTS PDF GENERATOR

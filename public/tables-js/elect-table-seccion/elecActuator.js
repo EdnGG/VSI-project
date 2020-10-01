@@ -94,14 +94,16 @@ function elecActuatorPDF(id,
   electricActuator) {
 
   let pdf = new jsPDF({
-    orientation: 'p',
+    orientation: 'l',
     unit: 'mm',
     format: 'a4',
-    putOnlyUsedFonts: true,
+    // [612, 792],
+    // putOnlyUsedFonts: true,
     floatPrecision: 16 // or "smart", default is 16
   });
   let options = {
-    backgroundColor: '#ffffff',
+    // pagesplit: true,
+    // "backgroundColor": "#00FF00",
   }
 
   containerPdf.style.display = "block"
@@ -269,11 +271,15 @@ function elecActuatorPDF(id,
   containerPdf.innerHTML = template
 
   pdf.addHTML(containerPdf, options, function () {
+    // here
+    pdf.setFontSize(10)
+    pdf.setFontStyle('normal')
     pdf.save(`${company}.pdf`)
-    containerPdf.innerHTML = ''
-    containerPdf.style.display = "none"
+    // containerPdf.innerHTML = ''
+    // containerPdf.style.display = "none"
   })
-
+  containerPdf.innerHTML = ''
+  containerPdf.style.display = "none"
 }
 
 // ENDS ELECTRIC ACTUATOR PDF GENERATOR

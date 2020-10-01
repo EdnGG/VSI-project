@@ -1,4 +1,4 @@
-console.log("Hello from formResponse.js");
+console.log("Hello from index-tables.js");
 
 // Starts Hidding tables seccion
 let divTableForm = document.querySelector("#tableOne");
@@ -8,8 +8,11 @@ let divTableForm4 = document.querySelector("#tableFour");
 
 // CONTAINER FOR PDF GENERATOR
 let containerPdf = document.querySelector("#pdf")
+let containerPdf1 = document.querySelector("#pdf1")
+
 
 containerPdf.style.display = "none"
+containerPdf1.style.display = "none"
 divTableForm.style.display = "none";
 divTableForm2.style.display = "none";
 divTableForm3.style.display = "none";

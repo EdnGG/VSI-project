@@ -149,17 +149,6 @@ body {
   color: #fff;
   font-size: 17px;
 }
-/* body:not(.btn-primary){
-    text-align:left;
-} */
-
-/* .btn-primary{
-    text-align:center;
-    display:-webkit-flex;
-    display:-ms-flexbox;
-    display:flex; 
-
-} */
 
 /* Login Modal */
 
@@ -347,6 +336,11 @@ body {
   /* line-height: 20pt;         */
   /* para sangrias */
   /* text-indent: 30pt;         */
+}
+
+.secc2--valveInfo_series{
+  text-align:center;
+  
 }
 
 @media screen and (max-width: 479px) {
