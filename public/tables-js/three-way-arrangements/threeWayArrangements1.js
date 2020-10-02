@@ -181,16 +181,28 @@ function arrangementsPDF(
     orientation: 'p',
     unit: 'mm',
     format: 'letter', //'a4'
-    // putOnlyUsedFonts: true,
+    putOnlyUsedFonts: true,
     floatPrecision: 16 // or "smart", default is 16
   });
   let options = {
-    pagesplit: true,
+    // pagesplit: true,
+    "backgroundColor": "#ffffff"
+  }
+
+  let pdf2 = new jsPDF({
+    orientation: 'p',
+    unit: 'mm',
+    format: 'letter', //'a4'
+    putOnlyUsedFonts: true,
+    floatPrecision: 16 // or "smart", default is 16
+  });
+  let options2 = {
+    // pagesplit: true,
     "backgroundColor": "#ffffff"
   }
 
   containerPdf.style.display = "block"
-  containerPdf.style.display = "block"
+  containerPdf1.style.display = "block"
 
   let template = `
   <div class="background--pdf">
@@ -754,28 +766,41 @@ function arrangementsPDF(
           </div>
         </div>
       </div>
-  
   `
 
   containerPdf.innerHTML = template
   containerPdf1.innerHTML = template1
 
-  pdf.addHTML(containerPdf, options, function () {
-    pdf.addpage()
-    // pdf.save(`${company}.pdf`)
-  })
-  pdf.addHTML(containerPdf1, options, function () {
-    // pdf.addpage()
-    pdf.save(`${company}.pdf`)
-  })
 
+  function mainPdf() {
 
+    pdfGenerator()
+    pdfGenerator1()
+  }
 
-  // 
-  containerPdf.innerHTML = ''
-  containerPdf1.innerHTML = ''
-  containerPdf.style.display = "none"
-  containerPdf1.style.display = "none"
+  function pdfGenerator() {
+    console.log('me ejecute 1')
+    pdf.addHTML(containerPdf, options, function () {
+      pdf.save(`${company}-page1.pdf`)
+    })
+    // 
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  }
+
+  function pdfGenerator1() {
+    console.log('me ejecute 2')
+
+    pdf2.addHTML(containerPdf1, options2, function () {
+      pdf2.save(`${company}-page2.pdf`)
+    })
+    containerPdf1.innerHTML = ''
+    containerPdf1.style.display = "none"
+
+  }
+
+  mainPdf()
+
 }
 
 // ENDS 3 WAY ARRANGEMENTS PDF GENERATOR

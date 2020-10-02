@@ -185,7 +185,7 @@ function arrangementsPDF(
     floatPrecision: 16 // or "smart", default is 16
   });
   let options = {
-    pagesplit: true,
+    // pagesplit: true,
     "backgroundColor": "#ffffff"
   }
 
@@ -747,16 +747,25 @@ function arrangementsPDF(
     `
   containerPdf.innerHTML = template
 
-  pdf.addHTML(containerPdf, options, function () {
-    pdf.addpage()
-    pdf.save(`${company}.pdf`)
-  })
+  function pdfGenerator() {
+    pdf.addHTML(containerPdf, options, function () {
+      // pdf.addPage()
+      pdf.save(`${company}.pdf`)
+    })
+    //
+    containerPdf.innerHTML = ''
+    containerPdf.style.display = "none"
+  }
 
+  pdfGenerator()
 
-
-  // 
-  containerPdf.innerHTML = ''
-  containerPdf.style.display = "none"
+  // pdf.addHTML(containerPdf, options, function () {
+  //   // pdf.addPage()
+  //   pdf.save(`${company}.pdf`)
+  // })
+  // //
+  // containerPdf.innerHTML = ''
+  // containerPdf.style.display = "none"
 }
 
 // ENDS 3 WAY ARRANGEMENTS PDF GENERATOR
