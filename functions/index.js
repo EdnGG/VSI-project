@@ -555,154 +555,159 @@ exports.sendEmail3Way = functions.firestore
 /**Ends email senders */
 
 /**  Registrando a topico Electric Actuator*/
-exports.registrarTopicoEA = functions.firestore
-  .document("/tokens/{id}")
-  .onCreate((dataSnapshot) => {
-    const token = dataSnapshot.data().token;
-    const registrationTokens = [token];
-    console.log(`${token} ${registrationTokens}`);
 
-    return (
-      admin
-        .messaging()
-        .subscribeToTopic(
-          // Pienso que aqu esta el problema de las notificaciones
-          //
-          registrationTokens,
-          "Electric_Actuator",
-          "HP_Pneumatic",
-          "LowP_Pneumatic",
-          "3_way"
-        )
+// exports.registrarTopicoEA = functions.firestore
+//   .document("/tokens/{id}")
+//   .onCreate((dataSnapshot) => {
+//     const token = dataSnapshot.data().token;
+//     const registrationTokens = [token];
+//     console.log(`${token} ${registrationTokens}`);
 
-        // NuevosPosts es una collecion (Electric_Actuator)
-        // parece que el segundo argumento no apunta a la coleccion, sino es solo un string
-        .then(() => {
-          return console.log("Adicinando correctamente al topico Electric");
-        })
-        .catch((err) => {
-          console.error(`Error registrando al topico el token Electric${err}`);
-        })
-    );
-  });
+//     return (
+//       admin
+//         .messaging()
+//         .subscribeToTopic(
+//           // Pienso que aqu esta el problema de las notificaciones
+//           //
+//           registrationTokens,
+//           "Electric_Actuator",
+//           "HP_Pneumatic",
+//           "LowP_Pneumatic",
+//           "3_way"
+//         )
+
+//         // NuevosPosts es una collecion (Electric_Actuator)
+//         // parece que el segundo argumento no apunta a la coleccion, sino es solo un string
+//         .then(() => {
+//           return console.log("Adicinando correctamente al topico Electric");
+//         })
+//         .catch((err) => {
+//           console.error(`Error registrando al topico el token Electric${err}`);
+//         })
+//     );
+//   });
+
 /**  /Registrando a topico Electric Actuator*/
 
 /** Electric Actuator cloud Function push notification*/
-exports.electActuatorNotification = functions.firestore
-  .document("/Electric_Actuator/{id}")
-  .onCreate((dataSnapshot) => {
-    const titulo = dataSnapshot.data().Company_Name;
-    const descripcion = dataSnapshot.data().Contact_Email;
 
-    const mensaje = {
-      data: {
-        titulo: titulo,
-        descripcion: descripcion,
-      },
-      topic: "Electric_Actuator",
-    };
+// exports.electActuatorNotification = functions.firestore
+//   .document("/Electric_Actuator/{id}")
+//   .onCreate((dataSnapshot) => {
+//     const titulo = dataSnapshot.data().Company_Name;
+//     const descripcion = dataSnapshot.data().Contact_Email;
 
-    return admin
-      .messaging()
-      .send(mensaje)
-      .then(() => {
-        return console.log(
-          `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
-        );
-      })
-      .catch((err) => {
-        console.error(`Error enviando mensaje Electric ${err}`);
-      });
-  });
+//     const mensaje = {
+//       data: {
+//         titulo: titulo,
+//         descripcion: descripcion,
+//       },
+//       topic: "Electric_Actuator",
+//     };
+
+//     return admin
+//       .messaging()
+//       .send(mensaje)
+//       .then(() => {
+//         return console.log(
+//           `Mensaje enviado correctamente Electric ${mensaje.data.titulo}`
+//         );
+//       })
+//       .catch((err) => {
+//         console.error(`Error enviando mensaje Electric ${err}`);
+//       });
+//   });
 
 /** / Electric Actuator cloud Function push notification*/
 
 /** High Pressure cloud Function push notification*/
-exports.highPressureNotification = functions.firestore
-  .document("/HP_Pneumatic/{hpId}")
-  .onCreate(async (dataSnapshot, context) => {
-    const titulo = await dataSnapshot.data().Company_Name;
-    const descripcion = await dataSnapshot.data().Contact_Email;
+// exports.highPressureNotification = functions.firestore
+//   .document("/HP_Pneumatic/{hpId}")
+//   .onCreate(async (dataSnapshot, context) => {
+//     const titulo = await dataSnapshot.data().Company_Name;
+//     const descripcion = await dataSnapshot.data().Contact_Email;
 
-    const mensaje = {
-      data: {
-        titulo: titulo,
-        descripcion: descripcion,
-      },
-      topic: context.params.hpId,
-    };
+//     const mensaje = {
+//       data: {
+//         titulo: titulo,
+//         descripcion: descripcion,
+//       },
+//       topic: context.params.hpId,
+//     };
 
-    return admin
-      .messaging()
-      .send(mensaje)
-      .then((response) => {
-        return console.log(
-          `Mensaje enviado correctamente HP ${mensaje.data.titulo} ${response}`
-        );
-      })
-      .catch((err) => {
-        return console.error(`Error enviando mensaje HP ${err}`);
-      });
-  });
+//     return admin
+//       .messaging()
+//       .send(mensaje)
+//       .then((response) => {
+//         return console.log(
+//           `Mensaje enviado correctamente HP ${mensaje.data.titulo} ${response}`
+//         );
+//       })
+//       .catch((err) => {
+//         return console.error(`Error enviando mensaje HP ${err}`);
+//       });
+//   });
 
 /** / High Pressure cloud Function*/
 
 /** Low Pressure cloud Function push notification*/
-exports.lowPressureNotification = functions.firestore
-  .document("/LowP_Pneumatic/{id}")
-  .onCreate((dataSnapshot) => {
-    const titulo = dataSnapshot.data().Company_Name;
-    const descripcion = dataSnapshot.data().Contact_Email;
 
-    const mensaje = {
-      data: {
-        titulo: titulo,
-        descripcion: descripcion,
-      },
-      topic: "LowP_Pneumatic",
-    };
+// exports.lowPressureNotification = functions.firestore
+//   .document("/LowP_Pneumatic/{id}")
+//   .onCreate((dataSnapshot) => {
+//     const titulo = dataSnapshot.data().Company_Name;
+//     const descripcion = dataSnapshot.data().Contact_Email;
 
-    return admin
-      .messaging()
-      .send(mensaje)
-      .then(() => {
-        return console.log(
-          `Mensaje enviado correctamente LP ${mensaje.data.titulo}`
-        );
-      })
-      .catch((err) => {
-        console.error(`Error enviando mensaje LP ${err}`);
-      });
-  });
+//     const mensaje = {
+//       data: {
+//         titulo: titulo,
+//         descripcion: descripcion,
+//       },
+//       topic: "LowP_Pneumatic",
+//     };
+
+//     return admin
+//       .messaging()
+//       .send(mensaje)
+//       .then(() => {
+//         return console.log(
+//           `Mensaje enviado correctamente LP ${mensaje.data.titulo}`
+//         );
+//       })
+//       .catch((err) => {
+//         console.error(`Error enviando mensaje LP ${err}`);
+//       });
+//   });
 
 /** / Low Pressure cloud Function push notification*/
 
 /** Tree way cloud Function push notification*/
-exports.threeWayNotification = functions.firestore
-  .document("/3_Way/{id}")
-  .onCreate((dataSnapshot) => {
-    const titulo = dataSnapshot.data().Company_Name;
-    const descripcion = dataSnapshot.data().Contact_Email;
 
-    const mensaje = {
-      data: {
-        titulo: titulo,
-        descripcion: descripcion,
-      },
-      topic: "3_Way",
-    };
+// exports.threeWayNotification = functions.firestore
+//   .document("/3_Way/{id}")
+//   .onCreate((dataSnapshot) => {
+//     const titulo = dataSnapshot.data().Company_Name;
+//     const descripcion = dataSnapshot.data().Contact_Email;
 
-    return admin
-      .messaging()
-      .send(mensaje)
-      .then(() => {
-        return console.log(
-          `Mensaje enviado correctamente 3 Way ${mensaje.data.titulo}`
-        );
-      })
-      .catch((err) => {
-        console.error(`Error enviando mensaje 3 Way ${err}`);
-      });
-  });
+//     const mensaje = {
+//       data: {
+//         titulo: titulo,
+//         descripcion: descripcion,
+//       },
+//       topic: "3_Way",
+//     };
+
+//     return admin
+//       .messaging()
+//       .send(mensaje)
+//       .then(() => {
+//         return console.log(
+//           `Mensaje enviado correctamente 3 Way ${mensaje.data.titulo}`
+//         );
+//       })
+//       .catch((err) => {
+//         console.error(`Error enviando mensaje 3 Way ${err}`);
+//       });
+//   });
 
 /** / Tree way cloud Function push notification*/
