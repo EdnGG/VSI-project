@@ -20,7 +20,7 @@
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "jspdf": "^2.1.0"
+    "jspdf": "^2.3.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0"
